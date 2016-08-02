@@ -10,6 +10,7 @@ ko.bindingHandlers["dotvvm-contrib-Select2"] = {
         dotvvm.events.afterPostback.subscribe(refreshHandler);
         ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
             dotvvm.events.afterPostback.unsubscribe(refreshHandler);
+            $(element).select2('destroy');
         });
     }
 };
