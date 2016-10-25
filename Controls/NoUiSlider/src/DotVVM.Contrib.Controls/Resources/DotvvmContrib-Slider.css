@@ -1,0 +1,19 @@
+﻿.dotvvm-contrib-slider.noUi-vertical {
+    height: 200px;
+}
+
+.dotvvm-contrib-slider.noUi-horizontal {
+    width: 200px;
+}
+
+.dotvvm-contrib-switch.noUi-vertical {
+    height: 50px;
+}
+
+.dotvvm-contrib-switch.noUi-horizontal {
+    width: 50px;
+}
+
+.dotvvm-contrib-switch.noUi-connect {
+	background: #27ae60;
+}
