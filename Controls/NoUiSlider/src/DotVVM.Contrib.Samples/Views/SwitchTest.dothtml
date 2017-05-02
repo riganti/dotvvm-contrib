@@ -1,0 +1,38 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.SwitchTestViewModel, DotVVM.Contrib.Samples
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+            body > div {
+                padding: 20px;
+            }
+    </style>
+</head>
+<body>
+
+    <h1>Switch example</h1>
+    <div>
+        Switch value: <dot:CheckBox Checked="{value: SwitchValue}"></dot:CheckBox>
+        <br />
+        Enabled:
+        <dot:CheckBox Checked="{value: Enabled}"></dot:CheckBox>
+    </div>
+    <div>
+        <dc:Switch Value="{value: SwitchValue}" Enabled="{value: Enabled}" Orientation="Horizontal" Direction="LeftToRight">
+        </dc:Switch>
+    </div>
+    <div>
+        <dc:Switch Value="{value: SwitchValue}" Enabled="{value: Enabled}" Orientation="Vertical" Direction="RightToLeft">
+        </dc:Switch>
+
+    </div>
+</body>
+</html>
