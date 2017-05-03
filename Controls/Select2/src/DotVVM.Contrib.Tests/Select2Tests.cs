@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using Riganti.Utils.Testing.SeleniumCore;
@@ -12,13 +10,12 @@ namespace DotVVM.Contrib.Tests
     [TestClass]
     public class Select2Tests : SeleniumTestBase
     {
-
         [TestMethod]
-        public void Select2()
+        public void Select2_Sample1()
         {
             RunInAllBrowsers(browser =>
             {
-                browser.NavigateToUrl("/");
+                browser.NavigateToUrl("/Sample1");
 
                 RunTestSubSection("List of strings", b =>
                 {
@@ -78,6 +75,28 @@ namespace DotVVM.Contrib.Tests
             changeSelectionButton.Click().Wait();
             submitButton.Click().Wait();
             result.CheckIfTextEquals("New York,Paris");
+        }
+
+
+        [TestMethod]
+        public void Select2_Sample2()
+        {
+            RunInAllBrowsers(browser =>
+            {
+                browser.NavigateToUrl("/Sample2");
+
+                var select2 = browser.Single(".select2");
+                var input = select2.First("input");
+                var result = browser.Single(".number-of-requests");
+
+                input.SendKeys("c");
+                input.SendKeys(Keys.Return);
+
+                browser.Wait();
+
+                browser.FindElements(".select2-selection__choice").ThrowIfDifferentCountThan(1);
+                Assert.AreEqual("1", result.GetInnerText());
+            });
         }
     }
 }

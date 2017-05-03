@@ -1,0 +1,15 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <p>
+        <dc:Select2 DataSource="{value: Letters}"
+                    SelectedValues="{value: SelectedLetters}"
+                    SelectionChanged="{command: OnSelected()}"
+                    style="width: 200px"/>
+    </p>
+
+    <p class="number-of-requests">{{value: NumberOfRequests}}</p>
+</dot:Content>
+

@@ -1,0 +1,15 @@
+{
+  "author": "DotVVM Contrib",
+  "classifications": ["DotVVM"],
+  "name": "DotVVM Contrib Control",
+  "groupIdentity": "DotVVM.Contrib",
+  "identity": "DotVVM.Contrib.ControlTemplate",
+  "shortName": "dotvvm-contrib",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "ControlName",
+  "preferNameDirectory": false,
+  "primaryOutputs": [ { "path": "src/ControlName.sln" } ]
+}

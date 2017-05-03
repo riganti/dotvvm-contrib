@@ -1,8 +1,5 @@
-using System.Web.Hosting;
-using Microsoft.Owin;
-using Microsoft.Owin.FileSystems;
-using Microsoft.Owin.StaticFiles;
-using Owin;
+using System.Collections.Generic;
+using System.Linq;
 using DotVVM.Framework;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.Routing;
@@ -14,7 +11,7 @@ namespace DotVVM.Contrib.Samples
         // For more information about this class, visit https://dotvvm.com/docs/tutorials/basics-project-structure
         public void Configure(DotvvmConfiguration config, string applicationPath)
         {
-            DotVVM.Contrib.Controls.SliderExtensions.AddSliderConfiguration(config);
+            config.AddContribNoUiSliderConfiguration();
 
             ConfigureRoutes(config, applicationPath);
             ConfigureControls(config, applicationPath);
@@ -23,11 +20,8 @@ namespace DotVVM.Contrib.Samples
 
         private void ConfigureRoutes(DotvvmConfiguration config, string applicationPath)
         {
-            config.RouteTable.Add("Default", "", "Views/SliderTest.dothtml");
-            config.RouteTable.Add("Switch", "switch", "Views/SwitchTest.dothtml");
-
-            // Uncomment the following line to auto-register all dothtml files in the Views folder
-            // config.RouteTable.AutoDiscoverRoutes(new DefaultRouteStrategy(config));    
+            config.RouteTable.Add("_Default", "", "Views/_default.dothtml");
+            config.RouteTable.AutoDiscoverRoutes(new SamplesRouteStrategy(config));
         }
 
         private void ConfigureControls(DotvvmConfiguration config, string applicationPath)
@@ -38,6 +32,18 @@ namespace DotVVM.Contrib.Samples
         private void ConfigureResources(DotvvmConfiguration config, string applicationPath)
         {
             // register custom resources and adjust paths to the built-in resources
+        }
+    }
+
+    internal class SamplesRouteStrategy : DefaultRouteStrategy
+    {
+        public SamplesRouteStrategy(DotvvmConfiguration config) : base(config)
+        {
+        }
+
+        protected override IEnumerable<RouteStrategyMarkupFileInfo> DiscoverMarkupFiles()
+        {
+            return base.DiscoverMarkupFiles().Where(r => !r.ViewsFolderRelativePath.StartsWith("_"));
         }
     }
 }

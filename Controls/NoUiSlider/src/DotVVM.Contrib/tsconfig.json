@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": false,
+    "noEmitOnError": true,
+    "noImplicitReturns": true,
+    "removeComments": true,
+    "declaration": true,
+    "sourceMap": true,
+    "target": "es5"
+  },
+  "compileOnSave": false,
+  "exclude": [
+    "Scripts/typings"
+  ] 
+}

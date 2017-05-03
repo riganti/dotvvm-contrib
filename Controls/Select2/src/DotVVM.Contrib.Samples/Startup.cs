@@ -1,31 +1,43 @@
-using System.Web.Hosting;
-using Microsoft.Owin;
-using Microsoft.Owin.FileSystems;
-using Microsoft.Owin.StaticFiles;
-using Owin;
-using DotVVM.Framework;
-using DotVVM.Framework.Configuration;
-using DotVVM.Framework.Hosting;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
-[assembly: OwinStartup(typeof(DotVVM.Contrib.Samples.Startup))]
 namespace DotVVM.Contrib.Samples
 {
     public class Startup
     {
-        public void Configuration(IAppBuilder app)
+        // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public void ConfigureServices(IServiceCollection services)
         {
-            var applicationPhysicalPath = HostingEnvironment.ApplicationPhysicalPath;
+            services.AddDataProtection();
+            services.AddAuthorization();
+            services.AddWebEncoders();
+
+            services.AddDotVVM(options =>
+            {
+                options.AddDefaultTempStorages("Temp");
+            });
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {
+            loggerFactory.AddConsole();
 
             // use DotVVM
-            var dotvvmConfiguration = app.UseDotVVM<DotvvmStartup>(applicationPhysicalPath);
-#if DEBUG
-            dotvvmConfiguration.Debug = true;
-#endif
+            var dotvvmConfiguration = app.UseDotVVM<DotvvmStartup>(env.ContentRootPath);
 
             // use static files
-            app.UseStaticFiles(new StaticFileOptions()
+            app.UseStaticFiles(new StaticFileOptions
             {
-                FileSystem = new PhysicalFileSystem(applicationPhysicalPath)
+                FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(env.WebRootPath)
             });
         }
     }

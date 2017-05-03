@@ -1,0 +1,24 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Slider_Sample1ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <h1>Slider example</h1>
+    <div>
+        Slider value: <dot:TextBox ValueType="Number" Text="{value: SliderValue}"></dot:TextBox>
+        <br />
+        Enabled:
+        <dot:CheckBox Checked="{value: Enabled}">
+        </dot:CheckBox>
+        <br />
+        <dot:Button Text="Set from server" Click="{command: SetValue()}" />
+    </div>
+    <div style="width: 300px; padding: 20px">
+        <dc:Slider MaxValue="100" MinValue="0" Step="10" Value="{value: SliderValue}" Enabled="{value: Enabled}" Orientation="Horizontal" Direction="LeftToRight" />
+    </div>
+    <div style="width: 100px; padding: 20px">
+        <dc:Slider MaxValue="100" MinValue="0" Step="10" Value="{value: SliderValue}" Enabled="{value: Enabled}" Orientation="Vertical" Direction="RightToLeft" style="height: 300px" />
+    </div>
+
+</dot:Content>
+

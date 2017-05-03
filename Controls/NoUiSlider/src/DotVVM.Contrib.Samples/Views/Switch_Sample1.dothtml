@@ -1,0 +1,28 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Switch_Sample1ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <h1>Switch example</h1>
+    <div>
+        Switch value:
+        <dot:CheckBox Checked="{value: SwitchValue}">
+        </dot:CheckBox>
+        <br />
+        Enabled:
+        <dot:CheckBox Checked="{value: Enabled}">
+        </dot:CheckBox>
+        <br />
+        <dot:Button Text="Set from server" Click="{command: SetValue()}" />
+    </div>
+    <div style="width: 100px; padding: 20px">
+        <dc:Switch Value="{value: SwitchValue}" Enabled="{value: Enabled}" Orientation="Horizontal" Direction="LeftToRight">
+        </dc:Switch>
+    </div>
+    <div style="width: 100px; padding: 20px">
+        <dc:Switch Value="{value: SwitchValue}" Enabled="{value: Enabled}" Orientation="Vertical" Direction="RightToLeft" style="height: 100px">
+        </dc:Switch>
+    </div>
+
+</dot:Content>
+
