@@ -84,7 +84,7 @@ function GitCheckout() {
 
 function GitPush() {
 	if ($pushTag) {
-			invoke-git tag "v$($version)" HEAD
+			invoke-git tag "$($ControlName)-v$($version)" HEAD
 	}
 	invoke-git commit -am "NuGet package version $version"
 	invoke-git rebase HEAD $branchName
