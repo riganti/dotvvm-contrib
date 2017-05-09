@@ -21,6 +21,7 @@ config.AddContribXYZConfiguration();
 
 * [NoUiSlider](Controls/NoUiSlider/readme.md) with *Slider* and *Switch* controls
 * [Select2](Controls/Select2/readme.md)
+* [TemplateSelector](Controls/TemplateSelector/readme.md)
 
 
 <br />
