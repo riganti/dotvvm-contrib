@@ -1,0 +1,9 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <!-- GoogleAnalyticsJavascript with options via ViewModel -->
+    <dc:GoogleAnalyticsJavascript TrackingId="UA-XXXXX-Y" PageViewEnabled="true" AsyncVersionEnabled="true"/>
+</dot:Content>
+
