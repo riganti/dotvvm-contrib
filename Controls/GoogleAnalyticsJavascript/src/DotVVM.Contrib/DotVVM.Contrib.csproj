@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp1.0;net451</TargetFrameworks>
 	<PackageId>DotVVM.Contrib.GoogleAnalyticsJavascript</PackageId>
-    <PackageVersion>0.0.1</PackageVersion>
+    <PackageVersion>1.0.0-beta</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
     <Description>The GoogleAnalyticsJavascript control for DotVVM made by DotVVM Contrib community.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
