@@ -1,0 +1,7 @@
+﻿{
+  "GoogleAnalyticsOptions": {
+    "TrackingId": "UA-XXXXX-Z",
+    "PageViewEnabled": false,
+    "AsyncVersionEnabled": false
+  }
+}
