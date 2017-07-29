@@ -34,6 +34,19 @@ namespace DotVVM.Contrib.Tests
             });
         }
 
+        [TestMethod]
+        public void GoogleAnalyticsJavascript_Sample3()
+        {
+            RunInAllBrowsers(browser =>
+            {
+                browser.NavigateToUrl("/Sample3");
+
+                var mainScript = browser.ElementAt("body script", 0);
+                var scriptContent = CheckIfScriptExists(mainScript, "UA-XXXXX-Z");
+                Assert.IsFalse(scriptContent.Contains("ga('send', 'pageview');"));
+            });
+        }
+
         private string CheckIfScriptExists(ElementWrapper mainScript, string trackingId)
         {
             var scriptContent = mainScript.GetJsInnerHtml();

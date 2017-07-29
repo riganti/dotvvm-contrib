@@ -36,25 +36,25 @@ namespace DotVVM.Contrib
         /// to Google Analytics for the current page. For more information visit 
         /// https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits
         /// </summary>
-        public bool PageViewEnabled
+        public bool? PageViewEnabled
         {
-            get { return (bool)GetValue(PageViewEnabledProperty); }
+            get { return (bool?)GetValue(PageViewEnabledProperty); }
             set { SetValue(PageViewEnabledProperty, value); }
         }
         public static readonly DotvvmProperty PageViewEnabledProperty
-            = DotvvmProperty.Register<bool, GoogleAnalyticsJavascript>(c => c.PageViewEnabled, true);
+            = DotvvmProperty.Register<bool?, GoogleAnalyticsJavascript>(c => c.PageViewEnabled, null);
 
         /// <summary>
         /// Enables alternative async tracking javascript snippet, which adds support for preloading.
         /// For more information visit https://developers.google.com/analytics/devguides/collection/analyticsjs/#alternative_async_tracking_snippet
         /// </summary>
-        public bool AsyncVersionEnabled
+        public bool? AsyncVersionEnabled
         {
-            get { return (bool)GetValue(AsyncVersionEnabledProperty); }
+            get { return (bool?)GetValue(AsyncVersionEnabledProperty); }
             set { SetValue(AsyncVersionEnabledProperty, value); }
         }
         public static readonly DotvvmProperty AsyncVersionEnabledProperty
-            = DotvvmProperty.Register<bool, GoogleAnalyticsJavascript>(c => c.AsyncVersionEnabled, false);
+            = DotvvmProperty.Register<bool?, GoogleAnalyticsJavascript>(c => c.AsyncVersionEnabled, null);
 
         protected override void RenderControl(IHtmlWriter writer, IDotvvmRequestContext context)
         {
@@ -81,26 +81,23 @@ namespace DotVVM.Contrib
 
         private GoogleAnalyticsOptions ResolveOptions(IDotvvmRequestContext context)
         {
-            if (!string.IsNullOrEmpty(TrackingId))
-            {
-                return new GoogleAnalyticsOptions
-                {
-                    TrackingId = TrackingId,
-                    PageViewEnabled = PageViewEnabled,
-                    AsyncVersionEnabled = AsyncVersionEnabled
-                };
-            }
-
-
             var options =  context.Services.GetRequiredService<IOptions<GoogleAnalyticsOptions>>().Value;
-          
-            if(string.IsNullOrEmpty(options.TrackingId))
+
+            var resultOptions = new GoogleAnalyticsOptions()
             {
-                throw new ArgumentException("Google Analytics options missing. Set control property TrackingId " +
+                TrackingId = !string.IsNullOrEmpty(TrackingId) ? TrackingId : options.TrackingId,
+                PageViewEnabled = PageViewEnabled ?? options.PageViewEnabled,
+                AsyncVersionEnabled = AsyncVersionEnabled ?? options.AsyncVersionEnabled
+            };
+
+            if (string.IsNullOrEmpty(resultOptions.TrackingId))
+            {
+                throw new ArgumentException("Google Analytics options missing (TrackingId is required). " +
+                    "Set control property TrackingId " +
                     "or register GoogleAnalyticsOptions service in container");
             }
 
-            return options;
+            return resultOptions;
         }
     }
 }
