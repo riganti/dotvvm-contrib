@@ -1,0 +1,34 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <h3>React Trend control</h3>
+
+    <dc:ReactBridge Name="Trend.default" data="{value: Data}" smooth="{value: true}" autoDraw="{value: true}" autoDrawDuration="{value: 3000}"
+    autoDrawEasing="ease-out"
+    gradient="{value: Gradient}"
+    radius="{value: 14}"
+    strokeWidth="{value: 2.1}"
+    strokeLinecap="{value: 'round'}" />
+
+    <h3>React NumericInput controls</h3>
+    
+    <dot:Repeater DataSource="{value: Data}">
+        <dc:ReactBridge Name="NumericInput" update:onChange="{value: _this}" value="{value: _this}" />
+    </dot:Repeater>
+
+    <h3>DotVVM TextBox controls</h3>
+
+    <dot:Repeater DataSource="{value: Data}">
+        <dot:TextBox Text="{value: _this}" ValueType="Number" Type="Number" UpdateTextAfterKeydown />
+        <br />
+    </dot:Repeater>
+
+
+    <dot:RequiredResource Name="ReactBridge" />
+    <dot:RequiredResource Name="react-trend" />
+    <dot:RequiredResource Name="react-numeric-input" />
+
+</dot:Content>
+
