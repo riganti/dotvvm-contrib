@@ -11,8 +11,7 @@
 
     <p>Text 1: {{value: Text1}}</p>
     <p>Text 2: {{value: Text2}}</p>
-    <dot:RequiredResource Name="ckeditor" />
-    <dot:RequiredResource Name="ckeditorConfig" />
+    <dot:RequiredResource Name="ckeditor-scripts" />
 
 </dot:Content>
 

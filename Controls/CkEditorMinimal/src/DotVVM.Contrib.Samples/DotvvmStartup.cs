@@ -38,7 +38,11 @@ namespace DotVVM.Contrib.Samples
             {
                 Dependencies = new[] { "jquery" }
             });
-            config.Resources.Register("ckeditorConfig", new ScriptResource(new UrlResourceLocation("~/Content/Lib/ckeditor/config.js")));
+            config.Resources.Register("ckeditor-scripts", new ScriptResource(new UrlResourceLocation("~/Content/Lib/ckeditor/config.js"))
+            {
+                Dependencies = new[] { "ckeditor"}
+
+            });
         }
     }
 
