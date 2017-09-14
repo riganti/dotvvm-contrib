@@ -26,6 +26,6 @@ config.Resources.Register("ckeditor-config", new ScriptResource(
 You can do this:
 
 ```DOTHTML
-<dc:CkEditorMinimal  Html={value: HtmlText} />
+<dc:CkEditorMinimal ID="UniqueKey" Html={value: HtmlText} />
 ```
 
