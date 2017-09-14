@@ -32,6 +32,7 @@ namespace DotVVM.Contrib
         protected override void OnPreRender(IDotvvmRequestContext context)
         {
             context.ResourceManager.AddRequiredResource("dotvvm.contrib.CkEditorMinimal");
+            context.ResourceManager.AddRequiredResource("ckeditor-config");
             base.OnPreRender(context);
         }
 

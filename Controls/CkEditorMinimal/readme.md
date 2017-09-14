@@ -10,7 +10,7 @@ config.Resources.Register("ckeditor", new ScriptResource(
             {
                 Dependencies = new[] { "jquery" }
             });
-config.Resources.Register("ckeditor-scripts", new ScriptResource(
+config.Resources.Register("ckeditor-config", new ScriptResource(
             new UrlResourceLocation("~/Content/Lib/ckeditor/config.js"))
             {
                 Dependencies = new[] { "ckeditor"}
@@ -25,6 +25,5 @@ You can do this:
 ```DOTHTML
 <dc:CkEditorMinimal  Html={value: HtmlText} />
 
-<dot:RequiredResource Name="ckeditor-scripts" />
 ```
 

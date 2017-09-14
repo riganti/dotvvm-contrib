@@ -9,6 +9,5 @@
 
 
     {{value: Text}}
-    <dot:RequiredResource Name="ckeditor-scripts" />
 </dot:Content>
 
