@@ -2,19 +2,22 @@
 
 Minimalist wrapper for CkEditor. For more information visit [CKEditor documentation](https://docs.ckeditor.com/).
 
-If you want use our CKEditor wrapper you must [download packages](https://ckeditor.com/download) from CKEditor page and import it to your website. After import these packages you need register scripts.
-```CSHARP
++  [Download official packages](https://ckeditor.com/download) from CKEditor page
++  Import the packages to your content folder eg. wwwroot
++  Register **ScriptResource** in DotvvmStartup.cs 
++  The resource name must be same like in sample (**ckeditor-config**)
 
+```CSHARP
 config.Resources.Register("ckeditor", new ScriptResource(
 	    new UrlResourceLocation("~/Content/Lib/ckeditor/ckeditor.js"))
             {
                 Dependencies = new[] { "jquery" }
             });
+
 config.Resources.Register("ckeditor-config", new ScriptResource(
             new UrlResourceLocation("~/Content/Lib/ckeditor/config.js"))
             {
                 Dependencies = new[] { "ckeditor"}
-
             });
 ```
 
@@ -24,6 +27,5 @@ You can do this:
 
 ```DOTHTML
 <dc:CkEditorMinimal  Html={value: HtmlText} />
-
 ```
 
