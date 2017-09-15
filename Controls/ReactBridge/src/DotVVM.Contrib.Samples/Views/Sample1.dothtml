@@ -2,15 +2,17 @@
 @masterPage Views/_master.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 
     <h3>React Trend control</h3>
 
     <dc:ReactBridge Name="Trend.default" data="{value: Data}" smooth="{value: true}" autoDraw="{value: true}" autoDrawDuration="{value: 3000}"
-    autoDrawEasing="ease-out"
-    gradient="{value: Gradient}"
-    radius="{value: 14}"
-    strokeWidth="{value: 2.1}"
-    strokeLinecap="{value: 'round'}" />
+		autoDrawEasing="ease-out"
+		gradient="{value: Gradient}"
+		radius="{value: 14}"
+		strokeWidth="{value: 2.1}"
+		strokeLinecap="{value: 'round'}" />
 
     <h3>React NumericInput controls</h3>
     
@@ -21,10 +23,9 @@
     <h3>DotVVM TextBox controls</h3>
 
     <dot:Repeater DataSource="{value: Data}">
-        <dot:TextBox Text="{value: _this}" ValueType="Number" Type="Number" UpdateTextAfterKeydown />
+        <dot:TextBox Text="{value: _this}" ValueType="Number" Type="Number" UpdateTextAfterKeydown/>
         <br />
     </dot:Repeater>
-
 
     <dot:RequiredResource Name="ReactBridge" />
     <dot:RequiredResource Name="react-trend" />

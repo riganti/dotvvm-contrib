@@ -1,0 +1,28 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <h3>React Chart control</h3>
+
+    <dc:ChartistJs Type="Line" Data="{value: MultipleSeries1ChartData}"/>
+
+    <dot:Repeater DataSource="{value: MultipleSeries1ChartData.series[0]}">
+        <dc:ReactBridge Name="NumericInput" update:onChange="{value: _this}" value="{value: _this}" />
+    </dot:Repeater>
+
+    <dc:ChartistJs Type="Line" Data="{value: SingleSeriesChartData}"  Options=" { low: 0, showArea: true } " />
+
+    <dc:ChartistJs Type="Line" Data="{value: MultipleSeries2ChartData}"  
+                    Options=" { high: 3, low: -3, showArea: true, showLine: false, showPoint: false, axisX: { showLabel: false, showGrid: false } } " />
+
+    <dc:ChartistJs Type="Bar" Data="{value: BarChartData}"  
+                    Options=" { seriesBarDistance: 10, axisX: { offset: 60 }, axisY: { offset: 80, scaleMinSpace: 15 }} " />
+
+    <dc:ChartistJs Type="Bar" Data="{value: BarChartData}"  
+                    Options=" { stackBars: true } " />
+
+    <dc:ChartistJs Type="Pie" Data="{value: SingleSeriesChartDataWithoutLabels}" />
+     
+    <dot:RequiredResource Name="react-numeric-input" />
+</dot:Content>
+

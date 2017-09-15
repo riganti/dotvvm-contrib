@@ -18,9 +18,14 @@ namespace DotVVM.Contrib
         {
         }
 
+        public string Name
+        {
+            get { return (string)GetValue(NameProperty); }
+            set { SetValue(NameProperty, value); }
+        }
         [MarkupOptions(Required = true)]
-        public static readonly DotvvmProperty NameProperty =
-            DotvvmProperty.Register<string, ReactBridge>("Name");
+        public static readonly DotvvmProperty NameProperty 
+            = DotvvmProperty.Register<string, ReactBridge>(c => c.Name);
 
         [MarkupOptions(MappingMode = MappingMode.Attribute, AllowBinding = true, AllowHardCodedValue = true)]
         [PropertyGroup(new[] { "update:" })]
