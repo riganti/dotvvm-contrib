@@ -68,7 +68,7 @@ var __extends = (this && this.__extends) || (function () {
             var _a = this.props, className = _a.className, style = _a.style, children = _a.children, data = _a.data, type = _a.type;
 
             // Hack: for pie chart array of array is converter to single array
-            if (type == 'Pie') {
+            if (type === 'Pie') {
                 data.series = data.series[0];
             }
 
