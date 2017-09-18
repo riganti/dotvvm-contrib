@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp1.0;net451</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0;net451</TargetFrameworks>
 	<PackageId>DotVVM.Contrib.CkEditorMinimal</PackageId>
     <PackageVersion>0.0.1</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
@@ -22,11 +22,10 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Scripts\DotVVM.Contrib.CkEditorMinimal.js" />
-    <EmbeddedResource Include="Styles\DotVVM.Contrib.CkEditorMinimal.css" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="1.1.0.1" />
+    <PackageReference Include="DotVVM" Version="1.1.6.1" />
   </ItemGroup>
 
 </Project>

@@ -28,12 +28,9 @@ namespace DotVVM.Contrib
             config.Resources.Register("dotvvm.contrib.CkEditorMinimal", new ScriptResource()
             {
                 Location = new EmbeddedResourceLocation(typeof(CkEditorMinimal).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.CkEditorMinimal.js"),
-                Dependencies = new [] { "dotvvm", "dotvvm.contrib.CkEditorMinimal.css" }
+                Dependencies = new [] { "dotvvm" }
             });
-            config.Resources.Register("dotvvm.contrib.CkEditorMinimal.css", new ScriptResource()
-            {
-                Location = new EmbeddedResourceLocation(typeof(CkEditorMinimal).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.DotVVM.Contrib.CkEditorMinimal.css")
-            });
+        
 
             // NOTE: all resource names should start with "dotvvm.contrib.CkEditorMinimal"
         }

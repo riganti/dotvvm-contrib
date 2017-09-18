@@ -1,23 +1,24 @@
 ﻿
-function setupCkEditor(id) {
+function setupCkEditor(id, prop) {
     var editor = CKEDITOR.instances[id];
+    var htmlText = ko.isObservable(prop.html) ? prop.html() : prop.html;
+
     if (editor) {
         editor.destroy(true);
     }
-    CKEDITOR.replace(id);
-    CKEDITOR.add
-}
 
-function changeCkEditor(id, prop) {
+    CKEDITOR.replace(id);
+    CKEDITOR.instances[id].setData(htmlText);
     CKEDITOR.instances[id].on('change', function () { prop.html(CKEDITOR.instances[id].getData()); });
 }
 
-ko.bindingHandlers["dotvvm-contrib-CkEditorMinimal"] = {
+ko.bindingHandlers["dotvvm-contrib-CkEditorMinimal"] = { 
     init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
-        var prop = valueAccessor();
-        var elementId = element.id;
+        var prop = ko.unwrap(valueAccessor());
+        if (!element.id){
+            $(element).attr("id", element.attributes["data-dotvvm-id"].value);
+        }
 
-        setupCkEditor(elementId);
-        changeCkEditor(elementId, prop);
+        setupCkEditor(element.id, prop);
     }
 };
