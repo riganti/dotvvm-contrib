@@ -16,7 +16,7 @@ ko.bindingHandlers["dotvvm-contrib-CkEditorMinimal"] = {
     init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
         var prop = ko.unwrap(valueAccessor());
         if (!element.id){
-            $(element).attr("id", element.attributes["data-dotvvm-id"].value);
+            element.setAttribute("id", element.attributes["data-dotvvm-id"].value);
         }
 
         setupCkEditor(element.id, prop);
