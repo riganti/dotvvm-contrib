@@ -18,7 +18,7 @@ namespace DotVVM.Contrib
         /// <summary>
         /// Gets or sets the text in the control.
         /// </summary>
-        [MarkupOptions(Required = true)]
+        [MarkupOptions(Required = true, AllowHardCodedValue = false)]
         public string Html
         {
             get { return Convert.ToString(GetValue(HtmlProperty)); }
@@ -38,6 +38,7 @@ namespace DotVVM.Contrib
 
         protected override void AddAttributesToRender(IHtmlWriter writer, IDotvvmRequestContext context)
         {
+            this.AddDotvvmUniqueIdAttribute();
             base.AddAttributesToRender(writer, context);
 
             var group = new KnockoutBindingGroup();
