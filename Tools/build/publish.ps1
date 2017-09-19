@@ -1,4 +1,4 @@
-param([String]$version, [String]$controlName, [String]$apiKey, [String]$server, [String]$branchName, [String]$repoUrl, [String]$nugetRestoreAltSource = "", [bool]$pushTag)
+param([String]$version,[String]$dotVVMVersion, [String]$apiKey, [String]$server, [String]$branchName, [String]$repoUrl, [String]$nugetRestoreAltSource = "")
 
 
 ### Helper Functions
@@ -35,45 +35,81 @@ $LASTEXITCODE
 
 function CleanOldGeneratedPackages() {
 	foreach ($package in $packages) {
-		del .\$($package.Directory)\bin\debug\*.nupkg -ErrorAction SilentlyContinue
+		del .\$($package.Directory)\DotVVM.Contrib\bin\debug\*.nupkg -ErrorAction SilentlyContinue
 	}
 }
 
 function SetVersion() {
   	foreach ($package in $packages) {
-		$filePath = ".\$($package.Directory)\DotVVM.Contrib.csproj"
-		$file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
-		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<VersionPrefix\>([^<]+)\</VersionPrefix\>", "<VersionPrefix>" + $version + "</VersionPrefix>")
-		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<PackageVersion\>([^<]+)\</PackageVersion\>", "<PackageVersion>" + $version + "</PackageVersion>")
-		[System.IO.File]::WriteAllText($filePath, $file, [System.Text.Encoding]::UTF8)
+
+        $folders = Get-ChildItem $package.Directory -Directory | Where { $_.Name.Contains('DotVVM.Contrib') -and !$_.Name.Contains('DotVVM.Contrib.Tests') } |  Foreach { [pscustomobject]@{ Package = $_.Name; Directory = $package.Directory +"\" +  $_.Name}} ;
+
+        foreach ($folder in $folders){
+
+            if($folder.Package -eq 'DotVVM.Contrib'){
+                $filePath = ".\$($folder.Directory)\" + $folder.Package + ".csproj";
+		        $file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
+		        $file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<VersionPrefix\>([^<]+)\</VersionPrefix\>", "<VersionPrefix>" + $version + "</VersionPrefix>")
+		        $file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<PackageVersion\>([^<]+)\</PackageVersion\>", "<PackageVersion>" + $version + "</PackageVersion>")
+                $file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<TargetFrameworks\>([^<]+)\</TargetFrameworks\>", "<TargetFrameworks>netcoreapp2.0;net451</TargetFrameworks>")
+		        [System.IO.File]::WriteAllText($filePath, $file, [System.Text.Encoding]::UTF8)
 		
-		$filePath = ".\$($package.Directory)\Properties\AssemblyInfo.cs"
-		$file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
-		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\[assembly: AssemblyVersion\(""([^""]+)""\)\]", "[assembly: AssemblyVersion(""" + $versionWithoutPre + """)]")
-		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\[assembly: AssemblyFileVersion\(""([^""]+)""\)]", "[assembly: AssemblyFileVersion(""" + $versionWithoutPre + """)]")
-		[System.IO.File]::WriteAllText($filePath, $file, [System.Text.Encoding]::UTF8)
+		        $filePath = ".\$($package.Directory)\DotVVM.Contrib\Properties\AssemblyInfo.cs"
+		        $file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
+		        $file = [System.Text.RegularExpressions.Regex]::Replace($file, "\[assembly: AssemblyVersion\(""([^""]+)""\)\]", "[assembly: AssemblyVersion(""" + $versionWithoutPre + """)]")
+		        $file = [System.Text.RegularExpressions.Regex]::Replace($file, "\[assembly: AssemblyFileVersion\(""([^""]+)""\)]", "[assembly: AssemblyFileVersion(""" + $versionWithoutPre + """)]")
+		        [System.IO.File]::WriteAllText($filePath, $file, [System.Text.Encoding]::UTF8)
+            }
+            else{
+                $filePath = ".\$($folder.Directory)\" + $folder.Package + ".csproj";
+		        $file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
+                $file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<TargetFramework\>([^<]+)\</TargetFramework\>", "<TargetFramework>netcoreapp2.0</TargetFramework>")                $file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<PackageReference Include=""DotVVM.AspNetCore"" Version=""([^<]+)\"" />", " <PackageReference Include=""DotVVM.AspNetCore"" Version=""$dotVVMVersion""/>")                $file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<PackageReference Include=""Microsoft.AspNetCore"" Version=""([^<]+)\"" />", " <PackageReference Include=""Microsoft.AspNetCore.All"" Version=""2.0.0""/>")                $file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<PackageReference Include=""Microsoft.AspNetCore.StaticFiles"" Version=""([^<]+)\"" />", " <PackageReference Include=""Microsoft.AspNetCore.StaticFiles"" Version=""2.0.0""/>")		        [System.IO.File]::WriteAllText($filePath, $file, [System.Text.Encoding]::UTF8)
+            }
+
+        
+       
+        }
+		
 	}  
 }
 
 function BuildPackages() {
 	foreach ($package in $packages) {
-		cd .\$($package.Directory)
+
+        $folders = Get-ChildItem $package.Directory -Directory | Where { $_.Name -eq 'DotVVM.Contrib'}  | Foreach { [pscustomobject]@{ Package = $_.Name; Directory = $package.Directory +"\" +  $_.Name}} ;
+
+        foreach($folder in $folders){
+		    cd .\$($folder.Directory)
 		
-		if ($nugetRestoreAltSource -eq "") {
-			& dotnet restore | Out-Host
-		}
-		else {
-			& dotnet restore --source $nugetRestoreAltSource --source https://nuget.org/api/v2/ | Out-Host
-		}
+		    if ($nugetRestoreAltSource -eq "") {
+			    & dotnet restore | Out-Host
+		    }
+		    else {
+			    & dotnet restore --source $nugetRestoreAltSource --source https://nuget.org/api/v2/ | Out-Host
+		    }
 		
-		& dotnet pack | Out-Host
-		cd ..\..\..\..
+		    & dotnet pack | Out-Host
+
+		    cd ..\..\..\..
+        }
 	}
+}
+
+function Build(){
+    foreach ($package in $packages) {
+       $folders = Get-ChildItem $package.Directory -Directory | Where {$_.Name.Contains('DotVVM.Contrib')}| Foreach { [pscustomobject]@{ Package = $_.Name; Directory = $package.Directory +"\" +  $_.Name}};
+
+       foreach($folder in $folders){
+         cd .\$($folder.Directory)
+         dotnet build
+         cd ..\..\..\..
+       }
+    }
 }
 
 function PushPackages() {
 	foreach ($package in $packages) {
-		& .\Tools\nuget.exe push .\$($package.Directory)\bin\debug\$($package.Package).$version.nupkg -source $server -apiKey $apiKey | Out-Host
+		& .\Tools\nuget.exe push .\$($package.Directory)\DotVVM.Contrib\bin\debug\$($package.Package).$version.nupkg -source $server -apiKey $apiKey | Out-Host
 	}
 }
 
@@ -83,10 +119,7 @@ function GitCheckout() {
 }
 
 function GitPush() {
-	if ($pushTag) {
-			invoke-git tag "$($ControlName)-v$($version)" HEAD
-	}
-	invoke-git commit -am "$($ControlName): NuGet package version $version"
+	invoke-git commit -am "Controls: NuGet packages version $version"
 	invoke-git rebase HEAD $branchName
 	invoke-git push --follow-tags $repoUrl $branchName
 }
@@ -95,9 +128,7 @@ function GitPush() {
 
 ### Configuration
 
-$packages = @(
-	[pscustomobject]@{ Package = "DotVVM.Contrib." + $controlName; Directory = "Controls\" + $controlName + "\src\DotVVM.Contrib" }
-)
+$packages = Get-ChildItem .\Controls -Directory |Where {$_.Name -match '^(?!_)' } | Foreach { [pscustomobject]@{ Package = "DotVVM.Contrib." + $_.Name; Directory = "Controls\" + $_.Name + "\src"}}
 
 ### Publish Workflow
 
@@ -110,5 +141,6 @@ CleanOldGeneratedPackages;
 GitCheckout;
 SetVersion;
 BuildPackages;
+Build;
 PushPackages;
 GitPush;
