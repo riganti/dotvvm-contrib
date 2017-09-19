@@ -21,7 +21,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Scripts\chartist.min.js" />
+    <None Remove="Styles\chartist.min.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\chartist.min.js" />
     <EmbeddedResource Include="Scripts\DotVVM.Contrib.ReactBridge.js" />
+    <EmbeddedResource Include="Scripts\ReactChartis.js" />
+    <EmbeddedResource Include="Styles\chartist.min.css" />
     <EmbeddedResource Include="Styles\DotVVM.Contrib.ReactBridge.css" />
   </ItemGroup>
 
