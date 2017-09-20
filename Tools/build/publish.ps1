@@ -1,4 +1,4 @@
-param([String]$version,[String]$dotVVMVersion, [String]$apiKey, [String]$server, [String]$branchName, [String]$repoUrl, [String]$nugetRestoreAltSource = "")
+param([String]$version,[String]$dotVVMVersion, [String]$apiKey, [String]$server, [String]$branchName, [String]$repoUrl, [String[]] $exludeControls = "", [String]$nugetRestoreAltSource = "")
 
 
 ### Helper Functions
@@ -128,7 +128,7 @@ function GitPush() {
 
 ### Configuration
 
-$packages = Get-ChildItem .\Controls -Directory |Where {$_.Name -match '^(?!_)' } | Foreach { [pscustomobject]@{ Package = "DotVVM.Contrib." + $_.Name; Directory = "Controls\" + $_.Name + "\src"}}
+$packages = Get-ChildItem .\Controls -Directory |Where {$_.Name -match '^(?!_)' -and ($exludeControls.Count -gt 0 -and !$exludeControls.Contains($_.Name))} | Foreach { [pscustomobject]@{ Package = "DotVVM.Contrib." + $_.Name; Directory = "Controls\" + $_.Name + "\src"}}
 
 ### Publish Workflow
 
