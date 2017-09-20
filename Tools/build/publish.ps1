@@ -1,4 +1,4 @@
-param([String]$version,[String]$dotVVMVersion, [String]$apiKey, [String]$server, [String]$branchName, [String]$repoUrl, [String[]] $exludeControls = "", [String]$nugetRestoreAltSource = "")
+param([String]$version,[String]$dotVVMVersion, [String]$apiKey, [String]$server, [String]$branchName, [String]$repoUrl, [String[]] $exludeControls, [String]$nugetRestoreAltSource = "")
 
 
 ### Helper Functions
