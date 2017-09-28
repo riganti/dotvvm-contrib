@@ -30,7 +30,7 @@ namespace DotVVM.Contrib
                 Location = new EmbeddedResourceLocation(typeof(ControlName).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.ControlName.js"),
                 Dependencies = new [] { "dotvvm", "dotvvm.contrib.ControlName.css" }
             });
-            config.Resources.Register("dotvvm.contrib.ControlName.css", new ScriptResource()
+            config.Resources.Register("dotvvm.contrib.ControlName.css", new StylesheetResource()
             {
                 Location = new EmbeddedResourceLocation(typeof(ControlName).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.DotVVM.Contrib.ControlName.css")
             });

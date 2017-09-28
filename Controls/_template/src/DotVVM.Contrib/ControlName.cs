@@ -1,5 +1,6 @@
 ﻿using System;
 using DotVVM.Framework.Controls;
+using DotVVM.Framework.Hosting;
 
 namespace DotVVM.Contrib
 {
@@ -13,5 +14,12 @@ namespace DotVVM.Contrib
         {
         }
 
+        protected override void OnPreRender(IDotvvmRequestContext context)
+        {
+            context.ResourceManager.AddRequiredResource("dotvvm.contrib.TypeAhead");
+
+            base.OnPreRender(context);
+        }		
+		
     }
 }
