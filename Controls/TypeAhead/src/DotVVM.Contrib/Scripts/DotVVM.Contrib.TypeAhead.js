@@ -18,7 +18,9 @@
             .on('keydown', function (e) {
                 if (e.which === 13) {
                     e.preventDefault();
-                    $(element).nextAll(".tt-menu").find(".tt-selectable").click();
+
+                    // click on the first selected item
+                    $(element).parent().find(".tt-menu .tt-selectable:visible:first-child").click();
                 }
             });
 
@@ -84,7 +86,6 @@ ko.bindingHandlers["dotvvm-contrib-TypeAhead-SelectedValue"] = {
                 }
             }
             $(element).typeahead('val', null);
-
         });
 
     },

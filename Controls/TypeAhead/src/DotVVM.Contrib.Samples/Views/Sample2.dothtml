@@ -1,0 +1,29 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.Samples
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <p id="section1">
+        <dc:TypeAhead DataSource="{value: Items}" SelectedValue="{value: SelectedItem}"
+                      SelectionChanged="{command: SelectionChanged()}" />
+
+        Number of changes: <span class="result">{{value: Changes}}</span>
+    </p>
+
+    <p id="section2">
+        <dc:TypeAhead DataSource="{value: Items}" SelectedValue="{value: SelectedItem2}"
+                      SelectionChanged="{command: SelectionChanged2()}" />
+
+        Number of changes: <span class="result">{{value: Changes2}}</span>
+    </p>
+
+</body>
+</html>
+
+

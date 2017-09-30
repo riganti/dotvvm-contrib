@@ -144,5 +144,52 @@ namespace DotVVM.Contrib.Tests
             });
         }
 
+
+
+        [TestMethod]
+        public void TypeAhead_Sample2_SelectItemOnCursor()
+        {
+            RunInAllBrowsers(browser =>
+            {
+                browser.NavigateToUrl("/Sample2");
+                browser.Wait(500);
+
+                var input1 = browser.ElementAt("#section1 input[type=text]", 1);
+                var result1 = browser.ElementAt("#section1 .result", 0);
+                var input2 = browser.ElementAt("#section2 input[type=text]", 1);
+                var result2 = browser.ElementAt("#section2 .result", 0);
+                
+                // select using arrows
+                input2.Clear();
+                input2.SendKeys("a");
+                input2.SendKeys(Keys.ArrowDown);
+                input2.SendKeys(Keys.ArrowDown);
+                input2.SendKeys(Keys.Return);
+                input2.CheckIfValue("A2");
+
+                input2.SendKeys(Keys.Tab);
+                result2.CheckIfInnerTextEquals("1");
+
+                // select first item
+                input2.Clear();
+                result2.CheckIfInnerTextEquals("2");
+                input2.SendKeys("b");
+                input2.SendKeys(Keys.Return);
+                input2.CheckIfValue("B1");
+
+                input2.SendKeys(Keys.Tab);
+                result2.CheckIfInnerTextEquals("3");
+
+                // select first item in first list
+                input1.Clear();
+                input1.SendKeys("a");
+                input1.SendKeys(Keys.Return);
+                input1.CheckIfValue("A1");
+
+                input1.SendKeys(Keys.Tab);
+                result1.CheckIfInnerTextEquals("1");
+            });
+        }
+
     }
 }

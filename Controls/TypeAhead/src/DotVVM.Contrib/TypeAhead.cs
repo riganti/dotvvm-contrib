@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
@@ -23,7 +25,12 @@ namespace DotVVM.Contrib
             writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-SelectedValue", this, SelectedValueProperty);
             writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-DisplayMember", KnockoutHelper.MakeStringLiteral(DisplayMember));
             writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-ValueMember", KnockoutHelper.MakeStringLiteral(ValueMember));
-            writer.AddKnockoutDataBind("enable", this, EnabledProperty);
+
+            var selectionChangedBinding = GetCommandBinding(SelectionChangedProperty);
+            if (selectionChangedBinding != null)
+            {
+                writer.AddAttribute("onchange", KnockoutHelper.GenerateClientPostBackScript(nameof(SelectionChanged), selectionChangedBinding, this, isOnChange: true, useWindowSetTimeout: true));
+            }
 
             base.AddAttributesToRender(writer, context);
         }
