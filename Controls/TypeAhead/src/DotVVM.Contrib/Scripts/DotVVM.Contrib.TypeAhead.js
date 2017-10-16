@@ -62,8 +62,14 @@ ko.bindingHandlers["dotvvm-contrib-TypeAhead-SelectedValue"] = {
                     return;
                 }
             }
-            valueAccessor()(null);
 
+            var limitToList = ko.unwrap(allBindingsAccessor.get("dotvvm-contrib-TypeAhead-LimitToList"));
+            if (limitToList) {
+                valueAccessor()(null);
+            }                
+            else {
+                valueAccessor()(suggestion);
+            }
         });
 
     },

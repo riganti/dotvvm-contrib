@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
@@ -17,6 +15,14 @@ namespace DotVVM.Contrib
         {
         }
 
+        public bool LimitToList
+        {
+            get { return (bool)GetValue(LimitToListProperty); }
+            set { SetValue(LimitToListProperty, value); }
+        }
+
+        public static readonly DotvvmProperty LimitToListProperty = DotvvmProperty.Register<bool, TypeAhead>(c => c.LimitToList);
+
         protected override void AddAttributesToRender(IHtmlWriter writer, IDotvvmRequestContext context)
         {
             writer.AddAttribute("type", "text");
@@ -25,6 +31,7 @@ namespace DotVVM.Contrib
             writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-SelectedValue", this, SelectedValueProperty);
             writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-DisplayMember", KnockoutHelper.MakeStringLiteral(DisplayMember));
             writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-ValueMember", KnockoutHelper.MakeStringLiteral(ValueMember));
+            writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-LimitToList", this, LimitToListProperty);
 
             var selectionChangedBinding = GetCommandBinding(SelectionChangedProperty);
             if (selectionChangedBinding != null)
