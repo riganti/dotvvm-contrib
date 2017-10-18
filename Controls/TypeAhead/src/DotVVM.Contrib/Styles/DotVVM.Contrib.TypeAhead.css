@@ -84,3 +84,7 @@ span.twitter-typeahead {
     .input-group span.twitter-typeahead .tt-menu {
         top: 2.375rem !important;
     }
+
+.tt-hint {
+    color: #888;
+}
