@@ -95,7 +95,10 @@ ko.bindingHandlers["dotvvm-contrib-TypeAhead-SelectedValue"] = {
             var limitToList = ko.unwrap(allBindingsAccessor.get("dotvvm-contrib-TypeAhead-LimitToList"));
             if (limitToList) {
                 $(element).typeahead('val', null);
-            }       
+            } 
+            else {
+                $(element).typeahead('val', selectedValue);
+            }
         });
 
     },
