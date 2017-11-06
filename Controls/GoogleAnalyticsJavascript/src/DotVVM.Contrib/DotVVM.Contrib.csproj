@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp1.0;net451</TargetFrameworks>
-	<PackageId>DotVVM.Contrib.GoogleAnalyticsJavascript</PackageId>
+    <TargetFrameworks>netcoreapp2.0;net451</TargetFrameworks>
+    <PackageId>DotVVM.Contrib.GoogleAnalyticsJavascript</PackageId>
     <PackageVersion>1.0.0-beta2</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
     <Description>The GoogleAnalyticsJavascript control for DotVVM made by DotVVM Contrib community.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
     <PackageLicenseUrl>https://github.com/riganti/dotvvm-contrib/blob/master/LICENSE</PackageLicenseUrl>
-	<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
@@ -21,9 +21,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="1.1.2" />
+    <PackageReference Include="DotVVM" Version="1.1.7" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="1.1.2" />
   </ItemGroup>
 
   <ItemGroup>
