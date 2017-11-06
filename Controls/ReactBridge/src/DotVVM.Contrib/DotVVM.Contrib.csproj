@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard16;net451</TargetFrameworks>
+    <TargetFrameworks>netstandard20;net451</TargetFrameworks>
 	<PackageId>DotVVM.Contrib.ReactBridge</PackageId>
     <PackageVersion>0.0.1</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="1.1.0.1" />
+    <PackageReference Include="DotVVM" Version="1.1.7" />
   </ItemGroup>
 
 </Project>
