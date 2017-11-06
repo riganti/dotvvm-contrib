@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp1.0;net451</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0;net451</TargetFrameworks>
 	<PackageId>DotVVM.Contrib.TemplateSelector</PackageId>
     <PackageVersion>1.1.0.1</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
@@ -21,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="1.1.0.1" />
+    <PackageReference Include="DotVVM" Version="1.1.7" />
   </ItemGroup>
 
 </Project>
