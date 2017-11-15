@@ -36,7 +36,6 @@ span.twitter-typeahead .tt-menu {
 
 span.twitter-typeahead .tt-suggestion {
     display: block;
-    width: 100%;
     padding: 3px 20px;
     clear: both;
     font-weight: normal;
