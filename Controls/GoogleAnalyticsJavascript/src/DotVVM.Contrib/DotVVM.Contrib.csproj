@@ -18,6 +18,7 @@
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AssemblyName>DotVVM.Contrib.GoogleAnalyticsJavascript</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
