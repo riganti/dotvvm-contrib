@@ -14,21 +14,18 @@ namespace DotVVM.Contrib
         public static void AddContribNoUiSliderConfiguration(this DotvvmConfiguration config)
         {
             // register tag prefix
-            if (!config.Markup.Controls.Any(c => c.TagPrefix == "dc"))
+            config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                config.Markup.Controls.Add(new DotvvmControlConfiguration()
-                {
-                    Assembly = "DotVVM.Contrib",
-                    Namespace = "DotVVM.Contrib",
-                    TagPrefix = "dc"
-                });
-            }
-            
+                Assembly = "DotVVM.Contrib.NoUiSlider",
+                Namespace = "DotVVM.Contrib",
+                TagPrefix = "dc"
+            });
+
             // register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.NoUiSlider", new ScriptResource()
             {
                 Location = new EmbeddedResourceLocation(typeof(Slider).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.NoUiSlider.js"),
-                Dependencies = new [] { "dotvvm", "NoUiSlider", "dotvvm.contrib.NoUiSlider.css" }
+                Dependencies = new[] { "dotvvm", "NoUiSlider", "dotvvm.contrib.NoUiSlider.css" }
             });
             config.Resources.Register("NoUiSlider", new ScriptResource()
             {

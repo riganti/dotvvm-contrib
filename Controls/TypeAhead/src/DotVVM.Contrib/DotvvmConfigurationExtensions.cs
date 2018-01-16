@@ -14,15 +14,12 @@ namespace DotVVM.Contrib
         public static void AddContribTypeAheadConfiguration(this DotvvmConfiguration config)
         {
             // register tag prefix
-            if (!config.Markup.Controls.Any(c => c.TagPrefix == "dc"))
+            config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                config.Markup.Controls.Add(new DotvvmControlConfiguration()
-                {
-                    Assembly = "DotVVM.Contrib",
-                    Namespace = "DotVVM.Contrib",
-                    TagPrefix = "dc"
-                });
-            }
+                Assembly = "DotVVM.Contrib.TypeAhead",
+                Namespace = "DotVVM.Contrib",
+                TagPrefix = "dc"
+            });
 
             // register additional resources for the control and set up dependencies
             config.Resources.Register("typeahead", new ScriptResource()
@@ -33,7 +30,7 @@ namespace DotVVM.Contrib
             config.Resources.Register("dotvvm.contrib.TypeAhead", new ScriptResource()
             {
                 Location = new EmbeddedResourceLocation(typeof(TypeAhead).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.TypeAhead.js"),
-                Dependencies = new [] { "dotvvm", "typeahead", "dotvvm.contrib.TypeAhead.css" }
+                Dependencies = new[] { "dotvvm", "typeahead", "dotvvm.contrib.TypeAhead.css" }
             });
             config.Resources.Register("dotvvm.contrib.TypeAhead.css", new StylesheetResource()
             {
