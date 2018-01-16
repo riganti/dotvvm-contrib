@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
     <PackageId>DotVVM.Contrib.GoogleAnalyticsJavascript</PackageId>
-    <PackageVersion>1.1.8</PackageVersion>
+    <PackageVersion>1.1.8.1</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
     <Description>The GoogleAnalyticsJavascript control for DotVVM made by DotVVM Contrib community.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
