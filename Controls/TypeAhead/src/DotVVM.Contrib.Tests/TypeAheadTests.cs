@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using Riganti.Utils.Testing.SeleniumCore;
+using OpenQA.Selenium.Interactions;
 
 namespace DotVVM.Contrib.Tests
 {
     [TestClass]
-    public class TypeAheadTests : SeleniumTestBase
+    public class TypeAheadTests : AppSeleniumTest
     {
         [TestMethod]
         public void TypeAhead_Sample1_ListOfStrings()
@@ -21,7 +20,7 @@ namespace DotVVM.Contrib.Tests
 
                 input.Clear();
                 input.SendKeys("Cze");
-                browser.SendEnterKey();
+                input.SendEnterKey();
                 input.CheckIfValue("Czech Republic");
                 result1.CheckIfInnerTextEquals("Czech Republic");
 
@@ -67,7 +66,7 @@ namespace DotVVM.Contrib.Tests
 
                 input.Clear();
                 input.SendKeys("Cze");
-                browser.SendEnterKey();
+                input.SendEnterKey();
                 input.CheckIfValue("Czech Republic");
                 result1.CheckIfInnerTextEquals("1");
                 result2.CheckIfInnerTextEquals("Czech Republic");
@@ -112,7 +111,8 @@ namespace DotVVM.Contrib.Tests
 
                 input.Clear();
                 input.SendKeys("Cze");
-                browser.SendEnterKey();
+
+                input.SendEnterKey();
                 input.CheckIfValue("Czech Republic");
                 result1.CheckIfInnerTextEquals("1");
 
@@ -158,7 +158,7 @@ namespace DotVVM.Contrib.Tests
                 var result1 = browser.ElementAt("#section1 .result", 0);
                 var input2 = browser.ElementAt("#section2 input[type=text]", 1);
                 var result2 = browser.ElementAt("#section2 .result", 0);
-                
+
                 // select using arrows
                 input2.Clear();
                 input2.SendKeys("a");

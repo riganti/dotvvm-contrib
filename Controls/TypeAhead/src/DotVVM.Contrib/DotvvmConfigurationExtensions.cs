@@ -22,6 +22,11 @@ namespace DotVVM.Contrib
             });
 
             // register additional resources for the control and set up dependencies
+            if (config.Resources.FindNamedResource("jquery")?.Resource == null)
+            {
+                config.Resources.Register("jquery", new ScriptResource(new UrlResourceLocation("https://code.jquery.com/jquery-3.3.1.min.js")));
+            }
+
             config.Resources.Register("typeahead", new ScriptResource()
             {
                 Location = new EmbeddedResourceLocation(typeof(TypeAhead).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.typeahead.bundle.min.js"),
