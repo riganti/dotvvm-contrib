@@ -53,23 +53,23 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Riganti.Selenium.Coordinator.Client, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Riganti.Selenium.Coordinator.Client.2.0.0\lib\net461\Riganti.Selenium.Coordinator.Client.dll</HintPath>
+    <Reference Include="Riganti.Selenium.Coordinator.Client, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Riganti.Selenium.Coordinator.Client.2.0.1\lib\net461\Riganti.Selenium.Coordinator.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Riganti.Selenium.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Riganti.Selenium.Core.2.0.0\lib\net461\Riganti.Selenium.Core.dll</HintPath>
+    <Reference Include="Riganti.Selenium.Core, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Riganti.Selenium.Core.2.0.1\lib\net461\Riganti.Selenium.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Riganti.Selenium.Core.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Riganti.Selenium.Core.Abstractions.2.0.0\lib\net461\Riganti.Selenium.Core.Abstractions.dll</HintPath>
+    <Reference Include="Riganti.Selenium.Core.Abstractions, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Riganti.Selenium.Core.Abstractions.2.0.1\lib\net461\Riganti.Selenium.Core.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Riganti.Selenium.FluentApi, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Riganti.Selenium.FluentApi.2.0.0\lib\net461\Riganti.Selenium.FluentApi.dll</HintPath>
+    <Reference Include="Riganti.Selenium.FluentApi, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Riganti.Selenium.FluentApi.2.0.1\lib\net461\Riganti.Selenium.FluentApi.dll</HintPath>
     </Reference>
-    <Reference Include="Riganti.Selenium.MSTest2Integration, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Riganti.Selenium.MSTest2Integration.2.0.0\lib\net461\Riganti.Selenium.MSTest2Integration.dll</HintPath>
+    <Reference Include="Riganti.Selenium.MSTest2Integration, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Riganti.Selenium.MSTest2Integration.2.0.1\lib\net461\Riganti.Selenium.MSTest2Integration.dll</HintPath>
     </Reference>
-    <Reference Include="Riganti.Selenium.Validators, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Riganti.Selenium.Validators.2.0.0\lib\net461\Riganti.Selenium.Validators.dll</HintPath>
+    <Reference Include="Riganti.Selenium.Validators, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Riganti.Selenium.Validators.2.0.1\lib\net461\Riganti.Selenium.Validators.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -89,11 +89,12 @@
     <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver, Version=3.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.3.8.0\lib\net45\WebDriver.dll</HintPath>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="WebDriver, Version=3.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.9.1\lib\net45\WebDriver.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=3.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.Support.3.8.0\lib\net45\WebDriver.Support.dll</HintPath>
+    <Reference Include="WebDriver.Support, Version=3.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.9.1\lib\net45\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
