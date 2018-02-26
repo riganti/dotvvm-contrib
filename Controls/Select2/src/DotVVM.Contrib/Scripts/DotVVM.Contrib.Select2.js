@@ -8,7 +8,7 @@
         var refreshHandler = function () {
             dotvvm.isViewModelUpdating = true;
             valueAccessor().valueHasMutated();
-            $(element).trigger("change.select2");
+        //    $(element).trigger("change.select2");
             dotvvm.isViewModelUpdating = false;
         };
 

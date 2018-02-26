@@ -19,7 +19,7 @@
     <hr />
 
 	<dot:ContentPlaceHolder ID="MainContent" />
-
+    <dot:RequiredResource Name="jquery"/>
 </body>
 </html>
 

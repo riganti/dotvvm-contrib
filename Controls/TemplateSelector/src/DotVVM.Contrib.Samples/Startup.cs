@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -37,8 +38,9 @@ namespace DotVVM.Contrib.Samples
             // use static files
             app.UseStaticFiles(new StaticFileOptions
             {
-                FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(env.WebRootPath)
+                FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(env.ContentRootPath)//Path.Combine(env.ContentRootPath, "wwwroot"))
             });
+            
         }
     }
 }

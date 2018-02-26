@@ -11,5 +11,8 @@
     </p>
 
     <p class="number-of-requests">{{value: NumberOfRequests}}</p>
+<dot:Repeater DataSource="{value: SelectedLetters}">
+    {{value: _this}}
+</dot:Repeater>
 </dot:Content>
 

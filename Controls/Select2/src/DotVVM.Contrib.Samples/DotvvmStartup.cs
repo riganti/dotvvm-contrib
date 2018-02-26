@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DotVVM.Framework;
 using DotVVM.Framework.Configuration;
+using DotVVM.Framework.ResourceManagement;
 using DotVVM.Framework.Routing;
 
 namespace DotVVM.Contrib.Samples
@@ -32,6 +33,10 @@ namespace DotVVM.Contrib.Samples
         private void ConfigureResources(DotvvmConfiguration config, string applicationPath)
         {
             // register custom resources and adjust paths to the built-in resources
+            config.Resources.Register("jquery", new ScriptResource()
+            {
+                Location = new FileResourceLocation("Scripts/jquery-2.1.3.min.js")
+            });
         }
     }
 

@@ -15,8 +15,8 @@ namespace DotVVM.Contrib.Tests
                 browser.NavigateToUrl("/Sample1");
                 browser.Wait(2000);
 
-                browser.Single("#ClEditorMinimal");
-                browser.Single("#cke_EditorMinimal");
+                browser.Single("#CkEditorMinimal");
+                browser.Single("#cke_CkEditorMinimal");
            
             });
         }
@@ -30,10 +30,10 @@ namespace DotVVM.Contrib.Tests
                 browser.NavigateToUrl("/Sample2");
                 browser.Wait(2000);
 
-                browser.Single("#ClEditorMinimal_1");
-                browser.Single("#ClEditorMinimal_2");
-                browser.Single("#cke_EditorMinimal_1");
-                browser.Single("#cke_EditorMinimal_2");
+                browser.Single("#CkEditorMinimal_1");
+                browser.Single("#CkEditorMinimal_2");
+                browser.Single("#cke_CkEditorMinimal_1");
+                browser.Single("#cke_CkEditorMinimal_2");
 
             });
         }

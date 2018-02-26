@@ -38,7 +38,7 @@ namespace DotVVM.Contrib
             {
                 props.Add(attr.Key,
                     attr.Value is IValueBinding binding ? $"dotvvm.serialization.serialize({binding.GetKnockoutBindingExpression()})" :
-                    (attr.Value is IStaticValueBinding staticBinding ? staticBinding.Evaluate(this, null) : attr.Value).Apply(JsonConvert.SerializeObject)
+                    (attr.Value is IStaticValueBinding staticBinding ? staticBinding.Evaluate(this) : attr.Value).Apply(JsonConvert.SerializeObject)
                 );
             }
             foreach (var update in this.Update)

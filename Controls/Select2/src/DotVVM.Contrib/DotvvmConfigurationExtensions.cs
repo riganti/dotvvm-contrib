@@ -22,6 +22,8 @@ namespace DotVVM.Contrib
             });
 
             // register additional resources for the control and set up dependencies
+            
+
             config.Resources.Register("select2", new ScriptResource()
             {
                 Location = new EmbeddedResourceLocation(typeof(Select2).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.select2.select2.min.js"),

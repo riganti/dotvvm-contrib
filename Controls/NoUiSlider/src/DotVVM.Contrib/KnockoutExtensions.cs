@@ -20,7 +20,7 @@ namespace DotVVM.Contrib
             }
             else
             {
-                string expression = control.GetValueBinding(property).GetKnockoutBindingExpression();
+                string expression = control.GetValueBinding(property).GetKnockoutBindingExpression(control);
                 group.Add(name, $"!{expression}()");
             }
         }
@@ -36,7 +36,7 @@ namespace DotVVM.Contrib
             }
             else
             {
-                string expression = control.GetValueBinding(property).GetKnockoutBindingExpression();
+                string expression = control.GetValueBinding(property).GetKnockoutBindingExpression(control);
                 group.Add(name, $"{expression}");
 
             }
@@ -52,7 +52,7 @@ namespace DotVVM.Contrib
             }
             else
             {
-                string expression = control.GetValueBinding(property).GetKnockoutBindingExpression();
+                string expression = control.GetValueBinding(property).GetKnockoutBindingExpression(control);
                 group.Add(name, $"{expression}.{extenderName}");
             }
         }

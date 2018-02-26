@@ -4,7 +4,7 @@
 <dot:Content ContentPlaceHolderID="MainContent">
 
     <!-- make a sample usage of the control -->
-    <dc:CkEditorMinimal Html="{value: Text}"></dc:CkEditorMinimal>
+    <dc:CkEditorMinimal ID="CkEditorMinimal" Html="{value: Text}"></dc:CkEditorMinimal>
 
 
     {{value: Text}}
