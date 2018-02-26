@@ -19,5 +19,5 @@ namespace DotVVM.Contrib.Tests
         public ComponentTests(ITestOutputHelper output) : base(output)
         {
         }
-    }
+    } 
 }
