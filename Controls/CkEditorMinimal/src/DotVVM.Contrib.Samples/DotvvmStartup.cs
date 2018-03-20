@@ -4,10 +4,11 @@ using DotVVM.Framework;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.Routing;
 using DotVVM.Framework.ResourceManagement;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DotVVM.Contrib.Samples
 {
-    public class DotvvmStartup : IDotvvmStartup
+    public class DotvvmStartup : IDotvvmStartup, IDotvvmServiceConfigurator
     {
         // For more information about this class, visit https://dotvvm.com/docs/tutorials/basics-project-structure
         public void Configure(DotvvmConfiguration config, string applicationPath)
@@ -43,9 +44,15 @@ namespace DotVVM.Contrib.Samples
             });
             config.Resources.Register("ckeditor-config", new ScriptResource(new UrlResourceLocation("~/Content/Lib/ckeditor/config.js"))
             {
-                Dependencies = new[] { "ckeditor"}
+                Dependencies = new[] { "ckeditor" }
 
             });
+        }
+
+        public void ConfigureServices(IDotvvmServiceCollection services)
+        {
+            services.AddDefaultTempStorages("Temp");
+
         }
     }
 

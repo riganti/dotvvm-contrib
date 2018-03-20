@@ -13,6 +13,8 @@ namespace DotVVM.Contrib
 
         public CkEditorMinimal(): base("textarea") 
         {
+            // prevent textarea to be displayed before page is loaded
+            CssStyles.Add("display" , "none");
         }
 
         /// <summary>
