@@ -19,6 +19,7 @@
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>DotVVM.Contrib.CkEditorMinimal</AssemblyName>
+    <Version>2.0.0-preview03</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="2.0.0-preview03-final" />
+    <PackageReference Include="DotVVM" Version="2.0.0-preview04-final" />
   </ItemGroup>
 
 </Project>

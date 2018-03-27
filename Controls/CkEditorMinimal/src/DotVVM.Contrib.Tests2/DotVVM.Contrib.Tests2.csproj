@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CkEditorMinimalTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="seleniumconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="CkEditorMinimalTests.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="seleniumconfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0-preview-20180320-02" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.2.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.2.0" />
+    <PackageReference Include="Riganti.Selenium.AssertApi" Version="2.0.1" />
+    <PackageReference Include="Riganti.Selenium.MSTest2Integration" Version="2.0.1" />
+  </ItemGroup>
+
+</Project>
