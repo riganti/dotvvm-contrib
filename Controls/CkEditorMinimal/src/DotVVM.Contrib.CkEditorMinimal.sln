@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib", "DotVVM.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.Samples", "DotVVM.Contrib.Samples\DotVVM.Contrib.Samples.csproj", "{BEDB2964-D516-492B-AD08-9089F20AE84B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotVVM.Contrib.Tests2", "DotVVM.Contrib.Tests2\DotVVM.Contrib.Tests2.csproj", "{FA490C83-1330-417F-864E-88628CDDF504}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.Tests", "DotVVM.Contrib.Tests2\DotVVM.Contrib.Tests.csproj", "{FA490C83-1330-417F-864E-88628CDDF504}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

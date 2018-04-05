@@ -6,17 +6,19 @@ using DotVVM.Framework.Binding;
 namespace DotVVM.Contrib
 {
     /// <summary>
-    /// Renders a ...
+    /// Renders a TextBox that is used as a base for CKEditor.
+    /// This control is lightweight implementation (provides only html content binding).
     /// </summary>
     public class CkEditorMinimal : HtmlGenericControl
     {
 
-        public CkEditorMinimal(): base("textarea") 
+        public CkEditorMinimal(): base("textarea", true) 
         {
             // prevent textarea to be displayed before page is loaded
             CssStyles.Add("display" , "none");
         }
 
+       
         /// <summary>
         /// Gets or sets the text in the control.
         /// </summary>
