@@ -3,11 +3,17 @@ using System.Linq;
 using DotVVM.Framework;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.Routing;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DotVVM.Contrib.Samples
 {
-    public class DotvvmStartup : IDotvvmStartup
+    public class DotvvmStartup : IDotvvmStartup, IDotvvmServiceConfigurator
     {
+        public void ConfigureServices(IDotvvmServiceCollection services)
+        {
+            services.AddDefaultTempStorages("Temp");
+        }
+
         // For more information about this class, visit https://dotvvm.com/docs/tutorials/basics-project-structure
         public void Configure(DotvvmConfiguration config, string applicationPath)
         {
