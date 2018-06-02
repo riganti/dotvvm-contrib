@@ -16,7 +16,7 @@ namespace DotVVM.Contrib
 
         protected override void OnPreRender(IDotvvmRequestContext context)
         {
-            context.ResourceManager.AddRequiredResource("dotvvm.contrib.TypeAhead");
+            context.ResourceManager.AddRequiredResource("dotvvm.contrib.ControlName");
 
             base.OnPreRender(context);
         }		
