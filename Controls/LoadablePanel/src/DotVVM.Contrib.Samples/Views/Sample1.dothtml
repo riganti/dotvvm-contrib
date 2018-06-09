@@ -1,0 +1,27 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+@service viewModel = DotVVM.Contrib.Samples.ViewModels.Sample1ViewModel
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <dc:LoadablePanel Load="{staticCommand: Data1 = viewModel.LoadData1().Result}" HideUntilLoaded="true" class="panel">
+        <ProgressTemplate>
+            <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+        </ProgressTemplate>
+        <ContentTemplate>
+            {{value: Data1}}<br />
+            HideUntilLoaded="true"
+        </ContentTemplate>
+    </dc:LoadablePanel>
+
+    <dc:LoadablePanel Load="{staticCommand: Data2 = viewModel.LoadData2().Result}" HideUntilLoaded="false" class="panel">
+        <ProgressTemplate>
+            <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+        </ProgressTemplate>
+        <ContentTemplate>
+            {{value: Data2}}<br />
+            HideUntilLoaded="false"
+        </ContentTemplate>
+    </dc:LoadablePanel>
+</dot:Content>
+
