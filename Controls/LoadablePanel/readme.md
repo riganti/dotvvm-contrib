@@ -1,11 +1,12 @@
 # LoadablePanel
 
 Renders a HTML &lt;div&gt; element containing Content that should be loaded in Load PostBack.
-The Load PostBack is triggered immediately after the page is loaded.
+The Load PostBack is triggered immediately after the page is loaded. The Content of the control
+is hidden until the PostBack finishes.
+
+This control may be useful when you want to load different parts of page asynchronously.
 
 ## Sample 1: Basic Usage
-
-You can do this:
 
 ```DOTHTML
 @service service = Sample.Namespace.Service
@@ -19,9 +20,7 @@ You can do this:
 
 <br />
 
-## Sample 2: Something Else
-
-You can do also this:
+## Sample 2: Progress Template
 
 ```DOTHTML
 @service service = Sample.Namespace.Service
@@ -30,7 +29,7 @@ You can do also this:
   <ContentTemplate>
     <dot:Literal Text="{value: DataToBeLoaded == null ? "..." : DataToBeLoaded}"/>
   </ContentTemplate>
-  <ProgressTempalte>
+  <ProgressTemplate>
     <div class="update-progress">
         <div class="background"></div>
         <div class="spinner">
