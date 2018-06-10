@@ -25,6 +25,7 @@ config.AddContribXYZConfiguration();
 * [Select2](Controls/Select2/readme.md)
 * [TemplateSelector](Controls/TemplateSelector/readme.md)
 * [TypeAhead](Controls/TypeAhead/readme.md)
+* [PolicyView](Controls/PolicyView/readme.md)
 
 
 
