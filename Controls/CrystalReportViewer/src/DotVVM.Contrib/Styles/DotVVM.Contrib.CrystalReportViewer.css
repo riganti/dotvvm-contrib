@@ -1,0 +1,8 @@
+﻿iframe.dotvvm-crystal-report-viewer {
+    border-width: 0;
+    border-style: none;
+}
+
+div.dotvvm-crystal-report-viewer-container {
+    display: inline-block;
+}
