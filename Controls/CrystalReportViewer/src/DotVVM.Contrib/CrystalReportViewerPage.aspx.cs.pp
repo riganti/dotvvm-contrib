@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,7 +17,6 @@ namespace $rootnamespace$
         protected void Page_Load(object sender, EventArgs e)
         {
             var crystalReport = new ReportDocument();
-            var dbService = new DatabaseService();
 
             // make sure that the report is available with a problem
             var crystalReportFile = Request.QueryString["CrystalReportFile"];
@@ -27,7 +29,11 @@ namespace $rootnamespace$
             SetCotrolProperties();
 
             crystalReport.Load(Server.MapPath(crystalReportFile));
-            crystalReport.SetDataSource(dbService.GetTable(crystalReportFile));
+
+			// TODO: set data source for the report
+            DataTable table = null;
+            crystalReport.SetDataSource(table);
+			
             CrystalReportViewer1.ReportSource = crystalReport;
         }
 

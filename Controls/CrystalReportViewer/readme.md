@@ -2,10 +2,29 @@
 
 This DotVVM control hosts the ASP.NET Web Forms version of `CrystalReportViewer` inside an `iframe`. The control is used to render Crystal Reports in DotVVM web pages.
 
-Notice: This control works only with **full .NET Framework** and with classic ASP.NET Application projects (ASP.NET Core and new project system is not supported).
+> This control works only with **full .NET Framework** and with classic ASP.NET Application projects (ASP.NET Core and new project system is not supported).
+You need to use **DotVVM Application (OWIN with .NET Framework)** project template.
 
-[SAP Crystal Reports for Visual Studio](http://www.crystalreports.com/crvs/confirm/) has to be installed on the developer machine.
+> [SAP Crystal Reports for Visual Studio](http://www.crystalreports.com/crvs/confirm/) has to be installed on the developer machine.
 
+## Installation
+
+1. Install the NuGet package.
+
+2. Add the following line in `DotvvmStartup.cs`:
+
+```
+config.AddCrystalReportViewerConfiguration();
+```
+
+3. Add reference to the following assemblies in your project:
+
+```
+CrystalDecisions.Web
+CrystalDecisions.CrystalReports.Engine
+```
+
+4. Edit `CrystalReportViewerPage.aspx` and provide a correct DataSource to the ASP.NET control.
 
 
 ## Sample 1: Basic usage

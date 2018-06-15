@@ -21,29 +21,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="CrystalReportViewerPage.aspx.cs" />
-    <Compile Remove="CrystalReportViewerPage.aspx.designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="CrystalReportViewerPage.aspx" />
+    <None Remove="CrystalReportViewerPage.aspx.pp" />
     <None Remove="Scripts\DotVVM.Contrib.CrystalReportViewer.js" />
     <None Remove="Styles\DotVVM.Contrib.CrystalReportViewer.css" />
     <None Remove="web.config.transform" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="CrystalReportViewerPage.aspx" copyToOutput="true">
+    <Content Include="CrystalReportViewerPage.aspx.pp" copyToOutput="true">
       <IncludeInPackage>true</IncludeInPackage>
     </Content>
-    <Content Include="CrystalReportViewerPage.aspx.cs" copyToOutput="true">
+    <Content Include="CrystalReportViewerPage.aspx.cs.pp" copyToOutput="true">
       <IncludeInPackage>true</IncludeInPackage>
       <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>CrystalReportViewerPage.aspx</DependentUpon>
+      <DependentUpon>CrystalReportViewerPage.aspx.pp</DependentUpon>
     </Content>
-    <Content Include="CrystalReportViewerPage.aspx.designer.cs" copyToOutput="true">
+    <Content Include="CrystalReportViewerPage.aspx.designer.cs.pp" copyToOutput="true">
       <IncludeInPackage>true</IncludeInPackage>
-      <DependentUpon>CrystalReportViewerPage.aspx</DependentUpon>
+      <DependentUpon>CrystalReportViewerPage.aspx.pp</DependentUpon>
     </Content>
     <Content Include="web.config.transform" copyToOutput="true">
       <IncludeInPackage>true</IncludeInPackage>
@@ -56,7 +51,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="2.0.0" />
+    <PackageReference Include="DotVVM" Version="1.1.9.1" />
   </ItemGroup>
 
 </Project>
