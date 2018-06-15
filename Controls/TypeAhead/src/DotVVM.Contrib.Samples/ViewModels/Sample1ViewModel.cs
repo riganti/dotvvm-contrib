@@ -33,7 +33,7 @@ namespace DotVVM.Contrib.Samples.ViewModels
 
 	    public CountryData SelectedCountry { get; set; }
 
-	    public int SelectedCountryId { get; set; } = 3;
+	    public int? SelectedCountryId { get; set; } = 3;
 
 
 
