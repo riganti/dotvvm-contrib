@@ -11,7 +11,7 @@ namespace DotVVM.Contrib.Samples.ViewModels
 
 	    public List<string> Letters { get; set; } = new List<string>() { "a", "b", "c", "d" };
 
-	    public List<string> SelectedLetters { get; set; } = new List<string>() { "b" };
+	    public List<string> SelectedLetters { get; set; } = new List<string>();
 
 	    public void OnSelected()
 	    {
