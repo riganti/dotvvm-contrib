@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net451</TargetFrameworks>
     <PackageId>DotVVM.Contrib.CrystalReportViewer</PackageId>
-    <PackageVersion>0.0.1</PackageVersion>
+    <PackageVersion>1.1.9.1-preview01-final</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
     <Description>The CrystalReportViewer control for DotVVM made by DotVVM Contrib community.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
