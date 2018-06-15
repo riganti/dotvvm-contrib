@@ -24,7 +24,8 @@ CrystalDecisions.Web
 CrystalDecisions.CrystalReports.Engine
 ```
 
-4. Edit `CrystalReportViewerPage.aspx` and provide a correct DataSource to the ASP.NET control.
+4. Edit `CrystalReportViewerPage.aspx.cs` and provide a correct DataSource to the ASP.NET control based on the report file that was selected.
+Feel free to edit this page to fit your needs.
 
 
 ## Sample 1: Basic usage
