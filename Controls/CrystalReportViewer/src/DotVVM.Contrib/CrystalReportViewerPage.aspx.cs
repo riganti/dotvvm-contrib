@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
-using System.Security;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CrystalDecisions.CrystalReports.Engine;
 
-namespace DotVVM.Contrib.Samples
+namespace $rootnamespace$
 {
     public partial class CrystalReportViewerPage : System.Web.UI.Page
     {

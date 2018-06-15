@@ -21,8 +21,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CrystalReportViewerPage.aspx.cs" />
+    <Compile Remove="CrystalReportViewerPage.aspx.designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="CrystalReportViewerPage.aspx" />
     <None Remove="Scripts\DotVVM.Contrib.CrystalReportViewer.js" />
     <None Remove="Styles\DotVVM.Contrib.CrystalReportViewer.css" />
+    <None Remove="web.config.transform" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="CrystalReportViewerPage.aspx" copyToOutput="true">
+      <IncludeInPackage>true</IncludeInPackage>
+    </Content>
+    <Content Include="CrystalReportViewerPage.aspx.cs" copyToOutput="true">
+      <IncludeInPackage>true</IncludeInPackage>
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>CrystalReportViewerPage.aspx</DependentUpon>
+    </Content>
+    <Content Include="CrystalReportViewerPage.aspx.designer.cs" copyToOutput="true">
+      <IncludeInPackage>true</IncludeInPackage>
+      <DependentUpon>CrystalReportViewerPage.aspx</DependentUpon>
+    </Content>
+    <Content Include="web.config.transform" copyToOutput="true">
+      <IncludeInPackage>true</IncludeInPackage>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
