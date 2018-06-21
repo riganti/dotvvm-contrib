@@ -1,0 +1,25 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <dot:Button Click="{command: Action(1)}" Text="1 second delay">
+        <PostBack.Handlers>
+            <dc:StaticCommandPostBackHandler BeforePostBack="{staticCommand: Message = '1 sec'}" />
+        </PostBack.Handlers>
+    </dot:Button>
+
+    <dot:Button Click="{command: Action(5)}" Text="5 second delay">
+        <PostBack.Handlers>
+            <dc:StaticCommandPostBackHandler BeforePostBack="{staticCommand: Message = '5 sec'}" />
+        </PostBack.Handlers>
+    </dot:Button>
+
+    <dot:UpdateProgress>
+        Waiting {{value: Message}} ...
+    </dot:UpdateProgress>
+
+
+    <dot:RequiredResource Name="dotvvm.contrib.StaticCommandPostBackHandler"/>
+</dot:Content>
+
