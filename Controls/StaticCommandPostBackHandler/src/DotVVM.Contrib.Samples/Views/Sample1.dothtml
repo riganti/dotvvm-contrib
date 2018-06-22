@@ -19,7 +19,5 @@
         Waiting {{value: Message}} ...
     </dot:UpdateProgress>
 
-
-    <dot:RequiredResource Name="dotvvm.contrib.StaticCommandPostBackHandler"/>
 </dot:Content>
 

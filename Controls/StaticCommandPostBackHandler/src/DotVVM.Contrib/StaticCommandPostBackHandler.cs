@@ -4,6 +4,7 @@ using DotVVM.Framework.Binding;
 using DotVVM.Framework.Binding.Expressions;
 using DotVVM.Framework.Compilation.Javascript;
 using DotVVM.Framework.Controls;
+using DotVVM.Framework.ResourceManagement;
 
 namespace DotVVM.Contrib
 {
@@ -33,6 +34,11 @@ namespace DotVVM.Contrib
         }
         public static readonly DotvvmProperty BeforePostBackProperty
             = DotvvmProperty.Register<string, StaticCommandPostBackHandler>(c => c.BeforePostBack, null);
+
+        public StaticCommandPostBackHandler(ResourceManager resourceManager)
+        {
+            resourceManager.AddRequiredResource("dotvvm.contrib.StaticCommandPostBackHandler");
+        }
 
         private object GenerateCommandFunction(string propertyName, ICommandBinding commandBinding)
         {
