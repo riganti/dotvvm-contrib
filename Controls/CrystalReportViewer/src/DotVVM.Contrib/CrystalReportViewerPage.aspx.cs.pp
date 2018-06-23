@@ -20,7 +20,7 @@ namespace $rootnamespace$
 
             // make sure that the report is available with a problem
             var crystalReportFile = Request.QueryString["CrystalReportFile"];
-            var fullPath = Path.GetFullPath(crystalReportFile);
+            var fullPath = Path.Combine(Request.PhysicalApplicationPath, crystalReportFile);
             if (!fullPath.EndsWith(".rpt", StringComparison.OrdinalIgnoreCase) || !fullPath.StartsWith(Request.PhysicalApplicationPath, StringComparison.OrdinalIgnoreCase))
             {
                 throw new SecurityException("Cannot load report files with different extension than RPT, or files from outside of application directory!");
