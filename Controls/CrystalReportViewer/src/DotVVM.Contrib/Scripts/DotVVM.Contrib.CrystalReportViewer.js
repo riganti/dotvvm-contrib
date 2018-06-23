@@ -25,9 +25,9 @@ function setIframeSrc(element, crystalReportFile) {
     addQueryParam(queryParams, element, "Width", "width");
     addQueryParam(queryParams, element, "Height", "height");
 
-    queryParams.forEach(function(item) {
-            src += "&" + item.name + "=" + item.value;
-    });
+    for (let i = 0; i < queryParams.length; i++) {
+        src += "&" + queryParams[i].name + "=" + queryParams[i].value;
+    }
 
     iframe.setAttribute("src", src);
 }
@@ -52,8 +52,9 @@ function resizeInnerContent(innerContent) {
     innerContent.body.style.margin = 0;
 
     var elements = innerContent.body.querySelectorAll("div[id$='__UI_mb'], div[id$='__UI_bc']");
-    elements.forEach(function (element) {
-        element.style.left = 0;
-        element.style.top = 0;
-    });
+
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.left = 0;
+        elements[i].style.top = 0;
+    }
 }
