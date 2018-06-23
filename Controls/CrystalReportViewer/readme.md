@@ -27,6 +27,7 @@ CrystalDecisions.CrystalReports.Engine
 4. Edit `CrystalReportViewerPage.aspx.cs` and provide a correct DataSource to the ASP.NET control based on the report file that was selected.
 Feel free to edit this page to fit your needs.
 
+> In order to use the sample application you have to copy contents of the folder: `C:\inetpub\wwwroot\aspnet_client\system_web\4_0_30319\crystalreportviewers13\` into: `aspnet_client\system_web\4_0_30319\crystalreportviewers13\` in the `wwwroot` of your application.
 
 ## Sample 1: Basic usage
 
