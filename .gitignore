@@ -251,3 +251,4 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/Controls/CrystalReportViewer/src/DotVVM.Contrib.Samples/aspnet_client/system_web/4_0_30319/crystalreportviewers13

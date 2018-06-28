@@ -1,0 +1,9 @@
+<configuration>
+  <system.web>
+    <compilation>
+      <assemblies>
+        <add assembly="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304"/>
+      </assemblies>
+    </compilation>
+  </system.web>
+</configuration>
