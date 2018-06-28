@@ -13,8 +13,6 @@ namespace DotVVM.Contrib
     [ControlMarkupOptions(AllowContent = false, DefaultContentProperty = nameof(ContentTemplate))]
     public class LoadablePanel : HtmlGenericControl
     {
-        private const string _progressTemplate = "_progress";
-
         public LoadablePanel() : base("div")
         { }
 
@@ -67,6 +65,7 @@ namespace DotVVM.Contrib
 
         public static readonly DotvvmProperty HideUntilLoadedProperty =
             DotvvmProperty.Register<bool, LoadablePanel>(t => t.HideUntilLoaded);
+        private DotvvmControl _progress;
 
         protected override void OnInit(IDotvvmRequestContext context)
         {
@@ -116,16 +115,15 @@ namespace DotVVM.Contrib
 
             if (ProgressTemplate != null)
             {
-                binding.Add("progressElement", GetValueRaw(Internal.UniqueIDProperty) + _progressTemplate);
+                binding.Add("progressElement", "true");
             }
 
             return binding;
         }
 
-        private DotvvmControl GetProgress(IDotvvmRequestContext context)
+        private HtmlGenericControl GetProgress(IDotvvmRequestContext context)
         {
             var div = new HtmlGenericControl("div");
-            div.ID = GetValueRaw(Internal.UniqueIDProperty) + _progressTemplate;
             div.SetDataContextType(this.GetDataContextType());
             ProgressTemplate.BuildContent(context, div);
             return div;

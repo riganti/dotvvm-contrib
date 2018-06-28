@@ -4,7 +4,7 @@
 
         var progressElement = null;
         if (progressElementBinding) {
-            progressElement = progressElementBinding;
+            progressElement = element.getElementsByTagName('div')[0];
         }
 
         function loaded() {

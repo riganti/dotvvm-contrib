@@ -8,6 +8,7 @@
 	<ItemGroup>
 		<None Remove="dotvvm_serialized_config.json.tmp" />
 		<None Remove="Views\Sample2.dothtml" />
+		<None Remove="Views\Sample3.dothtml" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Content Include="Views\_master.dotmaster" />

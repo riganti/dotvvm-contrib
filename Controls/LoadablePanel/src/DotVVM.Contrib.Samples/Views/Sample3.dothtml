@@ -1,0 +1,19 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample3ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+@service viewModel = DotVVM.Contrib.Samples.ViewModels.Sample3ViewModel
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <dot:Repeater DataSource="{value: Items}">
+        <dc:LoadablePanel Load="{staticCommand: _this.Data = viewModel.LoadItem(_this.Id).Result}" HideUntilLoaded="true" class="panel">
+            <ProgressTemplate>
+                <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+            </ProgressTemplate>
+            <ContentTemplate>
+                <div class="box">Loaded</div>
+            </ContentTemplate>
+        </dc:LoadablePanel>
+    </dot:Repeater>
+
+</dot:Content>
+
