@@ -10,7 +10,7 @@ namespace DotVVM.Contrib.Samples.ViewModels
 	public class Sample3ViewModel : MasterViewModel
 	{
         public IEnumerable<Item> Items { get; set; } = Enumerable.Repeat(new Item { Id = "id" } , 8);
-
+        public List<string> LoadingItems { get; set; } = new List<string>();
         [AllowStaticCommand]
         public async Task<string> LoadItem(string id)
         {

@@ -4,13 +4,22 @@
 
 <dot:Content ContentPlaceHolderID="MainContent">
 
+    <div Visible="{value: _root.LoadingItems.Count == 0}">
+        <dot:UpdateProgress>
+            <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+        </dot:UpdateProgress>
+    </div>
+
     <dot:Repeater DataSource="{value: Items}">
-        <dc:LoadablePanel Load="{staticCommand: _this.Data = viewModel.LoadItem(_this.Id).Result}" HideUntilLoaded="true" class="panel">
+        <dc:LoadablePanel Load="{staticCommand: _this.Data = viewModel.LoadItem(_this.Id).Result}" LoadingItems="{value: _root.LoadingItems}" HideUntilLoaded="true" class="panel">
             <ProgressTemplate>
                 <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
             </ProgressTemplate>
             <ContentTemplate>
-                <div class="box">Loaded</div>
+                <div class="box">
+                    <h1>Loaded</h1>
+                    <dot:Button Click="{command: _root.LoadItem(Id)}" Text="PostBack" />
+                </div>
             </ContentTemplate>
         </dc:LoadablePanel>
     </dot:Repeater>

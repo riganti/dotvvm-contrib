@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using DotVVM.Framework.Binding;
 using DotVVM.Framework.Binding.Expressions;
 using DotVVM.Framework.Compilation.Javascript;
@@ -56,6 +57,10 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty LoadProperty
             = DotvvmProperty.Register<Command, LoadablePanel>(t => t.Load);
 
+        /// <summary>
+        /// Gets or sets a flag which control if content of loadable panel is visible during loading. 
+        /// Default value is false.
+        /// </summary>
         [MarkupOptions(AllowBinding = false, AllowHardCodedValue = true, Required = false)]
         public bool HideUntilLoaded
         {
@@ -65,7 +70,17 @@ namespace DotVVM.Contrib
 
         public static readonly DotvvmProperty HideUntilLoadedProperty =
             DotvvmProperty.Register<bool, LoadablePanel>(t => t.HideUntilLoaded);
-        private DotvvmControl _progress;
+
+        /// <summary>
+        /// Gets or sets a collection of values of all loadable panels which are currently loading.
+        /// </summary>
+        public IEnumerable LoadingItems
+        {
+            get { return (IEnumerable)GetValue(LoadingItemsProperty); }
+            set { SetValue(LoadingItemsProperty, value); }
+        }
+        public static readonly DotvvmProperty LoadingItemsProperty =
+            DotvvmProperty.Register<IEnumerable, LoadablePanel>(t => t.LoadingItems, null);
 
         protected override void OnInit(IDotvvmRequestContext context)
         {
@@ -116,6 +131,12 @@ namespace DotVVM.Contrib
             if (ProgressTemplate != null)
             {
                 binding.Add("progressElement", "true");
+            }
+
+            var loadingItemsBinding = GetValueBinding(LoadingItemsProperty);
+            if (loadingItemsBinding != null)
+            {
+                binding.Add("loadingItems", this, LoadingItemsProperty);
             }
 
             return binding;
