@@ -22,8 +22,6 @@ namespace DotVVM.Contrib
             });
 
             // register additional resources for the control and set up dependencies
-            
-
             config.Resources.Register("select2", new ScriptResource()
             {
                 Location = new EmbeddedResourceLocation(typeof(Select2).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.select2.select2.min.js"),
@@ -35,13 +33,11 @@ namespace DotVVM.Contrib
                 Location = new EmbeddedResourceLocation(typeof(Select2).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.select2.select2.min.css")
             });
 
-
             config.Resources.Register("dotvvm.contrib.Select2", new ScriptResource()
             {
                 Location = new EmbeddedResourceLocation(typeof(Select2).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.Select2.js"),
                 Dependencies = new[] { "select2" }
             });
         }
-
     }
 }

@@ -15,7 +15,6 @@ namespace DotVVM.Contrib.Samples.ViewModels
 
 	    public void OnSelected()
 	    {
-	        SelectedLetters = new List<string>() { "d" };
 	        NumberOfRequests++;
 	    }
 

@@ -1,14 +1,12 @@
-﻿using System;
-using DotVVM.Framework.Binding;
-using DotVVM.Framework.Controls;
+﻿using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
 namespace DotVVM.Contrib
 {
     /// <summary>
-    /// Renders a Select2 multi-select control.
+    /// Renders a Select2 single-select control.
     /// </summary>
-    public class Select2 : MultiSelectHtmlControlBase
+    public class Select2Single : SelectHtmlControlBase
     {
         protected override void OnPreRender(IDotvvmRequestContext context)
         {
@@ -21,7 +19,7 @@ namespace DotVVM.Contrib
         {
             base.AddAttributesToRender(writer, context);
 
-            writer.AddKnockoutDataBind("dotvvm-contrib-Select2", this, SelectedValuesProperty, renderEvenInServerRenderingMode: true);
+            writer.AddKnockoutDataBind("dotvvm-contrib-Select2", this, SelectedValueProperty, renderEvenInServerRenderingMode: true);
         }
     }
 }

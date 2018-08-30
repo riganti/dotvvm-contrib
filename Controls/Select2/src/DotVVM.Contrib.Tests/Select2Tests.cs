@@ -77,7 +77,6 @@ namespace DotVVM.Contrib.Tests
             result.CheckIfTextEquals("New York,Paris");
         }
 
-
         [TestMethod]
         public void Select2_Sample2()
         {
@@ -96,6 +95,54 @@ namespace DotVVM.Contrib.Tests
 
                 browser.FindElements(".select2-selection__choice").ThrowIfDifferentCountThan(1);
                 Assert.AreEqual("1", result.GetInnerText());
+            });
+        }
+
+        [TestMethod]
+        public void Select2_Sample3()
+        {
+            RunInAllBrowsers(browser =>
+            {
+                browser.NavigateToUrl("/Sample3");
+
+                ElementWrapper OpenSelectInput()
+                {
+                    browser.Single(".select2").Click();
+                    return browser.First(".select2-search input");
+                }
+                var requestCount = browser.Single(".number-of-requests");
+                var selectedValue = browser.Single(".selected-value");
+                var displayValue = browser.Single(".select2-selection__rendered");
+
+                var input = OpenSelectInput();
+                input.SendKeys("c");
+                input.SendKeys(Keys.Return);
+
+                browser.Wait();
+
+                Assert.AreEqual("c", displayValue.GetInnerText());
+                Assert.AreEqual("2", selectedValue.GetInnerText());
+                Assert.AreEqual("1", requestCount.GetInnerText());
+
+                input = OpenSelectInput();
+                input.SendKeys("a");
+                input.SendKeys(Keys.Return);
+
+                browser.Wait();
+
+                Assert.AreEqual("a", displayValue.GetInnerText());
+                Assert.AreEqual("0", selectedValue.GetInnerText());
+                Assert.AreEqual("2", requestCount.GetInnerText());
+
+                browser.Single("[data-ui=change-in-postback]").Click();
+                Assert.AreEqual("c", displayValue.GetInnerText());
+                Assert.AreEqual("2", selectedValue.GetInnerText());
+                Assert.AreEqual("2", requestCount.GetInnerText());
+
+                browser.Single("[data-ui=change-in-static-command]").Click();
+                Assert.AreEqual("b", displayValue.GetInnerText());
+                Assert.AreEqual("1", selectedValue.GetInnerText());
+                Assert.AreEqual("2", requestCount.GetInnerText());
             });
         }
     }

@@ -7,12 +7,12 @@
         <dc:Select2 DataSource="{value: Letters}"
                     SelectedValues="{value: SelectedLetters}"
                     SelectionChanged="{command: OnSelected()}"
-                    style="width: 200px"/>
+                    style="width: 200px" />
     </p>
 
     <p class="number-of-requests">{{value: NumberOfRequests}}</p>
-<dot:Repeater DataSource="{value: SelectedLetters}">
-    {{value: _this}}
-</dot:Repeater>
+    <dot:Repeater DataSource="{value: SelectedLetters}">
+        {{value: _this}}
+    </dot:Repeater>
 </dot:Content>
 
