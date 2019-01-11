@@ -1,0 +1,32 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="container">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date 1</label>
+            <div class="col-sm-5">
+                <div class="form-control-plaintext">
+                    <dot:Literal Text="{value: Date1}" />
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <dc:BootstrapDatepicker Date="{value: Date1}" class="form-control">
+                </dc:BootstrapDatepicker>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date 2</label>
+            <div class="col-sm-5">
+                <div class="form-control-plaintext">
+                    <dot:Literal Text="{value: Date2}" FormatString="d.M.yyyy" />
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <dc:BootstrapDatepicker Date="{value: Date2}"  data-date-format="d.m.yyyy" class="form-control">
+                </dc:BootstrapDatepicker>
+            </div>
+        </div>
+    </div>
+</dot:Content>
+

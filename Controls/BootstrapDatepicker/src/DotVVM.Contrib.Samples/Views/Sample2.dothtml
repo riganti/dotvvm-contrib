@@ -1,0 +1,30 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="container">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date (cz - current)</label>
+            <div class="col-sm-5">
+                <dc:BootstrapDatepicker Date="{value: Date1}" class="form-control">
+                </dc:BootstrapDatepicker>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date (en)</label>
+            <div class="col-sm-5">
+                <dc:BootstrapDatepicker Date="{value: Date1}" Language="en" class="form-control">
+                </dc:BootstrapDatepicker>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date ({{value: Lang}})</label>
+            <div class="col-sm-5">
+                <dc:BootstrapDatepicker Date="{value: Date1}" Language="{resource: Lang}" class="form-control">
+                </dc:BootstrapDatepicker>
+            </div>
+        </div>
+    </div>
+
+</dot:Content>
+
