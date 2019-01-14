@@ -6,21 +6,21 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Date (cz - current)</label>
             <div class="col-sm-5">
-                <dc:BootstrapDatepicker Date="{value: Date1}" class="form-control">
+                <dc:BootstrapDatepicker Date="{value: Date1}" class="form-control" id="dp1">
                 </dc:BootstrapDatepicker>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Date (en)</label>
             <div class="col-sm-5">
-                <dc:BootstrapDatepicker Date="{value: Date1}" Language="en" class="form-control">
+                <dc:BootstrapDatepicker Date="{value: Date1}" Language="en" class="form-control" id="dp2">
                 </dc:BootstrapDatepicker>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Date ({{value: Lang}})</label>
             <div class="col-sm-5">
-                <dc:BootstrapDatepicker Date="{value: Date1}" Language="{resource: Lang}" class="form-control">
+                <dc:BootstrapDatepicker Date="{value: Date1}" Language="{resource: Lang}" class="form-control" id="dp3">
                 </dc:BootstrapDatepicker>
             </div>
         </div>
