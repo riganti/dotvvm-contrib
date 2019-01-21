@@ -15,6 +15,11 @@ namespace DotVVM.Contrib.Samples.ViewModels
             CultureInfo.CurrentCulture = CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("cs");
             return base.Init();
         }
+
+        public void SetDate1()
+        {
+            Date1 = new DateTime(2000, 1, 20);
+        }
     }
 }
 

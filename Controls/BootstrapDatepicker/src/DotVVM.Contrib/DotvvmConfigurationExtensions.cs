@@ -22,15 +22,15 @@ namespace DotVVM.Contrib
             {
                 config.Markup.Controls.Add(new DotvvmControlConfiguration()
                 {
-                    Assembly = "DotVVM.Contrib",
-                    Namespace = "DotVVM.Contrib",
+                    Assembly = typeof(BootstrapDatepicker).Assembly.GetName().Name,
+                    Namespace = typeof(BootstrapDatepicker).Namespace,
                     TagPrefix = "dc"
                 });
             }
 
             if (locales != null)
             {
-                var missingLocale = locales.Where(p => !BootstrapDatepickerConsts.Locales.Contains(p, StringComparer.OrdinalIgnoreCase)).FirstOrDefault();
+                var missingLocale = locales.FirstOrDefault(p => !BootstrapDatepickerConsts.Locales.Contains(p, StringComparer.OrdinalIgnoreCase));
                 if (!string.IsNullOrWhiteSpace(missingLocale))
                     throw new NotSupportedException($"Locale '{missingLocale}' is not supported in Bootstrap datepicker");
 

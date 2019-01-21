@@ -11,7 +11,7 @@
                 var prop = valueAccessor();
 
                 if (ko.isObservable(prop)) {
-                    prop(e.date);
+                    prop(dotvvm.serialization.serializeDate(e.date, false));
                 }
             })
             .on('change', function (e) {
@@ -28,11 +28,11 @@
     update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
         var value = ko.unwrap(valueAccessor());
 
-        if (value && typeof value === "string") {
-            value = new Date(value);
+        if (typeof value === "string") {
+            value = dotvvm.globalize.parseDotvvmDate(value);
         }
-
-        if (value) {
+        
+        if (value instanceof Date) {
             $el = $(element);
             $inputGroup = $el.parent();
 
@@ -40,6 +40,8 @@
                 $el = $inputGroup;
 
             $el.datepicker('update', value);
+        } else {
+            $el.val("");
         }
     }
 };

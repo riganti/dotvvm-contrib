@@ -12,6 +12,7 @@ namespace DotVVM.Contrib.Samples
         // For more information about this class, visit https://dotvvm.com/docs/tutorials/basics-project-structure
         public void Configure(DotvvmConfiguration config, string applicationPath)
         {
+            config.DefaultCulture = "cs";
             config.AddContribBootstrapDatepickerConfiguration(new[] { "cs", "fr" });
 
             ConfigureRoutes(config, applicationPath);

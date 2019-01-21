@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample3ViewModel, DotVVM.Contrib.Samples
 @masterPage Views/_master.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
@@ -22,6 +22,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="form-group row">
+            <dot:Button Text="Set Date1" Click="{command: SetDate1()}" class="btn btn-primary" />
         </div>
     </div>
 

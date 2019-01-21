@@ -24,6 +24,9 @@
                 </dc:BootstrapDatepicker>
             </div>
         </div>
+        <div class="form-group row">
+            <dot:Button Text="Set Date1" Click="{command: SetDate1()}" class="btn btn-primary" />
+        </div>
     </div>
 
 </dot:Content>
