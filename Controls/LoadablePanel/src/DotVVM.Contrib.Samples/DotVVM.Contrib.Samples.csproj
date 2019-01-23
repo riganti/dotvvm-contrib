@@ -6,6 +6,12 @@
 		<Content Include="**\*.dothtml" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Compile Remove="wwwroot\NewFolder\**" />
+	  <Content Remove="wwwroot\NewFolder\**" />
+	  <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+	  <None Remove="wwwroot\NewFolder\**" />
+	</ItemGroup>
+	<ItemGroup>
 		<None Remove="dotvvm_serialized_config.json.tmp" />
 		<None Remove="Views\Sample2.dothtml" />
 		<None Remove="Views\Sample3.dothtml" />
@@ -14,13 +20,10 @@
 	  <Content Include="Views\_master.dotmaster" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="wwwroot\" />
-	</ItemGroup>
-	<ItemGroup>
-		<PackageReference Include="DotVVM" Version="2.0.0" />
+		<PackageReference Include="DotVVM" Version="2.1.0" />
 		<PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
 		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
-		<PackageReference Include="DotVVM.AspNetCore" Version="2.0.0" />
+		<PackageReference Include="DotVVM.AspNetCore" Version="2.1.0" />
 	</ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="DotVVM.Compiler.Light" Version="1.1.6.3" />
