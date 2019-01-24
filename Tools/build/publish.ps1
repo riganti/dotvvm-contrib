@@ -85,6 +85,7 @@ function BuildPackages() {
 }
 
 function PushPackages() {
+Write-Host "Pushing the packages to feed.";
 	foreach ($package in $packages) {
 		& .\Tools\nuget.exe push .\$($package.Directory)\bin\debug\$($package.Package).$version.nupkg -source $server -apiKey $apiKey | Out-Host
 	}
