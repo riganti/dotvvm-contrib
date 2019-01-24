@@ -41,7 +41,14 @@ function CleanOldGeneratedPackages() {
 
 function SetVersion() {
   	foreach ($package in $packages) {
+		
 		$filePath = ".\$($package.Directory)\DotVVM.Contrib.csproj"
+		if(!(Test-Path -Path $filePath))
+		{
+            Write-Host "File '$($filePath)' not found.";
+			$filePath = ".\$($package.Directory)\DotVVM.Contrib.$($controlName).csproj"
+		}
+
 		$file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<VersionPrefix\>([^<]+)\</VersionPrefix\>", "<VersionPrefix>" + $version + "</VersionPrefix>")
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<PackageVersion\>([^<]+)\</PackageVersion\>", "<PackageVersion>" + $version + "</PackageVersion>")
