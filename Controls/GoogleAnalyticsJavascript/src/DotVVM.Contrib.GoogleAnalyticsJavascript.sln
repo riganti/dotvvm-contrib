@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib", "DotVVM.Contrib\DotVVM.Contrib.csproj", "{3E6C2E46-18DB-47C8-94B8-8B447A6A9216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.GoogleAnalyticsJavascript", "DotVVM.Contrib\DotVVM.Contrib.GoogleAnalyticsJavascript.csproj", "{3E6C2E46-18DB-47C8-94B8-8B447A6A9216}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotVVM.Contrib.Samples", "DotVVM.Contrib.Samples\DotVVM.Contrib.Samples.csproj", "{BEDB2964-D516-492B-AD08-9089F20AE84B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.Samples", "DotVVM.Contrib.Samples\DotVVM.Contrib.Samples.csproj", "{BEDB2964-D516-492B-AD08-9089F20AE84B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotVVM.Contrib.Tests", "DotVVM.Contrib.Tests\DotVVM.Contrib.Tests.csproj", "{BBF2FCCE-45B5-46D1-98A4-201E8DE29A98}"
 EndProject
@@ -30,5 +30,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9179358-13AB-494B-825B-83AEE9BA458A}
 	EndGlobalSection
 EndGlobal
