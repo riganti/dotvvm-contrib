@@ -1,5 +1,6 @@
 param([String]$version, [String]$controlName, [String]$apiKey, [String]$server, [String]$branchName, [String]$repoUrl, [String]$nugetRestoreAltSource = "", [bool]$pushTag)
 
+Write-Host ">> : $pwd";
 
 ### Helper Functions
 
@@ -34,27 +35,31 @@ $LASTEXITCODE
 }
 
 function CleanOldGeneratedPackages() {
+    Write-Host "CleanOldGeneratedPackages started"
 	foreach ($package in $packages) {
 		del .\$($package.Directory)\bin\debug\*.nupkg -ErrorAction SilentlyContinue
 	}
 }
 
 function SetVersion() {
+    Write-Host "SetVersion started"
   	foreach ($package in $packages) {
 		
-		$filePath = ".\$($package.Directory)\DotVVM.Contrib.csproj"
+		$filePath = "$pwd\$($package.Directory)\DotVVM.Contrib.csproj"
 		if(!(Test-Path -Path $filePath))
 		{
             Write-Host "File '$($filePath)' not found.";
-			$filePath = ".\$($package.Directory)\DotVVM.Contrib.$($controlName).csproj"
+			$filePath = "$pwd\$($package.Directory)\DotVVM.Contrib.$($controlName).csproj"
+            Write-Host "csproj file path set to '$($filePath)'.";
 		}
 
+        Write-Host ">> : $pwd";
 		$file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<VersionPrefix\>([^<]+)\</VersionPrefix\>", "<VersionPrefix>" + $version + "</VersionPrefix>")
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<PackageVersion\>([^<]+)\</PackageVersion\>", "<PackageVersion>" + $version + "</PackageVersion>")
 		[System.IO.File]::WriteAllText($filePath, $file, [System.Text.Encoding]::UTF8)
 		
-		$filePath = ".\$($package.Directory)\Properties\AssemblyInfo.cs"
+		$filePath = "$pwd\$($package.Directory)\Properties\AssemblyInfo.cs"
 		$file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\[assembly: AssemblyVersion\(""([^""]+)""\)\]", "[assembly: AssemblyVersion(""" + $versionWithoutPre + """)]")
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\[assembly: AssemblyFileVersion\(""([^""]+)""\)]", "[assembly: AssemblyFileVersion(""" + $versionWithoutPre + """)]")
@@ -63,24 +68,31 @@ function SetVersion() {
 }
 
 function BuildPackages() {
+    Write-Host "BuildPackages started"
 	foreach ($package in $packages) {
 		cd .\$($package.Directory)
-		
+
+
+        Write-Host "Build directory: $pwd";
 		if ($nugetRestoreAltSource -eq "") {
 			& dotnet restore | Out-Host
 		}
 		else {
-			& dotnet restore --source $nugetRestoreAltSource --source https://nuget.org/api/v2/ | Out-Host
+			& dotnet restore --source $nugetRestoreAltSource --source "https://nuget.org/api/v2/" | Out-Host
 		}
-		
-		& dotnet pack | Out-Host
+
+        Write-Host "dotnet pack started at: $pwd";
+
+		& dotnet pack -c Release| Out-Host
 		cd ..\..\..\..
+        Write-Host ">> : $pwd";
 	}
 }
 
 function PushPackages() {
+Write-Host "Pushing the packages to feed.";
 	foreach ($package in $packages) {
-		& .\Tools\nuget.exe push .\$($package.Directory)\bin\debug\$($package.Package).$version.nupkg -source $server -apiKey $apiKey | Out-Host
+		& .\Tools\nuget.exe push .\$($package.Directory)\bin\release\$($package.Package).$version.nupkg -source $server -apiKey $apiKey | Out-Host
 	}
 }
 
