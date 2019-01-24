@@ -15,10 +15,8 @@ namespace DotVVM.Contrib.Tests2
 
                 browser.Single("#CkEditorMinimal");
                 browser.Single("#cke_CkEditorMinimal");
-
             });
         }
-
 
         [TestMethod]
         public void CkEditorMinimal_Sample2()

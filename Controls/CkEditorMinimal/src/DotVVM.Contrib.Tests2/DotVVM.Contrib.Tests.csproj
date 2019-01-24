@@ -7,31 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="CkEditorMinimalTests.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="seleniumconfig.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="CkEditorMinimalTests.cs">
+    <Content Include="seleniumconfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="seleniumconfig.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="1.2.1" />
-    <PackageReference Include="MSTest.TestFramework" Version="1.2.1" />
-    <PackageReference Include="Riganti.Selenium.AssertApi" Version="2.0.1" />
-    <PackageReference Include="Riganti.Selenium.MSTest2Integration" Version="2.0.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+    <PackageReference Include="Riganti.Selenium.AssertApi" Version="2.0.4" />
+    <PackageReference Include="Riganti.Selenium.MSTest2Integration" Version="2.0.4" />
   </ItemGroup>
 
 </Project>

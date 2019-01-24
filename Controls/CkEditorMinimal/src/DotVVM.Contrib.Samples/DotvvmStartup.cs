@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using DotVVM.Contrib.CkEditorMinimal;
 using DotVVM.Framework;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.Routing;
@@ -45,14 +46,12 @@ namespace DotVVM.Contrib.Samples
             config.Resources.Register("ckeditor-config", new ScriptResource(new UrlResourceLocation("~/Content/Lib/ckeditor/config.js"))
             {
                 Dependencies = new[] { "ckeditor" }
-
             });
         }
 
         public void ConfigureServices(IDotvvmServiceCollection services)
         {
             services.AddDefaultTempStorages("Temp");
-
         }
     }
 

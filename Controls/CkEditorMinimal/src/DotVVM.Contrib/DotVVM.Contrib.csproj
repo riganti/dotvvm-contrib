@@ -1,33 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
-	<PackageId>DotVVM.Contrib.CkEditorMinimal</PackageId>
-    <PackageVersion>2.0.0</PackageVersion>
-    <Authors>DotVVM Contrib</Authors>
-    <Description>The CkEditorMinimal control for DotVVM made by DotVVM Contrib community.</Description>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
-    <PackageLicenseUrl>https://github.com/riganti/dotvvm-contrib/blob/master/LICENSE</PackageLicenseUrl>
-	<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
-    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
-    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
-    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
-    <PreserveCompilationContext>true</PreserveCompilationContext>
-    <AssemblyName>DotVVM.Contrib.CkEditorMinimal</AssemblyName>
-    <Version>2.0.0-preview03</Version>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Scripts\DotVVM.Contrib.CkEditorMinimal.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="DotVVM" Version="2.0.0" />
-  </ItemGroup>
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
 </Project>
