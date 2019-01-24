@@ -1,5 +1,6 @@
 param([String]$version, [String]$controlName, [String]$apiKey, [String]$server, [String]$branchName, [String]$repoUrl, [String]$nugetRestoreAltSource = "", [bool]$pushTag)
 
+Write-Host "Current Directory[0]: $pwd";
 
 ### Helper Functions
 
@@ -42,19 +43,21 @@ function CleanOldGeneratedPackages() {
 function SetVersion() {
   	foreach ($package in $packages) {
 		
-		$filePath = ".\$($package.Directory)\DotVVM.Contrib.csproj"
+		$filePath = "$pwd\$($package.Directory)\DotVVM.Contrib.csproj"
 		if(!(Test-Path -Path $filePath))
 		{
             Write-Host "File '$($filePath)' not found.";
-			$filePath = ".\$($package.Directory)\DotVVM.Contrib.$($controlName).csproj"
+			$filePath = "$pwd\$($package.Directory)\DotVVM.Contrib.$($controlName).csproj"
+            Write-Host "csproj file path set to '$($filePath)'.";
 		}
 
+        Write-Host "Current Directory: $pwd";
 		$file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<VersionPrefix\>([^<]+)\</VersionPrefix\>", "<VersionPrefix>" + $version + "</VersionPrefix>")
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<PackageVersion\>([^<]+)\</PackageVersion\>", "<PackageVersion>" + $version + "</PackageVersion>")
 		[System.IO.File]::WriteAllText($filePath, $file, [System.Text.Encoding]::UTF8)
 		
-		$filePath = ".\$($package.Directory)\Properties\AssemblyInfo.cs"
+		$filePath = "$pwd\$($package.Directory)\Properties\AssemblyInfo.cs"
 		$file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\[assembly: AssemblyVersion\(""([^""]+)""\)\]", "[assembly: AssemblyVersion(""" + $versionWithoutPre + """)]")
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\[assembly: AssemblyFileVersion\(""([^""]+)""\)]", "[assembly: AssemblyFileVersion(""" + $versionWithoutPre + """)]")
@@ -65,7 +68,9 @@ function SetVersion() {
 function BuildPackages() {
 	foreach ($package in $packages) {
 		cd .\$($package.Directory)
-		
+        Write-Host "Current Directory changed: $pwd";
+
+
 		if ($nugetRestoreAltSource -eq "") {
 			& dotnet restore | Out-Host
 		}
@@ -75,6 +80,7 @@ function BuildPackages() {
 		
 		& dotnet pack | Out-Host
 		cd ..\..\..\..
+        Write-Host "Current Directory changed: $pwd";
 	}
 }
 
@@ -114,8 +120,14 @@ if ($versionWithoutPre.Contains("-")) {
 }
 
 CleanOldGeneratedPackages;
+Write-Host "Current Directory: $pwd";
+
 GitCheckout;
+Write-Host "Current Directory: $pwd";
 SetVersion;
+Write-Host "Current Directory: $pwd";
 BuildPackages;
+Write-Host "Current Directory: $pwd";
 PushPackages;
+Write-Host "Current Directory: $pwd";
 GitPush;
