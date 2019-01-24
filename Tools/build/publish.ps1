@@ -71,8 +71,6 @@ function BuildPackages() {
     Write-Host "BuildPackages started"
 	foreach ($package in $packages) {
 		cd .\$($package.Directory)
-
-
         Write-Host "Build directory: $pwd";
 		if ($nugetRestoreAltSource -eq "") {
 			& dotnet restore | Out-Host
