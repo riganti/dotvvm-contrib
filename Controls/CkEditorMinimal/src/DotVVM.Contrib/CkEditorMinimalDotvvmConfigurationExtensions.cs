@@ -2,9 +2,9 @@
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 
-namespace DotVVM.Contrib.CkEditorMinimal
+namespace DotVVM.Contrib
 {
-    public static class DotvvmConfigurationExtensions
+    public static class CkEditorMinimalDotvvmConfigurationExtensions
     {
         public static void AddContribCkEditorMinimalConfiguration(this DotvvmConfiguration config)
         {
@@ -19,7 +19,7 @@ namespace DotVVM.Contrib.CkEditorMinimal
             // register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.CkEditorMinimal", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(CkEditorMinimal).GetTypeInfo().Assembly, "DotVVM.Contrib.CkEditorMinimal.Scripts.DotVVM.Contrib.CkEditorMinimal.js"),
+                Location = new EmbeddedResourceLocation(typeof(CkEditorMinimal.CkEditorMinimal).GetTypeInfo().Assembly, "DotVVM.Contrib.CkEditorMinimal.Scripts.DotVVM.Contrib.CkEditorMinimal.js"),
                 Dependencies = new[] { "dotvvm" }
             });
 
