@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace DotVVM.Contrib
 {
-    public static class DotvvmConfigurationExtensions
+    public static class BootstrapDatepickerDotvvmConfigurationExtensions
     {
         public static string[] CurrentLocales { get; private set; }
 
