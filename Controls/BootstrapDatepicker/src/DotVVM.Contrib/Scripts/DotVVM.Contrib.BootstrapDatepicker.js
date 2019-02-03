@@ -1,7 +1,7 @@
 ﻿ko.bindingHandlers["dotvvm-contrib-BootstrapDatepicker"] = {
     init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
-        $el = $(element);
-        $inputGroup = $el.parent();
+        var $el = $(element);
+        var $inputGroup = $el.parent();
 
         if ($inputGroup.is('.input-group.date'))
             $el = $inputGroup;
@@ -17,20 +17,11 @@
                     }
                 }
             })
-            .on('change', function (e) {
-                if (!$(element).val()) {
-
-                    var prop = valueAccessor();
-                    if (ko.isObservable(prop)) {
-                        prop(null);
-                    }
-                }
-            }).
-            on('blur', function (e) { // hotfix for https://github.com/uxsolutions/bootstrap-datepicker/issues/2325
+            .on('change blur', function (e) { // hotfix for https://github.com/uxsolutions/bootstrap-datepicker/issues/2325
                 var prop = valueAccessor();
 
                 if (ko.isObservable(prop)) {
-                    var v = dotvvm.serialization.serializeDate($(element).datepicker('getDate'), false);
+                    var v = dotvvm.serialization.serializeDate($el.datepicker('getDate'), false);
                     if (prop() !== v) { // prevents multiple viewmodel updates
                         prop(v);
                     }
@@ -45,9 +36,9 @@
             value = dotvvm.globalize.parseDotvvmDate(value);
         }
         
+        var $el = $(element);
         if (value instanceof Date) {
-            $el = $(element);
-            $inputGroup = $el.parent();
+            var $inputGroup = $el.parent();
 
             if ($inputGroup.is('.input-group.date'))
                 $el = $inputGroup;
