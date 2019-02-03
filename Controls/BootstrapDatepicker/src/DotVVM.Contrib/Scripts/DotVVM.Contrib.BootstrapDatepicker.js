@@ -11,7 +11,10 @@
                 var prop = valueAccessor();
 
                 if (ko.isObservable(prop)) {
-                    prop(dotvvm.serialization.serializeDate(e.date, false));
+                    var v = dotvvm.serialization.serializeDate(e.date, false);
+                    if (v !== prop()) { // prevents multiple viewmodel updates
+                        prop(v);
+                    }
                 }
             })
             .on('change', function (e) {
@@ -20,6 +23,16 @@
                     var prop = valueAccessor();
                     if (ko.isObservable(prop)) {
                         prop(null);
+                    }
+                }
+            }).
+            on('blur', function (e) { // hotfix for https://github.com/uxsolutions/bootstrap-datepicker/issues/2325
+                var prop = valueAccessor();
+
+                if (ko.isObservable(prop)) {
+                    var v = dotvvm.serialization.serializeDate($(element).datepicker('getDate'), false);
+                    if (prop() !== v) { // prevents multiple viewmodel updates
+                        prop(v);
                     }
                 }
             });

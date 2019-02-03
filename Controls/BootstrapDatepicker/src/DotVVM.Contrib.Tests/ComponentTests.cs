@@ -85,6 +85,28 @@ namespace DotVVM.Contrib.Tests
             });
         }
 
+        [Fact]
+        public void Sample3Test()
+        {
+            RunInAllBrowsers(browser =>
+            {
+                browser.NavigateToUrl("/Sample1");
+                browser.Wait(2000);
+
+                var dp1 = browser.Single("#dp1");
+                var dp2 = browser.Single("#dp2");
+                var lit2 = browser.Single("#lit2");
+
+                dp2.SetFocus();
+                browser.Wait(500);
+                dp2.SendKeys(Keys.Backspace);
+                dp2.SendKeys("8");
+                dp1.SetFocus();
+                browser.Wait(500);
+                Assert.Equal(dp2.GetValue(), lit2.GetText());
+            });
+        }
+
         public ComponentTests(ITestOutputHelper output) : base(output)
         {
         }

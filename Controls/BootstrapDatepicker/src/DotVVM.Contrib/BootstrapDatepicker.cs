@@ -68,16 +68,16 @@ namespace DotVVM.Contrib
 
             var language = Language;
 
-            if (DotvvmConfigurationExtensions.CurrentLocales != null)
+            if (BootstrapDatepickerDotvvmConfigurationExtensions.CurrentLocales != null)
             {
                 if (string.IsNullOrWhiteSpace(language))
                 {
                     language = CultureInfo.CurrentUICulture.Name;
-                    if (!DotvvmConfigurationExtensions.CurrentLocales.Any(p => p.Equals(language, StringComparison.OrdinalIgnoreCase)))
+                    if (!BootstrapDatepickerDotvvmConfigurationExtensions.CurrentLocales.Any(p => p.Equals(language, StringComparison.OrdinalIgnoreCase)))
                     {
                         language = language.Substring(0, 2);
-                        if (!DotvvmConfigurationExtensions.CurrentLocales.Any(p => p.Equals(language, StringComparison.OrdinalIgnoreCase)))
-                            language = null;
+                        if (!BootstrapDatepickerDotvvmConfigurationExtensions.CurrentLocales.Any(p => p.Equals(language, StringComparison.OrdinalIgnoreCase)))
+                            throw new Exception($"Language {CultureInfo.CurrentUICulture.Name} is not supported");
                     }
                 }
 
