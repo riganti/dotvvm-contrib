@@ -1,9 +1,7 @@
-﻿using System;
-using DotVVM.Framework.Binding;
-using DotVVM.Framework.Controls;
+﻿using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.Select2
 {
     /// <summary>
     /// Renders a Select2 multi-select control.

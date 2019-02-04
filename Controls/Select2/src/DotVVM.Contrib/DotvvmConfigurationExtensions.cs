@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 
@@ -24,18 +20,18 @@ namespace DotVVM.Contrib
             // register additional resources for the control and set up dependencies
             config.Resources.Register("select2", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(Select2).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.select2.select2.min.js"),
+                Location = new EmbeddedResourceLocation(typeof(Select2.Select2).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.select2.select2.min.js"),
                 Dependencies = new[] { "dotvvm", "select2.css", "jquery" }
             });
 
             config.Resources.Register("select2.css", new StylesheetResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(Select2).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.select2.select2.min.css")
+                Location = new EmbeddedResourceLocation(typeof(Select2.Select2).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.select2.select2.min.css")
             });
 
             config.Resources.Register("dotvvm.contrib.Select2", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(Select2).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.Select2.js"),
+                Location = new EmbeddedResourceLocation(typeof(Select2.Select2).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.Select2.js"),
                 Dependencies = new[] { "select2" }
             });
         }
