@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 
@@ -10,8 +8,10 @@ namespace DotVVM.Contrib
 {
     public static class DotvvmConfigurationExtensions
     {
+        private static readonly string assemblyName = typeof(FAIcon.FAIcon).Assembly.GetName().Name;
 
         public const string ScriptDependencyName = "dotvvm.contrib.FAIcon.script";
+
         public static void AddContribFAIconConfiguration(this DotvvmConfiguration config)
         {
             RegisterTag(config);
@@ -30,7 +30,7 @@ namespace DotVVM.Contrib
             // NOTE: all resource names should start with "dotvvm.contrib.FAIcon"
         }
 
-        public static void AddContribFAIconConfiguration(this DotvvmConfiguration config,StylesheetResource FAIconResource)
+        public static void AddContribFAIconConfiguration(this DotvvmConfiguration config, StylesheetResource FAIconResource)
         {
             RegisterTag(config);
 
@@ -38,7 +38,7 @@ namespace DotVVM.Contrib
 
             AddScriptResourceDependency(FAIconResource);
 
-            config.Resources.Register("dotvvm.contrib.FAIcon",FAIconResource);
+            config.Resources.Register("dotvvm.contrib.FAIcon", FAIconResource);
 
             // NOTE: all resource names should start with "dotvvm.contrib.FAIcon"
         }
@@ -56,24 +56,24 @@ namespace DotVVM.Contrib
 
         private static void RegisterScriptResource(DotvvmConfiguration config)
         {
-// register additional resources for the control and set up dependencies
+            // register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.FAIcon.script", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(FAIcon).GetTypeInfo().Assembly,
-                    "DotVVM.Contrib.Scripts.DotVVM.Contrib.FAIcon.js"),
-                Dependencies = new[] {"dotvvm"}
+                Location = new EmbeddedResourceLocation(typeof(FAIcon.FAIcon).GetTypeInfo().Assembly,
+                    $"{assemblyName}.Scripts.DotVVM.Contrib.FAIcon.js"),
+                Dependencies = new[] { "dotvvm" }
             });
         }
 
         private static void RegisterTag(DotvvmConfiguration config)
         {
-// register tag prefix
+            // register tag prefix
             if (!config.Markup.Controls.Any(c => c.TagPrefix == "dc"))
             {
                 config.Markup.Controls.Add(new DotvvmControlConfiguration()
                 {
-                    Assembly = "DotVVM.Contrib",
-                    Namespace = "DotVVM.Contrib",
+                    Assembly = assemblyName,
+                    Namespace = assemblyName,
                     TagPrefix = "dc"
                 });
             }

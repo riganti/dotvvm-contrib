@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib", "DotVVM.Contrib\DotVVM.Contrib.csproj", "{3E6C2E46-18DB-47C8-94B8-8B447A6A9216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.FAIcon", "DotVVM.Contrib\DotVVM.Contrib.FAIcon.csproj", "{3E6C2E46-18DB-47C8-94B8-8B447A6A9216}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.Samples", "DotVVM.Contrib.Samples\DotVVM.Contrib.Samples.csproj", "{BEDB2964-D516-492B-AD08-9089F20AE84B}"
 EndProject

@@ -24,6 +24,6 @@
     <DotNetCliToolReference Include="DotVVM.Compiler.Light" Version="1.1.6.3" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.csproj" />
+    <ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.FAIcon.csproj" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.FAIcon
 {
     public class FAStyleAttribute : Attribute
     {

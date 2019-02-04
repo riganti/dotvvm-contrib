@@ -1,9 +1,8 @@
-﻿using System;
-using DotVVM.Framework.Binding;
+﻿using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.FAIcon
 {
     /// <summary>
     /// Renders a ...
@@ -13,7 +12,7 @@ namespace DotVVM.Contrib
         [MarkupOptions(Required = true)]
         public FAIcons Icon
         {
-            get { return (FAIcons) GetValue(IconProperty); }
+            get { return (FAIcons)GetValue(IconProperty); }
             set { SetValue(IconProperty, value); }
         }
 
@@ -26,24 +25,21 @@ namespace DotVVM.Contrib
 
         protected override void AddAttributesToRender(IHtmlWriter writer, IDotvvmRequestContext context)
         {
-
             if (RenderOnServer || !HasBinding(IconProperty))
             {
-                writer.AddAttribute("class",Icon.Style()=="brands" ? "fab" : "fas");
-                writer.AddAttribute("class",$"fa-{Icon.Key()}",true);
+                writer.AddAttribute("class", Icon.Style() == "brands" ? "fab" : "fas");
+                writer.AddAttribute("class", $"fa-{Icon.Key()}", true);
             }
 
-            writer.AddKnockoutDataBind("dotvvm-contrib-FAIcon",this,IconProperty,renderEvenInServerRenderingMode:true);
+            writer.AddKnockoutDataBind("dotvvm-contrib-FAIcon", this, IconProperty, renderEvenInServerRenderingMode: true);
             base.AddAttributesToRender(writer, context);
         }
-
 
         protected override void OnPreRender(IDotvvmRequestContext context)
         {
             context.ResourceManager.AddRequiredResource("dotvvm.contrib.FAIcon");
 
             base.OnPreRender(context);
-        }		
-		
+        }
     }
 }

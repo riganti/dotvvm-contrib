@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.FAIcon
 {
     public static class Extensions
     {
