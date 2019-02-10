@@ -8,7 +8,7 @@ using DotVVM.Framework.ResourceManagement;
 
 namespace DotVVM.Contrib
 {
-    public static class DotvvmConfigurationExtensions
+    public static class ControlNameConfigurationExtensions
     {
 
         public static void AddContribControlNameConfiguration(this DotvvmConfiguration config)
@@ -18,7 +18,7 @@ namespace DotVVM.Contrib
             {
                 config.Markup.Controls.Add(new DotvvmControlConfiguration()
                 {
-                    Assembly = "DotVVM.Contrib",
+                    Assembly = "DotVVM.Contrib.ControlName",
                     Namespace = "DotVVM.Contrib",
                     TagPrefix = "dc"
                 });
