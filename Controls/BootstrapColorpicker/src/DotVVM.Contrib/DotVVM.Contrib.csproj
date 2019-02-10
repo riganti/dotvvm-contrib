@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.0;net451</TargetFrameworks>
+	<PackageId>DotVVM.Contrib.BootstrapColorpicker</PackageId>
+    <PackageVersion>0.0.1</PackageVersion>
+    <Authors>DotVVM Contrib</Authors>
+    <Description>The BootstrapColorpicker control for DotVVM made by DotVVM Contrib community.</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+    <PackageLicenseUrl>https://github.com/riganti/dotvvm-contrib/blob/master/LICENSE</PackageLicenseUrl>
+	<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AssemblyName>DotVVM.Contrib.BootstrapColorpicker</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\bootstrap-colorpicker.js" />
+    <None Remove="Scripts\bootstrap-colorpicker.js.map" />
+    <None Remove="Scripts\bootstrap-colorpicker.min.js" />
+    <None Remove="Scripts\bootstrap-colorpicker.min.js.map" />
+    <None Remove="Styles\bootstrap-colorpicker.css" />
+    <None Remove="Styles\bootstrap-colorpicker.css.map" />
+    <None Remove="Styles\bootstrap-colorpicker.min.css" />
+    <None Remove="Styles\bootstrap-colorpicker.min.css.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\bootstrap-colorpicker.js" />
+    <EmbeddedResource Include="Scripts\bootstrap-colorpicker.js.map" />
+    <EmbeddedResource Include="Scripts\bootstrap-colorpicker.min.js" />
+    <EmbeddedResource Include="Scripts\bootstrap-colorpicker.min.js.map" />
+    <EmbeddedResource Include="Scripts\DotVVM.Contrib.BootstrapColorpicker.js" />
+    <EmbeddedResource Include="Styles\bootstrap-colorpicker.css" />
+    <EmbeddedResource Include="Styles\bootstrap-colorpicker.css.map" />
+    <EmbeddedResource Include="Styles\bootstrap-colorpicker.min.css" />
+    <EmbeddedResource Include="Styles\bootstrap-colorpicker.min.css.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotVVM" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>

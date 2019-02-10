@@ -1,0 +1,26 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.MasterViewModel, DotVVM.Contrib.Samples
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <h1>BootstrapColorpicker Samples</h1>
+ 
+    <dot:Repeater DataSource="{value: AllSamples}" WrapperTagName="ul">
+        <li style="display: inline-block">
+            <a href="{value: _this}">{{value: _this}}</a>
+        </li>
+    </dot:Repeater>
+    <hr />
+
+	<dot:ContentPlaceHolder ID="MainContent" />
+
+</body>
+</html>
+
+
