@@ -5,7 +5,7 @@
         }
         const value = valueAccessor();
         if (value) {
-            jQuery(element).qrcode(ko.unwrap(value["url"]));
+            jQuery(element).qrcode(ko.unwrap(value["content"]));
         }
     }
 };

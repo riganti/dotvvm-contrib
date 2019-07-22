@@ -9,8 +9,8 @@ namespace DotVVM.Contrib
     /// </summary>
     public class QrCode : HtmlGenericControl
     {
-        public static readonly DotvvmProperty UrlProperty
-           = DotvvmProperty.Register<string, QrCode>(c => c.Url, null);
+        public static readonly DotvvmProperty ContentProperty
+           = DotvvmProperty.Register<string, QrCode>(c => c.Content, null);
 
 
         public QrCode() : base("div")
@@ -18,10 +18,10 @@ namespace DotVVM.Contrib
         }
 
         [MarkupOptions(Required = true)]
-        public string Url
+        public string Content
         {
-            get => (string)GetValue(UrlProperty);
-            set => SetValue(UrlProperty, value);
+            get => (string)GetValue(ContentProperty);
+            set => SetValue(ContentProperty, value);
         }
 
         protected override void OnPreRender(IDotvvmRequestContext context)
@@ -38,7 +38,7 @@ namespace DotVVM.Contrib
         {
             return new KnockoutBindingGroup
             {
-                {"url", this, UrlProperty}
+                {"content", this, ContentProperty}
             };
         }
     }

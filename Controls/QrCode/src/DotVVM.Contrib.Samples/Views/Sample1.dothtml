@@ -2,9 +2,9 @@
 @masterPage Views/_master.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
-    <dc:QrCode Url="{value: "https://www.google.com/"}"></dc:QrCode>
-    <dc:QrCode Url="{value: Url}"></dc:QrCode>
-    <dc:QrCode Url="https://www.google.com/"></dc:QrCode>
+    <dc:QrCode Content="{value: "https://www.google.com/"}"></dc:QrCode>
+    <dc:QrCode Content="{value: Url}"></dc:QrCode>
+    <dc:QrCode Content="https://www.google.com/"></dc:QrCode>
 
     <dot:TextBox Text="{value: Url}"></dot:TextBox>
 </dot:Content>
