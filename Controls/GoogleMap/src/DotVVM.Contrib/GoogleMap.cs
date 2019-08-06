@@ -68,6 +68,8 @@ namespace DotVVM.Contrib
 
         protected override void AddAttributesToRender(IHtmlWriter writer, IDotvvmRequestContext context)
         {
+            writer.AddAttribute("class", "dotvvm-google-map");
+
             writer.AddKnockoutDataBind("dotvvm-contrib-GoogleMap-Address", this, AddressProperty, () =>
             {
                 if (IsPropertySet(AddressProperty))

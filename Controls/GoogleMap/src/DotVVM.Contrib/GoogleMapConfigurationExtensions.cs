@@ -33,7 +33,12 @@ namespace DotVVM.Contrib
             config.Resources.Register("dotvvm.contrib.GoogleMap", new ScriptResource()
             {
                 Location = new EmbeddedResourceLocation(typeof(GoogleMap).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.GoogleMap.js"),
-                Dependencies = new [] { "dotvvm", "dotvvm.contrib.GoogleMap.GoogleCode" }
+                Dependencies = new [] { "dotvvm", "dotvvm.contrib.GoogleMap.GoogleCode", "dotvvm.contrib.GoogleMapCss" }
+            });
+            // register additional resources for the control and set up dependencies
+            config.Resources.Register("dotvvm.contrib.GoogleMapCss", new StylesheetResource()
+            {
+                Location = new EmbeddedResourceLocation(typeof(GoogleMap).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.DotVVM.Contrib.GoogleMap.css")
             });
 
         }

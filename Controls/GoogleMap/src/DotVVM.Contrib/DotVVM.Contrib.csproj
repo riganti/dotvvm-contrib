@@ -22,7 +22,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Styles\DotVVM.Contrib.GoogleMap.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="Scripts\DotVVM.Contrib.GoogleMap.js" />
+    <EmbeddedResource Include="Styles\DotVVM.Contrib.GoogleMap.css" />
   </ItemGroup>
 
   <ItemGroup>

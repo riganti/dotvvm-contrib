@@ -12,8 +12,7 @@ namespace DotVVM.Contrib.Samples
         // For more information about this class, visit https://dotvvm.com/docs/tutorials/basics-project-structure
         public void Configure(DotvvmConfiguration config, string applicationPath)
         {
-            //TODO ADD google api key
-            config.AddContribGoogleMapConfiguration("GOOGLE API KEY");
+            config.AddContribGoogleMapConfiguration(@"GOOGLE API KEY");
 
             ConfigureRoutes(config, applicationPath);
             ConfigureControls(config, applicationPath);
