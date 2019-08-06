@@ -1,0 +1,12 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.LocationViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <h1>Hardcoded</h1>
+    <dc:GoogleMap Longitude="-116.7723588" Latitude="43.5766682" style="height:500px" />
+
+    <h1>Binding</h1>
+    <dc:GoogleMap Longitude="{value: Longitude}" Latitude="{value: Latitude}"  style="height:500px" />
+    <dot:Button Text="Change location" Click="{command: ChangeLocation()}" />
+</dot:Content>
