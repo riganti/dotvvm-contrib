@@ -19,14 +19,21 @@ config.AddContribXYZConfiguration();
 
 ## List of Controls
 
+* [BootstrapColorpicker](Controls/BootstrapColorpicker/readme.md)
+* [BootstrapDatepicker](Controls/BootstrapDatepicker/readme.md)
 * [CkEditorMinimal](Controls/CkEditorMinimal/readme.md)
+* [CrystalReportViewer](Controls/CrystalReportViewer/readme.md)
+* [FAIcon](Controls/FAIcon/readme.md)
 * [GoogleAnalyticsJavascript](Controls/GoogleAnalyticsJavascript/readme.md)
-* [NoUiSlider](Controls/NoUiSlider/readme.md) with *Slider* and *Switch* controls
+* [GoogleMap](Controls/GoogleMap/readme.md)
+* [LoadablePanel](Controls/LoadablePanel/readme.md)
+* [NoUiSlider](Controls/NoUiSlider/readme.md)
+* [PolicyView](Controls/PolicyView/readme.md)
+* [QrCode](Controls/QrCode/readme.md)
+* [ReactBridge](Controls/ReactBridge/readme.md)
 * [Select2](Controls/Select2/readme.md)
 * [TemplateSelector](Controls/TemplateSelector/readme.md)
 * [TypeAhead](Controls/TypeAhead/readme.md)
-* [PolicyView](Controls/PolicyView/readme.md)
-* [FAIcon](Controls/FAIcon/readme.md)
 
 
 
