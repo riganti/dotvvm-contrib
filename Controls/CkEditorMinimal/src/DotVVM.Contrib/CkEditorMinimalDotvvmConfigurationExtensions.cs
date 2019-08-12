@@ -11,11 +11,10 @@ namespace DotVVM.Contrib
             // register tag prefix
             config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                Assembly = "DotVVM.Contrib.CkEditorMinimal",
-                Namespace = "DotVVM.Contrib.CkEditorMinimal",
+                Assembly = typeof(CkEditorMinimal.CkEditorMinimal).Assembly.GetName().Name,
+                Namespace = typeof(CkEditorMinimal.CkEditorMinimal).Namespace,
                 TagPrefix = "dc"
             });
-
             // register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.CkEditorMinimal", new ScriptResource()
             {

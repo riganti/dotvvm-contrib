@@ -41,7 +41,7 @@ namespace DotVVM.Contrib
             context.ResourceManager.AddCurrentCultureGlobalizationResource();
 
             IValueBinding dateBinding = null;
-            foreach (var item in properties)
+            foreach (var item in Properties)
                 if (item.Key == DateProperty)
                     dateBinding = item.Value as IValueBinding;
 

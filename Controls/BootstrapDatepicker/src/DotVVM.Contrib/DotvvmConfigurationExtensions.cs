@@ -17,16 +17,12 @@ namespace DotVVM.Contrib
         /// <param name="locales">Default language is 'en', this collection contains additional languages. For full list of supported languages see <see cref="BootstrapDatepickerConsts.Locales"/></param>
         public static void AddContribBootstrapDatepickerConfiguration(this DotvvmConfiguration config, string[] locales = null)
         {
-            // register tag prefix
-            if (!config.Markup.Controls.Any(c => c.TagPrefix == "dc"))
+                        config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                config.Markup.Controls.Add(new DotvvmControlConfiguration()
-                {
-                    Assembly = typeof(BootstrapDatepicker).Assembly.GetName().Name,
-                    Namespace = typeof(BootstrapDatepicker).Namespace,
-                    TagPrefix = "dc"
-                });
-            }
+                Assembly = typeof(BootstrapDatepicker).Assembly.GetName().Name,
+                Namespace = typeof(BootstrapDatepicker).Namespace,
+                TagPrefix = "dc"
+            });
 
             if (locales != null)
             {

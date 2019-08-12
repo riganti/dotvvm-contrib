@@ -8,13 +8,12 @@ namespace DotVVM.Contrib
 
         public static void AddContribGoogleAnalyticsJavascriptConfiguration(this DotvvmConfiguration config)
         {
-            // register tag prefix
             config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                Assembly = "DotVVM.Contrib.GoogleAnalyticsJavascript",
-                Namespace = "DotVVM.Contrib",
+                Assembly = typeof(GoogleAnalyticsJavascript).Assembly.GetName().Name,
+                Namespace = typeof(GoogleAnalyticsJavascript).Namespace,
                 TagPrefix = "dc"
-            });            
+            });
         }
 
     }

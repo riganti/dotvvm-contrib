@@ -1,0 +1,17 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.ZoomViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+    <dot:Content ContentPlaceHolderID="MainContent">
+        <div style="height:250px">
+
+            <h1>Hardcoded</h1>
+            <dc:GoogleMap Address="Chicken Dinner Rd Idaho 83607, USA" MapZoom="20" ID="zoomHardcoded" />
+
+            <h1>Binding</h1>
+            Current zoom: <p ID="currentZoom">{{value: Zoom}}</p>
+            <dc:GoogleMap Address="Chicken Dinner Rd Idaho 83607, USA" MapZoom="{value: Zoom}" ID="zoomBindable" />
+
+            <dot:Button Text="Change zoom" Click="{command: ChangeZoom()}" />
+        </div>
+    </dot:Content>
+

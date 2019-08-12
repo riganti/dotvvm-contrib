@@ -13,17 +13,13 @@ namespace DotVVM.Contrib
 
         public static void AddContribControlNameConfiguration(this DotvvmConfiguration config)
         {
-            // register tag prefix
-            if (!config.Markup.Controls.Any(c => c.TagPrefix == "dc"))
+            config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                config.Markup.Controls.Add(new DotvvmControlConfiguration()
-                {
-                    Assembly = "DotVVM.Contrib.ControlName",
-                    Namespace = "DotVVM.Contrib",
-                    TagPrefix = "dc"
-                });
-            }
-            
+                Assembly = typeof(ControlName).Assembly.GetName().Name,
+                Namespace = typeof(ControlName).Namespace,
+                TagPrefix = "dc"
+            });
+
             // register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.ControlName", new ScriptResource()
             {

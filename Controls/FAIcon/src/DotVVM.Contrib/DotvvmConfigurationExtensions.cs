@@ -68,15 +68,12 @@ namespace DotVVM.Contrib
         private static void RegisterTag(DotvvmConfiguration config)
         {
             // register tag prefix
-            if (!config.Markup.Controls.Any(c => c.TagPrefix == "dc"))
+            config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                config.Markup.Controls.Add(new DotvvmControlConfiguration()
-                {
-                    Assembly = assemblyName,
-                    Namespace = assemblyName,
-                    TagPrefix = "dc"
-                });
-            }
+                Assembly = typeof(FAIcon.FAIcon).Assembly.GetName().Name,
+                Namespace = typeof(FAIcon.FAIcon).Namespace,
+                TagPrefix = "dc"
+            });
         }
     }
 }

@@ -13,11 +13,10 @@ namespace DotVVM.Contrib
 
         public static void AddContribTypeAheadConfiguration(this DotvvmConfiguration config)
         {
-            // register tag prefix
             config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                Assembly = "DotVVM.Contrib.TypeAhead",
-                Namespace = "DotVVM.Contrib",
+                Assembly = typeof(TypeAhead).Assembly.GetName().Name,
+                Namespace = typeof(TypeAhead).Namespace,
                 TagPrefix = "dc"
             });
 

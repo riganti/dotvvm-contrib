@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
     <PackageId>DotVVM.Contrib.GoogleAnalyticsJavascript</PackageId>
-    <PackageVersion>2.0.0</PackageVersion>
+    <PackageVersion>2.3.2</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
     <Description>The GoogleAnalyticsJavascript control for DotVVM made by DotVVM Contrib community.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="2.1.0" />
+    <PackageReference Include="DotVVM" Version="2.3.1" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">

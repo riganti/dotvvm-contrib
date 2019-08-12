@@ -2,20 +2,10 @@
 
 TODO: what does the control do
 
-## Sample 1: Something
+## Sample 1:
 
 You can do this:
 
 ```DOTHTML
-<dc:BootstrapColorpicker ... />
-```
-
-<br />
-
-## Sample 2: Something Else
-
-You can do also this:
-
-```DOTHTML
-<dc:BootstrapColorpicker ... />
+<dc:BootstrapColorpicker Color="{value: Color}" />
 ```

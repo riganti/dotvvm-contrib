@@ -1,0 +1,29 @@
+﻿<Project ToolsVersion="15.0" Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>netcoreapp2.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<Content Include="**\*.dothtml" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="dotvvm_serialized_config.json.tmp" />
+		<None Remove="Views\Location.dothtml" />
+		<None Remove="Views\Zoom.dothtml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="Views\_master.dotmaster" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="wwwroot\" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DotVVM" Version="2.3.1" />
+		<PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
+		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
+		<PackageReference Include="DotVVM.AspNetCore" Version="2.3.1" />
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
+	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.csproj" />
+  </ItemGroup>
+</Project>

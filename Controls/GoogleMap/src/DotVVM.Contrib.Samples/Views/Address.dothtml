@@ -1,0 +1,15 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.AddressViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+    <dot:Content ContentPlaceHolderID="MainContent">
+        <div style="height:250px">
+            <h1>Hardcoded</h1>
+            <dc:GoogleMap Address="Chicken Dinner Rd Idaho 83607, USA" ID="addressHardcoded" />
+            <!--<dc:GoogleMap Address="" ID="addressHardcoded" />-->
+
+            <h1>Binding</h1>
+            <dc:GoogleMap Address="{value: Address}" ID="addressBindable"/>
+            <dot:Button Text="Change address" Click="{command: ChangeAddress()}" ID="btnAddress"  />
+        </div>
+    </dot:Content>
+

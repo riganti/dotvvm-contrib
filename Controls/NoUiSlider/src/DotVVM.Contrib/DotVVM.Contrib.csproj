@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
 	  <PackageId>DotVVM.Contrib.NoUiSlider</PackageId>
-    <PackageVersion>2.0.0</PackageVersion>
+    <PackageVersion>2.3.2</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
     <Description>The Slider and Switch controls for DotVVM made by DotVVM Contrib community.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="2.0.0" />
+    <PackageReference Include="DotVVM" Version="2.3.1" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.3.1" />
   </ItemGroup>
 

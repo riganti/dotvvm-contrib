@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
 	<PackageId>DotVVM.Contrib.TemplateSelector</PackageId>
-    <PackageVersion>1.1.8.1</PackageVersion>
+    <PackageVersion>2.3.2</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
     <Description>The TemplateSelector control for DotVVM made by DotVVM Contrib community.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="2.0.0" />
+    <PackageReference Include="DotVVM" Version="2.3.1" />
   </ItemGroup>
 
 </Project>

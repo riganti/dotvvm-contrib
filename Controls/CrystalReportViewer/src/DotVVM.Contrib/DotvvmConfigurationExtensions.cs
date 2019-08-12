@@ -9,16 +9,12 @@ namespace DotVVM.Contrib
     {
         public static void AddCrystalReportViewerConfiguration(this DotvvmConfiguration config)
         {
-            // register tag prefix
-            if (!config.Markup.Controls.Any(c => c.TagPrefix == "dc"))
+            config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                config.Markup.Controls.Add(new DotvvmControlConfiguration()
-                {
-                    Assembly = "DotVVM.Contrib",
-                    Namespace = "DotVVM.Contrib",
-                    TagPrefix = "dc"
-                });
-            }
+                Assembly = typeof(CrystalReportViewer).Assembly.GetName().Name,
+                Namespace = typeof(CrystalReportViewer).Namespace,
+                TagPrefix = "dc"
+            });
 
             config.Resources.Register("dotvvm.contrib.CrystalReportViewer", new ScriptResource()
             {

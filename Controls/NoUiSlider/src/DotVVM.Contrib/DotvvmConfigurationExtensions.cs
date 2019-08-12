@@ -13,11 +13,10 @@ namespace DotVVM.Contrib
 
         public static void AddContribNoUiSliderConfiguration(this DotvvmConfiguration config)
         {
-            // register tag prefix
             config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                Assembly = "DotVVM.Contrib.NoUiSlider",
-                Namespace = "DotVVM.Contrib",
+                Assembly = typeof(Slider).Assembly.GetName().Name,
+                Namespace = typeof(Slider).Namespace,
                 TagPrefix = "dc"
             });
 

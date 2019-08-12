@@ -38,13 +38,7 @@ namespace DotVVM.Contrib.Samples
             app.UseAuthentication();
 
             // use DotVVM
-            var dotvvmConfiguration = app.UseDotVVM<DotvvmStartup>(env.ContentRootPath);
-
-            // use static files
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(env.WebRootPath)
-            });
+            var dotvvmConfiguration = app.UseDotVVM<DotvvmStartup>(env.ContentRootPath);    
         }
     }
 }
