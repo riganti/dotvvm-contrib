@@ -15,8 +15,8 @@ namespace DotVVM.Contrib
             // register tag prefix
             config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                Assembly = "DotVVM.Contrib.TemplateSelector",
-                Namespace = "DotVVM.Contrib",
+                Assembly = typeof(TemplateSelector).Assembly.GetName().Name,
+                Namespace = typeof(TemplateSelector).Namespace,
                 TagPrefix = "dc"
             });
         }

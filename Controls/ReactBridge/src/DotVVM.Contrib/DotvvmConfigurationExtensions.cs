@@ -13,11 +13,10 @@ namespace DotVVM.Contrib
 
         public static void AddReactBridgeConfiguration(this DotvvmConfiguration config)
         {
-            // register tag prefix
             config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                Assembly = "DotVVM.Contrib.ReactBridge",
-                Namespace = "DotVVM.Contrib",
+                Assembly = typeof(ReactBridge).Assembly.GetName().Name,
+                Namespace = typeof(ReactBridge).Namespace,
                 TagPrefix = "dc"
             });
 

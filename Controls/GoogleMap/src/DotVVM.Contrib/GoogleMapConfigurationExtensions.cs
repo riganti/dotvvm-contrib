@@ -12,16 +12,13 @@ namespace DotVVM.Contrib
     {
         public static void AddContribGoogleMapConfiguration(this DotvvmConfiguration config,string googleApiKey)
         {
-            // register tag prefix
-            if (config.Markup.Controls.All(c => c.TagPrefix != "dc"))
+
+            config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                config.Markup.Controls.Add(new DotvvmControlConfiguration()
-                {
-                    Assembly = "DotVVM.Contrib.GoogleMap",
-                    Namespace = "DotVVM.Contrib",
-                    TagPrefix = "dc"
-                });
-            }
+                Assembly = typeof(GoogleMap).Assembly.GetName().Name,
+                Namespace = typeof(GoogleMap).Namespace,
+                TagPrefix = "dc"
+            });
 
             config.Resources.Register("dotvvm.contrib.GoogleMap.GoogleCode", new ScriptResource(
                 new UrlResourceLocation($@"https://maps.googleapis.com/maps/api/js?key={googleApiKey}"))

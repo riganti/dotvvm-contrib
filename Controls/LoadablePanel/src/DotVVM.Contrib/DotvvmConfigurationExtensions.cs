@@ -11,16 +11,12 @@ namespace DotVVM.Contrib
 
         public static void AddContribLoadablePanelConfiguration(this DotvvmConfiguration config)
         {
-            // register tag prefix
-            if (!config.Markup.Controls.Any(c => c.TagPrefix == "dc"))
+            config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                config.Markup.Controls.Add(new DotvvmControlConfiguration()
-                {
-                    Assembly = "DotVVM.Contrib",
-                    Namespace = "DotVVM.Contrib",
-                    TagPrefix = "dc"
-                });
-            }
+                Assembly = typeof(LoadablePanel).Assembly.GetName().Name,
+                Namespace = typeof(LoadablePanel).Namespace,
+                TagPrefix = "dc"
+            });
 
             // register additional resources for the control and set up dependencies
             config.Resources.Register(JavascriptResourceName, new ScriptResource()

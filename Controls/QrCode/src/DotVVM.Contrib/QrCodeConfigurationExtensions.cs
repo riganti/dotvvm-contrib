@@ -9,16 +9,12 @@ namespace DotVVM.Contrib
     {
         public static void AddContribQrCodeConfiguration(this DotvvmConfiguration config)
         {
-            // register tag prefix
-            if (!config.Markup.Controls.Any(c => c.TagPrefix == "dc"))
+            config.Markup.Controls.Add(new DotvvmControlConfiguration()
             {
-                config.Markup.Controls.Add(new DotvvmControlConfiguration()
-                {
-                    Assembly = "DotVVM.Contrib.QrCode",
-                    Namespace = "DotVVM.Contrib",
-                    TagPrefix = "dc"
-                });
-            }
+                Assembly = typeof(QrCode).Assembly.GetName().Name,
+                Namespace = typeof(QrCode).Namespace,
+                TagPrefix = "dc"
+            });
 
             config.Resources.Register("qrcode", new ScriptResource
             {
