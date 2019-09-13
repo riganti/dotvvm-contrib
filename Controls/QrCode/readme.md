@@ -7,8 +7,8 @@ Controls render canvas with qrcode based od Url property. It only support **Clie
 You can do this:
 
 ```DOTHTML
-<dc:QrCode Url="{value: Url}"></dc:QrCode>
-<dc:QrCode Url="https://www.google.com/"></dc:QrCode>
+<dc:QrCode Content="{value: Url}"></dc:QrCode>
+<dc:QrCode Content="https://www.google.com/"></dc:QrCode>
 ```
 
 ## Prerequisites
