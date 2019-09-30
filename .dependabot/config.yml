@@ -1,7 +1,113 @@
 version: 1
+
 update_configs:
-  package_manager: "dotnet:nuget"
-  directory: "/"
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/BootstrapColorpicker/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/BootstrapDatepicker/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/CkEditorMinimal/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/CrystalReportViewer/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/FAIcon/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/GoogleAnalyticsJavascript/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/GoogleMap/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/GoogleMap/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/LoadablePanel/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/NoUiSlider/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/PolicyView/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/QrCode/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/ReactBridge/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/Select2/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/TemplateSelector/"
+  update_schedule: "live"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
+update_configs:
+- package_manager: "dotnet:nuget"
+  directory: "/Controls/TypeAhead/"
   update_schedule: "live"
   allowed_updates:
     - match:
