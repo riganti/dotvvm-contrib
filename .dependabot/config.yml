@@ -114,3 +114,10 @@ update_configs:
     - match:
         dependency_name: "DotVVM*"
 - package_manager: "dotnet:nuget"
+  directory: "/Controls/TypeAhead/"
+  update_schedule: "daily"
+  default_assignees:
+  - "MichalTichy"
+  allowed_updates:
+    - match:
+        dependency_name: "DotVVM*"
