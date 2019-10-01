@@ -7,12 +7,12 @@ update_configs:
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
 - package_manager: "dotnet:nuget"
   directory: "/Controls/BootstrapDatepicker/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -20,7 +20,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/CkEditorMinimal/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -28,7 +28,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/CrystalReportViewer/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -36,7 +36,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/FAIcon/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -44,7 +44,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/GoogleAnalyticsJavascript/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -52,7 +52,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/GoogleMap/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -60,7 +60,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/GoogleMap/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -68,7 +68,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/LoadablePanel/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -76,7 +76,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/NoUiSlider/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -84,7 +84,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/PolicyView/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -92,7 +92,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/QrCode/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -100,7 +100,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/Select2/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -108,7 +108,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/TemplateSelector/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
@@ -116,7 +116,7 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/TypeAhead/"
   update_schedule: "daily"
-  default_assignees:
+  default_reviewers:
   - "MichalTichy"
   allowed_updates:
     - match:
