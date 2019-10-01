@@ -4,16 +4,16 @@ update_configs:
 - package_manager: "dotnet:nuget"
   directory: "/Controls/BootstrapColorpicker/"
   update_schedule: "daily"
-  default_assignees:
-    - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
+  default_assignees:
+  - "MichalTichy"
 - package_manager: "dotnet:nuget"
   directory: "/Controls/BootstrapDatepicker/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
@@ -21,7 +21,7 @@ update_configs:
   directory: "/Controls/CkEditorMinimal/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
@@ -29,7 +29,7 @@ update_configs:
   directory: "/Controls/CrystalReportViewer/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
@@ -37,7 +37,7 @@ update_configs:
   directory: "/Controls/FAIcon/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
@@ -45,7 +45,7 @@ update_configs:
   directory: "/Controls/GoogleAnalyticsJavascript/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
@@ -53,7 +53,7 @@ update_configs:
   directory: "/Controls/GoogleMap/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
@@ -61,14 +61,15 @@ update_configs:
   directory: "/Controls/GoogleMap/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
 - package_manager: "dotnet:nuget"
   directory: "/Controls/LoadablePanel/"
+  update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
@@ -76,7 +77,7 @@ update_configs:
   directory: "/Controls/NoUiSlider/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
@@ -84,7 +85,7 @@ update_configs:
   directory: "/Controls/PolicyView/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
@@ -92,7 +93,7 @@ update_configs:
   directory: "/Controls/QrCode/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
@@ -100,7 +101,7 @@ update_configs:
   directory: "/Controls/Select2/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
@@ -108,15 +109,8 @@ update_configs:
   directory: "/Controls/TemplateSelector/"
   update_schedule: "daily"
   default_assignees:
-    - "MichalTichy"
+  - "MichalTichy"
   allowed_updates:
     - match:
         dependency_name: "DotVVM*"
 - package_manager: "dotnet:nuget"
-  directory: "/Controls/TypeAhead/"
-  update_schedule: "daily"
-  default_assignees:
-    - "MichalTichy"
-  allowed_updates:
-    - match:
-        dependency_name: "DotVVM*"
