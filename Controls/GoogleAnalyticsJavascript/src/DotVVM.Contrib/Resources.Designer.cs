@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DotVVM.Contrib {
+namespace DotVVM.Contrib
+{
     using System;
-    using System.Reflection;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -20,47 +20,55 @@ namespace DotVVM.Contrib {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
-        
+    public class Resources
+    {
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Resources()
+        {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DotVVM.Contrib.Resources", typeof(Resources).GetTypeInfo().Assembly);
+        public static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if (object.ReferenceEquals(resourceMan, null))
+                {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DotVVM.Contrib.GoogleAnalyticsJavascript.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
-            get {
+        public static global::System.Globalization.CultureInfo Culture
+        {
+            get
+            {
                 return resourceCulture;
             }
-            set {
+            set
+            {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;script&gt;
         ///        window.ga=window.ga||function(){{(ga.q=ga.q||[]).push(arguments)}};ga.l=+new Date;
@@ -70,12 +78,14 @@ namespace DotVVM.Contrib {
         ///        &lt;script async src=&apos;https://www.google-analytics.com/analytics.js&apos;&gt;
         ///    &lt;/script&gt;.
         /// </summary>
-        public static string AsyncJavascriptSnippet {
-            get {
+        public static string AsyncJavascriptSnippet
+        {
+            get
+            {
                 return ResourceManager.GetString("AsyncJavascriptSnippet", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;script type=&quot;text/javascript&quot;&gt;
         ///      (function(i, s, o, g, r, a, m){{i[&apos;GoogleAnalyticsObject&apos;]=r;i[r]=i[r]||function()
@@ -86,17 +96,21 @@ namespace DotVVM.Contrib {
         ///        {1}
         ///    &lt;/script&gt;.
         /// </summary>
-        public static string JavascriptSnippet {
-            get {
+        public static string JavascriptSnippet
+        {
+            get
+            {
                 return ResourceManager.GetString("JavascriptSnippet", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ga(&apos;send&apos;, &apos;pageview&apos;);.
         /// </summary>
-        public static string PageViewJavascriptSnippet {
-            get {
+        public static string PageViewJavascriptSnippet
+        {
+            get
+            {
                 return ResourceManager.GetString("PageViewJavascriptSnippet", resourceCulture);
             }
         }
