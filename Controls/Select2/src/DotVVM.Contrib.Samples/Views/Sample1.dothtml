@@ -22,7 +22,7 @@
     <fieldset DataContext="{value: ListOfObjects}">
         <legend>Binding to List of objects</legend>
 
-        <dc:Select2 DataSource="{value: Cities}" SelectedValues="{value: SelectedCityIds}" DisplayMember="Name" ValueMember="Id" style="width: 300px" />
+        <dc:Select2 DataSource="{value: Cities}" SelectedValues="{value: SelectedCityIds}" ItemTextBinding="{value: Name}" ItemValueBinding="{value: Id}" style="width: 300px" />
 
         <dot:Repeater DataSource="{value: SelectedCityIds}" WrapperTagName="ul">
             <li>{{value: _this}}</li>

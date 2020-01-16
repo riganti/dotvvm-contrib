@@ -23,8 +23,15 @@ namespace DotVVM.Contrib
 
             writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-DataSource", this, DataSourceProperty);
             writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-SelectedValue", this, SelectedValueProperty);
-            writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-DisplayMember", KnockoutHelper.MakeStringLiteral(DisplayMember));
-            writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-ValueMember", KnockoutHelper.MakeStringLiteral(ValueMember));
+            if (ItemValueBindingProperty.IsSet(this))
+            {
+                writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-ValueMember", ItemValueBinding.KnockoutExpression.ToDefaultString());
+            }
+
+            if (ItemTextBindingProperty.IsSet(this))
+            {
+                writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-DisplayMember", ItemTextBinding.KnockoutExpression.ToDefaultString());
+            }
 
             var selectionChangedBinding = GetCommandBinding(SelectionChangedProperty);
             if (selectionChangedBinding != null)

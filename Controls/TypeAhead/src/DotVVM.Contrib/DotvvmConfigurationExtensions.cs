@@ -21,7 +21,7 @@ namespace DotVVM.Contrib
             });
 
             // register additional resources for the control and set up dependencies
-            if (config.Resources.FindNamedResource("jquery")?.Resource == null)
+            if (config.Resources.FindResource("jquery") == null)
             {
                 config.Resources.Register("jquery", new ScriptResource(new UrlResourceLocation("https://code.jquery.com/jquery-3.3.1.min.js")));
             }
