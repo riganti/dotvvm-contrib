@@ -21,14 +21,12 @@ namespace DotVVM.Contrib
             });
 
             // register additional resources for the control and set up dependencies
-            config.Resources.Register("dotvvm.contrib.SanitizedHtmlLiteral", new ScriptResource()
-            {
-                Location = new EmbeddedResourceLocation(typeof(SanitizedHtmlLiteral).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.SanitizedHtmlLiteral.js"),
-                Dependencies = new [] { "dotvvm", "dotvvm.contrib.SanitizedHtmlLiteral.css" }
+            config.Resources.Register("HtmlSanitizer", new ScriptResource() {
+                Location = new EmbeddedResourceLocation(typeof(SanitizedHtmlLiteral).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.HtmlSanitizer.js")
             });
-            config.Resources.Register("dotvvm.contrib.SanitizedHtmlLiteral.css", new StylesheetResource()
-            {
-                Location = new EmbeddedResourceLocation(typeof(SanitizedHtmlLiteral).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.DotVVM.Contrib.SanitizedHtmlLiteral.css")
+            config.Resources.Register("dotvvm.contrib.SanitizedHtmlLiteral", new ScriptResource() {
+                Location = new EmbeddedResourceLocation(typeof(SanitizedHtmlLiteral).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.SanitizedHtmlLiteral.js"),
+                Dependencies = new[] { "knockout", "HtmlSanitizer" }
             });
 
             // NOTE: all resource names should start with "dotvvm.contrib.SanitizedHtmlLiteral"

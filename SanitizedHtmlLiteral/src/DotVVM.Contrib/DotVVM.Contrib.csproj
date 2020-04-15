@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.0;net451</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0</TargetFrameworks>
 	<PackageId>DotVVM.Contrib.SanitizedHtmlLiteral</PackageId>
     <PackageVersion>0.0.1</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
@@ -22,12 +22,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\DotVVM.Contrib.SanitizedHtmlLiteral.js" />
-    <EmbeddedResource Include="Styles\DotVVM.Contrib.SanitizedHtmlLiteral.css" />
+    <EmbeddedResource Include="Scripts/**" />
+    <EmbeddedResource Include="Styles/**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="2.1.0" />
+    <PackageReference Include="DotVVM" Version="2.4.0.1" />
+    <PackageReference Include="HtmlSanitizer" Version="5.0.310" />
   </ItemGroup>
 
 </Project>

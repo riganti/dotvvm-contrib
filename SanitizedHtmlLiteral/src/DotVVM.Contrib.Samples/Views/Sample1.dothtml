@@ -3,7 +3,16 @@
 
 <dot:Content ContentPlaceHolderID="MainContent">
 
-    <!-- make a sample usage of the control -->
 
+    <dot:Repeater DataSource={value: Htmls}>
+        <SeparatorTemplate><hr /></SeparatorTemplate>
+        <p><dc:SanitizedHtmlLiteral Html={value: _this} /></p>
+        <dot:TextBox Type=Multiline Text={value: _this} UpdateTextAfterKeydown />
+    </dot:Repeater>
+
+
+
+    <!-- <dot:Button Text=Refresh Click={command: ;} />z -->
+    <dot:Button Text='Load more' Click={staticCommand: Htmls = Sample1ViewModel.MoreHtmls()} />
 </dot:Content>
 
