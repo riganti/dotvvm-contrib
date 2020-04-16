@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Scripts/**" />
-    <EmbeddedResource Include="Styles/**" />
   </ItemGroup>
 
   <ItemGroup>

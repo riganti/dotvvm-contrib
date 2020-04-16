@@ -7,11 +7,12 @@ using Ganss.XSS;
 namespace DotVVM.Contrib
 {
     /// <summary>
-    /// Renders a ...
+    /// Renders the contents of <see cref="Html" /> property as html. It's sanitized (script tags stripped) using HtmlSanitized library (see NuGet and npm)
     /// </summary>
+    [ControlMarkupOptions(AllowContent = false)]
     public class SanitizedHtmlLiteral : DotvvmControl
     {
-        [MarkupOptions(AllowBinding = true)]
+        [MarkupOptions(AllowBinding = true, Required = true)]
         public string Html
         {
             get { return (string)GetValue(HtmlProperty); }
