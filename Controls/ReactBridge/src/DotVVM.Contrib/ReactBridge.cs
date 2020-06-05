@@ -29,7 +29,7 @@ namespace DotVVM.Contrib
 
         [MarkupOptions(MappingMode = MappingMode.Attribute, AllowBinding = true, AllowHardCodedValue = true)]
         [PropertyGroup(new[] { "update:" })]
-        public Dictionary<string, IValueBinding> Update { get; private set; } = new Dictionary<string, IValueBinding>();
+        public Dictionary<string, object> Update { get; private set; } = new Dictionary<string, object>();
 
         KnockoutBindingGroup CreateProps()
         {
@@ -43,7 +43,8 @@ namespace DotVVM.Contrib
             }
             foreach (var update in this.Update)
             {
-                props.Add(update.Key, "function (a) {(" + update.Value.GetKnockoutBindingExpression() + ")(a)}");
+                var knockoutExpression = update.Value as IValueBinding;
+                props.Add(update.Key, "function (a) {(" + knockoutExpression.GetKnockoutBindingExpression() + ")(a)}");
             }
             return props;
         }
