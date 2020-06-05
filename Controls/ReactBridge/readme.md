@@ -3,7 +3,7 @@
 This control brings possibility of usage react, react-dom, react-trend, react-numeric-input components in your dotvvm views. Part of this contrib control is also ChartList control that allow to create Line, Bar and Pie charts.
 
 
-## Sample 1: React Trend
+## Sample 1: React Trend control
 
 You can do this:
 
@@ -20,7 +20,7 @@ You can do this:
 
 <br />
 
-## Sample 2: NumericInput
+## Sample 2: NumericInput control
 
 You can do also this:
 
@@ -30,7 +30,7 @@ You can do also this:
     </dot:Repeater>
 ```
 
-## Sample 3:
+## Sample 3: Chartist controls
 
 ```DOTHTML
 
