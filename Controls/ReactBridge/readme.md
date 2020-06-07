@@ -1,28 +1,34 @@
 # ReactBridge
 
-This control brings possibility of usage react, react-dom, react-trend, react-numeric-input components in your dotvvm views. Part of this contrib control is also ChartList control that allow to create Line, Bar and Pie charts.
+This control brings possibility to use react components in your DotVVM views.
+In samples you can find react-trend or react-numeric-input components.
 
+```Name``` property should be the same as react component name you want ot render. Individual properties of ```<dc:ReactBridge />``` control are react props. ```update:``` prefix is calling updates on properties in ViewModel when event callback is called.
 
-## Sample 1: React Trend control
+## Sample 1:
 
 You can do this:
 
 ```DOTHTML
-    <dc:ReactBridge Name="Trend.default" data="{value: Data}" smooth="{value: true}" autoDraw="{value: true}" autoDrawDuration= {value: 3000}"
-		autoDrawEasing="ease-out"
-    width="{resource: 600}" height="{resource: 250}"
-    padding="{value: 10}"
-		gradient="{value: Gradient}"
-		radius="{value: 10}"
-		strokeWidth="{value: 10}"
-		strokeLinecap="{value: 'round'}" />
+    <dc:ReactBridge Name="Trend.default"
+    	data="{value: Data}"
+    	smooth="{value: true}"
+    	autoDraw="{value: true}"
+    	autoDrawDuration= {value: 3000}"
+    	autoDrawEasing="ease-out"
+    	width="{resource: 600}" height="{resource: 250}"
+    	padding="{value: 10}"
+    	gradient="{value: Gradient}"
+    	radius="{value: 10}"
+    	strokeWidth="{value: 10}"
+    	strokeLinecap="{value: 'round'}" />
 ```
 
 <br />
 
-## Sample 2: NumericInput control
+## Sample 2:
 
-You can do also this:
+You can do also this to update ```Data``` property on onChange callback:
 
 ```DOTHTML
     <dot:Repeater DataSource="{value: Data}">
@@ -30,15 +36,3 @@ You can do also this:
     </dot:Repeater>
 ```
 
-## Sample 3: Chartist controls
-
-```DOTHTML
-
-    <dc:Chartist Type="Line" Data="{value: SingleSeriesChartData}"  Options=" { low: 0, showArea: true } " />
-
-    <dc:Chartist Type="Pie" Data="{value: SingleSeriesChartDataWithoutLabels}" Class="BarChart"/>
-
-    <dc:Chartist Type="Bar" Data="{value: BarChartData}"  
-                    Options=" { stackBars: true } " />
-
-```
