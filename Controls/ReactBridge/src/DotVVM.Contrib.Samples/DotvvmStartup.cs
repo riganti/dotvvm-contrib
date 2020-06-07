@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using DotVVM.Contrib.Samples.Chartist;
 using DotVVM.Framework;
 using DotVVM.Framework.Configuration;
+using DotVVM.Framework.ResourceManagement;
 using DotVVM.Framework.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -32,24 +35,58 @@ namespace DotVVM.Contrib.Samples
 
         private void ConfigureControls(DotvvmConfiguration config, string applicationPath)
         {
-            // register code-only controls and markup controls
+            config.Markup.Controls.Add(new DotvvmControlConfiguration()
+            {
+                Assembly = typeof(Chartist.Chartist).Assembly.GetName().Name,
+                Namespace = typeof(Chartist.Chartist).Namespace,
+                TagPrefix = "dc"
+            });
         }
 
         private void ConfigureResources(DotvvmConfiguration config, string applicationPath)
         {
-            // register custom resources and adjust paths to the built-in resources
+            config.Resources.Register("react-trend", new ScriptResource(new UrlResourceLocation("https://unpkg.com/react-trend@1.2.4/umd/react-trend.js")) { Dependencies = new[] { "react" } });
+            config.Resources.Register("prop-types-DD", new ScriptResource(new UrlResourceLocation("https://unpkg.com/prop-types/prop-types.js"))
+            { Dependencies = new[] { "react" } });
+            config.Resources.Register("prop-types", new InlineScriptResource("window['prop-types'] = window['PropTypes']")
+            {
+                Dependencies = new[] { "prop-types-DD" }
+            });
+            config.Resources.Register("react-numeric-input",
+                new ScriptResource(new UrlResourceLocation("https://unpkg.com/react-numeric-input@2.1.0/dist/react-numeric-input.js"))
+                {
+                    Dependencies = new[] { "react", "prop-types", "ReactBridge" }
+                });
+
+            config.Resources.Register("chartist-css",
+               new StylesheetResource(new FileResourceLocation("wwwroot/Styles/chartist.min.css")));
+
+            config.Resources.Register("chartist-js",
+         new ScriptResource(new UrlResourceLocation("https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"))
+         {
+             LocationFallback = new ResourceLocationFallback(
+                 "window.Chartist",
+                 new FileResourceLocation("wwwroot/Script/chartist.min.js")),
+             Dependencies = new[] { "chartist-css" }
+         });
+
+            config.Resources.Register("ReactChartist", new ScriptResource(
+                new FileResourceLocation("wwwroot/Scripts/ReactChartis.js"))
+            {
+                Dependencies = new[] { "dotvvm", "react", "prop-types", "chartist-js", "ReactBridge" }
+            });
         }
     }
+}
 
-    internal class SamplesRouteStrategy : DefaultRouteStrategy
+internal class SamplesRouteStrategy : DefaultRouteStrategy
+{
+    public SamplesRouteStrategy(DotvvmConfiguration config) : base(config)
     {
-        public SamplesRouteStrategy(DotvvmConfiguration config) : base(config)
-        {
-        }
+    }
 
-        protected override IEnumerable<RouteStrategyMarkupFileInfo> DiscoverMarkupFiles()
-        {
-            return base.DiscoverMarkupFiles().Where(r => !r.ViewsFolderRelativePath.StartsWith("_"));
-        }
+    protected override IEnumerable<RouteStrategyMarkupFileInfo> DiscoverMarkupFiles()
+    {
+        return base.DiscoverMarkupFiles().Where(r => !r.ViewsFolderRelativePath.StartsWith("_"));
     }
 }

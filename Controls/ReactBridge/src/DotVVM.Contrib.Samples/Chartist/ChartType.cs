@@ -1,4 +1,4 @@
-﻿namespace DotVVM.Contrib
+﻿namespace DotVVM.Contrib.Samples.Chartist
 {
     public enum ChartType
     {

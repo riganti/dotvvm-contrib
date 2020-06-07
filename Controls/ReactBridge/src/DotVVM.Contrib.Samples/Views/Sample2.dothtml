@@ -10,19 +10,19 @@
         <dc:ReactBridge Name="NumericInput" update:onChange="{value: _this}" value="{value: _this}" />
     </dot:Repeater>
 
-    <dc:Chartist Type="Line" Data="{value: SingleSeriesChartData}"  Options=" { low: 0, showArea: true } " />
+    <dc:Chartist Type="Line" Data="{value: SingleSeriesChartData}" Options=" { low: 0, showArea: true } " />
 
-    <dc:Chartist Type="Line" Data="{value: MultipleSeries2ChartData}"  
-                    Options=" { high: 3, low: -3, showArea: true, showLine: false, showPoint: false, axisX: { showLabel: false, showGrid: false } } " />
+    <dc:Chartist Type="Line" Data="{value: MultipleSeries2ChartData}"
+                 Options=" { high: 3, low: -3, showArea: true, showLine: false, showPoint: false, axisX: { showLabel: false, showGrid: false } } " />
 
-    <dc:Chartist Type="Bar" Data="{value: BarChartData}"  
-                    Options=" { stackBars: true, axisY: { offset: 20}} " 
-                    ResponsiveOptions=" [ ['screen and (min-width: 400px)', { reverseData: true, horizontalBars: true, axisY: { offset: 60 } }], ['screen and (min-width: 800px)', { stackBars: false, seriesBarDistance: 10 }], ['screen and (min-width: 1000px)', { reverseData: false, horizontalBars: false, seriesBarDistance: 15 }]]"/>
+    <dc:Chartist Type="Bar" Data="{value: BarChartData}"
+                 Options=" { stackBars: true, axisY: { offset: 20}} "
+                 ResponsiveOptions=" [ ['screen and (min-width: 400px)', { reverseData: true, horizontalBars: true, axisY: { offset: 60 } }], ['screen and (min-width: 800px)', { stackBars: false, seriesBarDistance: 10 }], ['screen and (min-width: 1000px)', { reverseData: false, horizontalBars: false, seriesBarDistance: 15 }]]" />
 
-    <dc:Chartist Type="Bar" Data="{value: BarChartData}"  
-                    Options=" { stackBars: true } " />
+    <dc:Chartist Type="Bar" Data="{value: BarChartData}"
+                 Options=" { stackBars: true } " />
 
-    <dc:Chartist Type="Pie" Data="{value: SingleSeriesChartDataWithoutLabels}" Class="BarChart"/>
+    <dc:Chartist Type="Pie" Data="{value: SingleSeriesChartDataWithoutLabels}" Class="BarChart" />
 
     <dot:RequiredResource Name="react-numeric-input" />
 </dot:Content>
