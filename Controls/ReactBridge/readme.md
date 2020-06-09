@@ -3,7 +3,11 @@
 This control brings possibility to use react components in your DotVVM views.
 In samples you can find react-trend or react-numeric-input components.
 
-```Name``` property should be the same as react component name you want ot render. Individual properties of ```<dc:ReactBridge />``` control are react props. ```update:``` prefix is calling updates on properties in ViewModel when event callback is called.
+|Property|Description|
+|---|---|
+| ```Name```   | should be the same as react component name that will be rendered |
+| ```update:``` prefix   | calls updates on properties in ViewModel when event callback is executed |
+| Individual ```<dc:ReactBridge />``` properties   |  value bindings are passed to component props with identical name  |
 
 ## Sample 1:
 
