@@ -107,6 +107,28 @@ namespace DotVVM.Contrib.Tests
             });
         }
 
+        [Fact]
+        public void Sample4Test()
+        {
+            RunInAllBrowsers(browser =>
+            {
+                browser.NavigateToUrl("/Sample4");
+                browser.Wait(2000);
+
+                var dp1 = browser.Single("#dp1");
+                var changed = browser.Single("#changed");
+                dp1.Clear();
+                dp1.SendKeys("13.1.2019");
+                dp1.SendEnterKey();
+                browser.Wait(500);
+
+                AssertUI.Value(dp1, "13.01.2019");
+
+                AssertUI.InnerTextEquals(changed,"Changed");
+                
+            });
+        }
+
         public ComponentTests(ITestOutputHelper output) : base(output)
         {
         }

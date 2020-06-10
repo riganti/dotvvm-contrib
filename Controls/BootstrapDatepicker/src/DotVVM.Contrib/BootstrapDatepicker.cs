@@ -36,6 +36,14 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty LanguageProperty
             = DotvvmProperty.Register<string, BootstrapDatepicker>(c => c.Language, null);
 
+        public Command Changed
+        {
+            get { return (Command)GetValue(ChangedProperty); }
+            set { SetValue(ChangedProperty, value); }
+        }
+        public static readonly DotvvmProperty ChangedProperty =
+            DotvvmProperty.Register<Command, BootstrapDatepicker>(t => t.Changed, null);
+
         protected override void AddAttributesToRender(IHtmlWriter writer, IDotvvmRequestContext context)
         {
             context.ResourceManager.AddCurrentCultureGlobalizationResource();
@@ -58,6 +66,13 @@ namespace DotVVM.Contrib
 
             if (!string.IsNullOrWhiteSpace(Language))
                 writer.AddAttribute("data-date-language", Language);
+
+            var activeTabChangedBinding = GetCommandBinding(ChangedProperty);
+            if (activeTabChangedBinding != null)
+            {
+                writer.AddAttribute("data-dotvvm-contrib-BootstrapDatepicker-changed", KnockoutHelper.GenerateClientPostBackScript(nameof(Changed), activeTabChangedBinding, this, true, null));
+            }
+
 
             base.AddAttributesToRender(writer, context);
         }
