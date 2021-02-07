@@ -1,0 +1,12 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample3ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <dc:MultilevelMenu DataSource="{resource: Menu}">
+        <i class="{resource: ExtraData.IconClass}"></i>
+        {{resource: Text}}
+    </dc:MultilevelMenu>
+
+</dot:Content>
+
