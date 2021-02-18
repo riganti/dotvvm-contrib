@@ -3,7 +3,7 @@ using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 using Newtonsoft.Json.Linq;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.Samples.Chartist
 {
     public class Chartist : DotvvmControl
     {

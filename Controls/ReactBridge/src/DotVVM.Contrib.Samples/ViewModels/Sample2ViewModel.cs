@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DotVVM.Contrib.Samples.Chartist;
 using DotVVM.Framework.ViewModel;
 
 namespace DotVVM.Contrib.Samples.ViewModels

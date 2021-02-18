@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.Samples.Chartist
 {
     public class ChartData
     {
