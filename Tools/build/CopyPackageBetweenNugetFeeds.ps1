@@ -6,12 +6,9 @@ Param(
     [string]$packageId
 )
 
-    $webClient = New-Object System.Net.WebClient
-    $url = "$internalServer/package/" + $packageId + "/" + $version
-    $nupkgFile = Join-Path $PSScriptRoot ($packageId + "." + $version + ".nupkg")
+    & .\tools\nuget.exe install $packageId -OutputDirectory .\tools\packages -version $version -DirectDownload -NoCache -DependencyVersion Ignore -source $internalServer
+    $nupkgFile = dir -s ./tools/packages/$packageId.$version.nupkg | Select -First 1
 
-    Write-Host "Downloading from $url"
-    $webClient.DownloadFile($url, $nupkgFile)
     Write-Host "Package downloaded from '$internalServer'."
 
     Write-Host "Uploading package..."
