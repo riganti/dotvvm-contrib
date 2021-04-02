@@ -1,21 +1,11 @@
 # FileUploadNoIframe
 
-TODO: what does the control do
+This is an experimental implementation of the `FileUpload` control that doesn't use iframe on the background. Works even in IE11.
 
 ## Sample 1: Something
 
-You can do this:
+The usage is the same as in the official [FileUpload](https://www.dotvvm.com/docs/controls/builtin/FileUpload/2.0) control:
 
 ```DOTHTML
-<dc:FileUploadNoIframe ... />
-```
-
-<br />
-
-## Sample 2: Something Else
-
-You can do also this:
-
-```DOTHTML
-<dc:FileUploadNoIframe ... />
+<dc:FileUploadNoIframe UploadedFiles="{value: MyFiles}" />
 ```
