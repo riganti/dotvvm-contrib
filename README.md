@@ -24,6 +24,7 @@ config.AddContribXYZConfiguration();
 * [CkEditorMinimal](Controls/CkEditorMinimal/readme.md)
 * [CrystalReportViewer](Controls/CrystalReportViewer/readme.md)
 * [FAIcon](Controls/FAIcon/readme.md)
+* [FileUploadNoIframe](Controls/FileUploadNoIframe/readme.md)
 * [GoogleAnalyticsJavascript](Controls/GoogleAnalyticsJavascript/readme.md)
 * [GoogleMap](Controls/GoogleMap/readme.md)
 * [LoadablePanel](Controls/LoadablePanel/readme.md)
