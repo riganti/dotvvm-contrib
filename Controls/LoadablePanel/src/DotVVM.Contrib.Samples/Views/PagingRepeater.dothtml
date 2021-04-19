@@ -3,8 +3,9 @@
 @service viewModel = DotVVM.Contrib.Samples.ViewModels.PagingRepeaterViewModel
 
 <dot:Content ContentPlaceHolderID="MainContent">
-    <dot:RequiredResource Name="pager-js"/>
-    <dot:Repeater DataSource="{value: Grid}">
+    <dot:RequiredResource Name="pager-js" />
+    <cc:Pager DataContext="{value: Grid}" Loader="{staticCommand: () => _root.Grid = viewModel.FillGrid(_root.Grid) }" />
+    <dot:Repeater class="repeater" DataSource="{value: Grid}">
         <dc:LoadablePanel Load="{staticCommand: _this.Data = viewModel.LoadItem(_this.Id).Result }" HideUntilLoaded="true" class="panel">
             <ProgressTemplate>
                 <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
@@ -17,6 +18,5 @@
             </ContentTemplate>
         </dc:LoadablePanel>
     </dot:Repeater>
-    <cc:Pager DataContext="{value: Grid}" Loader="{staticCommand: () => _root.Grid = viewModel.FillGrid(_root.Grid) }" />
 </dot:Content>
 

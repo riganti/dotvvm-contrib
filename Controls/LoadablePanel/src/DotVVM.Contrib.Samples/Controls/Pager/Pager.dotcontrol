@@ -1,5 +1,6 @@
 ﻿@viewModel DotVVM.Framework.Controls.IPageableGridViewDataSet
 @baseType DotVVM.Contrib.Samples.Controls.Pager.Pager, DotVVM.Contrib.Samples 
+@noWrapperTag 
 
 <ul class="pager">
     <li><dot:LinkButton Text="{resource: "<<"}" Click="{staticCommand: _pager.GoToPage(_this, 0, _control.Loader) }"></dot:LinkButton></li>

@@ -1,4 +1,13 @@
-﻿.update-progress {
+﻿ul.pager {
+    display: block;
+
+}
+
+ul li {
+    display: inline-block;
+}
+
+.update-progress {
     vertical-align: middle;
 }
 
@@ -40,14 +49,18 @@
 }
 
 .panel {
-    float: left;
     width: 400px;
     height: 400px;
-    border: 1px solid black;
-    display: flex;
-    flex-wrap: wrap; /* Optional. only if you want the items to wrap */
     justify-content: center; /* For horizontal alignment */
     align-items: center; /* For vertical alignment */
+    border: 1px solid black;
+}
+
+.repeater {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
 }
 
 .box {
