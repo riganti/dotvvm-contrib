@@ -31,10 +31,20 @@ namespace DotVVM.Contrib.FAIcon
         public static string Style(this FAIcons icon) => icon.FAStyle().Style();
 
         /// <summary>
+        /// Returns the class of style prefix of the icon as a string, eg "fab" for "brands" style
+        /// </summary>
+        public static string StylePrefix(this FAIcons icon) => icon.FAStyle().StylePrefix();
+        
+        /// <summary>
         /// Returns the name of the style, eg "brands"
         /// </summary>
-        public static string Style(this FAStyle icon) => icon.GetAttributeOfType<FAStyleAttribute>().Style;
+        public static string Style(this FAStyle style) => style.GetAttributeOfType<FAStyleAttribute>().Style;
 
+        /// <summary>
+        /// Returns the class of style prefix of the style as a string, eg "fab" for "brands" style
+        /// </summary>
+        public static string StylePrefix(this FAStyle style) => style.GetAttributeOfType<FAStyleAttribute>().StylePrefix;
+        
         /// <summary>
         /// Returns the <see cref="FAIconAttribute" /> associated with the icon, containing its metadata
         /// </summary>

@@ -27,7 +27,7 @@ namespace DotVVM.Contrib.FAIcon
         {
             if (RenderOnServer || !HasBinding(IconProperty))
             {
-                writer.AddAttribute("class", Icon.Style() == "brands" ? "fab" : "fas");
+                writer.AddAttribute("class", Icon.StylePrefix());
                 writer.AddAttribute("class", $"fa-{Icon.Key()}", true);
             }
 
