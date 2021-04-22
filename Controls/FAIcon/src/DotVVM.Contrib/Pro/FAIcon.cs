@@ -2,7 +2,7 @@
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
-namespace DotVVM.Contrib.FAIcon
+namespace DotVVM.Contrib.FAIcon.Pro
 {
     /// <summary>
     /// Renders a ...
@@ -10,14 +10,14 @@ namespace DotVVM.Contrib.FAIcon
     public class FAIcon : HtmlGenericControl
     {
         [MarkupOptions(Required = true)]
-        public FAIcons Icon
+        public FAIconsPro Icon
         {
-            get { return (FAIcons)GetValue(IconProperty); }
+            get { return (FAIconsPro)GetValue(IconProperty); }
             set { SetValue(IconProperty, value); }
         }
 
         public static readonly DotvvmProperty IconProperty =
-            DotvvmProperty.Register<FAIcons, FAIcon>(c => c.Icon, FAIcons.font_awesome_brands);
+            DotvvmProperty.Register<FAIconsPro, FAIcon>(c => c.Icon, FAIconsPro.font_awesome_brands);
 
         public FAIcon() : base("i")
         {
@@ -37,7 +37,7 @@ namespace DotVVM.Contrib.FAIcon
 
         protected override void OnPreRender(IDotvvmRequestContext context)
         {
-            context.ResourceManager.AddRequiredResource("dotvvm.contrib.FAIcon");
+            context.ResourceManager.AddRequiredResource(ResourceNames.ProStyleResourceName);
 
             base.OnPreRender(context);
         }

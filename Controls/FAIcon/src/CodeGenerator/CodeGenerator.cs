@@ -35,23 +35,46 @@ namespace FontAwesomeCS.CodeGenerator
             // FAIcons
             cs.AppendLine("    public enum FAIcons");
             cs.AppendLine("    {");
-
-            foreach (var icon in icons)
-            {
-                foreach (var style in icon.Value.Styles)
-                {
-                    cs.AppendLine($"        /// <summary>{icon.Value.Label} - {icon.Key} - {icon.Value.Unicode}</summary>");
-                    cs.AppendLine($"        [FAIcon(\"{icon.Key}\", \"{icon.Value.Label}\", FAStyle.{FormatName(style)}, \"\\u{icon.Value.Unicode}\")] {FormatName(icon.Key)}_{FormatName(style)},");
-                }
-            }
-
+            AppendFreeIcons(icons, cs);
             cs.AppendLine("    }");
 
+            cs.AppendLine("    public enum FAIconsPro");
+            cs.AppendLine("    {");
+            AppendFreeIcons(icons, cs);
+            AppendProIcons(icons, cs);
+            cs.AppendLine("    }");
+        
             cs.AppendLine("}");
 
             return cs.ToString();
         }
-        
+
+        private static void AppendProIcons(Dictionary<string, IconDto> icons, StringBuilder cs)
+        {
+            foreach (var icon in icons)
+            {
+                foreach (var style in icon.Value.Styles.Where(s => !icon.Value.Free.Contains(s)))
+                {
+                    cs.AppendLine($"        /// <summary>{icon.Value.Label} - {icon.Key} - {icon.Value.Unicode}</summary>");
+                    cs.AppendLine(
+                        $"        [FAIcon(\"{icon.Key}\", \"{icon.Value.Label}\", FAStyle.{FormatName(style)}, \"\\u{icon.Value.Unicode}\")] {FormatName(icon.Key)}_{FormatName(style)},");
+                }
+            }
+        }
+
+        private static void AppendFreeIcons(Dictionary<string, IconDto> icons, StringBuilder cs)
+        {
+            foreach (var icon in icons)
+            {
+                foreach (var style in icon.Value.Free)
+                {
+                    cs.AppendLine($"        /// <summary>{icon.Value.Label} - {icon.Key} - {icon.Value.Unicode}</summary>");
+                    cs.AppendLine(
+                        $"        [FAIcon(\"{icon.Key}\", \"{icon.Value.Label}\", FAStyle.{FormatName(style)}, \"\\u{icon.Value.Unicode}\")] {FormatName(icon.Key)}_{FormatName(style)},");
+                }
+            }
+        }
+
         private static Dictionary<string, IconDto> GetIcons(string iconsJsonPath)
         {
             var json = File.ReadAllText(iconsJsonPath);
