@@ -14,7 +14,7 @@ namespace DotVVM.Contrib.Tests
             RunInAllBrowsers(browser =>
             {
                 browser.NavigateToUrl("/Sample1");
-                var element = browser.Single("hardcoded",SelectBy.Id);
+                var element = browser.Single("hardcoded", SelectBy.Id);
                 AssertUI.TagName(element,"i");
                 AssertUI.HasClass(element,"fab");
                 AssertUI.HasClass(element, "fa-github");
@@ -26,12 +26,12 @@ namespace DotVVM.Contrib.Tests
             RunInAllBrowsers(browser =>
             {
                 browser.NavigateToUrl("/Sample1");
-                var element = browser.Single("hardcoded",SelectBy.Id);
+                var element = browser.Single("binding", SelectBy.Id);
 
                 AssertUI.TagName(element, "i");
                 AssertUI.HasClass(element, "fab");
                 AssertUI.HasClass(element, "fa-adn");
-                browser.Single("change",SelectBy.Id).Click();
+                browser.Single("change", SelectBy.Id).Click();
 
                 AssertUI.HasClass(element, "fas");
                 AssertUI.HasClass(element, "fa-adjust");
