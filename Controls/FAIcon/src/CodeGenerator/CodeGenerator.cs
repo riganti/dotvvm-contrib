@@ -17,7 +17,7 @@ namespace FontAwesomeCS.CodeGenerator
             var icons = GetIcons(iconsJsonPath);
 
             var cs = new StringBuilder();
-            cs.AppendLine("using DotVVM.Contrib.FAIcon");
+            cs.AppendLine("using DotVVM.Contrib.FAIcon;");
             cs.AppendLine("namespace DotVVM.Contrib");
             cs.AppendLine("{");
 

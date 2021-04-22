@@ -1,4 +1,4 @@
-using DotVVM.Contrib.FAIcon
+using DotVVM.Contrib.FAIcon;
 namespace DotVVM.Contrib
 {
     public enum FAStyle
