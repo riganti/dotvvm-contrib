@@ -15,6 +15,7 @@ namespace DotVVM.Contrib
 
         public static void AddContribFAIconConfiguration(this DotvvmConfiguration config)
         {
+            VerifyProFAIconsWereNotAlreadyRegistered(config);
             RegisterFreeIconControl(config);
 
             RegisterScriptResource(config);
@@ -30,9 +31,10 @@ namespace DotVVM.Contrib
 
             // NOTE: all resource names should start with "dotvvm.contrib.FAIcon"
         }
-
+        
         public static void AddContribFAIconProConfiguration(this DotvvmConfiguration config, StylesheetResource FAIconProResource)
         {
+            VerifyFreeFAIconVersionIsNotAlreadyRegistered(config);
             RegisterProIconControl(config);
 
             RegisterScriptResource(config);
@@ -86,6 +88,22 @@ namespace DotVVM.Contrib
                 Namespace = typeof(FAIcon.Pro.FAIcon).Namespace,
                 TagPrefix = "dc"
             });
+        }
+        
+        private static void VerifyProFAIconsWereNotAlreadyRegistered(DotvvmConfiguration config)
+        {
+            if (config.Resources.FindResource(ResourceNames.ProStyleResourceName) != null)
+            {
+                throw new InvalidOperationException("Pro version of the FAIcon control is already registerd.");
+            }
+        }
+
+        private static void VerifyFreeFAIconVersionIsNotAlreadyRegistered(DotvvmConfiguration config)
+        {
+            if (config.Resources.FindResource(ResourceNames.FreeStyleResourceName) != null)
+            {
+                throw new InvalidOperationException("Free version of the FAIcon control is already registerd.");
+            }
         }
     }
 }
