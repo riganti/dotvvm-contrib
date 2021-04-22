@@ -10,13 +10,14 @@ namespace FontAwesomeCS.CodeGenerator
 {
     public static class CodeGenerator
     {
-        public static void GenerateMappings(string targetPath) => File.WriteAllText(targetPath, GenerateMappings());
+        public static void GenerateMappings(string targetPath, string iconsJsonPath) => File.WriteAllText(targetPath, GenerateMappings(iconsJsonPath));
 
-        public static string GenerateMappings()
+        public static string GenerateMappings(string iconsJsonPath)
         {
-            var icons = GetIcons();
+            var icons = GetIcons(iconsJsonPath);
 
             var cs = new StringBuilder();
+            cs.AppendLine("using DotVVM.Contrib.FAIcon");
             cs.AppendLine("namespace DotVVM.Contrib");
             cs.AppendLine("{");
 
@@ -51,9 +52,9 @@ namespace FontAwesomeCS.CodeGenerator
             return cs.ToString();
         }
         
-        private static Dictionary<string, IconDto> GetIcons()
+        private static Dictionary<string, IconDto> GetIcons(string iconsJsonPath)
         {
-            var json = File.ReadAllText("Assets/icons.json");
+            var json = File.ReadAllText(iconsJsonPath);
             return JsonConvert.DeserializeObject<Dictionary<string, IconDto>>(json);
         }
 
