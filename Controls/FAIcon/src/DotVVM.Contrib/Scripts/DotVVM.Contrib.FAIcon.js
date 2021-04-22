@@ -2,26 +2,26 @@
     init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
 
         valueAccessor().subscribe(function (previousValue) {
-            if (previousValue.endsWith("brands")) {
-                element.classList.remove("fab");
-            } else {
-                element.classList.remove("fas");
-            }
-            previousValue = previousValue.substr(0, previousValue.lastIndexOf("_"));
-            element.classList.remove("fa-" + previousValue.replace('_', '-'));
+            const splitterIndex = previousValue.lastIndexOf("_");
+            const previousIconValue = previousValue.substr(0, splitterIndex);
+            const previousIconValueClass = "fa-" + previousIconValue.replace('_', '-')
+            const previousStyle = previousValue.substr(splitterIndex + 1);
+            const previousStyleClass = `fa${previousStyle.charAt(0)}`;
+            element.classList.remove(previousStyleClass)
+            element.classList.remove(previousIconValueClass);
         }, this, "beforeChange");
     },
     update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
-        var value = ko.unwrap(valueAccessor());
+        const value = ko.unwrap(valueAccessor());
 
-        if (value.endsWith("brands")) {
-            element.classList.add("fab");
-        } else {
-            element.classList.add("fas");
-        }
-
-        value = value.substr(0, value.lastIndexOf("_"));
-        element.classList.add("fa-" + value.replace('_', '-'));
+        const splitterIndex = value.lastIndexOf("_");
+        const iconValue = value.substr(0, splitterIndex);
+        const iconValueClass = "fa-" + iconValue.replace('_', '-')
+        const style = value.substr(splitterIndex + 1);
+        const styleClass = `fa${style.charAt(0)}`;
+        
+        element.classList.add(styleClass);
+        element.classList.add(iconValueClass);
     }
 };
 
