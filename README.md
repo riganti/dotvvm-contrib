@@ -31,6 +31,7 @@ config.AddContribXYZConfiguration();
 * [MultilevelMenu](Controls/MultilevelMenu/readme.md)
 * [NoUiSlider](Controls/NoUiSlider/readme.md)
 * [PolicyView](Controls/PolicyView/readme.md)
+* [PolymorphTemplateSelector](Controls/PolymorphTemplateSelector/readme.md)
 * [QrCode](Controls/QrCode/readme.md)
 * [ReactBridge](Controls/ReactBridge/readme.md)
 * [Select2](Controls/Select2/readme.md)
