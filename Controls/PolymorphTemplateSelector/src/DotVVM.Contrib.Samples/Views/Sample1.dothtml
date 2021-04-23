@@ -1,0 +1,68 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <dot:Button Text="Add Yes/No question" Click="{command: AddYesNo()}" />
+    <dot:Button Text="Add Choice question" Click="{command: AddChoice()}" />
+    <dot:Button Text="Add Number question" Click="{command: AddNumber()}" />
+    <dot:Button Text="Add Open text question" Click="{command: AddOpenText()}" />
+    <dot:Button Text="Add Empty question" Click="{command: AddEmpty()}" />
+
+    <dot:Repeater DataSource="{value: Questions}">
+        <ItemTemplate>
+            <h2>#{{value: Id}}</h2>
+
+            <dc:PolymorphTemplateSelector>
+                <dc:PolymorphTemplate DataContext="{value: YesNo}">
+                    <p>{{value: Question}}</p>
+                    <p>
+                        <dot:RadioButton name="{value: "q" + _parent.Id}"
+                                         CheckedItem="{value: Value}" CheckedValue="{value: true}"
+                                         Text="yes" />
+                        <dot:RadioButton name="{value: "q" + _parent.Id}"
+                                         CheckedItem="{value: Value}" CheckedValue="{value: false}"
+                                         Text="no" />
+                    </p>
+                </dc:PolymorphTemplate>
+
+                <dc:PolymorphTemplate DataContext="{value: Choice}">
+                    <p>{{value: Question}}</p>
+                    <p>
+                        <dot:ComboBox DataSource="{value: Choices}" SelectedValue="{value: Value}" />
+                    </p>
+                </dc:PolymorphTemplate>
+
+                <dc:PolymorphTemplate DataContext="{value: Number}">
+                    <p>{{value: Question}}</p>
+                    <p>
+                        <dot:TextBox Type="Number" Text="{value: Value}"
+                                     min="{value: Min}" max="{value: Max}" />
+                    </p>
+                </dc:PolymorphTemplate>
+
+                <dc:PolymorphTemplate DataContext="{value: OpenText}">
+                    <p>{{value: Question}}</p>
+                    <p>
+                        <dot:TextBox Type="MultiLine" Text="{value: Value}" />
+                    </p>
+                </dc:PolymorphTemplate>
+            </dc:PolymorphTemplateSelector>
+
+            <p>
+                <dot:Button Text="Move up" Enabled="{value: _index > 0}"
+                            Click="{command: _root.MoveUp(_index)}" />
+                <dot:Button Text="Move down" Enabled="{value: _index < _root.Questions.Count - 1}"
+                            Click="{command: _root.MoveDown(_index)}" />
+                <dot:Button Text="Delete" 
+                            Click="{command: _root.Delete(_index)}" />
+            </p>
+
+        </ItemTemplate>
+        <SeparatorTemplate>
+            <hr />
+        </SeparatorTemplate>
+    </dot:Repeater>
+
+</dot:Content>
+
