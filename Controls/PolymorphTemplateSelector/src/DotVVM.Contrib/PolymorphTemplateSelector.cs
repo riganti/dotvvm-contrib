@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using DotVVM.Framework.ResourceManagement;
 using DotVVM.Framework.Compilation.Javascript.Ast;
+using System.Linq;
 
 namespace DotVVM.Contrib
 {
@@ -18,6 +19,7 @@ namespace DotVVM.Contrib
 
         private readonly List<(PolymorphTemplate template, string templateId)> templatesWithIds = new();
         private string fallbackTemplateId;
+        private object memoizedItem;
 
         /// <summary>
         /// Gets or sets a list of possible templates.
@@ -34,6 +36,7 @@ namespace DotVVM.Contrib
         /// <summary>
         /// Gets or sets a fallback template.
         /// </summary>
+        [MarkupOptions(AllowBinding = false, MappingMode = MappingMode.InnerElement)]
         public ITemplate FallbackTemplate
         {
             get { return (ITemplate)GetValue(FallbackTemplateProperty); }
@@ -74,14 +77,131 @@ namespace DotVVM.Contrib
 
         protected override void OnLoad(IDotvvmRequestContext context)
         {
-            BuildAndRegisterTemplates(context);
-            BuildAndRegisterFallbackTemplate(context);
+            if (context.IsPostBack)
+            {
+                DataBind(context);
+                memoizedItem = DataContext;
+            }
 
             base.OnLoad(context);
         }
 
-        protected virtual void BuildAndRegisterFallbackTemplate(IDotvvmRequestContext context)
+        protected override void OnPreRender(IDotvvmRequestContext context)
         {
+            if (DataContext != memoizedItem)
+            {
+                DataBind(context);
+            }
+
+            base.OnPreRender(context);
+        }
+
+        private void DataBind(IDotvvmRequestContext context)
+        {
+            if (DataContext == null)
+            {
+                return;
+            }
+
+            Children.Clear();
+
+            if (FindActiveTemplate() is { } activeTemplate)
+            {
+                // instantiate the template
+                var placeholder = new PlaceHolder();
+                placeholder.SetValueRaw(DataContextProperty, activeTemplate.GetValueRaw(DataContextProperty));
+                Children.Add(placeholder);
+                activeTemplate.ContentTemplate.BuildContent(context, placeholder);
+            } 
+            else if (FallbackTemplate != null)
+            {
+                // instantiate fallback template
+                var placeholder = new PlaceHolder();
+                Children.Add(placeholder);
+                FallbackTemplate.BuildContent(context, placeholder);                
+            }
+        }
+
+        protected override void RenderBeginTag(IHtmlWriter writer, IDotvvmRequestContext context)
+        {
+            TagName = WrapperTagName;
+
+            if (!RenderOnServer)
+            {
+                // client-side rendering
+                BuildAndRegisterTemplates(context);
+                var expr = BuildKnockoutTemplateBindingExpression();
+
+                if (RenderWrapperTag)
+                {
+                    writer.AddKnockoutDataBind("template", expr);
+                    base.RenderBeginTag(writer, context);
+                }
+                else
+                {
+                    writer.WriteKnockoutDataBindComment("template", expr);
+                }
+            }
+            else
+            {
+                // server-side rendering
+                base.RenderBeginTag(writer, context);
+            }
+        }
+
+        protected override void RenderContents(IHtmlWriter writer, IDotvvmRequestContext context)
+        {
+            if (!RenderOnServer)
+            {
+                // do not render anything
+            }
+            else
+            {
+                base.RenderContents(writer, context);
+            }
+        }
+
+        protected override void RenderEndTag(IHtmlWriter writer, IDotvvmRequestContext context)
+        {
+            if (!RenderOnServer)
+            {
+                // client-side rendering
+                if (RenderWrapperTag)
+                {
+                    base.RenderEndTag(writer, context);
+                }
+                else
+                {
+                    writer.WriteKnockoutDataBindEndComment();
+                }
+            }
+            else
+            {
+                // server-side rendering
+                base.RenderEndTag(writer, context);
+            }
+        }
+
+        private PolymorphTemplate FindActiveTemplate()
+        {
+            return Templates.FirstOrDefault(t => t.GetValueBinding(DataContextProperty)?.Evaluate(this) != null);
+        }
+
+        protected virtual void BuildAndRegisterTemplates(IDotvvmRequestContext context)
+        {
+            Children.Clear();
+
+            foreach (var template in Templates)
+            {
+                var placeholder = new PlaceHolder();
+                placeholder.SetValue(Internal.PathFragmentProperty, template.GetValueBinding(DataContextProperty).GetKnockoutBindingExpression(this));
+                template.ContentTemplate.BuildContent(context, placeholder);
+                Children.Add(placeholder);
+
+                var templateId = context.ResourceManager.AddTemplateResource(context, placeholder);
+                templatesWithIds.Add((template, templateId));
+            }
+
             if (FallbackTemplate != null)
             {
                 var fallbackPlaceholder = new PlaceHolder();
@@ -92,37 +212,6 @@ namespace DotVVM.Contrib
             else
             {
                 fallbackTemplateId = context.ResourceManager.AddTemplateResource("<!-- empty template -->");
-            }
-        }
-
-        protected virtual void BuildAndRegisterTemplates(IDotvvmRequestContext context)
-        {
-            foreach (var template in Templates)
-            {
-                var placeholder = new PlaceHolder();
-                template.ContentTemplate.BuildContent(context, placeholder);
-                Children.Add(placeholder);
-
-                var templateId = context.ResourceManager.AddTemplateResource(context, placeholder);
-                templatesWithIds.Add((template, templateId));
-            }
-        }
-
-
-        protected override void RenderBeginTag(IHtmlWriter writer, IDotvvmRequestContext context)
-        {
-            TagName = WrapperTagName;
-            
-            var expr = BuildKnockoutTemplateBindingExpression();
-
-            if (RenderWrapperTag)
-            {
-                writer.AddKnockoutDataBind("template", expr);
-                base.RenderBeginTag(writer, context);
-            }
-            else
-            {
-                writer.WriteKnockoutDataBindComment("template", expr);
             }
         }
 
@@ -157,21 +246,5 @@ namespace DotVVM.Contrib
             return expr;
         }
 
-        protected override void RenderContents(IHtmlWriter writer, IDotvvmRequestContext context)
-        {
-            // do not render contents
-        }
-
-        protected override void RenderEndTag(IHtmlWriter writer, IDotvvmRequestContext context)
-        {
-            if (RenderWrapperTag)
-            {
-                base.RenderEndTag(writer, context);
-            }
-            else
-            {
-                writer.WriteKnockoutDataBindEndComment();
-            }
-        }
     }
 }

@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.Samples
 @masterPage Views/_master.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
@@ -11,7 +11,7 @@
 
     <p>Last message: <em>{{value: LastMessage}}</em></p>
 
-    <dot:Repeater DataSource="{value: Questions}">
+    <dot:Repeater DataSource="{value: Questions}" RenderSettings.Mode="Server" PostBack.Update="true">
         <ItemTemplate>
             <h2>#{{value: Id}}</h2>
 
@@ -42,7 +42,7 @@
                         <p>{{value: Question}}</p>
                         <p>
                             <dot:TextBox Type="Number" Text="{value: Value}"
-                                         min="{value: Min}" max="{value: Max}" />
+                                         min="{value: Min.ToString()}" max="{value: Max.ToString()}" />
                         </p>
                         <p><dot:LinkButton Text="Test postback" Click="{command: _root.TestPostback("number" + _parent.Id)}" /></p>
                     </dc:PolymorphTemplate>
@@ -66,7 +66,7 @@
                             Click="{command: _root.MoveUp(_index)}" />
                 <dot:Button Text="Move down" Enabled="{value: _index < _root.Questions.Count - 1}"
                             Click="{command: _root.MoveDown(_index)}" />
-                <dot:Button Text="Delete" 
+                <dot:Button Text="Delete"
                             Click="{command: _root.Delete(_index)}" />
             </p>
 

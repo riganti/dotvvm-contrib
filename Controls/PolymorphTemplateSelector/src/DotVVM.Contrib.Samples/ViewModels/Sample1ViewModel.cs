@@ -12,6 +12,7 @@ namespace DotVVM.Contrib.Samples.ViewModels
 
         public List<QuestionEntry> Questions { get; set; }
 
+        public string LastMessage { get; set; }
 
         public override Task Init()
         {
@@ -107,6 +108,12 @@ namespace DotVVM.Contrib.Samples.ViewModels
         {
             questionEntry.Id = (Questions.Max(q => (int?)q.Id) ?? 0) + 1;
             Questions.Add(questionEntry);
+        }
+
+
+        public void TestPostback(string message)
+        {
+            LastMessage = message;
         }
     }
 }
