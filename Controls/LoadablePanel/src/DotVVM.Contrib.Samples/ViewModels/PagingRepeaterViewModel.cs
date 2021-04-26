@@ -19,6 +19,9 @@ namespace DotVVM.Contrib.Samples.ViewModels
             }
         };
 
+        public List<string> LoadingItems { get; set; } = new List<string>();
+
+
         [AllowStaticCommand]
         public async Task<string> LoadItem(string id)
         {
