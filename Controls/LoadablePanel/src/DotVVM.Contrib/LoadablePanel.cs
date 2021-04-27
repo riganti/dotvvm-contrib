@@ -72,15 +72,28 @@ namespace DotVVM.Contrib
             DotvvmProperty.Register<bool, LoadablePanel>(t => t.HideUntilLoaded);
 
         /// <summary>
-        /// Gets or sets a collection of values of all loadable panels which are currently loading.
+        /// Gets or sets a collection of element ids of all loadable panels which are currently in the loading state.
         /// </summary>
-        public IEnumerable LoadingItems
+        public IEnumerable LoadingElementIds
         {
-            get { return (IEnumerable)GetValue(LoadingItemsProperty); }
-            set { SetValue(LoadingItemsProperty, value); }
+            get { return (IEnumerable)GetValue(LoadingElementIdsProperty); }
+            set { SetValue(LoadingElementIdsProperty, value); }
         }
-        public static readonly DotvvmProperty LoadingItemsProperty =
-            DotvvmProperty.Register<IEnumerable, LoadablePanel>(t => t.LoadingItems, null);
+        public static readonly DotvvmProperty LoadingElementIdsProperty =
+            DotvvmProperty.Register<IEnumerable, LoadablePanel>(t => t.LoadingElementIds, null);
+
+        /// <summary>
+        /// Gets or sets a key that identtifies the data displayed in the loadable panel. When the key value changes the panel is reloaded.
+        /// This property needs to be bound if the loadable panel is in a GridView Repeater or other client-updated controls.
+        /// </summary>
+        [MarkupOptions(AllowBinding = true, AllowHardCodedValue = false)]
+        public string Key
+        {
+            get { return (string)GetValue(KeyProperty); }
+            set { SetValue(KeyProperty, value); }
+        }
+        public static readonly DotvvmProperty KeyProperty
+            = DotvvmProperty.Register<string, LoadablePanel>(c => c.Key, null);
 
         protected override void OnInit(IDotvvmRequestContext context)
         {
@@ -126,17 +139,19 @@ namespace DotVVM.Contrib
 
             var commandBinding = GetCommandBinding(LoadProperty);
 
-            binding.Add("load", GenerateCommandFunction(nameof(LoadProperty), commandBinding, this, useWindowSetTimeout: true));
+            binding.Add("loadBinding", GenerateCommandFunction(nameof(LoadProperty), commandBinding, this, useWindowSetTimeout: true));
+            binding.Add("showProgressElement", ProgressTemplate != null ? "true" : "false");
 
-            if (ProgressTemplate != null)
+            var keyBinding = GetValueBinding(KeyProperty);
+            if (keyBinding != null)
             {
-                binding.Add("progressElement", "true");
+                binding.Add("keyBinding", this, KeyProperty);
             }
 
-            var loadingItemsBinding = GetValueBinding(LoadingItemsProperty);
+            var loadingItemsBinding = GetValueBinding(LoadingElementIdsProperty);
             if (loadingItemsBinding != null)
             {
-                binding.Add("loadingItems", this, LoadingItemsProperty);
+                binding.Add("loadingElementsIdsBinding", this, LoadingElementIdsProperty);
             }
 
             return binding;

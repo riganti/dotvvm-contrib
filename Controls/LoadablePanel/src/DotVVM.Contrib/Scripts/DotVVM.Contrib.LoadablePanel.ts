@@ -1,11 +1,13 @@
 ﻿/// <reference path="typings/dotvvm/DotVVM.d.ts" />
 /// <reference path="typings/knockout/knockout.d.ts" />
 
-class BindingGroup<T>{
-    progressElement: boolean
-    loadingItems: KnockoutObservableArray<KnockoutObservable<string>| string>
-    load: () => Promise<T>
+class BindingGroup<T> {
+    showProgressElement: boolean;
+    loadingElementsIdsBinding: KnockoutObservableArray<KnockoutObservable<string> | string>;
+    loadBinding: () => Promise<T>;
+    keyBinding: KnockoutObservable<string> | undefined ;
 }
+
 
 class LoadablePanelHandler {
     private static panelCounter = 0 
@@ -13,9 +15,9 @@ class LoadablePanelHandler {
     init = (element: HTMLElement, valueAccessor: () => BindingGroup<any>) => {
         const bindingGroup: BindingGroup<any> = valueAccessor();
 
-        const context = ko.contextFor(element).$data as KnockoutObservable<any>;
-
-        context.subscribe(() => console.info("Aaaa"))
+        if (bindingGroup.keyBinding && ko.isObservable(bindingGroup.keyBinding)) {
+            bindingGroup.keyBinding.subscribe(() => this.reloadPanel(bindingGroup, element));
+        }
 
         this.reloadPanel(bindingGroup, element);
     }
@@ -37,7 +39,7 @@ class LoadablePanelHandler {
 
         const onLoaded = () => this.loaded(element, bindingGroup);
 
-        bindingGroup.load().then(onLoaded, onLoaded);
+        bindingGroup.loadBinding().then(onLoaded, onLoaded);
     }
 
     private getOrCreatePanelId = (rootElement: HTMLElement): string => {
@@ -54,8 +56,8 @@ class LoadablePanelHandler {
     }
 
     private tryAddToPanel = (panelId: string, bindingGroup: BindingGroup<any>) => {
-        if (bindingGroup.loadingItems) {
-            bindingGroup.loadingItems.push(panelId);
+        if (bindingGroup.loadingElementsIdsBinding) {
+            bindingGroup.loadingElementsIdsBinding.push(panelId);
         }
     }
 
@@ -63,10 +65,10 @@ class LoadablePanelHandler {
         if (!rootElement.id) {
             return;
         }
-        const items = ko.unwrap(bindingGroup.loadingItems);
+        const items = ko.unwrap(bindingGroup.loadingElementsIdsBinding);
 
         if (items) {
-            bindingGroup.loadingItems(items.filter(li => ko.unwrap(li) !== rootElement.id));
+            bindingGroup.loadingElementsIdsBinding(items.filter(li => ko.unwrap(li) !== rootElement.id));
         }
     }
 
@@ -76,14 +78,14 @@ class LoadablePanelHandler {
 
     private tryShowProgressElement = (rootElement: HTMLElement, bindingGroup: BindingGroup<any>): void => {
         const progressElement = this.getProgressElement(rootElement);
-        if (progressElement && bindingGroup.progressElement) {
+        if (progressElement && bindingGroup.showProgressElement) {
             progressElement.style.display = "";
         }
     }
 
     private tryHideProgressElement = (rootElement: HTMLElement, bindingGroup: BindingGroup<any>): void => {
         const progressElement = this.getProgressElement(rootElement);
-        if (progressElement && bindingGroup.progressElement) {
+        if (progressElement && bindingGroup.showProgressElement) {
             progressElement.style.display = "none";
         }
     }

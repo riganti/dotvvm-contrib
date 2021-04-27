@@ -10,8 +10,9 @@ var LoadablePanelHandler = /** @class */ (function () {
         var _this = this;
         this.init = function (element, valueAccessor) {
             var bindingGroup = valueAccessor();
-            var context = ko.contextFor(element).$data;
-            context.subscribe(function () { return console.info("Aaaa"); });
+            if (bindingGroup.keyBinding && ko.isObservable(bindingGroup.keyBinding)) {
+                bindingGroup.keyBinding.subscribe(function () { return _this.reloadPanel(bindingGroup, element); });
+            }
             _this.reloadPanel(bindingGroup, element);
         };
         this.update = function (element, valueAccessor) {
@@ -26,7 +27,7 @@ var LoadablePanelHandler = /** @class */ (function () {
             _this.tryAddToPanel(panelId, bindingGroup);
             _this.tryShowProgressElement(element, bindingGroup);
             var onLoaded = function () { return _this.loaded(element, bindingGroup); };
-            bindingGroup.load().then(onLoaded, onLoaded);
+            bindingGroup.loadBinding().then(onLoaded, onLoaded);
         };
         this.getOrCreatePanelId = function (rootElement) {
             if (rootElement.id) {
@@ -38,17 +39,17 @@ var LoadablePanelHandler = /** @class */ (function () {
             return newId;
         };
         this.tryAddToPanel = function (panelId, bindingGroup) {
-            if (bindingGroup.loadingItems) {
-                bindingGroup.loadingItems.push(panelId);
+            if (bindingGroup.loadingElementsIdsBinding) {
+                bindingGroup.loadingElementsIdsBinding.push(panelId);
             }
         };
         this.tryRemoveFromPanel = function (rootElement, bindingGroup) {
             if (!rootElement.id) {
                 return;
             }
-            var items = ko.unwrap(bindingGroup.loadingItems);
+            var items = ko.unwrap(bindingGroup.loadingElementsIdsBinding);
             if (items) {
-                bindingGroup.loadingItems(items.filter(function (li) { return ko.unwrap(li) !== rootElement.id; }));
+                bindingGroup.loadingElementsIdsBinding(items.filter(function (li) { return ko.unwrap(li) !== rootElement.id; }));
             }
         };
         this.getProgressElement = function (rootElement) {
@@ -56,13 +57,13 @@ var LoadablePanelHandler = /** @class */ (function () {
         };
         this.tryShowProgressElement = function (rootElement, bindingGroup) {
             var progressElement = _this.getProgressElement(rootElement);
-            if (progressElement && bindingGroup.progressElement) {
+            if (progressElement && bindingGroup.showProgressElement) {
                 progressElement.style.display = "";
             }
         };
         this.tryHideProgressElement = function (rootElement, bindingGroup) {
             var progressElement = _this.getProgressElement(rootElement);
-            if (progressElement && bindingGroup.progressElement) {
+            if (progressElement && bindingGroup.showProgressElement) {
                 progressElement.style.display = "none";
             }
         };

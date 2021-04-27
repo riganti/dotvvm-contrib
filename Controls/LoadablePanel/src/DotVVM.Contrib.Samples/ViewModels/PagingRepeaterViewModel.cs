@@ -32,8 +32,11 @@ namespace DotVVM.Contrib.Samples.ViewModels
         [AllowStaticCommand]
         public GridViewDataSet<Item> FillGrid(GridViewDataSet<Item> grid)
         {
+            var itemCount = grid.PagingOptions.TotalItemsCount - grid.PagingOptions.PageSize * grid.PagingOptions.PageIndex;
+            itemCount = Math.Min(grid.PagingOptions.PageSize, itemCount);
+
             grid.Items = Enumerable
-                .Repeat(new Item { Id = "id", Data = "waiting for data..." }, grid.PagingOptions.PageSize)
+                .Repeat(new Item { Id = Guid.NewGuid().ToString(), Data = "waiting for data..." }, itemCount)
                 .ToList();
 
             return grid;
