@@ -14,7 +14,7 @@ namespace DotVVM.Contrib
     /// </summary>
     [ContainsDotvvmProperties]
     [ControlMarkupOptions(AllowContent = false, DefaultContentProperty = nameof(Templates))]
-    public class PolymorphTemplateSelector : HtmlGenericControl 
+    public class PolymorphTemplateSelector : HtmlGenericControl
     {
 
         private readonly List<(PolymorphTemplate template, string templateId)> templatesWithIds = new();
@@ -88,12 +88,38 @@ namespace DotVVM.Contrib
 
         protected override void OnPreRender(IDotvvmRequestContext context)
         {
-            if (DataContext != memoizedItem)
+            if (RenderOnServer)
             {
-                DataBind(context);
+                if (DataContext != memoizedItem)
+                {
+                    DataBind(context);
+                }
+            }
+            else
+            {
+                // build controls for client-side templates
+                BuildClientTemplates(context);
             }
 
             base.OnPreRender(context);
+        }
+
+        protected virtual void BuildClientTemplates(IDotvvmRequestContext context)
+        {
+            foreach (var template in Templates)
+            {
+                var placeholder = new PlaceHolder();
+                placeholder.SetValue(Internal.PathFragmentProperty, template.GetValueBinding(DataContextProperty).GetKnockoutBindingExpression(this));
+                template.ContentTemplate.BuildContent(context, placeholder);
+                Children.Add(placeholder);
+            }
+
+            if (FallbackTemplate != null)
+            {
+                var fallbackPlaceholder = new PlaceHolder();
+                FallbackTemplate.BuildContent(context, fallbackPlaceholder);
+                Children.Add(fallbackPlaceholder);
+            }
         }
 
         private void DataBind(IDotvvmRequestContext context)
@@ -112,13 +138,13 @@ namespace DotVVM.Contrib
                 placeholder.SetValueRaw(DataContextProperty, activeTemplate.GetValueRaw(DataContextProperty));
                 Children.Add(placeholder);
                 activeTemplate.ContentTemplate.BuildContent(context, placeholder);
-            } 
+            }
             else if (FallbackTemplate != null)
             {
                 // instantiate fallback template
                 var placeholder = new PlaceHolder();
                 Children.Add(placeholder);
-                FallbackTemplate.BuildContent(context, placeholder);                
+                FallbackTemplate.BuildContent(context, placeholder);
             }
         }
 
@@ -129,7 +155,7 @@ namespace DotVVM.Contrib
             if (!RenderOnServer)
             {
                 // client-side rendering
-                BuildAndRegisterTemplates(context);
+                RegisterTemplates(context);
                 var expr = BuildKnockoutTemplateBindingExpression();
 
                 if (RenderWrapperTag)
@@ -187,27 +213,18 @@ namespace DotVVM.Contrib
             return Templates.FirstOrDefault(t => t.GetValueBinding(DataContextProperty)?.Evaluate(this) != null);
         }
 
-        protected virtual void BuildAndRegisterTemplates(IDotvvmRequestContext context)
+
+        protected virtual void RegisterTemplates(IDotvvmRequestContext context)
         {
-            Children.Clear();
-
-            foreach (var template in Templates)
+            for (var i = 0; i < Templates.Count; i++)
             {
-                var placeholder = new PlaceHolder();
-                placeholder.SetValue(Internal.PathFragmentProperty, template.GetValueBinding(DataContextProperty).GetKnockoutBindingExpression(this));
-                template.ContentTemplate.BuildContent(context, placeholder);
-                Children.Add(placeholder);
-
-                var templateId = context.ResourceManager.AddTemplateResource(context, placeholder);
-                templatesWithIds.Add((template, templateId));
+                var templateId = context.ResourceManager.AddTemplateResource(context, Children[i]);
+                templatesWithIds.Add((Templates[i], templateId));
             }
 
-            if (FallbackTemplate != null)
+            if (Children.Count > Templates.Count)
             {
-                var fallbackPlaceholder = new PlaceHolder();
-                FallbackTemplate.BuildContent(context, fallbackPlaceholder);
-                Children.Add(fallbackPlaceholder);
-                fallbackTemplateId = context.ResourceManager.AddTemplateResource(context, fallbackPlaceholder);
+                fallbackTemplateId = context.ResourceManager.AddTemplateResource(context, Children[Children.Count - 1]);
             }
             else
             {

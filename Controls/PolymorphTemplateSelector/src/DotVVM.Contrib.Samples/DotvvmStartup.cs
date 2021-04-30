@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using DotVVM.Contrib.Samples.Controls;
 using DotVVM.Framework;
 using DotVVM.Framework.Configuration;
+using DotVVM.Framework.ResourceManagement;
 using DotVVM.Framework.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -28,11 +30,13 @@ namespace DotVVM.Contrib.Samples
         private void ConfigureControls(DotvvmConfiguration config, string applicationPath)
         {
             // register code-only controls and markup controls
+            config.Markup.AddCodeControls("cc", typeof(MyCustomControl));
         }
 
         private void ConfigureResources(DotvvmConfiguration config, string applicationPath)
         {
             // register custom resources and adjust paths to the built-in resources
+            config.Resources.Register("fake-css", new StylesheetResource(new UrlResourceLocation("about:blank")));
         }
 
         public void ConfigureServices(IDotvvmServiceCollection services)
