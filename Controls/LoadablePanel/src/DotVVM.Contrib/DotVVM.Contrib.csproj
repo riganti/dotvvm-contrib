@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="2.4.0.1" />
+    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
   </ItemGroup>
 
 </Project>

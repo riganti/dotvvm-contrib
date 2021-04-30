@@ -18,10 +18,9 @@
 		<Folder Include="wwwroot\" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="DotVVM" Version="2.4.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
 		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
-		<PackageReference Include="DotVVM.AspNetCore" Version="2.4.0.1" />
+		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="DotVVM.Compiler.Light" Version="1.1.6.3" />
