@@ -14,19 +14,19 @@ namespace DotVVM.Contrib.Samples.Controls.Pager
     {
         public static void GoToPage(IPageableGridViewDataSet set, int index, Func<IPageableGridViewDataSet> loader)
         {
-            throw new NotImplementedException("JS");
+            throw new NotImplementedException("This method is intended for use in static command binding only.");
         }
 
         public static IServiceCollection AddPagerExtensions(this IServiceCollection services)
         {
             services.Configure((Action<JavascriptTranslatorConfiguration>)(c =>
             {
-                RegisterAlertMethod(c, nameof(PagerExtensions.GoToPage), "goToPage");
+                RegisterGoToPage(c, nameof(PagerExtensions.GoToPage), "goToPage");
             }));
             return services;
         }
 
-        private static void RegisterAlertMethod(JavascriptTranslatorConfiguration c, string csharpName, string jsName)
+        private static void RegisterGoToPage(JavascriptTranslatorConfiguration c, string csharpName, string jsName)
         {
             c.MethodCollection.AddMethodTranslator(
                            typeof(PagerExtensions),
