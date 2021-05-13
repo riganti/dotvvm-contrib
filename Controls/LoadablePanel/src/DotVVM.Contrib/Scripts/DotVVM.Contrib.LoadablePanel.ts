@@ -4,21 +4,18 @@
 class BindingGroup<T> {
     showProgressElement: boolean;
     loadingElementsIdsBinding: KnockoutObservableArray<KnockoutObservable<string> | string>;
-    loadBinding: () => Promise<T>;
+    loadBinding: (abortSignal: AbortSignal) => Promise<T>;
     keyBinding: KnockoutObservable<string> | undefined ;
 }
 
-
 class LoadablePanelHandler {
-    private static panelCounter = 0 
+    private static panelCounter = 0
+    private static abortControllers: { [name: string]: AbortController } = {};
 
     init = (element: HTMLElement, valueAccessor: () => BindingGroup<any>) => {
         const bindingGroup: BindingGroup<any> = valueAccessor();
 
-        if (bindingGroup.keyBinding && ko.isObservable(bindingGroup.keyBinding)) {
-            bindingGroup.keyBinding.subscribe(() => this.reloadPanel(bindingGroup, element));
-        }
-
+        this.subscribeToKeyChanged(bindingGroup, element);
         this.reloadPanel(bindingGroup, element);
     }
 
@@ -26,8 +23,7 @@ class LoadablePanelHandler {
     }
 
     loaded = (element: HTMLElement, bindingGroup: BindingGroup<any>) => {
-        (element.lastElementChild as HTMLElement).style.display = "";
-
+        this.showElement(element);
         this.tryHideProgressElement(element, bindingGroup);
         this.tryRemoveFromPanel(element, bindingGroup);
     }
@@ -37,9 +33,13 @@ class LoadablePanelHandler {
         this.tryAddToPanel(panelId, bindingGroup);
         this.tryShowProgressElement(element, bindingGroup);
 
+
+        const abortController = new AbortController();
+        LoadablePanelHandler.abortControllers[panelId] = abortController;
         const onLoaded = () => this.loaded(element, bindingGroup);
 
-        bindingGroup.loadBinding().then(onLoaded, onLoaded);
+        bindingGroup.loadBinding(abortController.signal)
+            .then(onLoaded, onLoaded);
     }
 
     private getOrCreatePanelId = (rootElement: HTMLElement): string => {
@@ -79,14 +79,38 @@ class LoadablePanelHandler {
     private tryShowProgressElement = (rootElement: HTMLElement, bindingGroup: BindingGroup<any>): void => {
         const progressElement = this.getProgressElement(rootElement);
         if (progressElement && bindingGroup.showProgressElement) {
-            progressElement.style.display = "";
+            this.showElement(progressElement);
         }
     }
 
     private tryHideProgressElement = (rootElement: HTMLElement, bindingGroup: BindingGroup<any>): void => {
         const progressElement = this.getProgressElement(rootElement);
         if (progressElement && bindingGroup.showProgressElement) {
-            progressElement.style.display = "none";
+            this.hideElement(progressElement);
+        }
+    }
+
+    private subscribeToKeyChanged = (bindingGroup: BindingGroup<any>, element: HTMLElement) => {
+        if (ko.isObservable(bindingGroup.keyBinding)) {
+            bindingGroup.keyBinding.subscribe(() => {
+                if (element.id && LoadablePanelHandler.abortControllers[element.id]) {
+                    LoadablePanelHandler.abortControllers[element.id].abort();
+                    delete LoadablePanelHandler.abortControllers[element.id];
+                }
+                this.reloadPanel(bindingGroup, element);
+            });
+        }
+    }
+
+    private showElement(element: HTMLElement) {       
+        if (element.getRootNode() === window.document) {
+            (element.lastElementChild as HTMLElement).style.display = "";
+        }
+    }
+
+    private hideElement(element: HTMLElement) {
+        if (element.getRootNode() === window.document) {
+            (element.lastElementChild as HTMLElement).style.display = "none";
         }
     }
 };

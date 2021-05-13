@@ -10,15 +10,13 @@ var LoadablePanelHandler = /** @class */ (function () {
         var _this = this;
         this.init = function (element, valueAccessor) {
             var bindingGroup = valueAccessor();
-            if (bindingGroup.keyBinding && ko.isObservable(bindingGroup.keyBinding)) {
-                bindingGroup.keyBinding.subscribe(function () { return _this.reloadPanel(bindingGroup, element); });
-            }
+            _this.subscribeToKeyChanged(bindingGroup, element);
             _this.reloadPanel(bindingGroup, element);
         };
         this.update = function (element, valueAccessor) {
         };
         this.loaded = function (element, bindingGroup) {
-            element.lastElementChild.style.display = "";
+            _this.showElement(element);
             _this.tryHideProgressElement(element, bindingGroup);
             _this.tryRemoveFromPanel(element, bindingGroup);
         };
@@ -26,8 +24,11 @@ var LoadablePanelHandler = /** @class */ (function () {
             var panelId = _this.getOrCreatePanelId(element);
             _this.tryAddToPanel(panelId, bindingGroup);
             _this.tryShowProgressElement(element, bindingGroup);
+            var abortController = new AbortController();
+            LoadablePanelHandler.abortControllers[panelId] = abortController;
             var onLoaded = function () { return _this.loaded(element, bindingGroup); };
-            bindingGroup.loadBinding().then(onLoaded, onLoaded);
+            bindingGroup.loadBinding(abortController.signal)
+                .then(onLoaded, onLoaded);
         };
         this.getOrCreatePanelId = function (rootElement) {
             if (rootElement.id) {
@@ -58,17 +59,39 @@ var LoadablePanelHandler = /** @class */ (function () {
         this.tryShowProgressElement = function (rootElement, bindingGroup) {
             var progressElement = _this.getProgressElement(rootElement);
             if (progressElement && bindingGroup.showProgressElement) {
-                progressElement.style.display = "";
+                _this.showElement(progressElement);
             }
         };
         this.tryHideProgressElement = function (rootElement, bindingGroup) {
             var progressElement = _this.getProgressElement(rootElement);
             if (progressElement && bindingGroup.showProgressElement) {
-                progressElement.style.display = "none";
+                _this.hideElement(progressElement);
+            }
+        };
+        this.subscribeToKeyChanged = function (bindingGroup, element) {
+            if (ko.isObservable(bindingGroup.keyBinding)) {
+                bindingGroup.keyBinding.subscribe(function () {
+                    if (element.id && LoadablePanelHandler.abortControllers[element.id]) {
+                        LoadablePanelHandler.abortControllers[element.id].abort();
+                        delete LoadablePanelHandler.abortControllers[element.id];
+                    }
+                    _this.reloadPanel(bindingGroup, element);
+                });
             }
         };
     }
+    LoadablePanelHandler.prototype.showElement = function (element) {
+        if (element.getRootNode() === window.document) {
+            element.lastElementChild.style.display = "";
+        }
+    };
+    LoadablePanelHandler.prototype.hideElement = function (element) {
+        if (element.getRootNode() === window.document) {
+            element.lastElementChild.style.display = "none";
+        }
+    };
     LoadablePanelHandler.panelCounter = 0;
+    LoadablePanelHandler.abortControllers = {};
     return LoadablePanelHandler;
 }());
 ;

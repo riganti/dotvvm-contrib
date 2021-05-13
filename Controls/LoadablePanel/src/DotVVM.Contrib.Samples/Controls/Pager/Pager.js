@@ -5,7 +5,6 @@
         var unwrappedSet = ko.unwrap(set);
         unwrappedSet.PagingOptions().PageIndex(index);
         loader()().then(function (newSet) {
-            console.info(set.Items, newSet.Items);
             dotvvm.serialization.deserialize(newSet, unwrappedSet);
         });
     };

@@ -167,9 +167,9 @@ namespace DotVVM.Contrib
 
         private string GenerateCommandFunction(string propertyName, ICommandBinding commandBinding, DotvvmControl control, bool useWindowSetTimeout = false, bool isOnChange = false)
         {
-            var postBackOptions = new PostbackScriptOptions(useWindowSetTimeout, null, isOnChange, "$element", commandArgs: CodeParameterAssignment.FromIdentifier("ar"));
+            var postBackOptions = new PostbackScriptOptions(useWindowSetTimeout, null, isOnChange, "$element", commandArgs: CodeParameterAssignment.FromIdentifier("ar"), abortSignal: new CodeParameterAssignment("abortSignal",OperatorPrecedence.Max));
 
-            return $"(function(){{var ar=[].slice.call(arguments);return {KnockoutHelper.GenerateClientPostBackExpression(propertyName, commandBinding, control, postBackOptions)};}})";
+            return $"(function(abortSignal){{var ar=[].slice.call(arguments);return {KnockoutHelper.GenerateClientPostBackExpression(propertyName, commandBinding, control, postBackOptions)};}})";
         }
     }
 }
