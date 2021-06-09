@@ -1,0 +1,9 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample3ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <cc:MyCustomControl />
+
+</dot:Content>
+

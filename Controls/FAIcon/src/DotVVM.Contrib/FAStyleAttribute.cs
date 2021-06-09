@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace DotVVM.Contrib.FAIcon
 {
@@ -10,5 +11,6 @@ namespace DotVVM.Contrib.FAIcon
         }
 
         public string Style { get; set; }
+        public string StylePrefix => $"fa{Style.ElementAt(0)}";
     }
 }

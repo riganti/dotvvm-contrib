@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.0;net451</TargetFrameworks>
 	<PackageId>DotVVM.Contrib.FAIcon</PackageId>
-    <PackageVersion>2.4.0</PackageVersion>
+    <PackageVersion>3.0.2</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
     <Description>The FAIcon control for DotVVM made by DotVVM Contrib community.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="2.4.0.1" />
+    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
   </ItemGroup>
 
 </Project>

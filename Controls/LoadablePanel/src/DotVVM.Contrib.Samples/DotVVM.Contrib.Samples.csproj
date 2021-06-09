@@ -20,10 +20,9 @@
 	  <Content Include="Views\_master.dotmaster" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="DotVVM" Version="3.0.0-preview04-final" />
 		<PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
 		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
-		<PackageReference Include="DotVVM.AspNetCore" Version="3.0.0-preview04-final" />
+		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="DotVVM.Compiler.Light" Version="1.1.6.3" />
