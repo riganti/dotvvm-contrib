@@ -7,5 +7,6 @@
         public string[] Styles { get; set; }
 
         public string Unicode { get; set; }
+        public string[] Free { get; set; }
     }
 }

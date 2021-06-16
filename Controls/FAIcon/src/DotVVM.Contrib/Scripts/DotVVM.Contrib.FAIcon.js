@@ -1,27 +1,28 @@
 ﻿ko.bindingHandlers["dotvvm-contrib-FAIcon"] = {
     init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
-
-        valueAccessor().subscribe(function (previousValue) {
-            if (previousValue.endsWith("brands")) {
-                element.classList.remove("fab");
-            } else {
-                element.classList.remove("fas");
-            }
-            previousValue = previousValue.substr(0, previousValue.lastIndexOf("_"));
-            element.classList.remove("fa-" + previousValue.replace('_', '-'));
-        }, this, "beforeChange");
     },
     update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
-        var value = ko.unwrap(valueAccessor());
+        removePreviousClasses(element);
+        const value = ko.unwrap(valueAccessor());
+        addClassesBasedOnIcon(element, value);
 
-        if (value.endsWith("brands")) {
-            element.classList.add("fab");
-        } else {
-            element.classList.add("fas");
+        function removePreviousClasses(element) {
+            const classListArray = [...element.classList];
+            const previousFontAwesomeClasses = classListArray.filter(function (value) {
+                return value.startsWith("fa");
+            })
+            element.classList.remove(...previousFontAwesomeClasses);
         }
 
-        value = value.substr(0, value.lastIndexOf("_"));
-        element.classList.add("fa-" + value.replace('_', '-'));
-    }
-};
+        function addClassesBasedOnIcon(element, value) {
+            const splitterIndex = value.lastIndexOf("_");
+            const iconValue = value.substr(0, splitterIndex);
+            const iconClass = "fa-" + iconValue.replace('_', '-')
+            const style = value.substr(splitterIndex + 1);
+            const styleClass = `fa${style.charAt(0)}`;
 
+            element.classList.add(styleClass);
+            element.classList.add(iconClass);
+        }
+    },
+};

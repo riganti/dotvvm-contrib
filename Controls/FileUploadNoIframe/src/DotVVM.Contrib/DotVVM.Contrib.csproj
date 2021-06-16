@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.0;net451</TargetFrameworks>
 	<PackageId>DotVVM.Contrib.FileUploadNoIframe</PackageId>
-    <PackageVersion>3.0.0-preview01-final</PackageVersion>
+    <PackageVersion>2.5.0</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
     <Description>The FileUploadNoIframe control for DotVVM made by DotVVM Contrib community.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="2.5.2" />
+    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
   </ItemGroup>
 
 </Project>
