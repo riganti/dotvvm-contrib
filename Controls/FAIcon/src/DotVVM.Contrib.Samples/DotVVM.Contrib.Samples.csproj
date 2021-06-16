@@ -20,9 +20,6 @@
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
   <ItemGroup>
-    <DotNetCliToolReference Include="DotVVM.Compiler.Light" Version="1.1.6.3" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.FAIcon.csproj" />
   </ItemGroup>
 </Project>

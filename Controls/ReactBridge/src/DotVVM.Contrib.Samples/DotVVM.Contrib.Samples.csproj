@@ -6,31 +6,28 @@
 		<Content Include="**\*.dothtml" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Content Remove="wwwroot\Scripts\chartist.min.js" />
+		<Content Remove="wwwroot\Scripts\chartist.min.js" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Remove="dotvvm_serialized_config.json.tmp" />
 		<None Remove="wwwroot\Scripts\ReactChartis.js" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Content Include="Views\_master.dotmaster" />
+		<Content Include="Views\_master.dotmaster" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.1" />
-		<PackageReference Include="DotVVM.AspNetCore" Version="2.0.0" />
+		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
-  <ItemGroup>
-    <DotNetCliToolReference Include="DotVVM.Compiler.Light" Version="1.1.0.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="wwwroot\Scripts\ReactChartis.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\Scripts\chartist.min.js" />
-    <None Include="wwwroot\Styles\chartist.min.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="wwwroot\Scripts\ReactChartis.js" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="wwwroot\Scripts\chartist.min.js" />
+		<None Include="wwwroot\Styles\chartist.min.css" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.csproj" />
+	</ItemGroup>
 </Project>
