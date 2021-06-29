@@ -100,6 +100,10 @@ function GitCheckout() {
 }
 
 function GitPush() {
+	if ($controlName -eq "") {
+		$controlName = "[all controls]"
+	}
+	
 	if ($pushTag) {
 			invoke-git tag "$($ControlName)-v$($version)" HEAD
 	}
@@ -112,9 +116,21 @@ function GitPush() {
 
 ### Configuration
 
-$packages = @(
-	[pscustomobject]@{ Package = "DotVVM.Contrib." + $controlName; Directory = "Controls\" + $controlName + "\src\DotVVM.Contrib" }
-)
+$packages = @()
+
+if ($controlName -eq "") {
+	# add all controls 
+	$controlDirs = Get-ChildItem Controls/ -Directory | Where-Object { $_.Name.StartsWith("_") -eq $false } | Select-Object Name
+	foreach ($controlDir in $controlDirs) {
+		$packages += @([pscustomobject]@{ Package = "DotVVM.Contrib.$($controlDir.Name)"; Directory = "Controls\$($controlDir.Name)\src\DotVVM.Contrib" })
+	}
+} else {
+	# split comma-separated controls
+	foreach ($controlDir in $controlName.Split(',')) {
+		$controlDir = $controlDir.Trim()
+		$packages += @([pscustomobject]@{ Package = "DotVVM.Contrib." + $controlDir; Directory = "Controls\" + $controlDir + "\src\DotVVM.Contrib" })
+	}
+}
 
 ### Publish Workflow
 
