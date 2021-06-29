@@ -8,7 +8,7 @@ Param(
 
 foreach ($packageId in $packageIds.Split(',')) { 
 
-	$packageId = $packageId.Trim()
+	$packageId = "DotVVM.Contrib." + $packageId.Trim()
 
 	& .\tools\nuget.exe install $packageId -OutputDirectory .\tools\packages -version $version -DirectDownload -NoCache -DependencyVersion Ignore -source $internalServer
 	$nupkgFile = dir -s ./tools/packages/$packageId.$version.nupkg | Select -First 1
