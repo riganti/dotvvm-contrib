@@ -45,15 +45,9 @@ function SetVersion() {
     Write-Host "SetVersion started"
   	foreach ($package in $packages) {
 		
-		$filePath = "$pwd\$($package.Directory)\DotVVM.Contrib.csproj"
-		if(!(Test-Path -Path $filePath))
-		{
-            Write-Host "File '$($filePath)' not found.";
-			$filePath = "$pwd\$($package.Directory)\DotVVM.Contrib.$($controlName).csproj"
-            Write-Host "csproj file path set to '$($filePath)'.";
-		}
-
-        Write-Host ">> : $pwd";
+		$csproj = get-childitem "$pwd\$($package.Directory)" -filter *.csproj		
+		
+		$filePath = $csproj[0].Name
 		$file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<VersionPrefix\>([^<]+)\</VersionPrefix\>", "<VersionPrefix>" + $version + "</VersionPrefix>")
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<PackageVersion\>([^<]+)\</PackageVersion\>", "<PackageVersion>" + $version + "</PackageVersion>")
