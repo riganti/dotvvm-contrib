@@ -45,9 +45,10 @@ function SetVersion() {
     Write-Host "SetVersion started"
   	foreach ($package in $packages) {
 		
+		Write-Host "$pwd\$($package.Directory)"
 		$csproj = get-childitem "$pwd\$($package.Directory)" -filter *.csproj		
 		
-		$filePath = $csproj[0].Name
+		$filePath = $csproj[0].FullName
 		$file = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<VersionPrefix\>([^<]+)\</VersionPrefix\>", "<VersionPrefix>" + $version + "</VersionPrefix>")
 		$file = [System.Text.RegularExpressions.Regex]::Replace($file, "\<PackageVersion\>([^<]+)\</PackageVersion\>", "<PackageVersion>" + $version + "</PackageVersion>")
