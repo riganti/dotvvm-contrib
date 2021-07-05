@@ -18,10 +18,12 @@ namespace DotVVM.Contrib
                 TagPrefix = "dc"
             });
 
+            var assemblyName = typeof(LoadablePanel).GetTypeInfo().Assembly;
+            var scriptPath = "DotVVM.Contrib.Scripts.DotVVM.Contrib.LoadablePanel.js";
+
             // register additional resources for the control and set up dependencies
-            config.Resources.Register(JavascriptResourceName, new ScriptResource()
+            config.Resources.Register(JavascriptResourceName, new ScriptResource(new EmbeddedResourceLocation(assemblyName, scriptPath), true)
             {
-                Location = new EmbeddedResourceLocation(typeof(LoadablePanel).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.LoadablePanel.js"),
                 Dependencies = new [] { "dotvvm" }
             });
         }

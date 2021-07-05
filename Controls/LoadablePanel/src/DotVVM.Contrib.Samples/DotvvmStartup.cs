@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using DotVVM.Contrib.Samples.Controls.Pager;
 using DotVVM.Framework;
+using DotVVM.Framework.Compilation;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 using DotVVM.Framework.Routing;
@@ -28,7 +30,8 @@ namespace DotVVM.Contrib.Samples
 
         private void ConfigureControls(DotvvmConfiguration config, string applicationPath)
         {
-            // register code-only controls and markup controls
+            config.Markup.ImportedNamespaces.Add(new NamespaceImport(typeof(PagerExtensions).FullName, "_pager"));
+            config.Markup.AddMarkupControl("cc", "Pager", "Controls/Pager/Pager.dotcontrol");
         }
 
         private void ConfigureResources(DotvvmConfiguration config, string applicationPath)
@@ -37,11 +40,14 @@ namespace DotVVM.Contrib.Samples
             {
                 Location = new FileResourceLocation("Resources/css/style.css")
             });
+
+            config.Resources.Register("pager-js", new ScriptResource(new FileResourceLocation("Controls/Pager/Pager.js"), defer: true));
         }
 
         public void ConfigureServices(IDotvvmServiceCollection options)
         {
             options.AddDefaultTempStorages("Temp");
+            options.Services.AddPagerExtensions();
         }
     }
 

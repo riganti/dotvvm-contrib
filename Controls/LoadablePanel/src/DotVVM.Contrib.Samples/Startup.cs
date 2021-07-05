@@ -16,6 +16,7 @@ namespace DotVVM.Contrib.Samples
             services.AddTransient<Sample1ViewModel>();
             services.AddTransient<Sample2ViewModel>();
             services.AddTransient<Sample3ViewModel>();
+            services.AddTransient<PagingRepeaterViewModel>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
