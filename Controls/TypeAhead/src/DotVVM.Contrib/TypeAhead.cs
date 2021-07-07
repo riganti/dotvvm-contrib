@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DotVVM.Framework.Binding.Properties;
+using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
+using DotVVM.Framework.Binding.Expressions;
 
 namespace DotVVM.Contrib
 {
@@ -23,14 +26,22 @@ namespace DotVVM.Contrib
 
             writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-DataSource", this, DataSourceProperty);
             writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-SelectedValue", this, SelectedValueProperty);
-            if (ItemValueBindingProperty.IsSet(this))
+            if (ItemValueBinding is IValueBinding itemValue)
             {
-                writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-ValueMember", ItemValueBinding.KnockoutExpression.ToDefaultString());
+                writer.AddKnockoutDataBind(
+                    "dotvvm-contrib-TypeAhead-ItemValue",
+                    itemValue.GetProperty<SelectorItemBindingProperty>().Expression,
+                    this
+                );
             }
 
-            if (ItemTextBindingProperty.IsSet(this))
+            if (ItemTextBinding is IValueBinding itemText)
             {
-                writer.AddKnockoutDataBind("dotvvm-contrib-TypeAhead-DisplayMember", ItemTextBinding.KnockoutExpression.ToDefaultString());
+                writer.AddKnockoutDataBind(
+                    "dotvvm-contrib-TypeAhead-ItemText",
+                    itemText.GetProperty<SelectorItemBindingProperty>().Expression,
+                    this
+                );
             }
 
             var selectionChangedBinding = GetCommandBinding(SelectionChangedProperty);

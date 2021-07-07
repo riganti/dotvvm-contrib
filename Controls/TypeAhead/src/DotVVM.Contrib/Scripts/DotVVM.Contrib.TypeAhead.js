@@ -1,5 +1,18 @@
-﻿ko.bindingHandlers["dotvvm-contrib-TypeAhead-DataSource"] = {
-    init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+﻿(function() {
+
+function getAccessors(allBindings) {
+    var itemValue = allBindings.get("dotvvm-contrib-TypeAhead-ItemValue");
+    var itemValueFunc = itemValue ? function (i) { return ko.unwrap(itemValue(ko.unwrap(i))); } : function (i) { return ko.unwrap(i); };
+    var itemText = allBindings.get("dotvvm-contrib-TypeAhead-ItemText");
+    var itemTextFunc = itemText ? function (i) { return ko.unwrap(itemText(ko.unwrap(i))); } : function (i) { return ko.unwrap(i); };    
+
+    var data = ko.unwrap(allBindings.get("dotvvm-contrib-TypeAhead-DataSource"));
+
+    return [ data, itemValueFunc, itemTextFunc ]
+}
+
+ko.bindingHandlers["dotvvm-contrib-TypeAhead-DataSource"] = {
+    init: function (element, valueAccessor, allBindingsAccessor) {
 
         var source = new Bloodhound({
             local: [],
@@ -27,21 +40,20 @@
         $(element).data("typeahead-source", source);
 
     },
-    update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+    update: function (element, valueAccessor, allBindingsAccessor) {
         var value = ko.unwrap(valueAccessor());
 
         var data = $(element).data("typeahead-source");
 
-        var displayMember = allBindingsAccessor.get("dotvvm-contrib-TypeAhead-DisplayMember");
-        var displayMemberFunc = displayMember ? function (i) { return ko.unwrap(ko.unwrap(i)[displayMember]); } : function (i) { return ko.unwrap(i); };
+        var [ _, itemValue, itemText ] = getAccessors(allBindingsAccessor)
 
         data.clear();
-        data.add(value.map(function(item) { return displayMemberFunc(item); }));
+        data.add(value.map(function(item) { return itemText(item); }));
     }
 };
 
 ko.bindingHandlers["dotvvm-contrib-TypeAhead-SelectedValue"] = {
-    init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+    init: function (element, valueAccessor, allBindingsAccessor) {
 
         $(element).bind('typeahead:select blur', function (ev, suggestion) {
 
@@ -49,16 +61,11 @@ ko.bindingHandlers["dotvvm-contrib-TypeAhead-SelectedValue"] = {
                 suggestion = $(element).val();
             }
 
-            var data = ko.unwrap(allBindingsAccessor.get("dotvvm-contrib-TypeAhead-DataSource"));
-
-            var valueMember = allBindingsAccessor.get("dotvvm-contrib-TypeAhead-ValueMember");
-            var valueMemberFunc = valueMember ? function (i) { return ko.unwrap(ko.unwrap(i)[valueMember]); } : function (i) { return ko.unwrap(i); };
-            var displayMember = allBindingsAccessor.get("dotvvm-contrib-TypeAhead-DisplayMember");
-            var displayMemberFunc = displayMember ? function (i) { return ko.unwrap(ko.unwrap(i)[displayMember]); } : function (i) { return ko.unwrap(i); };
+            var [ data, itemValue, itemText ] = getAccessors(allBindingsAccessor)
 
             for (var i = 0; i < data.length; i++) {
-                if (displayMemberFunc(data[i]) === suggestion) {
-                    valueAccessor()(valueMemberFunc(data[i]));
+                if (itemText(data[i]) === suggestion) {
+                    valueAccessor()(itemValue(data[i]));
                     return;
                 }
             }
@@ -67,21 +74,16 @@ ko.bindingHandlers["dotvvm-contrib-TypeAhead-SelectedValue"] = {
         });
 
     },
-    update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+    update: function (element, valueAccessor, allBindingsAccessor) {
 
         var selectedValue = ko.unwrap(valueAccessor());
         ko.delaySync.run(function () {
 
-            var data = ko.unwrap(allBindingsAccessor.get("dotvvm-contrib-TypeAhead-DataSource"));
-
-            var valueMember = allBindingsAccessor.get("dotvvm-contrib-TypeAhead-ValueMember");
-            var valueMemberFunc = valueMember ? function (i) { return ko.unwrap(ko.unwrap(i)[valueMember]); } : function (i) { return ko.unwrap(i); };
-            var displayMember = allBindingsAccessor.get("dotvvm-contrib-TypeAhead-DisplayMember");
-            var displayMemberFunc = displayMember ? function (i) { return ko.unwrap(ko.unwrap(i)[displayMember]); } : function (i) { return ko.unwrap(i); };
+            var [ data, itemValue, itemText ] = getAccessors(allBindingsAccessor)
 
             for (var i = 0; i < data.length; i++) {
-                if (valueMemberFunc(data[i]) === selectedValue) {
-                    $(element).typeahead('val', displayMemberFunc(data[i]));
+                if (itemValue(data[i]) === selectedValue) {
+                    $(element).typeahead('val', itemText(data[i]));
                     return;
                 }
             }
@@ -91,3 +93,5 @@ ko.bindingHandlers["dotvvm-contrib-TypeAhead-SelectedValue"] = {
     },
     after: ["dotvvm-contrib-TypeAhead-DataSource"]
 };
+
+}())

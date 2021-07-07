@@ -25,13 +25,13 @@ namespace DotVVM.Contrib.Samples.ViewModels
 	    public List<CountryData> Countries { get; set; } = new List<CountryData>()
 	    {
 	        new CountryData() { Id = 1, Name = "Czech Republic" },
-            new CountryData() { Id = 2, Name = "Germany" },
-            new CountryData() { Id = 3, Name = "Poland" },
-            new CountryData() { Id = 4, Name = "Austria" },
-            new CountryData() { Id = 5, Name = "Slovakia" }
+		new CountryData() { Id = 2, Name = "Germany" },
+		new CountryData() { Id = 3, Name = "Poland" },
+		new CountryData() { Id = 4, Name = "Austria" },
+		new CountryData() { Id = 5, Name = "Slovakia" }
 	    };
 
-	    public CountryData SelectedCountry { get; set; }
+	    public int? SelectedCountry { get; set; }
 
 	    public int? SelectedCountryId { get; set; } = 3;
 

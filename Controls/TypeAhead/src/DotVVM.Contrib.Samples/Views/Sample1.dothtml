@@ -12,12 +12,12 @@
 
     <h2>List of objects</h2>
     <p ID="section2">
-        <dc:TypeAhead DataSource="{value: Countries}" SelectedValue="{value: SelectedCountry}" ItemTextBinding="{value: Name}" />
+        <dc:TypeAhead DataSource="{value: Countries}" SelectedValue="{value: SelectedCountry}" ItemValueBinding={value: Id} ItemTextBinding="{value: Name}" />
         <br />
-        Selected object: { Id: <span class="result">{{value: SelectedCountry.Id}}</span>, Name: <span class="result">{{value: SelectedCountry.Name}}</span> }
+        Selected object: { Id: <span class="result">{{value: SelectedCountry}}</span>, Name: <span class="result">{{value: Countries.FirstOrDefault(c => c.Id == SelectedCountry).Name}}</span> }
     </p>
 
-    <h2>List of objects with DisplayMember and ValueMember</h2>
+    <h2>List of objects with ItemTextBinding and ItemValueBinding</h2>
     <p ID="section3">
         <dc:TypeAhead DataSource="{value: Countries}" SelectedValue="{value: SelectedCountryId}" ItemTextBinding="{value: Name}" ItemValueBinding="{value: Id}" />
         <br />
