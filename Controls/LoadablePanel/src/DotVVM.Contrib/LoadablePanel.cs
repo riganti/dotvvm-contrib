@@ -83,17 +83,17 @@ namespace DotVVM.Contrib
             DotvvmProperty.Register<IEnumerable, LoadablePanel>(t => t.LoadingElementIds, null);
 
         /// <summary>
-        /// Gets or sets a key that identtifies the data displayed in the loadable panel. When the key value changes the panel is reloaded.
+        /// Gets or sets an expression representing the content displayed in the loadable panel. When the expression value changes the panel is reloaded.
         /// This property needs to be bound if the loadable panel is in a GridView Repeater or other client-updated controls.
         /// </summary>
         [MarkupOptions(AllowBinding = true, AllowHardCodedValue = false)]
-        public string Key
+        public string ContentReloadBinding
         {
-            get { return (string)GetValue(KeyProperty); }
-            set { SetValue(KeyProperty, value); }
+            get { return (string)GetValue(ContentReloadBindingProperty); }
+            set { SetValue(ContentReloadBindingProperty, value); }
         }
-        public static readonly DotvvmProperty KeyProperty
-            = DotvvmProperty.Register<string, LoadablePanel>(c => c.Key, null);
+        public static readonly DotvvmProperty ContentReloadBindingProperty
+            = DotvvmProperty.Register<string, LoadablePanel>(c => c.ContentReloadBinding, null);
 
         protected override void OnInit(IDotvvmRequestContext context)
         {
@@ -142,10 +142,10 @@ namespace DotVVM.Contrib
             binding.Add("loadBinding", GenerateCommandFunction(nameof(LoadProperty), commandBinding, this, useWindowSetTimeout: true));
             binding.Add("showProgressElement", ProgressTemplate != null ? "true" : "false");
 
-            var keyBinding = GetValueBinding(KeyProperty);
+            var keyBinding = GetValueBinding(ContentReloadBindingProperty);
             if (keyBinding != null)
             {
-                binding.Add("keyBinding", this, KeyProperty);
+                binding.Add("keyBinding", this, ContentReloadBindingProperty);
             }
 
             var loadingItemsBinding = GetValueBinding(LoadingElementIdsProperty);

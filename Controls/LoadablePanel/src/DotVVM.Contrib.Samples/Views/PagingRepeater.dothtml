@@ -9,7 +9,10 @@
          {{value: _this}}
     </dot:Repeater>
     <dot:Repeater class="repeater" DataSource="{value: Grid}">
-        <dc:LoadablePanel Key="{value: Id}" LoadingElementIds="{value: _root.LoadingItems}" Load="{staticCommand: Data = viewModel.LoadItem(_this.Id).Result }" HideUntilLoaded="true" class="panel">
+        <dc:LoadablePanel ContentReloadBinding="{value: Id}" 
+                          LoadingElementIds="{value: _root.LoadingItems}" 
+                          Load="{staticCommand: Data = viewModel.LoadItem(_this.Id).Result }" 
+                          HideUntilLoaded="true" class="panel">
             <ProgressTemplate>
                 <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
             </ProgressTemplate>
