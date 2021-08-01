@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using DotVVM.Framework.ViewModel;
 
-namespace DotVVM.Contrib.Samples.ViewModels
+namespace DotVVM.Contrib.Samples.Pages.Default
 {
-	public class DefaultViewModel : MasterViewModel
-	{
-	}
+    public class DefaultViewModel : MasterViewModel
+    {
+    }
 }
 

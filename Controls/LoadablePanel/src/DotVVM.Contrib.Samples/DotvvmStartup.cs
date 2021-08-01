@@ -24,8 +24,11 @@ namespace DotVVM.Contrib.Samples
 
         private void ConfigureRoutes(DotvvmConfiguration config, string applicationPath)
         {
-            config.RouteTable.Add("_Default", "", "Views/_default.dothtml");
-            config.RouteTable.AutoDiscoverRoutes(new SamplesRouteStrategy(config));
+            config.RouteTable.Add("_Default", "", "Pages/Default/_default.dothtml");
+            config.RouteTable.Add("Sample1", "sample1", "Pages/Sample1/Sample1.dothtml");
+            config.RouteTable.Add("Sample2", "sample2", "Pages/Sample2/Sample2.dothtml");
+            config.RouteTable.Add("Sample3", "sample3", "Pages/Sample3/Sample3.dothtml");
+            config.RouteTable.Add("PagingRepeater", "paging-repeater", "Pages/PagingRepeater/PagingRepeater.dothtml");
         }
 
         private void ConfigureControls(DotvvmConfiguration config, string applicationPath)
