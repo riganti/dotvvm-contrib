@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
-	<PackageId>DotVVM.Contrib.TypeAhead</PackageId>
+    <LangVersion>9.0</LangVersion>
+    <PackageId>DotVVM.Contrib.TypeAhead</PackageId>
     <PackageVersion>2.4.0</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
     <Description>The TypeAhead control for DotVVM made by DotVVM Contrib community.</Description>

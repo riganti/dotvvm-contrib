@@ -6,6 +6,10 @@ using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 using DotVVM.Framework.Binding.Expressions;
+using DotVVM.Framework.Compilation.Validation;
+using DotVVM.Framework.Compilation.ControlTree.Resolved;
+using DotVVM.Framework.Utils;
+using DotVVM.Framework.Compilation.ControlTree;
 
 namespace DotVVM.Contrib
 {
@@ -67,6 +71,23 @@ namespace DotVVM.Contrib
 
         protected override void RenderEndTag(IHtmlWriter writer, IDotvvmRequestContext context)
         {
+        }
+        [ControlUsageValidator]
+        public new static IEnumerable<ControlUsageError> ValidateUsage(ResolvedControl control)
+        {
+            foreach (var usageError in Selector.ValidateUsage(control))
+            {
+                yield return usageError;
+            }
+
+            var selectedValue = control.GetValue(SelectedValueProperty);
+            if (selectedValue is not null && selectedValue.GetResultType() is Type type)
+            {
+                if (!ReflectionUtils.IsPrimitiveType(type))
+                {
+                    yield return new ControlUsageError("Property SelectedValue cannot contain complex type.");
+                }
+            }
         }
     }
 }
