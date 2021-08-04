@@ -28,7 +28,7 @@ namespace DotVVM.Contrib.Samples
             config.RouteTable.Add("Sample1", "sample1", "Pages/Sample1/Sample1.dothtml");
             config.RouteTable.Add("Sample2", "sample2", "Pages/Sample2/Sample2.dothtml");
             config.RouteTable.Add("Sample3", "sample3", "Pages/Sample3/Sample3.dothtml");
-            config.RouteTable.Add("PagingRepeater", "paging-repeater", "Pages/PagingRepeater/PagingRepeater.dothtml");
+            config.RouteTable.Add("PagingRepeater", "PagingRepeater", "Pages/PagingRepeater/PagingRepeater.dothtml");
         }
 
         private void ConfigureControls(DotvvmConfiguration config, string applicationPath)
