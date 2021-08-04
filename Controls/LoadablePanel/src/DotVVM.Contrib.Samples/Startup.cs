@@ -1,4 +1,8 @@
-﻿using DotVVM.Contrib.Samples.ViewModels;
+﻿using DotVVM.Contrib.Samples.Pages.PagingRepeater;
+using DotVVM.Contrib.Samples.Pages.Sample1;
+using DotVVM.Contrib.Samples.Pages.Sample2;
+using DotVVM.Contrib.Samples.Pages.Sample3;
+using DotVVM.Contrib.Samples.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,9 +17,18 @@ namespace DotVVM.Contrib.Samples
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDotVVM<DotvvmStartup>();
+
+            //Registering viewmodels
             services.AddTransient<Sample1ViewModel>();
             services.AddTransient<Sample2ViewModel>();
             services.AddTransient<Sample3ViewModel>();
+            services.AddTransient<PagingRepeaterViewModel>();
+
+            //Registering UI services
+            services.AddTransient<ColorService>();
+            services.AddTransient<GridService>();
+            services.AddTransient<ItemService>();
+            services.AddTransient<DataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

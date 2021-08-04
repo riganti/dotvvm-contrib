@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using DotVVM.Framework.ViewModel;
 
-namespace DotVVM.Contrib.Samples.ViewModels
+namespace DotVVM.Contrib.Samples.Pages
 {
-	public class MasterViewModel : DotvvmViewModelBase
-	{
+    public class MasterViewModel : DotvvmViewModelBase
+    {
 
-	    public string[] AllSamples => Context.Configuration.RouteTable
+        public string[] AllSamples => Context.Configuration.RouteTable
                                           .Where(r => !r.RouteName.StartsWith("_"))
                                           .Select(r => "/" + r.RouteName)
                                           .OrderBy(r => r)
                                           .ToArray();
 
-	}
+    }
 }
 

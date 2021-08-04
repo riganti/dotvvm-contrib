@@ -12,16 +12,18 @@
 	  <None Remove="wwwroot\NewFolder\**" />
 	</ItemGroup>
 	<ItemGroup>
+		<None Remove="Controls\Pager\Pager.js" />
 		<None Remove="dotvvm_serialized_config.json.tmp" />
-		<None Remove="Views\Sample2.dothtml" />
-		<None Remove="Views\Sample3.dothtml" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Content Include="Views\_master.dotmaster" />
+	  <Content Include="Controls\Pager\Pager.js">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Pages\_master.dotmaster" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
-		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
+		<PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
   <ItemGroup>
