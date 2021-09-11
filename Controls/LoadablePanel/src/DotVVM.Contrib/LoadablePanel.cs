@@ -72,15 +72,28 @@ namespace DotVVM.Contrib
             DotvvmProperty.Register<bool, LoadablePanel>(t => t.HideUntilLoaded);
 
         /// <summary>
-        /// Gets or sets a collection of values of all loadable panels which are currently loading.
+        /// Gets or sets a collection of element ids of all loadable panels which are currently in the loading state.
         /// </summary>
-        public IEnumerable LoadingItems
+        public IEnumerable LoadingElementIds
         {
-            get { return (IEnumerable)GetValue(LoadingItemsProperty); }
-            set { SetValue(LoadingItemsProperty, value); }
+            get { return (IEnumerable)GetValue(LoadingElementIdsProperty); }
+            set { SetValue(LoadingElementIdsProperty, value); }
         }
-        public static readonly DotvvmProperty LoadingItemsProperty =
-            DotvvmProperty.Register<IEnumerable, LoadablePanel>(t => t.LoadingItems, null);
+        public static readonly DotvvmProperty LoadingElementIdsProperty =
+            DotvvmProperty.Register<IEnumerable, LoadablePanel>(t => t.LoadingElementIds, null);
+
+        /// <summary>
+        /// Gets or sets an expression representing the content displayed in the loadable panel. When the expression value changes the panel is reloaded.
+        /// This property needs to be bound if the loadable panel is in a GridView Repeater or other client-updated controls.
+        /// </summary>
+        [MarkupOptions(AllowBinding = true, AllowHardCodedValue = false)]
+        public string ContentReloadBinding
+        {
+            get { return (string)GetValue(ContentReloadBindingProperty); }
+            set { SetValue(ContentReloadBindingProperty, value); }
+        }
+        public static readonly DotvvmProperty ContentReloadBindingProperty
+            = DotvvmProperty.Register<string, LoadablePanel>(c => c.ContentReloadBinding, null);
 
         protected override void OnInit(IDotvvmRequestContext context)
         {
@@ -126,17 +139,19 @@ namespace DotVVM.Contrib
 
             var commandBinding = GetCommandBinding(LoadProperty);
 
-            binding.Add("load", GenerateCommandFunction(nameof(LoadProperty), commandBinding, this, useWindowSetTimeout: true));
+            binding.Add("loadBinding", GenerateCommandFunction(nameof(LoadProperty), commandBinding, this, useWindowSetTimeout: true));
+            binding.Add("showProgressElement", ProgressTemplate != null ? "true" : "false");
 
-            if (ProgressTemplate != null)
+            var keyBinding = GetValueBinding(ContentReloadBindingProperty);
+            if (keyBinding != null)
             {
-                binding.Add("progressElement", "true");
+                binding.Add("keyBinding", this, ContentReloadBindingProperty);
             }
 
-            var loadingItemsBinding = GetValueBinding(LoadingItemsProperty);
+            var loadingItemsBinding = GetValueBinding(LoadingElementIdsProperty);
             if (loadingItemsBinding != null)
             {
-                binding.Add("loadingItems", this, LoadingItemsProperty);
+                binding.Add("loadingElementsIdsBinding", this, LoadingElementIdsProperty);
             }
 
             return binding;
@@ -152,9 +167,9 @@ namespace DotVVM.Contrib
 
         private string GenerateCommandFunction(string propertyName, ICommandBinding commandBinding, DotvvmControl control, bool useWindowSetTimeout = false, bool isOnChange = false)
         {
-            var postBackOptions = new PostbackScriptOptions(useWindowSetTimeout, null, isOnChange, "$element", commandArgs: CodeParameterAssignment.FromIdentifier("ar"));
+            var postBackOptions = new PostbackScriptOptions(useWindowSetTimeout, null, isOnChange, "$element", commandArgs: CodeParameterAssignment.FromIdentifier("ar"), abortSignal: new CodeParameterAssignment("abortSignal",OperatorPrecedence.Max));
 
-            return $"(function(){{var ar=[].slice.call(arguments);return {KnockoutHelper.GenerateClientPostBackExpression(propertyName, commandBinding, control, postBackOptions)};}})";
+            return $"(function(abortSignal){{var ar=[].slice.call(arguments);return {KnockoutHelper.GenerateClientPostBackExpression(propertyName, commandBinding, control, postBackOptions)};}})";
         }
     }
 }

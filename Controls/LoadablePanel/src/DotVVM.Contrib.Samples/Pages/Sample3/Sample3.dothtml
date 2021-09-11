@@ -1,24 +1,24 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample3ViewModel, DotVVM.Contrib.Samples
-@masterPage Views/_master.dotmaster
-@service viewModel = DotVVM.Contrib.Samples.ViewModels.Sample3ViewModel
+﻿@viewModel DotVVM.Contrib.Samples.Pages.Sample3.Sample3ViewModel, DotVVM.Contrib.Samples
+@masterPage Pages/_master.dotmaster
+@service service = DotVVM.Contrib.Samples.Services.ItemService
 
 <dot:Content ContentPlaceHolderID="MainContent">
-
+    <dot:RequiredResource Name="globalize" />
     <div Visible="{value: _root.LoadingItems.Count == 0}">
         <dot:UpdateProgress>
             <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
         </dot:UpdateProgress>
     </div>
 
-    <dot:Repeater DataSource="{value: Items}">
-        <dc:LoadablePanel Load="{staticCommand: _this.Data = viewModel.LoadItem(_this.Id).Result}" LoadingItems="{value: _root.LoadingItems}" HideUntilLoaded="true" class="panel">
+    <dot:Repeater class="repeater" DataSource="{value: Items}">
+        <dc:LoadablePanel Load="{staticCommand: _this.Data = service.LoadItem(_this.Id).Result}" LoadingElementIds="{value: _root.LoadingItems}" HideUntilLoaded="true" class="panel">
             <ProgressTemplate>
                 <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
             </ProgressTemplate>
             <ContentTemplate>
                 <div class="box">
                     <h1>Loaded</h1>
-                    <dot:Button Click="{command: _root.LoadItem(Id)}" Text="PostBack" />
+                    <dot:Button Click="{command: service.LoadItem(Id)}" Text="PostBack" />
                 </div>
             </ContentTemplate>
         </dc:LoadablePanel>

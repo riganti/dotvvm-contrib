@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.MasterViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.Samples.Pages.MasterViewModel, DotVVM.Contrib.Samples
 
 <!DOCTYPE html>
 

@@ -1,0 +1,80 @@
+﻿@viewModel DotVVM.Contrib.Samples.Pages.Sample2.Sample2ViewModel, DotVVM.Contrib.Samples
+@masterPage Pages/_master.dotmaster
+@service service = DotVVM.Contrib.Samples.Services.ColorService
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="repeater">
+        <dc:LoadablePanel Load="{staticCommand: Data1 = service.LoadData1().Result }" HideUntilLoaded="true" class="panel">
+            <ProgressTemplate>
+                <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+            </ProgressTemplate>
+            <ContentTemplate>
+                <div class="box" Style-background-color="{value: Data1}"></div>
+            </ContentTemplate>
+        </dc:LoadablePanel>
+
+        <dc:LoadablePanel Load="{staticCommand: Data2 = service.LoadData2().Result}" HideUntilLoaded="true" class="panel">
+            <ProgressTemplate>
+                <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+            </ProgressTemplate>
+            <ContentTemplate>
+                <div class="box" Style-background-color="{value: Data2}"></div>
+            </ContentTemplate>
+        </dc:LoadablePanel>
+
+        <dc:LoadablePanel Load="{staticCommand: Data3 = service.LoadData3().Result}" HideUntilLoaded="true" class="panel">
+            <ProgressTemplate>
+                <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+            </ProgressTemplate>
+            <ContentTemplate>
+                <div class="box" Style-background-color="{value: Data3}"></div>
+            </ContentTemplate>
+        </dc:LoadablePanel>
+
+        <dc:LoadablePanel Load="{staticCommand: Data4 = service.LoadData4().Result}" HideUntilLoaded="true" class="panel">
+            <ProgressTemplate>
+                <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+            </ProgressTemplate>
+            <ContentTemplate>
+                <div class="box" Style-background-color="{value: Data4}"></div>
+            </ContentTemplate>
+        </dc:LoadablePanel>
+
+        <dc:LoadablePanel Load="{staticCommand: Data5 = service.LoadData5().Result}" HideUntilLoaded="true" class="panel">
+            <ProgressTemplate>
+                <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+            </ProgressTemplate>
+            <ContentTemplate>
+                <div class="box" Style-background-color="{value: Data5}"></div>
+            </ContentTemplate>
+        </dc:LoadablePanel>
+
+        <dc:LoadablePanel Load="{staticCommand: Data6 = service.LoadData6().Result}" HideUntilLoaded="true" class="panel">
+            <ProgressTemplate>
+                <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+            </ProgressTemplate>
+            <ContentTemplate>
+                <div class="box" Style-background-color="{value: Data6}"></div>
+            </ContentTemplate>
+        </dc:LoadablePanel>
+
+        <dc:LoadablePanel Load="{staticCommand: Data7 = service.LoadData7().Result}" HideUntilLoaded="true" class="panel">
+            <ProgressTemplate>
+                <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+            </ProgressTemplate>
+            <ContentTemplate>
+                <div class="box" Style-background-color="{value: Data7}"></div>
+            </ContentTemplate>
+        </dc:LoadablePanel>
+
+        <dc:LoadablePanel Load="{staticCommand: Data8 = service.LoadData8().Result}" HideUntilLoaded="true" class="panel">
+            <ProgressTemplate>
+                <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
+            </ProgressTemplate>
+            <ContentTemplate>
+                <div class="box" Style-background-color="{value: Data8}"></div>
+            </ContentTemplate>
+        </dc:LoadablePanel>
+    </div>
+</dot:Content>
+
