@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp2.0;net451</TargetFrameworks>
+		<PackageId>DotVVM.Contrib.CookieBar</PackageId>
+		<PackageVersion>0.0.1</PackageVersion>
+		<Authors>DotVVM Contrib</Authors>
+		<Description>The CookieBar control for DotVVM made by DotVVM Contrib community.</Description>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+		<PackageLicenseUrl>https://github.com/riganti/dotvvm-contrib/blob/master/LICENSE</PackageLicenseUrl>
+		<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+		<GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+		<GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+		<GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+		<PreserveCompilationContext>true</PreserveCompilationContext>
+		<AssemblyName>DotVVM.Contrib.CookieBar</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="CookieBar.dotcontrol" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="CookieBar.dotcontrol">
+			<LogicalName>DotVVM.Contrib.CookieBar.CookieBar.dotcontrol</LogicalName>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Scripts\DotVVM.Contrib.CookieBar.js" />
+		<Content Include="Styles\DotVVM.Contrib.CookieBar.scss" />
+		<Content Include="Styles\DotVVM.Contrib.CookieBar.css">
+			<DependentUpon>Styles\DotVVM.Contrib.CookieBar.scss</DependentUpon>
+		</Content>
+		<EmbeddedResource Include="Styles\DotVVM.Contrib.CookieBar.min.css">
+			<DependentUpon>Styles\DotVVM.Contrib.CookieBar.css</DependentUpon>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BuildWebCompiler" Version="1.12.405" />
+		<PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resources\CookieTexts.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>CookieTexts.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\CookieTexts.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>CookieTexts.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,72 @@
+﻿@viewModel System.Object, mscorlib
+@baseType DotVVM.Contrib.CookieBar, DotVVM.Contrib.CookieBar
+@import DotVVM.Contrib.Resources
+@js dotvvm.contrib.CookieBar
+
+<div class="cookies__pop-up">
+    <h3 InnerText="{resource: _control.Title}" />
+    <p InnerText="{resource: _control.Description}" />
+    <div>
+        <dot:Button ButtonTagName="button"
+                    Text="{resource: _control.MoreOptionsButtonText}"
+                    Click="{staticCommand: _js.Invoke("openDialog")}"
+                    class="button button--secondary button--background" />
+        <dot:Button ButtonTagName="button"
+                    Text="{resource: _control.AcceptAllButtonText}"
+                    Click="{staticCommand: _js.Invoke("acceptAll")}"
+                    class="button button--background" />
+    </div>
+</div>
+
+<div class="cookies__overlay" style="display: none">
+    <div class="cookies__dialog center-item">
+        <div class="cookies__header">
+            <h3 InnerText="{resource: _control.Title}" />
+            <p InnerText="{resource: _control.Description}" />
+        </div>
+        <div class="cookies__body">
+            <div class="cookies__content">
+                <div class="cookies__title">
+                    <h4 InnerText="{resource: _control.DialogSubtitle}" />
+                </div>
+                <div class="cookies__options">
+                    <details class="cookies__details">
+                        <summary>
+                            <span class="cookies__rule" InnerText="{resource: _control.NecessaryCookiesTitle}" />
+                            <small InnerText="{resource: _control.AlwaysAllowedText}" />
+                        </summary>
+                        <div class="cookies__desc">
+                            <p innerText="{resource: _control.NecessaryCookiesDescription}" />
+                        </div>
+                    </details>
+                    <dot:Repeater DataSource="{value: _control.Rules}" RenderSettings.Mode="Server">
+                        <details class="cookies__details">
+                            <summary>
+                                <span class="cookies__rule" InnerText="{value: Title}" />
+                                <label class="toggle-button"
+                                       title="{resource: _control.AllowedText}"
+                                       data-key="{value: Key}"
+                                       data-title-true="{resource: _control.AllowedText}" 
+                                       data-title-false="{resource: _control.DisallowedText}"
+                                       class="toggle-button--on">
+                                    <input type="checkbox" checked />
+                                </label>
+                            </summary>
+                            <div class="cookies__desc">
+                                <div class="cookies__desc">
+                                    <p innerText="{value: Description}" />
+                                </div>
+                            </div>
+                        </details>
+                    </dot:Repeater>
+                </div>
+            </div>
+        </div>
+        <div class="cookies__footer">
+            <dot:Button ButtonTagName="button"
+                        Text="{resource: _control.SaveAndCloseButtonText}"
+                        Click="{staticCommand: _js.Invoke("saveAndCloseDialog")}"
+                        class="button button--background" />
+        </div>
+    </div>
+</div>

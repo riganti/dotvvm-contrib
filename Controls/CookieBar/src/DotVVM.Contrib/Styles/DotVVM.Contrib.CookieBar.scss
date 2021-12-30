@@ -1,0 +1,235 @@
+﻿$radius-default: .5rem;
+$color-white: #fff;
+$color-secondary: rgba(44, 45, 43, 1);
+$color-grey: #707070;
+$color-grey-light: #bababa;
+$color-ticket-green: #84bf00;
+$border-color: rgb(253, 173, 0);
+$border-width: .2rem;
+
+@mixin border($var-direction: "border", $var-width: $border-width, $var-color: $border-color) {
+    @if $var-direction == 'border' {
+        border: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'border-bottom' {
+        border-bottom: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'border-top' {
+        border-top: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'border-right' {
+        border-right: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'border-left' {
+        border-left: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'border-tb' {
+        border-bottom: $var-width solid $var-color;
+        border-top: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'border-lr' {
+        border-left: $var-width solid $var-color;
+        border-right: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'border-no-top' {
+        border: $var-width solid $var-color;
+        border-top: none;
+    }
+
+    @if $var-direction == 'border-no-bottom' {
+        border: $var-width solid $var-color;
+        border-bottom: none;
+    }
+}
+
+.cookies {
+    &__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: hsla(0, 0%, 0%, .6);
+        z-index: 9999;
+    }
+
+    &__dialog {
+        --dialog-radius: #{$radius-default};
+        display: grid;
+        width: 100%;
+        max-width: 60rem;
+        max-height: 90vh;
+        background: $color-white;
+        border-radius: var(--dialog-radius);
+        color: $color-secondary;
+        overflow: hidden;
+
+        p {
+            font-size: medium;
+        }
+    }
+
+    &__content {
+        @include border('border-top', 1px, $color-grey-light);
+        padding-top: 2.4rem;
+    }
+
+    &__title {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2.4rem;
+
+        > h4 {
+            font-size: medium;
+        }
+
+        > a {
+            --text-decoration: none;
+            font-size: small;
+            font-weight: 400;
+            color: $color-grey;
+            text-decoration: var(--text-decoration);
+            text-transform: uppercase;
+            cursor: pointer;
+
+            &:hover {
+                --text-decoration: underline;
+            }
+        }
+    }
+
+    &__body {
+        padding: 0 32px;
+    }
+
+    &__header {
+        padding: 32px;
+
+        h3 {
+            margin-bottom: 16px;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 24px 32px;
+        gap: 1.6px;
+    }
+
+    &__options {
+        @include border('border', 1px, $color-grey-light);
+        max-height: 40vh;
+        overflow: auto;
+    }
+
+    &__details {
+        --details-character: '+';
+        @include border('border-bottom', 1px, $color-grey-light);
+
+        &[open] {
+            --details-character: '-';
+        }
+
+        &:last-child {
+            border-bottom-width: 0;
+        }
+
+        > summary {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            list-style: none;
+            cursor: pointer;
+            gap: 16px;
+
+            &::marker {
+                display: none;
+            }
+
+            > small {
+                font-size: small;
+                font-weight: 400;
+                color: $color-grey;
+            }
+        }
+    }
+
+    &__rule {
+        display: inline-flex;
+        flex-wrap: row nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 14px;
+        font-weight: 600;
+        gap: .8rem;
+
+        &:before {
+            content: var(--details-character);
+            font-size: 2em;
+            color: $color-ticket-green;
+        }
+    }
+
+    &__desc {
+        display: block;
+        font-size: small;
+
+        > p {
+            padding: 0 16px 16px;
+            font-size: 1em;
+        }
+
+        > details {
+            @include border('border-top', 1px, $color-grey-light);
+        }
+    }
+
+    &__pop-up {
+        --cookie-display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: var(--cookie-display);
+        width: 100%;
+        padding: 24px;
+        background: $color-white;
+        z-index: 9999;
+        box-shadow: 0 0 6px 0 hsla(0, 0%, 0%, .3);
+        gap: 16px;
+
+
+        &--open {
+            --cookie-display: grid;
+        }
+
+        > h3 {
+            margin: 0;
+        }
+
+        > p {
+            font-size: medium;
+        }
+
+        > div {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+        }
+    }
+}
