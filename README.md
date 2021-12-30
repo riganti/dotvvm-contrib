@@ -21,6 +21,7 @@ config.AddContribXYZConfiguration();
 
 * [BootstrapColorpicker](Controls/BootstrapColorpicker/readme.md)
 * [BootstrapDatepicker](Controls/BootstrapDatepicker/readme.md)
+* [CookieBar](Controls/CookieBar/readme.md)
 * [CkEditorMinimal](Controls/CkEditorMinimal/readme.md)
 * [CrystalReportViewer](Controls/CrystalReportViewer/readme.md)
 * [EditableForm](Controls/EditableForm/readme.md)
