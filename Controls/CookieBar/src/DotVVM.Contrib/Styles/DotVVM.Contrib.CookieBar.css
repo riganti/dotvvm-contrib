@@ -45,6 +45,11 @@
 .dotvvm-contrib-cookie-bar__dialog p {
   font-size: 1em;
 }
+@media screen and (max-width: 425px) {
+  .dotvvm-contrib-cookie-bar__dialog p {
+    font-size: 0.875em;
+  }
+}
 .dotvvm-contrib-cookie-bar__content {
   border-top: var(--border-width) solid var(--color-border);
   padding-top: 1.5em;
