@@ -15,7 +15,7 @@
             <dot:Button ButtonTagName="button"
                         Text="{resource: _control.AcceptAllButtonText}"
                         Click="{staticCommand: _js.Invoke("acceptAll")}"
-                        class="button button--background" />
+                        class="button button--primary button--background" />
         </div>
     </div>
 
@@ -67,7 +67,7 @@
                 <dot:Button ButtonTagName="button"
                             Text="{resource: _control.SaveAndCloseButtonText}"
                             Click="{staticCommand: _js.Invoke("saveAndCloseDialog")}"
-                            class="button button--background" />
+                            class="button button--primary button--background" />
             </div>
         </div>
     </div>

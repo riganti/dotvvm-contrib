@@ -13,7 +13,7 @@
     --color-box-shadow: hsla(0, 0%, 0%, .3);
     --border-width: 1px;
     --dialog_box-shadow: 0 0 6px 0 var(--color-box-shadow);
-    --dialog_border-radius: .5em;
+    --dialog_border-radius: .3em;
     --link_text-decoration: none;
     --transition-time: .25s;
 
@@ -34,7 +34,7 @@
     &__dialog {
         @include center-item;
         display: grid;
-        width: 100%;
+        width: calc(100% - 2em);
         max-width: 40em;
         max-height: 90vh;
         background: var(--color-background);
@@ -43,13 +43,17 @@
         overflow: hidden;
 
         p {
-            font-size: medium;
+            font-size: 1em;
         }
     }
 
     &__content {
         @include border('top');
         padding-top: 1.5em;
+
+        @media screen and (max-width: 425px) {
+            padding-top: .75em;
+        }
     }
 
     &__title {
@@ -58,6 +62,10 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: 1.5em;
+
+        @media screen and (max-width: 425px) {
+            margin-bottom: .75em;
+        }
 
         > h4 {
             font-size: medium;
@@ -80,10 +88,18 @@
 
     &__body {
         padding: 0 2em;
+
+        @media screen and (max-width: 425px) {
+            padding: 0 1em;
+        }
     }
 
     &__header {
         padding: 2em;
+
+        @media screen and (max-width: 425px) {
+            padding: 1em;
+        }
 
         > h3 {
             margin-top: 0;
@@ -102,6 +118,10 @@
         justify-content: flex-end;
         padding: 1.5em 2em;
         gap: .1em;
+
+        @media screen and (max-width: 425px) {
+            padding: .75em 1em;
+        }
     }
 
     &__options {
@@ -129,7 +149,7 @@
             flex-flow: row nowrap;
             align-items: center;
             justify-content: space-between;
-            padding: 1em;
+            padding: .5em 1em;
             list-style: none;
             cursor: pointer;
             gap: 1em;
@@ -168,7 +188,7 @@
             content: var(--details-character);
             font-size: 2em;
             color: var(--color-success);
-            transform: translateY(-2%);
+            transform: translateY(-1.5px);
         }
     }
 
@@ -177,9 +197,10 @@
         font-size: small;
 
         > p {
-            padding: 0 16px 16px;
+            padding: 0 1em 1em;
             font-size: 1em;
-            margin: 0;
+            margin-top: 1em;
+            margin-bottom: 0;
         }
 
         > details {
@@ -199,6 +220,10 @@
         box-shadow: var(--dialog_box-shadow);
         gap: 1em;
         box-sizing: border-box;
+
+        @media screen and (max-width: 425px) {
+            padding: 1em;
+        }
 
         &--open {
             --cookie-display: grid;
