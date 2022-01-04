@@ -3,9 +3,9 @@
 
 <dot:Content ContentPlaceHolderID="MainContent">
 
-    <dc:CookieBar>
+    <input type="button" onclick="DotVVM.Contrib.CookieBar.resetConsent(true);" value="Reset consent" />
 
-    </dc:CookieBar>
+    <dc:CookieBar />
 
 </dot:Content>
 

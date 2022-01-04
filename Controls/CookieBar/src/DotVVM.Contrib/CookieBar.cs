@@ -137,16 +137,7 @@ namespace DotVVM.Contrib
             AlwaysAllowedText = CookieTexts.AlwaysAllowed;
             AllowedText = CookieTexts.Toggle_True;
             DisallowedText = CookieTexts.Toggle_False;
-
-            Rules = new List<CookieBarRule>()
-            {
-                new CookieBarRule()
-                {
-                    Key = "analytics_storage",
-                    Title = CookieTexts.RuleTitle_Analytics,
-                    Description = CookieTexts.Rule_Analytics
-                }
-            };
+            Rules = new List<CookieBarRule>();
         }
 
         protected override void OnPreRender(IDotvvmRequestContext context)

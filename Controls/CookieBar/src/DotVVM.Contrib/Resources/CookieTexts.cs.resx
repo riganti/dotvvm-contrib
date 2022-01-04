@@ -156,4 +156,22 @@
   <data name="AlwaysAllowed" xml:space="preserve">
     <value>Vždy povoleno</value>
   </data>
+  <data name="RuleTitle_FacebookPixel" xml:space="preserve">
+    <value>Facebook Pixel</value>
+  </data>
+  <data name="RuleTitle_GoogleAds" xml:space="preserve">
+    <value>Google Ads</value>
+  </data>
+  <data name="RuleTitle_Smartlook" xml:space="preserve">
+    <value>Smartlook</value>
+  </data>
+  <data name="Rule_FacebookPixel" xml:space="preserve">
+    <value>Tyto cookies používáme k měření konverzí z našich textových reklam a bannerů distribuovaných skrze síť společnosti Facebook. Díky nim můžeme naše reklamy lépe cílit a zajistit, aby byl jejich obsah pro Vás relevantní.</value>
+  </data>
+  <data name="Rule_GoogleAds" xml:space="preserve">
+    <value>Tyto cookies používáme k měření konverzí z našich textových reklam a bannerů distribuovaných skrze síť společnosti Google. Díky nim můžeme naše reklamy lépe cílit a zajistit, aby byl jejich obsah pro Vás relevantní.</value>
+  </data>
+  <data name="Rule_Smartlook" xml:space="preserve">
+    <value>Tyto cookies používáme k měření, shromažďování a analýze toho, jak uživatelé interagují s našimi stránkami, abychom lépe porozuměli jejich chování. Díky těmto informacím můžeme web neustále vylepšovat a poskytovat kvalitnější služby. Tyto analytické služby jsou poskytovány společností Smartlook.</value>
+  </data>
 </root>

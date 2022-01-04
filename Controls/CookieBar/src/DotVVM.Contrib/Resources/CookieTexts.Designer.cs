@@ -124,11 +124,38 @@ namespace DotVVM.Contrib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to We use these cookies to measure conversions from our advertisement and banners distributed via Facebook. This allows us to better target the ads and make them more relevant to you..
+        /// </summary>
+        public static string Rule_FacebookPixel {
+            get {
+                return ResourceManager.GetString("Rule_FacebookPixel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We use these cookies to measure conversions from our advertisement and banners distributed via Google Ads. This allows us to better target the ads and make them more relevant to you..
+        /// </summary>
+        public static string Rule_GoogleAds {
+            get {
+                return ResourceManager.GetString("Rule_GoogleAds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Necessary cookies are essential and maintain information based on your activity on our site, like remembering your signed in account, selection of your language, or products added to the shopping cart. The website cannot work properly without these cookies. .
         /// </summary>
         public static string Rule_Necessary {
             get {
                 return ResourceManager.GetString("Rule_Necessary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We use these cookies to measure, collect, analyse and report how users interact with our sites to better understand their behavior. Thanks to this, we can improve the site and provide better experience. The analytics service is provided by Smartlook..
+        /// </summary>
+        public static string Rule_Smartlook {
+            get {
+                return ResourceManager.GetString("Rule_Smartlook", resourceCulture);
             }
         }
         
@@ -142,11 +169,38 @@ namespace DotVVM.Contrib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Facebook Pixel.
+        /// </summary>
+        public static string RuleTitle_FacebookPixel {
+            get {
+                return ResourceManager.GetString("RuleTitle_FacebookPixel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Google Ads.
+        /// </summary>
+        public static string RuleTitle_GoogleAds {
+            get {
+                return ResourceManager.GetString("RuleTitle_GoogleAds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Necessary cookies.
         /// </summary>
         public static string RuleTitle_Necessary {
             get {
                 return ResourceManager.GetString("RuleTitle_Necessary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smartlook.
+        /// </summary>
+        public static string RuleTitle_Smartlook {
+            get {
+                return ResourceManager.GetString("RuleTitle_Smartlook", resourceCulture);
             }
         }
         

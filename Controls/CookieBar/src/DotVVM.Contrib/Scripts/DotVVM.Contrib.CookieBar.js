@@ -11,12 +11,6 @@ class CookieBar {
 
         if (!window.localStorage.getItem("cookieconsent")) {
             this.popupElement.classList.add("dotvvm-contrib-cookie-bar__pop-up--open");
-        } else {
-            for (const rule of this.context.properties.Rules()) {
-                const ruleValue = rule();
-                const granted = window.localStorage.getItem("cookieconsent__" + ruleValue.Key()) === "granted";
-                ruleValue.Enabled(granted);
-            }
         }
 
         this.checkboxes = this.overlayElement.querySelectorAll("input[type=checkbox]");
@@ -32,14 +26,32 @@ class CookieBar {
                     }
                 });
         }
+
+        window.DotVVM = window.DotVVM || {};
+        window.DotVVM.Contrib = window.DotVVM.Contrib || {};
+        window.DotVVM.Contrib.CookieBar = window.DotVVM.Contrib.CookieBar ||
+        {
+            resetConsent: showCookieBar => {
+                const consents = {};
+                for (const checkbox of this.checkboxes) {
+                    window.localStorage.setItem("cookieconsent__" + checkbox.parentElement.dataset.key, "denied");
+                    consents[checkbox.parentElement.dataset.key] = "denied";
+                }
+                gtag("consent", "update", consents);
+                window.localStorage.removeItem("cookieconsent");
+
+                if (showCookieBar) {
+                    this.popupElement.classList.add("dotvvm-contrib-cookie-bar__pop-up--open");
+                }
+            }
+        };
     }
 
     acceptAll() {
         const consents = {};
-        for (const rule of this.context.properties.Rules()) {
-            const ruleValue = rule();
-            window.localStorage.setItem("cookieconsent__" + ruleValue.Key(), "granted");
-            consents[ruleValue.Key()] = "granted";
+        for (const checkbox of this.checkboxes) {
+            window.localStorage.setItem("cookieconsent__" + checkbox.parentElement.dataset.key, "granted");
+            consents[checkbox.parentElement.dataset.key] = "granted";
         }
         gtag("consent", "update", consents);
         window.localStorage.setItem("cookieconsent", true);
