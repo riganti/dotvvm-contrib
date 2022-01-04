@@ -1,0 +1,44 @@
+﻿$border-color: var(--color-border);
+$border-width: var(--border-width);
+
+@mixin border($direction: "def", $width: $border-width, $color: $border-color) {
+    @if $direction == 'def' {
+        border: $width solid $color;
+    }
+
+    @if $direction == 'bottom' {
+        border-bottom: $width solid $color;
+    }
+
+    @if $direction == 'top' {
+        border-top: $width solid $color;
+    }
+
+    @if $direction == 'right' {
+        border-right: $width solid $color;
+    }
+
+    @if $direction == 'left' {
+        border-left: $width solid $color;
+    }
+
+    @if $direction == 'tb' {
+        border-bottom: $width solid $color;
+        border-top: $width solid $color;
+    }
+
+    @if $direction == 'lr' {
+        border-left: $width solid $color;
+        border-right: $width solid $color;
+    }
+
+    @if $direction == 'no-top' {
+        border: $width solid $color;
+        border-top: none;
+    }
+
+    @if $direction == 'no-bottom' {
+        border: $width solid $color;
+        border-bottom: none;
+    }
+}

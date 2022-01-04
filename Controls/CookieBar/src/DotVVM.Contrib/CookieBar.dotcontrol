@@ -19,7 +19,7 @@
 </div>
 
 <div class="cookies__overlay" style="display: none">
-    <div class="cookies__dialog center-item">
+    <div class="cookies__dialog">
         <div class="cookies__header">
             <h3 InnerText="{resource: _control.Title}" />
             <p InnerText="{resource: _control.Description}" />
@@ -46,7 +46,7 @@
                                 <label class="toggle-button"
                                        title="{resource: _control.AllowedText}"
                                        data-key="{value: Key}"
-                                       data-title-true="{resource: _control.AllowedText}" 
+                                       data-title-true="{resource: _control.AllowedText}"
                                        data-title-false="{resource: _control.DisallowedText}"
                                        class="toggle-button--on">
                                     <input type="checkbox" checked />

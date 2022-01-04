@@ -3,7 +3,9 @@
 
 <dot:Content ContentPlaceHolderID="MainContent">
 
-    <dc:CookieBar />
+    <dc:CookieBar>
+
+    </dc:CookieBar>
 
 </dot:Content>
 

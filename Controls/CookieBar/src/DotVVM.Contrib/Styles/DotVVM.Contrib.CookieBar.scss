@@ -1,52 +1,24 @@
-﻿$radius-default: .5rem;
-$color-white: #fff;
-$color-secondary: rgba(44, 45, 43, 1);
-$color-grey: #707070;
-$color-grey-light: #bababa;
-$color-ticket-green: #84bf00;
-$border-color: rgb(253, 173, 0);
-$border-width: .2rem;
+﻿@import 'Base/mixins';
 
-@mixin border($var-direction: "border", $var-width: $border-width, $var-color: $border-color) {
-    @if $var-direction == 'border' {
-        border: $var-width solid $var-color;
-    }
+:root {
+    --cookie-display: none;
+    --color-background: #fff;
+    --color-primary: rgb(44, 45, 43);
+    --color-text: rgb(44, 45, 43);
+    --color-text--light: #707070;
+    --color-border: #bababa;
+    --color-overlay: hsla(0, 0%, 0%, .6);
+    --color-success: #84bf00;
+    --color-box-shadow: hsla(0, 0%, 0%, .3);
+    --border-width: 1px;
+    --dialog_box-shadow: 0 0 6px 0 var(--color-box-shadow);
+    --dialog_border-radius: .5rem;
+    --link_text-decoration: none;
+    --transition-time: .25s;
+}
 
-    @if $var-direction == 'border-bottom' {
-        border-bottom: $var-width solid $var-color;
-    }
-
-    @if $var-direction == 'border-top' {
-        border-top: $var-width solid $var-color;
-    }
-
-    @if $var-direction == 'border-right' {
-        border-right: $var-width solid $var-color;
-    }
-
-    @if $var-direction == 'border-left' {
-        border-left: $var-width solid $var-color;
-    }
-
-    @if $var-direction == 'border-tb' {
-        border-bottom: $var-width solid $var-color;
-        border-top: $var-width solid $var-color;
-    }
-
-    @if $var-direction == 'border-lr' {
-        border-left: $var-width solid $var-color;
-        border-right: $var-width solid $var-color;
-    }
-
-    @if $var-direction == 'border-no-top' {
-        border: $var-width solid $var-color;
-        border-top: none;
-    }
-
-    @if $var-direction == 'border-no-bottom' {
-        border: $var-width solid $var-color;
-        border-bottom: none;
-    }
+.button {
+    cursor: pointer;
 }
 
 .cookies {
@@ -56,19 +28,23 @@ $border-width: .2rem;
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: hsla(0, 0%, 0%, .6);
+        background-color: var(--color-overlay);
         z-index: 9999;
+
+        * {
+            box-sizing: border-box;
+        }
     }
 
     &__dialog {
-        --dialog-radius: #{$radius-default};
+        @include center-item;
         display: grid;
         width: 100%;
-        max-width: 60rem;
+        max-width: 40rem;
         max-height: 90vh;
-        background: $color-white;
-        border-radius: var(--dialog-radius);
-        color: $color-secondary;
+        background: var(--color-background);
+        border-radius: var(--dialog_border-radius);
+        color: var(--color-text);
         overflow: hidden;
 
         p {
@@ -77,8 +53,8 @@ $border-width: .2rem;
     }
 
     &__content {
-        @include border('border-top', 1px, $color-grey-light);
-        padding-top: 2.4rem;
+        @include border('top');
+        padding-top: 1.5rem;
     }
 
     &__title {
@@ -86,36 +62,41 @@ $border-width: .2rem;
         flex-flow: row nowrap;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 2.4rem;
+        margin-bottom: 1.5rem;
 
         > h4 {
             font-size: medium;
+            margin: 0;
         }
 
         > a {
-            --text-decoration: none;
             font-size: small;
             font-weight: 400;
-            color: $color-grey;
-            text-decoration: var(--text-decoration);
+            color: var(--color-grey);
+            text-decoration: var(--link_text-decoration);
             text-transform: uppercase;
             cursor: pointer;
 
             &:hover {
-                --text-decoration: underline;
+                --link_text-decoration: underline;
             }
         }
     }
 
     &__body {
-        padding: 0 32px;
+        padding: 0 2rem;
     }
 
     &__header {
-        padding: 32px;
+        padding: 2rem;
 
-        h3 {
-            margin-bottom: 16px;
+        > h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        > p {
+            margin-bottom: 0;
         }
     }
 
@@ -124,22 +105,23 @@ $border-width: .2rem;
         flex-flow: row nowrap;
         align-items: center;
         justify-content: flex-end;
-        padding: 24px 32px;
-        gap: 1.6px;
+        padding: 1.5rem 2rem;
+        gap: .1rem;
     }
 
     &__options {
-        @include border('border', 1px, $color-grey-light);
+        @include border('def');
+        border-radius: var(--dialog_border-radius);
         max-height: 40vh;
         overflow: auto;
     }
 
     &__details {
         --details-character: '+';
-        @include border('border-bottom', 1px, $color-grey-light);
+        @include border('bottom');
 
         &[open] {
-            --details-character: '-';
+            --details-character: '–⁠';
         }
 
         &:last-child {
@@ -151,10 +133,10 @@ $border-width: .2rem;
             flex-flow: row nowrap;
             align-items: center;
             justify-content: space-between;
-            padding: 16px;
+            padding: 1rem;
             list-style: none;
             cursor: pointer;
-            gap: 16px;
+            gap: 1rem;
 
             &::marker {
                 display: none;
@@ -163,24 +145,25 @@ $border-width: .2rem;
             > small {
                 font-size: small;
                 font-weight: 400;
-                color: $color-grey;
+                color: var(--color-text--light);
             }
         }
     }
 
     &__rule {
         display: inline-flex;
-        flex-wrap: row nowrap;
+        flex-flow: row nowrap;
         align-items: center;
         justify-content: flex-start;
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 600;
         gap: .8rem;
 
         &:before {
             content: var(--details-character);
             font-size: 2em;
-            color: $color-ticket-green;
+            color: var(--color-success);
+            transform: translateY(-3%);
         }
     }
 
@@ -191,26 +174,26 @@ $border-width: .2rem;
         > p {
             padding: 0 16px 16px;
             font-size: 1em;
+            margin: 0;
         }
 
         > details {
-            @include border('border-top', 1px, $color-grey-light);
+            @include border('top');
         }
     }
-
+    //PopUp
     &__pop-up {
-        --cookie-display: none;
         position: fixed;
         bottom: 0;
         left: 0;
         display: var(--cookie-display);
         width: 100%;
-        padding: 24px;
-        background: $color-white;
+        padding: 1.5rem;
+        background: var(---color-background);
         z-index: 9999;
-        box-shadow: 0 0 6px 0 hsla(0, 0%, 0%, .3);
-        gap: 16px;
-
+        box-shadow: var(--dialog_box-shadow);
+        gap: 1rem;
+        box-sizing: border-box;
 
         &--open {
             --cookie-display: grid;
@@ -221,6 +204,7 @@ $border-width: .2rem;
         }
 
         > p {
+            margin: 0;
             font-size: medium;
         }
 
@@ -229,7 +213,46 @@ $border-width: .2rem;
             flex-flow: row nowrap;
             align-items: center;
             justify-content: flex-end;
-            gap: 16px;
+            gap: 1rem;
         }
+    }
+}
+
+//ToggleButton
+.toggle-button {
+    --circle-size: calc(100% - 4px);
+    --cicle-trans-x: 2px;
+    --toggle-bg: var(--color-text--light);
+    position: relative;
+    width: 40px;
+    min-width: 40px;
+    height: 24px;
+    background-color: var(--toggle-bg);
+    border-radius: 12px;
+    transition: background-color var(--transition-time) ease-in-out;
+    cursor: pointer;
+
+    &--on {
+        --cicle-trans-x: calc(100% - 2px);
+        --toggle-bg: var(---color-success)
+    }
+
+    > input {
+        opacity: 0;
+    }
+
+    &:after {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: block;
+        content: '';
+        height: var(--circle-size);
+        aspect-ratio: 1 / 1;
+        background-color: var(---color-background);
+        border-radius: 50%;
+        transform: translate(var(--cicle-trans-x), -50%);
+        transition: background-color var(--transition-time) ease-in-out, transform var(--transition-time) ease-in-out;
+        z-index: 999;
     }
 }
