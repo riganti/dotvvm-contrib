@@ -11,7 +11,7 @@
   --color-box-shadow: hsla(0, 0%, 0%, .3);
   --border-width: 1px;
   --dialog_box-shadow: 0 0 6px 0 var(--color-box-shadow);
-  --dialog_border-radius: .5rem;
+  --dialog_border-radius: .5em;
   --link_text-decoration: none;
   --transition-time: .25s;
 }
@@ -34,7 +34,7 @@
   transform: translate(-50%, -50%);
   display: grid;
   width: 100%;
-  max-width: 40rem;
+  max-width: 40em;
   max-height: 90vh;
   background: var(--color-background);
   border-radius: var(--dialog_border-radius);
@@ -46,14 +46,14 @@
 }
 .dotvvm-contrib-cookie-bar__content {
   border-top: var(--border-width) solid var(--color-border);
-  padding-top: 1.5rem;
+  padding-top: 1.5em;
 }
 .dotvvm-contrib-cookie-bar__title {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5em;
 }
 .dotvvm-contrib-cookie-bar__title > h4 {
   font-size: medium;
@@ -71,14 +71,14 @@
   --link_text-decoration: underline;
 }
 .dotvvm-contrib-cookie-bar__body {
-  padding: 0 2rem;
+  padding: 0 2em;
 }
 .dotvvm-contrib-cookie-bar__header {
-  padding: 2rem;
+  padding: 2em;
 }
 .dotvvm-contrib-cookie-bar__header > h3 {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 .dotvvm-contrib-cookie-bar__header > p {
   margin-bottom: 0;
@@ -88,8 +88,8 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-end;
-  padding: 1.5rem 2rem;
-  gap: 0.1rem;
+  padding: 1.5em 2em;
+  gap: 0.1em;
 }
 .dotvvm-contrib-cookie-bar__options {
   border: var(--border-width) solid var(--color-border);
@@ -112,10 +112,10 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1em;
   list-style: none;
   cursor: pointer;
-  gap: 1rem;
+  gap: 1em;
 }
 .dotvvm-contrib-cookie-bar__details > summary::marker {
   display: none;
@@ -130,9 +130,9 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-start;
-  font-size: 0.875rem;
+  font-size: 0.875em;
   font-weight: 600;
-  gap: 0.8rem;
+  gap: 0.8em;
 }
 .dotvvm-contrib-cookie-bar__rule:before {
   content: var(--details-character);
@@ -158,11 +158,11 @@
   left: 0;
   display: var(--cookie-display);
   width: 100%;
-  padding: 1.5rem;
+  padding: 1.5em;
   background: var(---color-background);
   z-index: 9999;
   box-shadow: var(--dialog_box-shadow);
-  gap: 1rem;
+  gap: 1em;
   box-sizing: border-box;
 }
 .dotvvm-contrib-cookie-bar__pop-up--open {
@@ -180,7 +180,7 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 1rem;
+  gap: 1em;
 }
 .dotvvm-contrib-cookie-bar .toggle-button {
   --circle-size: calc(100% - 4px);
