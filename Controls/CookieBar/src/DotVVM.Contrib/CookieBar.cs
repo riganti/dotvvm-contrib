@@ -23,6 +23,7 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty RulesProperty
             = DotvvmProperty.Register<List<CookieBarRule>, CookieBar>(c => c.Rules, null);
 
+        [MarkupOptions(AllowBinding = false)]
         public string Title
         {
             get { return (string)GetValue(TitleProperty); }
@@ -31,6 +32,7 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty TitleProperty
             = DotvvmProperty.Register<string, CookieBar>(c => c.Title, null);
 
+        [MarkupOptions(AllowBinding = false)]
         public string Description
         {
             get { return (string)GetValue(DescriptionProperty); }
@@ -39,6 +41,7 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty DescriptionProperty
             = DotvvmProperty.Register<string, CookieBar>(c => c.Description, null);
 
+        [MarkupOptions(AllowBinding = false)]
         public string DialogSubtitle
         {
             get { return (string)GetValue(DialogSubtitleProperty); }
@@ -47,6 +50,7 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty DialogSubtitleProperty
             = DotvvmProperty.Register<string, CookieBar>(c => c.DialogSubtitle, null);
 
+        [MarkupOptions(AllowBinding = false)]
         public string NecessaryCookiesTitle
         {
             get { return (string)GetValue(NecessaryCookiesTitleProperty); }
@@ -55,6 +59,7 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty NecessaryCookiesTitleProperty
             = DotvvmProperty.Register<string, CookieBar>(c => c.NecessaryCookiesTitle, null);
 
+        [MarkupOptions(AllowBinding = false)]
         public string NecessaryCookiesDescription
         {
             get { return (string)GetValue(NecessaryCookiesDescriptionProperty); }
@@ -63,6 +68,7 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty NecessaryCookiesDescriptionProperty
             = DotvvmProperty.Register<string, CookieBar>(c => c.NecessaryCookiesDescription, null);
 
+        [MarkupOptions(AllowBinding = false)]
         public string MoreOptionsButtonText
         {
             get { return (string)GetValue(MoreOptionsButtonTextProperty); }
@@ -71,6 +77,7 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty MoreOptionsButtonTextProperty
             = DotvvmProperty.Register<string, CookieBar>(c => c.MoreOptionsButtonText, null);
 
+        [MarkupOptions(AllowBinding = false)]
         public string AcceptAllButtonText
         {
             get { return (string)GetValue(AcceptAllButtonTextProperty); }
@@ -79,6 +86,7 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty AcceptAllButtonTextProperty
             = DotvvmProperty.Register<string, CookieBar>(c => c.AcceptAllButtonText, null);
 
+        [MarkupOptions(AllowBinding = false)]
         public string SaveAndCloseButtonText
         {
             get { return (string)GetValue(SaveAndCloseButtonTextProperty); }
@@ -87,6 +95,7 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty SaveAndCloseButtonTextProperty
             = DotvvmProperty.Register<string, CookieBar>(c => c.SaveAndCloseButtonText, null);
 
+        [MarkupOptions(AllowBinding = false)]
         public string AlwaysAllowedText
         {
             get { return (string)GetValue(AlwaysAllowedTextProperty); }
@@ -95,6 +104,7 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty AlwaysAllowedTextProperty
             = DotvvmProperty.Register<string, CookieBar>(c => c.AlwaysAllowedText, null);
 
+        [MarkupOptions(AllowBinding = false)]
         public string AllowedText
         {
             get { return (string)GetValue(AllowedTextProperty); }
@@ -103,6 +113,7 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty AllowedTextProperty
             = DotvvmProperty.Register<string, CookieBar>(c => c.AllowedText, null);
 
+        [MarkupOptions(AllowBinding = false)]
         public string DisallowedText
         {
             get { return (string)GetValue(DisallowedTextProperty); }
@@ -126,16 +137,7 @@ namespace DotVVM.Contrib
             AlwaysAllowedText = CookieTexts.AlwaysAllowed;
             AllowedText = CookieTexts.Toggle_True;
             DisallowedText = CookieTexts.Toggle_False;
-
-            Rules = new List<CookieBarRule>()
-            {
-                new CookieBarRule()
-                {
-                    Key = "analytics_storage",
-                    Title = CookieTexts.RuleTitle_Analytics,
-                    Description = CookieTexts.Rule_Analytics
-                }
-            };
+            Rules = new List<CookieBarRule>();
         }
 
         protected override void OnPreRender(IDotvvmRequestContext context)

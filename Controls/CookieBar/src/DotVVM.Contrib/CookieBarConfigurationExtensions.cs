@@ -14,6 +14,7 @@ namespace DotVVM.Contrib
         public static void AddContribCookieBarConfiguration(this DotvvmConfiguration config)
         {
             config.Markup.AddMarkupControl("dc", nameof(CookieBar), $"embedded://{typeof(CookieBar).Assembly.GetName().Name}/{nameof(CookieBar)}.dotcontrol");
+            config.Markup.AddCodeControls("dc", "DotVVM.Contrib", "DotVVM.Contrib.CookieBar");
 
             config.Resources.Register("dotvvm.contrib.CookieBar", new ScriptModuleResource(new EmbeddedResourceLocation(typeof(CookieBar).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.CookieBar.js"))
             {
