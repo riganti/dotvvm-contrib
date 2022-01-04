@@ -1,6 +1,6 @@
 ﻿@import 'Base/mixins';
 
-:root {
+.dotvvm-contrib-cookie-bar {
     --cookie-display: none;
     --color-background: hsl(0, 0%, 100%);
     --color-primary: hsl(210, 2%, 17%);
@@ -15,13 +15,7 @@
     --dialog_border-radius: .5rem;
     --link_text-decoration: none;
     --transition-time: .25s;
-}
 
-.button {
-    cursor: pointer;
-}
-
-.cookies {
     &__overlay {
         position: fixed;
         top: 0;
@@ -216,43 +210,42 @@
             gap: 1rem;
         }
     }
-}
+    //ToggleButton
+    .toggle-button {
+        --circle-size: calc(100% - 4px);
+        --cicle-trans-x: 2px;
+        --toggle-bg: var(--color-text--light);
+        position: relative;
+        width: 40px;
+        min-width: 40px;
+        height: 24px;
+        background-color: var(--toggle-bg);
+        border-radius: 12px;
+        transition: background-color var(--transition-time) ease-in-out;
+        cursor: pointer;
 
-//ToggleButton
-.toggle-button {
-    --circle-size: calc(100% - 4px);
-    --cicle-trans-x: 2px;
-    --toggle-bg: var(--color-text--light);
-    position: relative;
-    width: 40px;
-    min-width: 40px;
-    height: 24px;
-    background-color: var(--toggle-bg);
-    border-radius: 12px;
-    transition: background-color var(--transition-time) ease-in-out;
-    cursor: pointer;
+        &--on {
+            --cicle-trans-x: calc(100% - 2px);
+            --toggle-bg: var(---color-success)
+        }
 
-    &--on {
-        --cicle-trans-x: calc(100% - 2px);
-        --toggle-bg: var(---color-success)
-    }
+        > input {
+            opacity: 0;
+        }
 
-    > input {
-        opacity: 0;
-    }
-
-    &:after {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        display: block;
-        content: '';
-        height: var(--circle-size);
-        aspect-ratio: 1 / 1;
-        background-color: var(---color-background);
-        border-radius: 50%;
-        transform: translate(var(--cicle-trans-x), -50%);
-        transition: background-color var(--transition-time) ease-in-out, transform var(--transition-time) ease-in-out;
-        z-index: 999;
+        &:after {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+            content: '';
+            height: var(--circle-size);
+            aspect-ratio: 1 / 1;
+            background-color: var(---color-background);
+            border-radius: 50%;
+            transform: translate(var(--cicle-trans-x), -50%);
+            transition: background-color var(--transition-time) ease-in-out, transform var(--transition-time) ease-in-out;
+            z-index: 999;
+        }
     }
 }

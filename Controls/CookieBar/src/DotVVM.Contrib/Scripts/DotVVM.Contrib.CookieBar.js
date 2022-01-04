@@ -6,11 +6,11 @@ class CookieBar {
         this.context = context;
 
         const container = context.elements[0].parentElement;
-        this.popupElement = container.querySelector(".cookies__pop-up");
-        this.overlayElement = container.querySelector(".cookies__overlay");
+        this.popupElement = container.querySelector(".dotvvm-contrib-cookie-bar__pop-up");
+        this.overlayElement = container.querySelector(".dotvvm-contrib-cookie-bar__overlay");
 
         if (!window.localStorage.getItem("cookieconsent")) {
-            this.popupElement.classList.add("cookies__pop-up--open");
+            this.popupElement.classList.add("dotvvm-contrib-cookie-bar__pop-up--open");
         } else {
             for (const rule of this.context.properties.Rules()) {
                 const ruleValue = rule();
@@ -22,7 +22,7 @@ class CookieBar {
         this.checkboxes = this.overlayElement.querySelectorAll("input[type=checkbox]");
         for (const checkbox of this.checkboxes) {
             checkbox.addEventListener("click",
-                function() {
+                function () {
                     if (this.checked) {
                         this.parentElement.classList.add("toggle-button--on");
                         this.parentElement.title = this.parentElement.dataset.titleTrue;
@@ -48,7 +48,7 @@ class CookieBar {
     }
 
     hidePopup() {
-        this.popupElement.classList.remove("cookies__pop-up--open");
+        this.popupElement.classList.remove("dotvvm-contrib-cookie-bar__pop-up--open");
     }
 
     openDialog() {
