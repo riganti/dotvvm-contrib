@@ -6,6 +6,7 @@
   --color-text: hsl(90, 2%, 17%);
   --color-text--light: hsl(0, 0%, 44%);
   --color-border: hsl(0, 0%, 73%);
+  --color-hover: hsl(0, 0%, 92%);
   --color-overlay: hsla(0, 0%, 0%, .6);
   --color-success: hsl(79, 100%, 37%);
   --color-box-shadow: hsla(0, 0%, 0%, .3);
@@ -108,6 +109,7 @@
   border-bottom-width: 0;
 }
 .dotvvm-contrib-cookie-bar__details > summary {
+  background-color: var(--color-background);
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -116,6 +118,15 @@
   list-style: none;
   cursor: pointer;
   gap: 1em;
+  transition: background-color var(--transition-time) ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  .dotvvm-contrib-cookie-bar__details > summary {
+    transition: none;
+  }
+}
+.dotvvm-contrib-cookie-bar__details > summary:hover {
+  --color-background: var(--color-hover) ;
 }
 .dotvvm-contrib-cookie-bar__details > summary::marker {
   display: none;
@@ -138,7 +149,7 @@
   content: var(--details-character);
   font-size: 2em;
   color: var(--color-success);
-  transform: translateY(-3%);
+  transform: translateY(-2%);
 }
 .dotvvm-contrib-cookie-bar__desc {
   display: block;
