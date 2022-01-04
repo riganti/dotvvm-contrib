@@ -2,13 +2,13 @@
 
 :root {
     --cookie-display: none;
-    --color-background: #fff;
-    --color-primary: rgb(44, 45, 43);
-    --color-text: rgb(44, 45, 43);
-    --color-text--light: #707070;
-    --color-border: #bababa;
+    --color-background: hsl(0, 0%, 100%);
+    --color-primary: hsl(210, 2%, 17%);
+    --color-text: hsl(90, 2%, 17%);
+    --color-text--light: hsl(0, 0%, 44%);
+    --color-border: hsl(0, 0%, 73%);
     --color-overlay: hsla(0, 0%, 0%, .6);
-    --color-success: #84bf00;
+    --color-success: hsl(79, 100%, 37%);
     --color-box-shadow: hsla(0, 0%, 0%, .3);
     --border-width: 1px;
     --dialog_box-shadow: 0 0 6px 0 var(--color-box-shadow);
