@@ -16,6 +16,7 @@
     --dialog_border-radius: .3em;
     --link_text-decoration: none;
     --transition-time: .25s;
+    font-size: 16px;
 
     &__overlay {
         position: fixed;
@@ -45,7 +46,7 @@
         p {
             font-size: 1em;
 
-            @media screen and (max-width: 425px) {
+            @include res-max-mobile {
                 font-size: .875em;
             }
         }
@@ -55,7 +56,7 @@
         @include border('top');
         padding-top: 1.5em;
 
-        @media screen and (max-width: 425px) {
+        @include res-max-mobile {
             padding-top: .75em;
         }
     }
@@ -67,13 +68,17 @@
         justify-content: space-between;
         margin-bottom: 1.5em;
 
-        @media screen and (max-width: 425px) {
+        @include res-max-mobile {
             margin-bottom: .75em;
         }
 
         > h4 {
             font-size: medium;
             margin: 0;
+
+            @include res-max-mobile-small {
+                font-size: .8em;
+            }
         }
 
         > a {
@@ -93,7 +98,7 @@
     &__body {
         padding: 0 2em;
 
-        @media screen and (max-width: 425px) {
+        @include res-max-mobile {
             padding: 0 1em;
         }
     }
@@ -101,17 +106,30 @@
     &__header {
         padding: 2em;
 
-        @media screen and (max-width: 425px) {
+        @include res-max-mobile {
             padding: 1em;
         }
 
         > h3 {
             margin-top: 0;
             margin-bottom: 1em;
+
+            @include res-max-mobile-small {
+                margin-bottom: .5em;
+                font-size: 1em;
+            }
         }
 
         > p {
             margin-bottom: 0;
+
+            @include res-max-mobile-small {
+                display: -webkit-box;
+                width: 100%;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+            }
         }
     }
 
@@ -123,7 +141,7 @@
         padding: 1.5em 2em;
         gap: .1em;
 
-        @media screen and (max-width: 425px) {
+        @include res-max-mobile {
             padding: .75em 1em;
         }
     }
@@ -133,6 +151,7 @@
         border-radius: var(--dialog_border-radius);
         max-height: 40vh;
         overflow: auto;
+        border-bottom-width: 0;
     }
 
     &__details {
@@ -141,10 +160,6 @@
 
         &[open] {
             --details-character: '–⁠';
-        }
-
-        &:last-child {
-            border-bottom-width: 0;
         }
 
         > summary {
@@ -159,8 +174,12 @@
             gap: 1em;
             transition: background-color var(--transition-time) ease-in-out;
 
-            @media screen and (max-width: 768px) {
+            @include res-max-tablet {
                 transition: none;
+            }
+
+            @include res-max-mobile-small {
+                padding: .5em;
             }
 
             &:hover {
@@ -175,6 +194,10 @@
                 font-size: small;
                 font-weight: 400;
                 color: var(--color-text--light);
+
+                @include res-max-mobile-small {
+                    font-size: .7em;
+                }
             }
         }
     }
@@ -188,11 +211,19 @@
         font-weight: 600;
         gap: .8em;
 
+        @include res-max-mobile-small {
+            font-size: .7em;
+        }
+
         &:before {
             content: var(--details-character);
             font-size: 2em;
             color: var(--color-success);
-            transform: translateY(-1.5px);
+            line-height: 1.5;
+        }
+
+        > span {
+            white-space: nowrap;
         }
     }
 
@@ -225,8 +256,12 @@
         gap: 1em;
         box-sizing: border-box;
 
-        @media screen and (max-width: 425px) {
+        @include res-max-mobile {
             padding: 1em;
+        }
+
+        @include res-max-mobile-small {
+            gap: .5em;
         }
 
         &--open {
@@ -235,11 +270,19 @@
 
         > h3 {
             margin: 0;
+
+            @include res-max-mobile-small {
+                font-size: 1em;
+            }
         }
 
         > p {
             margin: 0;
-            font-size: medium;
+            font-size: 1em;
+
+            @include res-max-mobile-small {
+                font-size: .875em;
+            }
         }
 
         > div {
