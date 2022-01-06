@@ -194,6 +194,11 @@
 .dotvvm-contrib-cookie-bar__details > summary:hover {
   --color-background: var(--color-hover) ;
 }
+.dotvvm-contrib-cookie-bar__details > summary::marker {
+  display: none;
+  color: rgba(0, 0, 0, 0);
+  font-size: 0em;
+}
 .dotvvm-contrib-cookie-bar__details > summary > span {
   position: absolute;
   top: 50%;

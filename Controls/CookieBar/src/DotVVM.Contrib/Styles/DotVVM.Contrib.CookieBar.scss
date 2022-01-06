@@ -199,6 +199,12 @@
                 --color-background: var(--color-hover)
             }
 
+            &::marker {
+                display: none;
+                color: hsla(0, 0%, 0%, 0);
+                font-size: 0em;
+            }
+
             > span {
                 position: absolute;
                 top: 50%;
