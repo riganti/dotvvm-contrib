@@ -167,26 +167,28 @@
             --details-character: '–⁠';
         }
 
-        &:last-child, &:last-of-type {
+        &:last-child {
             border-bottom-width: 0;
         }
 
         > summary {
             background-color: var(--color-background);
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            justify-content: space-between;
+            position: relative;
+            display: block;
             padding: .5em 1em;
             list-style: none;
-            list-style-type: none;
-            -webkit-appearance: none;
+            height: 3em;
+            overflow: hidden;
             cursor: pointer;
             gap: 1em;
             transition: background-color var(--transition-time) ease-in-out;
 
             @include res-max-tablet {
-                transition: none;
+                height: 2.5em;
+            }
+
+            @include res-max-mobile {
+                padding: .5em;
             }
 
             @include res-max-mobile-small {
@@ -197,9 +199,29 @@
                 --color-background: var(--color-hover)
             }
 
-            &::marker, &::-webkit-details-marker, &::-moz-details-marker {
-                display: none;
-                content: '';
+            > span {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: inherit;
+                left: 1em;
+                z-index: 10;
+
+                @include res-max-mobile-small {
+                    left: .5em;
+                }
+            }
+
+            > .toggle-button, > small {
+                position: absolute;
+                top: 50%;
+                right: 1em;
+                transform: translateY(-50%);
+                z-index: 10;
+
+                @include res-max-mobile-small {
+                    right: .5em;
+                }
             }
 
             > small {
@@ -262,7 +284,7 @@
         display: var(--cookie-display);
         width: 100%;
         padding: 1.5em;
-        background: var(---color-background);
+        background: var(--color-background);
         z-index: 9999;
         box-shadow: var(--dialog_box-shadow);
         gap: 1em;

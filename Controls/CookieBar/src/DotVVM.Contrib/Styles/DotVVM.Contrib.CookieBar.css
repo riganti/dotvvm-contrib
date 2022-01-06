@@ -161,26 +161,29 @@
 .dotvvm-contrib-cookie-bar__details[open] {
   --details-character: "–⁠";
 }
-.dotvvm-contrib-cookie-bar__details:last-child, .dotvvm-contrib-cookie-bar__details:last-of-type {
+.dotvvm-contrib-cookie-bar__details:last-child {
   border-bottom-width: 0;
 }
 .dotvvm-contrib-cookie-bar__details > summary {
   background-color: var(--color-background);
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
+  display: block;
   padding: 0.5em 1em;
   list-style: none;
-  list-style-type: none;
-  -webkit-appearance: none;
+  height: 3em;
+  overflow: hidden;
   cursor: pointer;
   gap: 1em;
   transition: background-color var(--transition-time) ease-in-out;
 }
 @media only screen and (max-width: 768px) {
   .dotvvm-contrib-cookie-bar__details > summary {
-    transition: none;
+    height: 2.5em;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .dotvvm-contrib-cookie-bar__details > summary {
+    padding: 0.5em;
   }
 }
 @media only screen and (max-width: 320px) {
@@ -191,9 +194,30 @@
 .dotvvm-contrib-cookie-bar__details > summary:hover {
   --color-background: var(--color-hover) ;
 }
-.dotvvm-contrib-cookie-bar__details > summary::marker, .dotvvm-contrib-cookie-bar__details > summary::-webkit-details-marker, .dotvvm-contrib-cookie-bar__details > summary::-moz-details-marker {
-  display: none;
-  content: "";
+.dotvvm-contrib-cookie-bar__details > summary > span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: inherit;
+  left: 1em;
+  z-index: 10;
+}
+@media only screen and (max-width: 320px) {
+  .dotvvm-contrib-cookie-bar__details > summary > span {
+    left: 0.5em;
+  }
+}
+.dotvvm-contrib-cookie-bar__details > summary > .toggle-button, .dotvvm-contrib-cookie-bar__details > summary > small {
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+@media only screen and (max-width: 320px) {
+  .dotvvm-contrib-cookie-bar__details > summary > .toggle-button, .dotvvm-contrib-cookie-bar__details > summary > small {
+    right: 0.5em;
+  }
 }
 .dotvvm-contrib-cookie-bar__details > summary > small {
   font-size: small;
@@ -248,7 +272,7 @@
   display: var(--cookie-display);
   width: 100%;
   padding: 1.5em;
-  background: var(---color-background);
+  background: var(--color-background);
   z-index: 9999;
   box-shadow: var(--dialog_box-shadow);
   gap: 1em;
