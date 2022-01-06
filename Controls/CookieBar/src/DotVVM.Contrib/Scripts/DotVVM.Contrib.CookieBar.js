@@ -86,7 +86,7 @@ class CookieBar {
     }
 
 
-    disableAllAnnecessaryCookies() {
+    disableAllUnnecessaryCookies() {
         for (const checkbox of this.checkboxes) {
             if (checkbox.checked) {
                 checkbox.click();

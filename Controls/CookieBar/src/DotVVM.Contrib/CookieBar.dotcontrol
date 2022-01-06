@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="dotvvm-contrib-cookie-bar__footer">
-                <dot:LinkButton Click="{staticCommand: _js.Invoke("disableAllAnnecessaryCookies")}"
+                <dot:LinkButton Click="{staticCommand: _js.Invoke("disableAllUnnecessaryCookies")}"
                                 Text="{resource: _control.OnlyNecessaryLink}" />
                 <dot:Button ButtonTagName="button"
                             Text="{resource: _control.SaveAndCloseButtonText}"
