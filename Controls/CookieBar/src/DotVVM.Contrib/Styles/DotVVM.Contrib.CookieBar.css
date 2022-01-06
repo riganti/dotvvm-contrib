@@ -307,7 +307,7 @@
 }
 .dotvvm-contrib-cookie-bar .toggle-button--on {
   --cicle-trans-x: calc(100% - 2px);
-  --toggle-bg: var(---color-success) ;
+  --toggle-bg: var(--color-success);
 }
 .dotvvm-contrib-cookie-bar .toggle-button > input {
   opacity: 0;

@@ -322,7 +322,7 @@
 
         &--on {
             --cicle-trans-x: calc(100% - 2px);
-            --toggle-bg: var(---color-success)
+            --toggle-bg: var(--color-success);
         }
 
         > input {
