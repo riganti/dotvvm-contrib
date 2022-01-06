@@ -121,7 +121,7 @@
 .dotvvm-contrib-cookie-bar__header > p {
   margin-bottom: 0;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 425px) {
   .dotvvm-contrib-cookie-bar__header > p {
     display: -webkit-box;
     width: 100%;
@@ -153,7 +153,6 @@
   border-radius: var(--dialog_border-radius);
   max-height: 40vh;
   overflow: auto;
-  border-bottom-width: 0;
 }
 .dotvvm-contrib-cookie-bar__details {
   --details-character: "+";
@@ -161,6 +160,9 @@
 }
 .dotvvm-contrib-cookie-bar__details[open] {
   --details-character: "–⁠";
+}
+.dotvvm-contrib-cookie-bar__details:last-child, .dotvvm-contrib-cookie-bar__details:last-of-type {
+  border-bottom-width: 0;
 }
 .dotvvm-contrib-cookie-bar__details > summary {
   background-color: var(--color-background);
@@ -170,6 +172,8 @@
   justify-content: space-between;
   padding: 0.5em 1em;
   list-style: none;
+  list-style-type: none;
+  -webkit-appearance: none;
   cursor: pointer;
   gap: 1em;
   transition: background-color var(--transition-time) ease-in-out;
@@ -187,8 +191,9 @@
 .dotvvm-contrib-cookie-bar__details > summary:hover {
   --color-background: var(--color-hover) ;
 }
-.dotvvm-contrib-cookie-bar__details > summary::marker {
+.dotvvm-contrib-cookie-bar__details > summary::marker, .dotvvm-contrib-cookie-bar__details > summary::-webkit-details-marker, .dotvvm-contrib-cookie-bar__details > summary::-moz-details-marker {
   display: none;
+  content: "";
 }
 .dotvvm-contrib-cookie-bar__details > summary > small {
   font-size: small;

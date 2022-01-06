@@ -123,7 +123,7 @@
         > p {
             margin-bottom: 0;
 
-            @include res-max-mobile-small {
+            @include res-max-mobile {
                 display: -webkit-box;
                 width: 100%;
                 overflow: hidden;
@@ -157,7 +157,6 @@
         border-radius: var(--dialog_border-radius);
         max-height: 40vh;
         overflow: auto;
-        border-bottom-width: 0;
     }
 
     &__details {
@@ -168,6 +167,10 @@
             --details-character: '–⁠';
         }
 
+        &:last-child, &:last-of-type {
+            border-bottom-width: 0;
+        }
+
         > summary {
             background-color: var(--color-background);
             display: flex;
@@ -176,6 +179,8 @@
             justify-content: space-between;
             padding: .5em 1em;
             list-style: none;
+            list-style-type: none;
+            -webkit-appearance: none;
             cursor: pointer;
             gap: 1em;
             transition: background-color var(--transition-time) ease-in-out;
@@ -192,8 +197,9 @@
                 --color-background: var(--color-hover)
             }
 
-            &::marker {
+            &::marker, &::-webkit-details-marker, &::-moz-details-marker {
                 display: none;
+                content: '';
             }
 
             > small {
