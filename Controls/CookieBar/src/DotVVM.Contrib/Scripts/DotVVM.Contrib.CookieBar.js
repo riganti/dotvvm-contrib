@@ -85,4 +85,12 @@ class CookieBar {
         document.body.style.overflow = "";
     }
 
+
+    disableAllAnnecessaryCookies() {
+        for (const checkbox of this.checkboxes) {
+            if (checkbox.checked) {
+                checkbox.click();
+            }
+        }
+    }
 }

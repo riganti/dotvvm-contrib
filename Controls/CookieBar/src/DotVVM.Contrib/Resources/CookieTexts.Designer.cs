@@ -115,6 +115,15 @@ namespace DotVVM.Contrib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow necessary cookies only.
+        /// </summary>
+        public static string OnlyNecessaryLink {
+            get {
+                return ResourceManager.GetString("OnlyNecessaryLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to We use these cookies to measure, collect, analyse and report how users interact with our sites to better understand their behavior. Thanks to this, we can improve the site and provide better experience. The analytics service is provided by Google Inc..
         /// </summary>
         public static string Rule_Analytics {

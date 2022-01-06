@@ -137,12 +137,18 @@
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: space-between;
         padding: 1.5em 2em;
         gap: .1em;
 
         @include res-max-mobile {
             padding: .75em 1em;
+        }
+
+        > a {
+            text-decoration: underline;
+            color: var(--color-text--light);
+            font-size: .8em;
         }
     }
 
@@ -298,6 +304,7 @@
         --circle-size: calc(100% - 4px);
         --cicle-trans-x: 2px;
         --toggle-bg: var(--color-text--light);
+        --color-background: hsl(0, 0%, 100%);
         position: relative;
         width: 40px;
         min-width: 40px;

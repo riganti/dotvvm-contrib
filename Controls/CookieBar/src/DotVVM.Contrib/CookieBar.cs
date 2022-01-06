@@ -60,6 +60,16 @@ namespace DotVVM.Contrib
             = DotvvmProperty.Register<string, CookieBar>(c => c.NecessaryCookiesTitle, null);
 
         [MarkupOptions(AllowBinding = false)]
+        public string OnlyNecessaryLink
+        {
+            get { return (string)GetValue(OnlyNecessaryLinkProperty); }
+            set { SetValue(OnlyNecessaryLinkProperty, value); }
+        }
+        public static readonly DotvvmProperty OnlyNecessaryLinkProperty
+            = DotvvmProperty.Register<string, CookieBar>(c => c.OnlyNecessaryLink, null);
+
+
+        [MarkupOptions(AllowBinding = false)]
         public string NecessaryCookiesDescription
         {
             get { return (string)GetValue(NecessaryCookiesDescriptionProperty); }
@@ -131,6 +141,7 @@ namespace DotVVM.Contrib
             DialogSubtitle = CookieTexts.Dialog_Subtitle;
             NecessaryCookiesTitle = CookieTexts.RuleTitle_Necessary;
             NecessaryCookiesDescription = CookieTexts.Rule_Necessary;
+            OnlyNecessaryLink = CookieTexts.OnlyNecessaryLink;
             MoreOptionsButtonText = CookieTexts.Btn_MoreOptions;
             AcceptAllButtonText = CookieTexts.Btn_AcceptAll;
             SaveAndCloseButtonText = CookieTexts.Btn_SaveAndClose;

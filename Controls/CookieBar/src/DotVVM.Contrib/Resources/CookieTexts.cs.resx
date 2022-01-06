@@ -174,4 +174,7 @@
   <data name="Rule_Smartlook" xml:space="preserve">
     <value>Tyto cookies používáme k měření, shromažďování a analýze toho, jak uživatelé interagují s našimi stránkami, abychom lépe porozuměli jejich chování. Díky těmto informacím můžeme web neustále vylepšovat a poskytovat kvalitnější služby. Tyto analytické služby jsou poskytovány společností Smartlook.</value>
   </data>
+  <data name="OnlyNecessaryLink" xml:space="preserve">
+    <value>Povolit jen nezbytné cookies</value>
+  </data>
 </root>
