@@ -70,12 +70,36 @@ class CookieBar {
         document.body.style.overflow = "hidden";
     }
 
+    disableAllUnnecessaryCookies() {
+        for (const checkbox of this.checkboxes) {
+            if (checkbox.checked) {
+                checkbox.click();
+            }
+        }
+    }
+
     saveAndCloseDialog() {
+        var deleteCookie = (name) => {
+            document.cookie = name + `=; path=/; domain=${location.host} expires=${new Date().toUTCString()};`;
+        };
         const consents = {};
         for (const checkbox of this.checkboxes) {
+            const consentKey = checkbox.parentElement.dataset.key;
             const granted = checkbox.checked ? "granted" : "denied";
-            window.localStorage.setItem("cookieconsent__" + checkbox.parentElement.dataset.key, granted);
-            consents[checkbox.parentElement.dataset.key] = granted;
+            window.localStorage.setItem("cookieconsent__" + consentKey, granted);
+            consents[consentKey] = granted;
+            if (consentKey == 'analytics_storage' && granted === 'denied' || consentKey == 'ad_storage' && granted === 'denied') {
+                deleteCookie('_ga');
+                deleteCookie('_gid');
+            }
+
+            else if (consentKey === 'fbpixel_storage' && granted === 'denied') {
+                deleteCookie('_fbp');
+            }
+
+            //else if (consentKey == 'smartlook_storage' && granted === 'denied') {
+
+            //}
         }
         gtag("consent", "update", consents);
 
@@ -83,14 +107,5 @@ class CookieBar {
 
         this.overlayElement.style.display = "none";
         document.body.style.overflow = "";
-    }
-
-
-    disableAllUnnecessaryCookies() {
-        for (const checkbox of this.checkboxes) {
-            if (checkbox.checked) {
-                checkbox.click();
-            }
-        }
     }
 }
