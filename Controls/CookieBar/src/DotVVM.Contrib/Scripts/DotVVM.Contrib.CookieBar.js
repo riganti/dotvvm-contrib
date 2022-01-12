@@ -67,7 +67,7 @@ class CookieBar {
         this.hidePopup();
 
         this.overlayElement.style.display = "block";
-        document.body.style.overflow = "hidden";
+        document.querySelector('html').style.overflow = "hidden";
     }
 
     disableAllUnnecessaryCookies() {
@@ -80,7 +80,7 @@ class CookieBar {
 
     saveAndCloseDialog() {
         var deleteCookie = (name) => {
-            document.cookie = name + `=; path=/; domain=${location.host} expires=${new Date().toUTCString()};`;
+            document.cookie = name + `=; domain=${document.domain}; expires=${new Date().toUTCString()}; path=/;`;
         };
         const consents = {};
         for (const checkbox of this.checkboxes) {
@@ -88,24 +88,29 @@ class CookieBar {
             const granted = checkbox.checked ? "granted" : "denied";
             window.localStorage.setItem("cookieconsent__" + consentKey, granted);
             consents[consentKey] = granted;
-            if (consentKey == 'analytics_storage' && granted === 'denied' || consentKey == 'ad_storage' && granted === 'denied') {
+            if (consentKey == 'analytics_storage' && granted === 'denied') {
                 deleteCookie('_ga');
                 deleteCookie('_gid');
+                deleteCookie('_gat');
+            }
+
+            else if (consentKey == 'ad_storage' && granted === 'denied') {
+                deleteCookie('_gcl_au');
             }
 
             else if (consentKey === 'fbpixel_storage' && granted === 'denied') {
                 deleteCookie('_fbp');
             }
 
-            //else if (consentKey == 'smartlook_storage' && granted === 'denied') {
-
-            //}
+            else if (consentKey == 'smartlook_storage' && granted === 'denied') {
+                deleteCookie('SL');
+            }
         }
         gtag("consent", "update", consents);
 
         window.localStorage.setItem("cookieconsent", true);
 
         this.overlayElement.style.display = "none";
-        document.body.style.overflow = "";
+        document.querySelector('html').style.overflow = "";
     }
 }
