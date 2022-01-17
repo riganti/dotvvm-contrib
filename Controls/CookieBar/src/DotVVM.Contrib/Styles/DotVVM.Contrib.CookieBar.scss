@@ -323,7 +323,7 @@
             content: '';
             height: var(--circle-size);
             aspect-ratio: 1 / 1;
-            background-color: var(---color-background);
+            background-color: var(--color-background);
             border-radius: 50%;
             transform: translate(var(--cicle-trans-x), -50%);
             transition: background-color var(--transition-time) ease-in-out, transform var(--transition-time) ease-in-out;
