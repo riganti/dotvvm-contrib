@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
     <PackageId>DotVVM.Contrib.LoadablePanel</PackageId>
-    <PackageVersion>3.2.0</PackageVersion>
+    <PackageVersion>4.0.0-preview01-final</PackageVersion>
     <Authors>DotVVM Contrib</Authors>
     <Description>The LoadablePanel control for DotVVM made by DotVVM Contrib community.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
