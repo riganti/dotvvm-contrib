@@ -120,7 +120,7 @@ namespace DotVVM.Contrib
 
             if (HideUntilLoaded)
             {
-                contentContainer.Attributes["style"] = "display:none;";
+                contentContainer.Attributes.Add("style", "display:none;");
             }
 
             modalContentContainer.Children.Add(contentContainer);
@@ -167,7 +167,7 @@ namespace DotVVM.Contrib
 
         private string GenerateCommandFunction(string propertyName, ICommandBinding commandBinding, DotvvmControl control, bool useWindowSetTimeout = false, bool isOnChange = false)
         {
-            var postBackOptions = new PostbackScriptOptions(useWindowSetTimeout, null, isOnChange, "$element", commandArgs: CodeParameterAssignment.FromIdentifier("ar"), abortSignal: new CodeParameterAssignment("abortSignal",OperatorPrecedence.Max));
+            var postBackOptions = new PostbackScriptOptions(useWindowSetTimeout, null, isOnChange, "$element", commandArgs: CodeParameterAssignment.FromIdentifier("ar"), abortSignal: new CodeParameterAssignment("abortSignal", OperatorPrecedence.Max));
 
             return $"(function(abortSignal){{var ar=[].slice.call(arguments);return {KnockoutHelper.GenerateClientPostBackExpression(propertyName, commandBinding, control, postBackOptions)};}})";
         }
