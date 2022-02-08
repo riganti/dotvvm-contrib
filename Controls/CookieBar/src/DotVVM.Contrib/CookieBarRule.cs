@@ -39,6 +39,15 @@ namespace DotVVM.Contrib
         public static readonly DotvvmProperty DescriptionProperty
             = DotvvmProperty.Register<string, CookieBarRule>(c => c.Description, null);
 
+        public string[] CookieNames
+        {
+            get { return (string[])GetValue(CookieNamesProperty); }
+            set { SetValue(CookieNamesProperty, value); }
+        }
+        public static readonly DotvvmProperty CookieNamesProperty
+            = DotvvmProperty.Register<string[], CookieBarRule>(c => c.CookieNames, null);
+
+
     }
 
     public class GoogleAnalyticsRule : CookieBarRule
@@ -48,6 +57,7 @@ namespace DotVVM.Contrib
             Key = "analytics_storage";
             Title = CookieTexts.RuleTitle_Analytics;
             Description = CookieTexts.Rule_Analytics;
+            CookieNames = new[] { "_ga", "_gid", "_gat" };
         }
     }
 
@@ -58,6 +68,7 @@ namespace DotVVM.Contrib
             Key = "ad_storage";
             Title = CookieTexts.RuleTitle_GoogleAds;
             Description = CookieTexts.Rule_GoogleAds;
+            CookieNames = new[] { "_gcl_au" };
         }
     }
 
@@ -68,6 +79,7 @@ namespace DotVVM.Contrib
             Key = "fbpixel_storage";
             Title = CookieTexts.RuleTitle_FacebookPixel;
             Description = CookieTexts.Rule_FacebookPixel;
+            CookieNames = new[] { "_fbp" };
         }
     }
 
@@ -78,6 +90,7 @@ namespace DotVVM.Contrib
             Key = "smartlook_storage";
             Title = CookieTexts.RuleTitle_Smartlook;
             Description = CookieTexts.Rule_Smartlook;
+            CookieNames = new[] { "SL" };
         }
     }
 }

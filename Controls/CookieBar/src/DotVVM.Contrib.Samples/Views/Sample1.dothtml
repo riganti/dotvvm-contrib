@@ -5,7 +5,9 @@
 
     <input type="button" onclick="DotVVM.Contrib.CookieBar.resetConsent(true);" value="Reset consent" />
 
-    <dc:CookieBar />
+    <dc:CookieBar>
+        <dc:CookieBarRule Key="myRule" Title="My rule" Description="My custom rule" />
+    </dc:CookieBar>
 
 </dot:Content>
 

@@ -8,12 +8,20 @@ class CookieBar {
         const container = context.elements[0].parentElement;
         this.popupElement = container.querySelector(".dotvvm-contrib-cookie-bar__pop-up");
         this.overlayElement = container.querySelector(".dotvvm-contrib-cookie-bar__overlay");
+        this.checkboxes = this.overlayElement.querySelectorAll("input[type=checkbox]");
 
         if (!window.localStorage.getItem("cookieconsent")) {
             this.popupElement.classList.add("dotvvm-contrib-cookie-bar__pop-up--open");
+        } else {
+            const consents = {};
+            for (const checkbox of this.checkboxes) {
+                const consentKey = checkbox.parentElement.dataset.key;
+                const granted = window.localStorage.getItem("cookieconsent__" + consentKey) || "denied";
+                consents[consentKey] = granted;
+            }
+            gtag("consent", "update", consents);
         }
 
-        this.checkboxes = this.overlayElement.querySelectorAll("input[type=checkbox]");
         for (const checkbox of this.checkboxes) {
             checkbox.addEventListener("click",
                 function () {
@@ -78,32 +86,23 @@ class CookieBar {
         }
     }
 
+    deleteCookie(name) {
+        document.cookie = name + `=; domain=${document.domain}; expires=${new Date().toUTCString()}; path=/;`;
+    }
+
     saveAndCloseDialog() {
-        var deleteCookie = (name) => {
-            document.cookie = name + `=; domain=${document.domain}; expires=${new Date().toUTCString()}; path=/;`;
-        };
         const consents = {};
         for (const checkbox of this.checkboxes) {
             const consentKey = checkbox.parentElement.dataset.key;
             const granted = checkbox.checked ? "granted" : "denied";
             window.localStorage.setItem("cookieconsent__" + consentKey, granted);
             consents[consentKey] = granted;
-            if (consentKey == 'analytics_storage' && granted === 'denied') {
-                deleteCookie('_ga');
-                deleteCookie('_gid');
-                deleteCookie('_gat');
-            }
 
-            else if (consentKey == 'ad_storage' && granted === 'denied') {
-                deleteCookie('_gcl_au');
-            }
-
-            else if (consentKey === 'fbpixel_storage' && granted === 'denied') {
-                deleteCookie('_fbp');
-            }
-
-            else if (consentKey == 'smartlook_storage' && granted === 'denied') {
-                deleteCookie('SL');
+            const cookieNames = checkbox.parentElement.dataset.cookieNames;
+            if (cookieNames && granted === "denied") {
+                for (let name of cookieNames.split(",")) {
+                    this.deleteCookie(name);
+                }
             }
         }
         gtag("consent", "update", consents);
