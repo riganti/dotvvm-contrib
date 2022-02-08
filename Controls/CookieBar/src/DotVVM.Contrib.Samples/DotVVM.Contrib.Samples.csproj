@@ -1,6 +1,6 @@
 ﻿<Project ToolsVersion="15.0" Sdk="Microsoft.NET.Sdk.Web">
 	<PropertyGroup>
-		<TargetFramework>netcoreapp2.0</TargetFramework>
+		<TargetFramework>net5.0</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
 		<Content Include="**\*.dothtml" />
@@ -13,8 +13,6 @@
 		<Content Include="Views\_master.dotmaster" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
-		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
 	<ItemGroup>
