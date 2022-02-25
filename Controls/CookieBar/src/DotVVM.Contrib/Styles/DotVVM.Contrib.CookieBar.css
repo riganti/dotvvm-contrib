@@ -15,6 +15,7 @@
   --link_text-decoration: none;
   --transition-time: .25s;
   font-size: 16px;
+  color: var(--color-text);
 }
 .dotvvm-contrib-cookie-bar__overlay {
   position: fixed;
