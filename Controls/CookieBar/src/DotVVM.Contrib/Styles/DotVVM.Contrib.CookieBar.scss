@@ -17,6 +17,7 @@
     --link_text-decoration: none;
     --transition-time: .25s;
     font-size: 16px;
+    color: var(--color-text);
 
     &__overlay {
         position: fixed;
