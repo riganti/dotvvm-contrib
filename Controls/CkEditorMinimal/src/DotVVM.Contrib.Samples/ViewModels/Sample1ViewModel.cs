@@ -8,7 +8,7 @@ namespace DotVVM.Contrib.Samples.ViewModels
 {
 	public class Sample1ViewModel : MasterViewModel
 	{
-        public string Text { get; set; } = "<p>bla bla</p>";
+        public string Text { get; set; } = "<p>Sample text</p>";
     }
 }
 
