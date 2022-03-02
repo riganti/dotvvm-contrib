@@ -1,14 +1,18 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace DotVVM.Contrib.Tests2
 {
-    [TestClass]
     public class CkEditorMinimalTests : AppSeleniumTest
     {
-        [TestMethod]
+        public CkEditorMinimalTests(ITestOutputHelper output) : base(output)
+        {
+        }
+
+        [Fact]
         public void CkEditorMinimal_Sample1()
         {
-            Run(browser =>
+            RunInAllBrowsers(browser =>
             {
                 browser.NavigateToUrl("/Sample1");
                 browser.Wait(2000);
@@ -18,10 +22,10 @@ namespace DotVVM.Contrib.Tests2
             });
         }
 
-        [TestMethod]
+        [Fact]
         public void CkEditorMinimal_Sample2()
         {
-            Run(browser =>
+            RunInAllBrowsers(browser =>
             {
                 browser.NavigateToUrl("/Sample2");
                 browser.Wait(2000);
