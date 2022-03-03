@@ -6,7 +6,7 @@
         <OutputPath>bin</OutputPath>
         <OutputType>Exe</OutputType>
         <RootNamespace>FontAwesomeCS.CodeGenerator</RootNamespace>
-        <TargetFramework>netcoreapp2.0</TargetFramework>
+        <TargetFramework>net6</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
