@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Riganti.Utils.Testing.SeleniumCore;
+using DotVVM.Contrib.Tests.Core;
+using Riganti.Selenium.Core;
+using Riganti.Selenium.Core.Abstractions;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace DotVVM.Contrib.Tests
 {
-    [TestClass]
-    public class GoogleAnalyticsJavascriptTests : SeleniumTestBase
+    public class GoogleAnalyticsJavascriptTests : AppSeleniumTest
     {
-        [TestMethod]
+        public GoogleAnalyticsJavascriptTests(ITestOutputHelper output) : base(output)
+        {
+        }
+
+        [Fact]
         public void GoogleAnalyticsJavascript_Sample1()
         {
             RunInAllBrowsers(browser =>
@@ -17,11 +23,11 @@ namespace DotVVM.Contrib.Tests
 
                 var mainScript = browser.ElementAt("body script", 1);
                 var scriptContent = CheckIfScriptExists(mainScript, "UA-XXXXX-Z");
-                Assert.IsFalse(scriptContent.Contains("ga('send', 'pageview');"));
+                Assert.False(scriptContent.Contains("ga('send', 'pageview');"));
             });
         }
 
-        [TestMethod]
+        [Fact]
         public void GoogleAnalyticsJavascript_Sample2()
         {
             RunInAllBrowsers(browser =>
@@ -30,11 +36,11 @@ namespace DotVVM.Contrib.Tests
 
                 var mainScript = browser.ElementAt("body script", 0);
                 var scriptContent = CheckIfScriptExists(mainScript, "UA-XXXXX-Y");
-                Assert.IsTrue(scriptContent.Contains("ga('send', 'pageview');"));
+                Assert.True(scriptContent.Contains("ga('send', 'pageview');"));
             });
         }
 
-        [TestMethod]
+        [Fact]
         public void GoogleAnalyticsJavascript_Sample3()
         {
             RunInAllBrowsers(browser =>
@@ -43,19 +49,21 @@ namespace DotVVM.Contrib.Tests
 
                 var mainScript = browser.ElementAt("body script", 0);
                 var scriptContent = CheckIfScriptExists(mainScript, "UA-XXXXX-Z");
-                Assert.IsFalse(scriptContent.Contains("ga('send', 'pageview');"));
+                Assert.False(scriptContent.Contains("ga('send', 'pageview');"));
             });
         }
 
-        private string CheckIfScriptExists(ElementWrapper mainScript, string trackingId)
+        private string CheckIfScriptExists(IElementWrapper mainScript, string trackingId)
         {
             var scriptContent = mainScript.GetJsInnerHtml();
             var match = Regex.Match(scriptContent, @"ga\('create', '(.+)', 'auto'\)");
 
-            Assert.IsNotNull(mainScript);
-            Assert.IsTrue(match.Success);
-            Assert.AreEqual(match.Groups[1].Value, trackingId);
+            Assert.NotNull(mainScript);
+            Assert.True(match.Success);
+            Assert.Equal(match.Groups[1].Value, trackingId);
             return scriptContent;
         }
+
+    
     }
 }

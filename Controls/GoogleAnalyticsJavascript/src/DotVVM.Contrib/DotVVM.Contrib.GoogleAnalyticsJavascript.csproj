@@ -1,23 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
-    <PackageId>DotVVM.Contrib.GoogleAnalyticsJavascript</PackageId>
-    <PackageVersion>2.4.0</PackageVersion>
+	  <TargetFrameworks>netstandard2.1</TargetFrameworks>
+	  <PackageId>DotVVM.Contrib.GoogleAnalyticsJavascript</PackageId>
     <Authors>DotVVM Contrib</Authors>
     <Description>The GoogleAnalyticsJavascript control for DotVVM made by DotVVM Contrib community.</Description>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
-    <PackageLicenseUrl>https://github.com/riganti/dotvvm-contrib/blob/master/LICENSE</PackageLicenseUrl>
-    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
-    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
-    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
-    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
-    <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>DotVVM.Contrib.GoogleAnalyticsJavascript</AssemblyName>
   </PropertyGroup>
 
@@ -25,16 +13,10 @@
     <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="1.1.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.1" />
   </ItemGroup>
 
   <ItemGroup>
