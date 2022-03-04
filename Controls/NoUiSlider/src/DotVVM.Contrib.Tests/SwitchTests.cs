@@ -1,14 +1,20 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿
+
+using DotVVM.Contrib.Tests.Core;
 using OpenQA.Selenium.Interactions;
-using Riganti.Utils.Testing.SeleniumCore;
+using Riganti.Selenium.Core;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace DotVVM.Contrib.Tests
 {
-    [TestClass]
-    public class SwitchTests : SeleniumTestBase
+    public class SwitchTests : AppSeleniumTest
     {
-        [TestMethod]
+        public SwitchTests(ITestOutputHelper output) : base(output)
+        {
+        }
+
+        [Fact]
         public void Switch_Sample1()
         {
             RunInAllBrowsers(browser =>
@@ -24,27 +30,29 @@ namespace DotVVM.Contrib.Tests
                 var handle = browser.ElementAt(".noUi-handle", 0);
 
                 // switch the switch on
-                new Actions(browser.Browser).MoveToElement(slider1.WebElement).MoveByOffset(30, 5).Click().Perform();
+                new Actions(browser.Driver).MoveToElement(slider1.WebElement).MoveByOffset(30, 5).Click().Perform();
                 browser.Wait(2000);
-                valueCheckbox.CheckIfIsChecked();
+                AssertUI.IsChecked(valueCheckbox);
 
                 // switch the switch off
-                new Actions(browser.Browser).MoveToElement(slider2.WebElement).MoveByOffset(5, 10).Click().Perform();
+                new Actions(browser.Driver).MoveToElement(slider2.WebElement).MoveByOffset(5, 10).Click().Perform();
                 browser.Wait(2000);
-                valueCheckbox.CheckIfIsNotChecked();
+                AssertUI.IsNotChecked(valueCheckbox);
 
                 // disable the switch
                 enabledCheckbox.Click();
 
                 // switch the switch on (it shouldn't work now)
-                new Actions(browser.Browser).MoveToElement(slider1.WebElement).MoveByOffset(30, 5).Click().Perform();
+                new Actions(browser.Driver).MoveToElement(slider1.WebElement).MoveByOffset(30, 5).Click().Perform();
                 browser.Wait(2000);
-                valueCheckbox.CheckIfIsNotChecked();
-                
+                AssertUI.IsNotChecked(valueCheckbox);
+
                 // switch from the server
                 button.Click().Wait(2000);
-                Assert.IsTrue(handle.WebElement.Location.X > 50);
+                Assert.True(handle.WebElement.Location.X > 50);
             });
         }
+
+     
     }
 }
