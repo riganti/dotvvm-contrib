@@ -106,10 +106,10 @@ namespace DotVVM.Contrib
 
                 // create <a>
                 var link = new HtmlGenericControl("a");
-                link.Attributes["href"] = item.NavigateUrl;
+                link.Attributes.Set("href", item.NavigateUrl);
                 if (item.IsActive)
                 {
-                    link.Attributes["class"] = "nav-active";
+                    link.Attributes.Set("class", "nav-active");
                 }
                 li.Children.Add(link);
 

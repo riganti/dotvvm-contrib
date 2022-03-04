@@ -21,15 +21,15 @@ namespace DotVVM.Contrib
             });
 
             //// register additional resources for the control and set up dependencies
-            //config.Resources.Register("dotvvm.contrib.MultilevelMenu", new ScriptResource()
-            //{
-            //    Location = new EmbeddedResourceLocation(typeof(MultilevelMenu).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.MultilevelMenu.js"),
-            //    Dependencies = new [] { "dotvvm", "dotvvm.contrib.MultilevelMenu.css" }
-            //});
-            //config.Resources.Register("dotvvm.contrib.MultilevelMenu.css", new StylesheetResource()
-            //{
-            //    Location = new EmbeddedResourceLocation(typeof(MultilevelMenu).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.DotVVM.Contrib.MultilevelMenu.css")
-            //});
+            config.Resources.Register("dotvvm.contrib.MultilevelMenu", new ScriptResource()
+            {
+                Location = new EmbeddedResourceLocation(typeof(MultilevelMenu).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.MultilevelMenu.js"),
+                Dependencies = new[] { "dotvvm", "dotvvm.contrib.MultilevelMenu.css" }
+            });
+            config.Resources.Register("dotvvm.contrib.MultilevelMenu.css", new StylesheetResource()
+            {
+                Location = new EmbeddedResourceLocation(typeof(MultilevelMenu).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.DotVVM.Contrib.MultilevelMenu.css")
+            });
 
             //// NOTE: all resource names should start with "dotvvm.contrib.MultilevelMenu"
         }
