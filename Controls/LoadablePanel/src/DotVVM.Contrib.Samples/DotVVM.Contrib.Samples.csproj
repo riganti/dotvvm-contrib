@@ -3,13 +3,18 @@
 		<TargetFramework>net6.0</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
-		<Content Include="**\*.dothtml" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Compile Remove="wwwroot\NewFolder\**" />
-	  <Content Remove="wwwroot\NewFolder\**" />
-	  <EmbeddedResource Remove="wwwroot\NewFolder\**" />
-	  <None Remove="wwwroot\NewFolder\**" />
+		<!--Include Views-->
+		<Content Include="**/*.dothtml" Exclude="obj/**/*.*;bin/**/*.*">
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+		<!--Include MasterPage Views-->
+		<Content Include="**/*.dotmaster" Exclude="obj/**/*.*;bin/**/*.*">
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+		<!--Include Custom Control Views-->
+		<Content Include="**/*.dotcontrol" Exclude="obj/**/*.*;bin/**/*.*">
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
 	</ItemGroup>
 	<ItemGroup>
 		<None Remove="Controls\Pager\Pager.js" />
@@ -19,7 +24,6 @@
 	  <Content Include="Controls\Pager\Pager.js">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
-	  <Content Include="Pages\_master.dotmaster" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
