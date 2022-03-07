@@ -17,6 +17,8 @@
                         Text="{resource: _control.AcceptAllButtonText}"
                         Click="{staticCommand: _js.Invoke("acceptAll")}"
                         class="button button--primary button--background" />
+            <dot:LinkButton Click="{staticCommand: _js.Invoke("disableAllUnnecessaryCookiesAndSave")}"
+                            Text="{resource: _control.OnlyNecessaryLink}" />
         </div>
     </div>
 
@@ -48,7 +50,7 @@
                                     <label class="toggle-button"
                                            title="{resource: _control.AllowedText}"
                                            data-key="{value: Key}"
-                                           data-cookie-names="{resource: CookieNames == null ? "" : string.Join(",", CookieNames)}"
+                                           data-cookie-name-regexes="{resource: CookieNameRegexes == null ? "" : string.Join(",", CookieNameRegexes)}"
                                            data-title-true="{resource: _control.AllowedText}"
                                            data-title-false="{resource: _control.DisallowedText}"
                                            class="toggle-button--on">
