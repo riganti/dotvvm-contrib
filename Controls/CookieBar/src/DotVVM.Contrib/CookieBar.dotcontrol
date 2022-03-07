@@ -17,6 +17,8 @@
                         Text="{resource: _control.AcceptAllButtonText}"
                         Click="{staticCommand: _js.Invoke("acceptAll")}"
                         class="button button--primary button--background" />
+            <dot:LinkButton Click="{staticCommand: _js.Invoke("disableAllUnnecessaryCookiesAndSave")}"
+                            Text="{resource: _control.OnlyNecessaryLink}" />
         </div>
     </div>
 

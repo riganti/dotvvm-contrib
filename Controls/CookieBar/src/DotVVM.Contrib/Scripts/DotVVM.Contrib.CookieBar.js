@@ -86,11 +86,24 @@ class CookieBar {
         }
     }
 
+    disableAllUnnecessaryCookiesAndSave() {
+        this.disableAllUnnecessaryCookies();
+        this.save();
+        this.hidePopup();
+    }
+
     deleteCookie(name) {
         document.cookie = name + `=; domain=${document.domain}; expires=${new Date().toUTCString()}; path=/;`;
     }
 
     saveAndCloseDialog() {
+        this.save();
+
+        this.overlayElement.style.display = "none";
+        document.querySelector('html').style.overflow = "";
+    }
+
+    save() {
         const consents = {};
         for (const checkbox of this.checkboxes) {
             const consentKey = checkbox.parentElement.dataset.key;
@@ -108,8 +121,5 @@ class CookieBar {
         gtag("consent", "update", consents);
 
         window.localStorage.setItem("cookieconsent", true);
-
-        this.overlayElement.style.display = "none";
-        document.querySelector('html').style.overflow = "";
     }
 }
