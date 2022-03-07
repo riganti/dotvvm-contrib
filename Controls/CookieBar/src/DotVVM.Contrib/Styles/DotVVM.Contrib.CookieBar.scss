@@ -290,6 +290,12 @@
             align-items: center;
             justify-content: flex-end;
             gap: 1em;
+
+            > a {
+                text-decoration: underline;
+                color: var(--color-text--light);
+                font-size: .8em;
+            }
         }
     }
     //ToggleButton
