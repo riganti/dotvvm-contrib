@@ -1,29 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.0;net451</TargetFrameworks>
-	  <PackageId>DotVVM.Contrib.PolymorphTemplateSelector</PackageId>
-    <LangVersion>9.0</LangVersion>
-    <PackageVersion>0.0.1</PackageVersion>
-    <Authors>DotVVM Contrib</Authors>
-    <Description>The PolymorphTemplateSelector control for DotVVM made by DotVVM Contrib community.</Description>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
-    <PackageLicenseUrl>https://github.com/riganti/dotvvm-contrib/blob/master/LICENSE</PackageLicenseUrl>
-	  <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
-    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
-    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
-    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
-    <PreserveCompilationContext>true</PreserveCompilationContext>
-    <AssemblyName>DotVVM.Contrib.PolymorphTemplateSelector</AssemblyName>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.1</TargetFrameworks>
+		<PackageId>DotVVM.Contrib.PolymorphTemplateSelector</PackageId>
+		<AssemblyName>DotVVM.Contrib.PolymorphTemplateSelector</AssemblyName>
+		<LangVersion>9.0</LangVersion>
+		<Description>The PolymorphTemplateSelector control for DotVVM made by DotVVM Contrib community.</Description>
+		<PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+	</ItemGroup>
 
 </Project>

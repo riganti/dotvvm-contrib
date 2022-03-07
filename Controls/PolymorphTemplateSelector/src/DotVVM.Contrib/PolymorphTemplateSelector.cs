@@ -252,7 +252,7 @@ namespace DotVVM.Contrib
                 var unwrappedBinding = template.template.GetValueBinding(DataContextProperty).GetParametrizedKnockoutExpression(this, unwrapped: false);
 
                 expression = new JsConditionalExpression(
-                    new JsBinaryExpression(JsSymbolicParameter.CreateCodePlaceholder(binding), BinaryOperatorType.StricltyNotEqual, new JsLiteral(null)),
+                    new JsBinaryExpression(JsSymbolicParameter.CreateCodePlaceholder(binding), BinaryOperatorType.StrictlyNotEqual, new JsLiteral(null)),
                     new JsObjectExpression(
                         new JsObjectProperty("name", new JsLiteral(template.templateId)),
                         new JsObjectProperty("data", JsSymbolicParameter.CreateCodePlaceholder(unwrappedBinding))

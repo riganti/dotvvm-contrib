@@ -82,8 +82,7 @@ namespace DotVVM.Contrib.Samples.Controls
         protected override void OnInit(IDotvvmRequestContext context)
         {
             var p1 = new HtmlGenericControl("p");
-            p1.SetBinding(x => x.InnerText,
-                ValueBindingExpression.CreateBinding(bindingCompilationService, contexts => ((YesNoQuestion) contexts[0]).Question, this.GetDataContextType()));
+            p1.SetBinding(x => x.InnerText, ValueBindingExpression.CreateBinding(bindingCompilationService, contexts => ((YesNoQuestion) contexts[0]).Question, this.GetDataContextType()));
             Children.Add(p1);
 
             var p2 = new HtmlGenericControl("p");
@@ -91,13 +90,13 @@ namespace DotVVM.Contrib.Samples.Controls
                 var rb1 = new RadioButton() {Text = "yes"};
                 rb1.SetBinding(x => x.CheckedItem, ValueBindingExpression.CreateBinding(bindingCompilationService, contexts => ((YesNoQuestion) contexts[0]).Value, this.GetDataContextType()));
                 rb1.SetBinding(x => x.CheckedValue, ValueBindingExpression.CreateBinding(bindingCompilationService, contexts => true, this.GetDataContextType()));
-                rb1.Attributes["name"] = ValueBindingExpression.CreateBinding(bindingCompilationService, contexts => "q" + ((QuestionEntry) contexts[1]).Id, this.GetDataContextType());
+                rb1.Attributes.AddBinding("name", ValueBindingExpression.CreateBinding(bindingCompilationService, contexts => "q" + ((QuestionEntry)contexts[1]).Id, this.GetDataContextType()));
                 p2.Children.Add(rb1);
 
                 var rb2 = new RadioButton() { Text = "no" };
                 rb2.SetBinding(x => x.CheckedItem, ValueBindingExpression.CreateBinding(bindingCompilationService, contexts => ((YesNoQuestion)contexts[0]).Value, this.GetDataContextType()));
                 rb2.SetBinding(x => x.CheckedValue, ValueBindingExpression.CreateBinding(bindingCompilationService, contexts => false, this.GetDataContextType()));
-                rb2.Attributes["name"] = ValueBindingExpression.CreateBinding(bindingCompilationService, contexts => "q" + ((QuestionEntry)contexts[1]).Id, this.GetDataContextType());
+                rb2.Attributes.AddBinding("name", ValueBindingExpression.CreateBinding(bindingCompilationService, contexts => "q" + ((QuestionEntry)contexts[1]).Id, this.GetDataContextType()));
                 p2.Children.Add(rb2);
             }
             Children.Add(p2);
