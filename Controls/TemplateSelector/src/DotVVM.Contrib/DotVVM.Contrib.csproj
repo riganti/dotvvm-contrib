@@ -1,28 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
-	<PackageId>DotVVM.Contrib.TemplateSelector</PackageId>
-    <PackageVersion>2.4.0</PackageVersion>
-    <Authors>DotVVM Contrib</Authors>
-    <Description>The TemplateSelector control for DotVVM made by DotVVM Contrib community.</Description>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
-    <PackageLicenseUrl>https://github.com/riganti/dotvvm-contrib/blob/master/LICENSE</PackageLicenseUrl>
-	<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
-    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
-    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
-    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
-    <PreserveCompilationContext>true</PreserveCompilationContext>
-    <AssemblyName>DotVVM.Contrib.TemplateSelector</AssemblyName>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.1</TargetFrameworks>
+		<PackageId>DotVVM.Contrib.TemplateSelector</PackageId>
+		<AssemblyName>DotVVM.Contrib.TemplateSelector</AssemblyName>
+		<PackageVersion>2.4.0</PackageVersion>
+		<Description>The TemplateSelector control for DotVVM made by DotVVM Contrib community.</Description>
+		<PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+	</ItemGroup>
 
 </Project>

@@ -1,13 +1,18 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Riganti.Utils.Testing.SeleniumCore;
+using DotVVM.Contrib.Tests.Core;
+using Riganti.Selenium.Core;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace DotVVM.Contrib.Tests
 {
-    [TestClass]
-    public class TemplateSelectorTests : SeleniumTestBase
+    public class TemplateSelectorTests : AppSeleniumTest
     {
-        [TestMethod]
+        public TemplateSelectorTests(ITestOutputHelper output) : base(output)
+        {
+        }
+
+        [Fact]
         public void TemplateSelector_Sample1()
         {
             RunInAllBrowsers(browser =>
@@ -30,39 +35,40 @@ namespace DotVVM.Contrib.Tests
                 browser.ElementAt("table tr", 1).ElementAt("a", 1).Click().Wait();
 
                 // check the order and values of elements
-                browser.ElementAt("table tr", 0).First("td").First("fieldset").CheckIfHasClass("fs-h");
-                browser.ElementAt("table tr", 1).First("td").First("fieldset").CheckIfHasClass("fs-i");
-                browser.ElementAt("table tr", 2).First("td").First("fieldset").CheckIfHasClass("fs-p");
-                browser.ElementAt(".fs-h input", 0).CheckIfValue("aa");
-                browser.ElementAt(".fs-p input", 0).CheckIfValue("bb");
-                browser.ElementAt(".fs-i input", 0).CheckIfValue("cc");
-                browser.ElementAt(".fs-i input", 1).CheckIfValue("dd");
-                browser.ElementAt(".fs-i input", 2).CheckIfValue("ee");
+                AssertUI.HasClass(browser.ElementAt("table tr", 0).First("td").First("fieldset"),"fs-h");
+                AssertUI.HasClass(browser.ElementAt("table tr", 1).First("td").First("fieldset"),"fs-i");
+                AssertUI.HasClass(browser.ElementAt("table tr", 2).First("td").First("fieldset"),"fs-p");
+                AssertUI.Value(browser.ElementAt(".fs-h input", 0),"aa");
+                AssertUI.Value(browser.ElementAt(".fs-p input", 0),"bb");
+                AssertUI.Value(browser.ElementAt(".fs-i input", 0),"cc");
+                AssertUI.Value(browser.ElementAt(".fs-i input", 1),"dd");
+                AssertUI.Value(browser.ElementAt(".fs-i input", 2),"ee");
 
                 // move middle item up
                 browser.ElementAt("table tr", 1).ElementAt("a", 0).Click().Wait();
 
                 // check the order and values of elements
-                browser.ElementAt("table tr", 0).First("td").First("fieldset").CheckIfHasClass("fs-i");
-                browser.ElementAt("table tr", 1).First("td").First("fieldset").CheckIfHasClass("fs-h");
-                browser.ElementAt("table tr", 2).First("td").First("fieldset").CheckIfHasClass("fs-p");
-                browser.ElementAt(".fs-h input", 0).CheckIfValue("aa");
-                browser.ElementAt(".fs-p input", 0).CheckIfValue("bb");
-                browser.ElementAt(".fs-i input", 0).CheckIfValue("cc");
-                browser.ElementAt(".fs-i input", 1).CheckIfValue("dd");
-                browser.ElementAt(".fs-i input", 2).CheckIfValue("ee");
+                AssertUI.HasClass(browser.ElementAt("table tr", 0).First("td").First("fieldset"),"fs-i");
+                AssertUI.HasClass(browser.ElementAt("table tr", 1).First("td").First("fieldset"),"fs-h");
+                AssertUI.HasClass(browser.ElementAt("table tr", 2).First("td").First("fieldset"),"fs-p");
+                AssertUI.Value(browser.ElementAt(".fs-h input", 0),"aa");
+                AssertUI.Value(browser.ElementAt(".fs-p input", 0),"bb");
+                AssertUI.Value(browser.ElementAt(".fs-i input", 0),"cc");
+                AssertUI.Value(browser.ElementAt(".fs-i input", 1),"dd");
+                AssertUI.Value(browser.ElementAt(".fs-i input", 2),"ee");
 
                 // delete the middle item
                 browser.ElementAt("table tr", 1).ElementAt("a", 2).Click().Wait();
 
                 // check the order and values of elements
-                browser.ElementAt("table tr", 0).First("td").First("fieldset").CheckIfHasClass("fs-i");
-                browser.ElementAt("table tr", 1).First("td").First("fieldset").CheckIfHasClass("fs-p");
-                browser.ElementAt(".fs-p input", 0).CheckIfValue("bb");
-                browser.ElementAt(".fs-i input", 0).CheckIfValue("cc");
-                browser.ElementAt(".fs-i input", 1).CheckIfValue("dd");
-                browser.ElementAt(".fs-i input", 2).CheckIfValue("ee");
+                AssertUI.HasClass(browser.ElementAt("table tr", 0).First("td").First("fieldset"),"fs-i");
+                AssertUI.HasClass(browser.ElementAt("table tr", 1).First("td").First("fieldset"),"fs-p");
+                AssertUI.Value(browser.ElementAt(".fs-p input", 0),"bb");
+                AssertUI.Value(browser.ElementAt(".fs-i input", 0),"cc");
+                AssertUI.Value(browser.ElementAt(".fs-i input", 1),"dd");
+                AssertUI.Value(browser.ElementAt(".fs-i input", 2),"ee");
             });
         }
+
     }
 }

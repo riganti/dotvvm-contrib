@@ -3,17 +3,18 @@
 		<TargetFramework>net6.0</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
-		<Content Include="**\*.dothtml" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Remove="dotvvm_serialized_config.json.tmp" />
-		<None Remove="Views\Sample2.dothtml" />
-	</ItemGroup>
-	<ItemGroup>
-		<Content Include="Views\_master.dotmaster" />
-	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="wwwroot\" />
+		<!--Include Views-->
+		<Content Include="**/*.dothtml" Exclude="obj/**/*.*;bin/**/*.*">
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+		<!--Include MasterPage Views-->
+		<Content Include="**/*.dotmaster" Exclude="obj/**/*.*;bin/**/*.*">
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+		<!--Include Custom Control Views-->
+		<Content Include="**/*.dotcontrol" Exclude="obj/**/*.*;bin/**/*.*">
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
