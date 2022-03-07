@@ -93,7 +93,14 @@ class CookieBar {
     }
 
     deleteCookie(name) {
-        document.cookie = name + `=; domain=${document.domain}; expires=${new Date().toUTCString()}; path=/;`;
+        let domain = document.domain;
+        const domainParts = domain.split(".");
+        for (const part of domainParts) {
+            domain = domain.slice(part.length + 1);
+            document.cookie = name + `=; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        }
+
+        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     }
 
     saveAndCloseDialog() {
