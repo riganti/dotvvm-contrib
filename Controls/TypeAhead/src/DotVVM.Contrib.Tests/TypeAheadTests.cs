@@ -1,13 +1,19 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using DotVVM.Contrib.Tests.Core;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using Riganti.Selenium.Core;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace DotVVM.Contrib.Tests
 {
-    [TestClass]
     public class TypeAheadTests : AppSeleniumTest
     {
-        [TestMethod]
+        public TypeAheadTests(ITestOutputHelper output) : base(output)
+        {
+        }
+
+        [Fact]
         public void TypeAhead_Sample1_ListOfStrings()
         {
             RunInAllBrowsers(browser =>
@@ -21,14 +27,14 @@ namespace DotVVM.Contrib.Tests
                 input.Clear();
                 input.SendKeys("Cze");
                 input.SendEnterKey();
-                input.CheckIfValue("Czech Republic");
-                result1.CheckIfInnerTextEquals("Czech Republic");
+                AssertUI.Value(input, "Czech Republic");
+                AssertUI.InnerTextEquals(result1, "Czech Republic");
 
                 input.Clear();
                 input.SendKeys("xxx");
                 input.SendKeys(Keys.Tab);
-                input.CheckIfValue("");
-                result1.CheckIfInnerTextEquals("");
+                AssertUI.Value(input, "");
+                AssertUI.InnerTextEquals(result1, "");
 
                 browser.ElementAt("#buttons input", 0).Click();
 
@@ -36,23 +42,23 @@ namespace DotVVM.Contrib.Tests
                 input.SendKeys("Cou");
                 input.SendKeys(Keys.Tab);
                 input.SendKeys(Keys.Tab);
-                input.CheckIfValue("Country 5");
-                result1.CheckIfInnerTextEquals("Country 5");
+                AssertUI.Value(input, "Country 5");
+                AssertUI.InnerTextEquals(result1, "Country 5");
 
                 input.Clear();
                 input.SendKeys("Ger");
                 browser.First("#section1 .tt-selectable").Click();
-                input.CheckIfValue("Germany");
-                result1.CheckIfInnerTextEquals("Germany");
+                AssertUI.Value(input, "Germany");
+                AssertUI.InnerTextEquals(result1, "Germany");
 
                 browser.ElementAt("#buttons input", 1).Click();
 
-                input.CheckIfValue("Country 5");
-                result1.CheckIfInnerTextEquals("Country 5");
+                AssertUI.Value(input, "Country 5");
+                AssertUI.InnerTextEquals(result1, "Country 5");
             });
         }
 
-        [TestMethod]
+        [Fact]
         public void TypeAhead_Sample1_ListOfObjects_DisplayMember()
         {
             RunInAllBrowsers(browser =>
@@ -67,16 +73,16 @@ namespace DotVVM.Contrib.Tests
                 input.Clear();
                 input.SendKeys("Cze");
                 input.SendEnterKey();
-                input.CheckIfValue("Czech Republic");
-                result1.CheckIfInnerTextEquals("1");
-                result2.CheckIfInnerTextEquals("Czech Republic");
+                AssertUI.Value(input, "Czech Republic");
+                AssertUI.InnerTextEquals(result1, "1");
+                AssertUI.InnerTextEquals(result2, "Czech Republic");
 
                 input.Clear();
                 input.SendKeys("xxx");
                 input.SendKeys(Keys.Tab);
-                input.CheckIfValue("");
-                result1.CheckIfInnerTextEquals("");
-                result2.CheckIfInnerTextEquals("");
+                AssertUI.Value(input, "");
+                AssertUI.InnerTextEquals(result1, "");
+                AssertUI.InnerTextEquals(result2, "");
 
                 browser.ElementAt("#buttons input", 0).Click();
 
@@ -84,21 +90,21 @@ namespace DotVVM.Contrib.Tests
                 input.SendKeys("Cou");
                 input.SendKeys(Keys.Tab);
                 input.SendKeys(Keys.Tab);
-                input.CheckIfValue("Country 5");
-                result1.CheckIfInnerTextEquals("6");
-                result2.CheckIfInnerTextEquals("Country 5");
+                AssertUI.Value(input, "Country 5");
+                AssertUI.InnerTextEquals(result1, "6");
+                AssertUI.InnerTextEquals(result2, "Country 5");
 
                 input.Clear();
                 input.SendKeys("Ger");
                 browser.First("#section2 .tt-selectable").Click();
-                input.CheckIfValue("Germany");
-                result1.CheckIfInnerTextEquals("2");
-                result2.CheckIfInnerTextEquals("Germany");
+                AssertUI.Value(input, "Germany");
+                AssertUI.InnerTextEquals(result1, "2");
+                AssertUI.InnerTextEquals(result2, "Germany");
             });
         }
 
 
-        [TestMethod]
+        [Fact]
         public void TypeAhead_Sample1_ListOfObjects_DisplayMember_ValueMember()
         {
             RunInAllBrowsers(browser =>
@@ -113,14 +119,14 @@ namespace DotVVM.Contrib.Tests
                 input.SendKeys("Cze");
 
                 input.SendEnterKey();
-                input.CheckIfValue("Czech Republic");
-                result1.CheckIfInnerTextEquals("1");
+                AssertUI.Value(input, "Czech Republic");
+                AssertUI.InnerTextEquals(result1, "1");
 
                 input.Clear();
                 input.SendKeys("xxx");
                 input.SendKeys(Keys.Tab);
-                input.CheckIfValue("");
-                result1.CheckIfInnerTextEquals("");
+                AssertUI.Value(input, "");
+                AssertUI.InnerTextEquals(result1, "");
 
                 browser.ElementAt("#buttons input", 0).Click();
 
@@ -128,25 +134,25 @@ namespace DotVVM.Contrib.Tests
                 input.SendKeys("Cou");
                 input.SendKeys(Keys.Tab);
                 input.SendKeys(Keys.Tab);
-                input.CheckIfValue("Country 5");
-                result1.CheckIfInnerTextEquals("6");
+                AssertUI.Value(input, "Country 5");
+                AssertUI.InnerTextEquals(result1, "6");
 
                 input.Clear();
                 input.SendKeys("Ger");
                 browser.First("#section3 .tt-selectable").Click();
-                input.CheckIfValue("Germany");
-                result1.CheckIfInnerTextEquals("2");
+                AssertUI.Value(input, "Germany");
+                AssertUI.InnerTextEquals(result1, "2");
 
                 browser.ElementAt("#buttons input", 2).Click();
 
-                input.CheckIfValue("Country 5");
-                result1.CheckIfInnerTextEquals("6");
+                AssertUI.Value(input, "Country 5");
+                AssertUI.InnerTextEquals(result1, "6");
             });
         }
 
 
 
-        [TestMethod]
+        [Fact]
         public void TypeAhead_Sample2_SelectItemOnCursor()
         {
             RunInAllBrowsers(browser =>
@@ -165,31 +171,30 @@ namespace DotVVM.Contrib.Tests
                 input2.SendKeys(Keys.ArrowDown);
                 input2.SendKeys(Keys.ArrowDown);
                 input2.SendKeys(Keys.Return);
-                input2.CheckIfValue("A2");
+                AssertUI.Value(input2, "A2");
 
                 input2.SendKeys(Keys.Tab);
-                result2.CheckIfInnerTextEquals("1");
+                AssertUI.InnerTextEquals(result2, "1");
 
                 // select first item
                 input2.Clear();
-                result2.CheckIfInnerTextEquals("2");
+                AssertUI.InnerTextEquals(result2, "2");
                 input2.SendKeys("b");
                 input2.SendKeys(Keys.Return);
-                input2.CheckIfValue("B1");
+                AssertUI.Value(input2, "B1");
 
                 input2.SendKeys(Keys.Tab);
-                result2.CheckIfInnerTextEquals("3");
+                AssertUI.InnerTextEquals(result2, "3");
 
                 // select first item in first list
                 input1.Clear();
                 input1.SendKeys("a");
                 input1.SendKeys(Keys.Return);
-                input1.CheckIfValue("A1");
+                AssertUI.Value(input1, "A1");
 
                 input1.SendKeys(Keys.Tab);
-                result1.CheckIfInnerTextEquals("1");
+                AssertUI.InnerTextEquals(result1, "1");
             });
         }
-
     }
 }
