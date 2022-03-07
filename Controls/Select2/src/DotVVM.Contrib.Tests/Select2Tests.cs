@@ -1,34 +1,43 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using DotVVM.Contrib.Tests.Core;
 using OpenQA.Selenium;
-using Riganti.Utils.Testing.SeleniumCore;
+using Riganti.Selenium.Core;
+using Riganti.Selenium.Core.Abstractions;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace DotVVM.Contrib.Tests
 {
-    [TestClass]
-    public class Select2Tests : SeleniumTestBase
+    public class Select2Tests : AppSeleniumTest
     {
-        [TestMethod]
+        [Fact]
+        public void ComponentTest()
+        {
+            RunInAllBrowsers(browser =>
+            {
+                browser.NavigateToUrl();
+            });
+        }
+
+        public Select2Tests(ITestOutputHelper output) : base(output)
+        {
+        }
+
+
+        [Fact]
         public void Select2_Sample1()
         {
             RunInAllBrowsers(browser =>
             {
                 browser.NavigateToUrl("/Sample1");
-
-                RunTestSubSection("List of strings", b =>
-                {
-                    PerformSelect2Test(b, b.ElementAt("fieldset", 0));
-                });
-                RunTestSubSection("List of objects", b =>
-                {
-                    PerformSelect2Test(b, b.ElementAt("fieldset", 1));
-                });
+                PerformSelect2Test(browser, browser.ElementAt("fieldset", 0));
+                PerformSelect2Test(browser, browser.ElementAt("fieldset", 1));
             });
         }
 
-        private static void PerformSelect2Test(BrowserWrapper browser, ElementWrapper fieldset)
+        private static void PerformSelect2Test(IBrowserWrapper browser, IElementWrapper fieldset)
         {
             var select2 = fieldset.Single(".select2");
             var input = select2.First("input");
@@ -39,7 +48,7 @@ namespace DotVVM.Contrib.Tests
 
             // verify the selection at the beginning
             select2.FindElements("li").ThrowIfDifferentCountThan(2);
-            result.CheckIfTextEquals("Prague");
+            AssertUI.TextEquals(result, "Prague", true);
 
             // append tag
             input.SendKeys("Ne");
@@ -50,7 +59,7 @@ namespace DotVVM.Contrib.Tests
             submitButton.Click().Wait();
 
             // verify the new tag appeared in the result
-            result.CheckIfTextEquals("Prague,New York");
+            AssertUI.TextEquals(result, "Prague,New York", true);
 
             // check the items offered in the list
             input.Click().Wait();
@@ -69,15 +78,15 @@ namespace DotVVM.Contrib.Tests
 
             // submit and check the selection on the server
             submitButton.Click().Wait();
-            result.CheckIfTextEquals("Prague,New York,Berlin");
+            AssertUI.TextEquals(result, "Prague,New York,Berlin", true);
 
             // replace the selection on server
             changeSelectionButton.Click().Wait();
             submitButton.Click().Wait();
-            result.CheckIfTextEquals("New York,Paris");
+            AssertUI.TextEquals(result, "New York,Paris", true);
         }
 
-        [TestMethod]
+        [Fact]
         public void Select2_Sample2()
         {
             RunInAllBrowsers(browser =>
@@ -94,18 +103,18 @@ namespace DotVVM.Contrib.Tests
                 browser.Wait();
 
                 browser.FindElements(".select2-selection__choice").ThrowIfDifferentCountThan(1);
-                Assert.AreEqual("1", result.GetInnerText());
+                Assert.Equal("1", result.GetInnerText());
             });
         }
 
-        [TestMethod]
+        [Fact]
         public void Select2_Sample3()
         {
             RunInAllBrowsers(browser =>
             {
                 browser.NavigateToUrl("/Sample3");
 
-                ElementWrapper OpenSelectInput()
+                IElementWrapper OpenSelectInput()
                 {
                     browser.Single(".select2").Click();
                     return browser.First(".select2-search input");
@@ -120,9 +129,9 @@ namespace DotVVM.Contrib.Tests
 
                 browser.Wait();
 
-                Assert.AreEqual("c", displayValue.GetInnerText());
-                Assert.AreEqual("2", selectedValue.GetInnerText());
-                Assert.AreEqual("1", requestCount.GetInnerText());
+                Assert.Equal("c", displayValue.GetInnerText());
+                Assert.Equal("2", selectedValue.GetInnerText());
+                Assert.Equal("1", requestCount.GetInnerText());
 
                 input = OpenSelectInput();
                 input.SendKeys("a");
@@ -130,19 +139,19 @@ namespace DotVVM.Contrib.Tests
 
                 browser.Wait();
 
-                Assert.AreEqual("a", displayValue.GetInnerText());
-                Assert.AreEqual("0", selectedValue.GetInnerText());
-                Assert.AreEqual("2", requestCount.GetInnerText());
+                Assert.Equal("a", displayValue.GetInnerText());
+                Assert.Equal("0", selectedValue.GetInnerText());
+                Assert.Equal("2", requestCount.GetInnerText());
 
                 browser.Single("[data-ui=change-in-postback]").Click();
-                Assert.AreEqual("c", displayValue.GetInnerText());
-                Assert.AreEqual("2", selectedValue.GetInnerText());
-                Assert.AreEqual("2", requestCount.GetInnerText());
+                Assert.Equal("c", displayValue.GetInnerText());
+                Assert.Equal("2", selectedValue.GetInnerText());
+                Assert.Equal("2", requestCount.GetInnerText());
 
                 browser.Single("[data-ui=change-in-static-command]").Click();
-                Assert.AreEqual("b", displayValue.GetInnerText());
-                Assert.AreEqual("1", selectedValue.GetInnerText());
-                Assert.AreEqual("2", requestCount.GetInnerText());
+                Assert.Equal("b", displayValue.GetInnerText());
+                Assert.Equal("1", selectedValue.GetInnerText());
+                Assert.Equal("2", requestCount.GetInnerText());
             });
         }
     }
