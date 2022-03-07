@@ -14,8 +14,6 @@ namespace DotVVM.Contrib.Samples
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
-
             var dotvvmConfiguration = app.UseDotVVM<DotvvmStartup>(env.ContentRootPath);
 
             app.UseStaticFiles(new StaticFileOptions
