@@ -55,7 +55,7 @@ namespace DotVVM.Contrib
             Key = "analytics_storage";
             Title = CookieTexts.RuleTitle_Analytics;
             Description = CookieTexts.Rule_Analytics;
-            CookieNameRegexes = new[] { "^_ga$", "^_gid$", "^_gat$", "^_ga_.*", "^_gac_.*", "^__utm[a|t|b|c|z|v]$" };
+            CookieNameRegexes = new[] { "^_ga$", "^_gid$", "^_gat$", "^_ga_.*", "^_gac_.*", "^__utm[a|t|b|c|z|v]$", "^_gac_UA-.*", "^_gat_UA-.*", "^_gat_gtag_UA_.*" };
         }
     }
 
