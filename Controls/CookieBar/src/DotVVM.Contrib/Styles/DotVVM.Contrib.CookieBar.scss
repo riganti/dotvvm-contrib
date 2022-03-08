@@ -283,6 +283,25 @@
                 font-size: .875em;
             }
         }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        gap: 1em;
+        justify-content: space-between;
+
+        .button {
+            white-space: nowrap;
+        }
+
+        > a {
+            text-decoration: underline;
+            white-space: nowrap;
+            color: var(--color-text--light);
+            font-size: .8em;
+        }
 
         > div {
             display: flex;
@@ -290,12 +309,6 @@
             align-items: center;
             justify-content: flex-end;
             gap: 1em;
-
-            > a {
-                text-decoration: underline;
-                color: var(--color-text--light);
-                font-size: .8em;
-            }
         }
     }
     //ToggleButton
