@@ -8,17 +8,20 @@
     <div class="dotvvm-contrib-cookie-bar__pop-up">
         <h3 InnerText="{resource: _control.Title}" />
         <p InnerText="{resource: _control.Description}" />
-        <div>
-            <dot:Button ButtonTagName="button"
-                        Text="{resource: _control.MoreOptionsButtonText}"
-                        Click="{staticCommand: _js.Invoke("openDialog")}"
-                        class="button button--secondary button--background" />
-            <dot:Button ButtonTagName="button"
-                        Text="{resource: _control.AcceptAllButtonText}"
-                        Click="{staticCommand: _js.Invoke("acceptAll")}"
-                        class="button button--primary button--background" />
+        <div class="dotvvm-contrib-cookie-bar__buttons">
             <dot:LinkButton Click="{staticCommand: _js.Invoke("disableAllUnnecessaryCookiesAndSave")}"
                             Text="{resource: _control.OnlyNecessaryLink}" />
+            <div>
+                <dot:Button ButtonTagName="button"
+                            Text="{resource: _control.MoreOptionsButtonText}"
+                            Click="{staticCommand: _js.Invoke("openDialog")}"
+                            class="button button--secondary button--background" />
+                <dot:Button ButtonTagName="button"
+                            Text="{resource: _control.AcceptAllButtonText}"
+                            Click="{staticCommand: _js.Invoke("acceptAll")}"
+                            class="button button--primary button--background" />
+
+            </div>
         </div>
     </div>
 
