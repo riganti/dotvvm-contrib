@@ -1,9 +1,8 @@
-﻿using System;
-using DotVVM.Framework.Binding;
+﻿using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.BootstrapColorpicker
 {
     /// <summary>
     /// Renders a Bootstrap Colorpicker widget.

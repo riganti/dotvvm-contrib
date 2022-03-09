@@ -3,10 +3,9 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
 	<PackageId>DotVVM.Contrib.BootstrapColorpicker</PackageId>
-    <Authors>DotVVM Contrib</Authors>
+    <AssemblyName>DotVVM.Contrib.BootstrapColorpicker</AssemblyName>
     <Description>The BootstrapColorpicker control for DotVVM made by DotVVM Contrib community.</Description>
     <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
-    <AssemblyName>DotVVM.Contrib.BootstrapColorpicker</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

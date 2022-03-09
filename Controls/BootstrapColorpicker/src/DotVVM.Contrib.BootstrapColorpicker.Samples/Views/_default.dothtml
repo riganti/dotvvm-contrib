@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.DefaultViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.BootstrapColorpicker.Samples.ViewModels.DefaultViewModel, DotVVM.Contrib.BootstrapColorpicker.Samples
 @masterPage Views/_master.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
