@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
-using DotVVM.Contrib.Resources;
+﻿using DotVVM.Contrib.CookieBar.Resources;
 using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 using Newtonsoft.Json;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.CookieBar
 {
     [JsonConverter(typeof(CookieBarRuleConverter))]
     public class CookieBarRule : DotvvmBindableObject

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using DotVVM.Contrib.Resources;
+using DotVVM.Contrib.CookieBar.Resources;
 using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.CookieBar
 {
     [ControlMarkupOptions(AllowContent = false, DefaultContentProperty = nameof(CookieBar.Rules))]
     public class CookieBar : DotvvmMarkupControl

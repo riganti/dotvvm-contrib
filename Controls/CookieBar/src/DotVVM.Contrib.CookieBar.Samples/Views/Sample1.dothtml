@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.CookieBar.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.CookieBar.Samples
 @masterPage Views/_master.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
@@ -6,10 +6,7 @@
     <input type="button" onclick="DotVVM.Contrib.CookieBar.resetConsent(true);" value="Reset consent" />
 
     <dc:CookieBar>
-        <dc:GoogleAnalyticsRule />
-        <dc:GoogleAdsRule />
-        <dc:FacebookPixelRule />
-        <dc:SmartlookRule />
+        <dc:CookieBarRule Key="myRule" Title="My rule" Description="My custom rule" />
     </dc:CookieBar>
 
 </dot:Content>

@@ -1,6 +1,6 @@
 ﻿@viewModel System.Object, mscorlib
-@baseType DotVVM.Contrib.CookieBar, DotVVM.Contrib.CookieBar
-@import DotVVM.Contrib.Resources
+@baseType DotVVM.Contrib.CookieBar.CookieBar, DotVVM.Contrib.CookieBar
+@import DotVVM.Contrib.CookieBar.Resources
 @js dotvvm.contrib.CookieBar
 @noWrapperTag
 

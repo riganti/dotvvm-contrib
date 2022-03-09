@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DotVVM.Contrib.Resources {
+namespace DotVVM.Contrib.CookieBar.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DotVVM.Contrib.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DotVVM.Contrib.Resources.CookieTexts", typeof(CookieTexts).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DotVVM.Contrib.CookieBar.Resources.CookieTexts", typeof(CookieTexts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

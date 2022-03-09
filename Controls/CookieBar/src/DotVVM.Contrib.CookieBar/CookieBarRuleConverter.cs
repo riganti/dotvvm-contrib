@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.CookieBar
 {
     public class CookieBarRuleConverter : JsonConverter
     {
