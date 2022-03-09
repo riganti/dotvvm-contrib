@@ -26,6 +26,6 @@
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.CkEditorMinimal.csproj" />
+    <ProjectReference Include="..\DotVVM.Contrib.CkEditorMinimal\DotVVM.Contrib.CkEditorMinimal.csproj" />
   </ItemGroup>
 </Project>

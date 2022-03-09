@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.CkEditorMinimal.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.CkEditorMinimal.Samples
 @masterPage Views/_master.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">

@@ -1,7 +1,7 @@
 using Xunit;
 using Xunit.Abstractions;
 
-namespace DotVVM.Contrib.Tests2
+namespace DotVVM.Contrib.CkEditorMinimal.Tests
 {
     public class CkEditorMinimalTests : AppSeleniumTest
     {

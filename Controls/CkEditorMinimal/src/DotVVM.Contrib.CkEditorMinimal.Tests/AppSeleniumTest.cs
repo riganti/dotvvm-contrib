@@ -5,7 +5,7 @@ using Riganti.Selenium.Core;
 using Riganti.Selenium.Core.Abstractions;
 using Xunit.Abstractions;
 
-namespace DotVVM.Contrib.Tests2
+namespace DotVVM.Contrib.CkEditorMinimal.Tests
 {
     public class AppSeleniumTest : SeleniumTest
     {
