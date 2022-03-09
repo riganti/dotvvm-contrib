@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.BootstrapDatepicker.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.BootstrapDatepicker.Samples
 @masterPage Views/_master.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col-sm-5">
-                <dc:BootstrapDatepicker Date="{value: Date2}"  data-date-format="d.m.yyyy" class="form-control" ID="dp2">
+                <dc:BootstrapDatepicker Date="{value: Date2}" data-date-format="d.m.yyyy" class="form-control" ID="dp2">
                 </dc:BootstrapDatepicker>
             </div>
         </div>

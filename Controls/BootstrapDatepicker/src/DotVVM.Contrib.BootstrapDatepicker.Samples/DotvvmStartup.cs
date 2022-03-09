@@ -1,11 +1,11 @@
+using System.Collections.Generic;
+using System.Linq;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 using DotVVM.Framework.Routing;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace DotVVM.Contrib.Samples
+namespace DotVVM.Contrib.BootstrapDatepicker.Samples
 {
     public class DotvvmStartup : IDotvvmStartup, IDotvvmServiceConfigurator
     {

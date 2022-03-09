@@ -1,8 +1,6 @@
 using System;
-using System.Globalization;
-using System.Threading.Tasks;
 
-namespace DotVVM.Contrib.Samples.ViewModels
+namespace DotVVM.Contrib.BootstrapDatepicker.Samples.ViewModels
 {
     public class Sample4ViewModel : MasterViewModel
     {

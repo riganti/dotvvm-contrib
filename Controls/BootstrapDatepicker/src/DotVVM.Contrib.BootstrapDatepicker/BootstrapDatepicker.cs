@@ -1,13 +1,13 @@
-﻿using DotVVM.Framework.Binding;
+﻿using System;
+using System.Globalization;
+using System.Linq;
+using DotVVM.Framework.Binding;
 using DotVVM.Framework.Binding.Expressions;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 using Newtonsoft.Json;
-using System;
-using System.Globalization;
-using System.Linq;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.BootstrapDatepicker
 {
     /// <summary>
     /// Renders a bootstrap-datepicker input

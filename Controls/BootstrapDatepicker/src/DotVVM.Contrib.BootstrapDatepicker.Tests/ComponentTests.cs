@@ -1,10 +1,10 @@
-using DotVVM.Contrib.Tests.Core;
+using DotVVM.Contrib.BootstrapDatepicker.Tests.Core;
 using OpenQA.Selenium;
 using Riganti.Selenium.Core;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace DotVVM.Contrib.Tests
+namespace DotVVM.Contrib.BootstrapDatepicker.Tests
 {
     public class ComponentTests : AppSeleniumTest
     {

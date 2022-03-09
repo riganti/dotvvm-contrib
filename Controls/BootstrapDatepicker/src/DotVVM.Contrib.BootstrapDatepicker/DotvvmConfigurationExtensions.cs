@@ -1,11 +1,10 @@
-﻿using DotVVM.Framework.Configuration;
-using DotVVM.Framework.ResourceManagement;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Reflection;
+using DotVVM.Framework.Configuration;
+using DotVVM.Framework.ResourceManagement;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.BootstrapDatepicker
 {
     public static class BootstrapDatepickerDotvvmConfigurationExtensions
     {
@@ -35,7 +34,7 @@ namespace DotVVM.Contrib
                     string name = $"dotvvm.contrib.BootstrapDatepicker-{locale}";
                     config.Resources.Register(name, new ScriptResource()
                     {
-                        Location = new EmbeddedResourceLocation(typeof(BootstrapDatepicker).GetTypeInfo().Assembly, $"DotVVM.Contrib.Scripts.locales.bootstrap-datepicker.{locale}.min.js"),
+                        Location = new EmbeddedResourceLocation(typeof(BootstrapDatepicker).GetTypeInfo().Assembly, $"DotVVM.Contrib.BootstrapDatepicker.Scripts.locales.bootstrap-datepicker.{locale}.min.js"),
                         Dependencies = new[] { "dotvvm.contrib.BootstrapDatepicker-js" }
                     });
                 }
@@ -46,17 +45,17 @@ namespace DotVVM.Contrib
             // register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.BootstrapDatepicker", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(BootstrapDatepicker).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.BootstrapDatepicker.js"),
+                Location = new EmbeddedResourceLocation(typeof(BootstrapDatepicker).GetTypeInfo().Assembly, "DotVVM.Contrib.BootstrapDatepicker.Scripts.DotVVM.Contrib.BootstrapDatepicker.js"),
                 Dependencies = new[] { "dotvvm", "jquery", "bootstrap", "dotvvm.contrib.BootstrapDatepicker-css", "dotvvm.contrib.BootstrapDatepicker-js" }
             });
             config.Resources.Register("dotvvm.contrib.BootstrapDatepicker-js", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(BootstrapDatepicker).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.bootstrap-datepicker.min.js"),
+                Location = new EmbeddedResourceLocation(typeof(BootstrapDatepicker).GetTypeInfo().Assembly, "DotVVM.Contrib.BootstrapDatepicker.Scripts.bootstrap-datepicker.min.js"),
                 Dependencies = new[] { "dotvvm", "dotvvm.contrib.BootstrapDatepicker-css" }
             });
             config.Resources.Register("dotvvm.contrib.BootstrapDatepicker-css", new StylesheetResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(BootstrapDatepicker).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.bootstrap-datepicker3.standalone.min.css")
+                Location = new EmbeddedResourceLocation(typeof(BootstrapDatepicker).GetTypeInfo().Assembly, "DotVVM.Contrib.BootstrapDatepicker.Styles.bootstrap-datepicker3.standalone.min.css")
             });
 
             // NOTE: all resource names should start with "dotvvm.contrib.BootstrapDatepicker"

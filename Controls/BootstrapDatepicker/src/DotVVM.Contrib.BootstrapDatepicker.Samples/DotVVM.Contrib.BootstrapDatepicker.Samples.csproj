@@ -23,6 +23,6 @@
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.csproj" />
+    <ProjectReference Include="..\DotVVM.Contrib.BootstrapDatepicker\DotVVM.Contrib.BootstrapDatepicker.csproj" />
   </ItemGroup>
 </Project>
