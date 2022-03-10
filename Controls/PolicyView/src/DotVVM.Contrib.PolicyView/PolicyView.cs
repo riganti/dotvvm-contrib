@@ -1,12 +1,11 @@
-﻿using System;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 using Microsoft.AspNetCore.Authorization;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.PolicyView
 {
     /// <summary>
     /// Renders different content to the users who met requirements specified by an authorization Policy definition and to users who don't met it.

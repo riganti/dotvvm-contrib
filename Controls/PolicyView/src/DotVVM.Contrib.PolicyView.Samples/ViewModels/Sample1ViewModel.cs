@@ -2,7 +2,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using DotVVM.Framework.Hosting;
 
-namespace DotVVM.Contrib.Samples.ViewModels
+namespace DotVVM.Contrib.PolicyView.Samples.ViewModels
 {
     public class Sample1ViewModel : MasterViewModel
 	{

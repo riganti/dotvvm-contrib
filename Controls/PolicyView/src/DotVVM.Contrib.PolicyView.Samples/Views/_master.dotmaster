@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.MasterViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.PolicyView.Samples.ViewModels.MasterViewModel, DotVVM.Contrib.PolicyView.Samples
 
 <!DOCTYPE html>
 
