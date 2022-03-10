@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.GoogleMap
 {
     public static class GoogleMapConfigurationExtensions
     {
@@ -29,13 +25,13 @@ namespace DotVVM.Contrib
             // register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.GoogleMap", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(GoogleMap).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.GoogleMap.js"),
+                Location = new EmbeddedResourceLocation(typeof(GoogleMap).GetTypeInfo().Assembly, "DotVVM.Contrib.GoogleMap.Scripts.DotVVM.Contrib.GoogleMap.js"),
                 Dependencies = new [] { "dotvvm", "dotvvm.contrib.GoogleMap.GoogleCode", "dotvvm.contrib.GoogleMapCss" }
             });
             // register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.GoogleMapCss", new StylesheetResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(GoogleMap).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.DotVVM.Contrib.GoogleMap.css")
+                Location = new EmbeddedResourceLocation(typeof(GoogleMap).GetTypeInfo().Assembly, "DotVVM.Contrib.GoogleMap.Styles.DotVVM.Contrib.GoogleMap.css")
             });
 
         }

@@ -1,16 +1,12 @@
 using System;
-using DotVVM.Contrib.Tests.Core;
+using DotVVM.Contrib.GoogleMap.Tests.Core;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using Riganti.Selenium.Core;
 using Xunit;
 using Xunit.Abstractions;
 
-
-
-
-namespace DotVVM.Contrib.Tests
+namespace DotVVM.Contrib.GoogleMap.Tests
 {
     public class ZoomTests : AppSeleniumTest
     {

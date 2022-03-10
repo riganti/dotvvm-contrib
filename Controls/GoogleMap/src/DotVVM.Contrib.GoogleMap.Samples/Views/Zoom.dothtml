@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.ZoomViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.GoogleMap.Samples.ViewModels.ZoomViewModel, DotVVM.Contrib.GoogleMap.Samples
 @masterPage Views/_master.dotmaster
 
     <dot:Content ContentPlaceHolderID="MainContent">
