@@ -1,14 +1,11 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using DotVVM.Contrib.Tests.Core;
+﻿using DotVVM.Contrib.Select2.Tests.Core;
 using OpenQA.Selenium;
 using Riganti.Selenium.Core;
 using Riganti.Selenium.Core.Abstractions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace DotVVM.Contrib.Tests
+namespace DotVVM.Contrib.Select2.Tests
 {
     public class Select2Tests : AppSeleniumTest
     {

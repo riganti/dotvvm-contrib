@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DotVVM.Contrib.Samples.ViewModels
+namespace DotVVM.Contrib.Select2.Samples.ViewModels
 {
     public class Sample3ViewModel : MasterViewModel
     {
