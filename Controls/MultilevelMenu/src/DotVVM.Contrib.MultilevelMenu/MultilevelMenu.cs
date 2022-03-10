@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using DotVVM.Contrib.Model;
+using DotVVM.Contrib.MultilevelMenu.Model;
 using DotVVM.Framework.Binding;
-using DotVVM.Framework.Binding.Properties;
 using DotVVM.Framework.Compilation.ControlTree;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.MultilevelMenu
 {
     /// <summary>
     /// Renders a multi-level menu.

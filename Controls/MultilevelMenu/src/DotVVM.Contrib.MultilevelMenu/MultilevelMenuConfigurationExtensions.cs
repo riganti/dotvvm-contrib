@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.MultilevelMenu
 {
     public static class MultilevelMenuConfigurationExtensions
     {
@@ -23,12 +19,12 @@ namespace DotVVM.Contrib
             //// register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.MultilevelMenu", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(MultilevelMenu).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.MultilevelMenu.js"),
+                Location = new EmbeddedResourceLocation(typeof(MultilevelMenu).GetTypeInfo().Assembly, "DotVVM.Contrib.MultilevelMenu.Scripts.DotVVM.Contrib.MultilevelMenu.js"),
                 Dependencies = new[] { "dotvvm", "dotvvm.contrib.MultilevelMenu.css" }
             });
             config.Resources.Register("dotvvm.contrib.MultilevelMenu.css", new StylesheetResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(MultilevelMenu).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.DotVVM.Contrib.MultilevelMenu.css")
+                Location = new EmbeddedResourceLocation(typeof(MultilevelMenu).GetTypeInfo().Assembly, "DotVVM.Contrib.MultilevelMenu.Styles.DotVVM.Contrib.MultilevelMenu.css")
             });
 
             //// NOTE: all resource names should start with "dotvvm.contrib.MultilevelMenu"

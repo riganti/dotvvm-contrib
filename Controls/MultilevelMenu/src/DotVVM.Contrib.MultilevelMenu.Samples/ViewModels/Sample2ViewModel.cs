@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DotVVM.Contrib.Model;
+﻿using System.Collections.Generic;
+using DotVVM.Contrib.MultilevelMenu.Model;
 using DotVVM.Framework.ViewModel;
 
-namespace DotVVM.Contrib.Samples.ViewModels
+namespace DotVVM.Contrib.MultilevelMenu.Samples.ViewModels
 {
-	public class Sample1ViewModel : MasterViewModel
+    public class Sample2ViewModel : MasterViewModel
     {
         [Bind(Direction.None)]
         public List<MenuItem> Menu => new List<MenuItem>()

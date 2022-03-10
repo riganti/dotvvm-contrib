@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DotVVM.Contrib.Model
+namespace DotVVM.Contrib.MultilevelMenu.Model
 {
     public interface IMenuItem
     {

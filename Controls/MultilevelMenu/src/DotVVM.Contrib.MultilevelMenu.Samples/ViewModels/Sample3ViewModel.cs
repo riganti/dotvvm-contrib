@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DotVVM.Contrib.Model;
+﻿using System.Collections.Generic;
+using DotVVM.Contrib.MultilevelMenu.Model;
 using DotVVM.Framework.ViewModel;
 
-namespace DotVVM.Contrib.Samples.ViewModels
+namespace DotVVM.Contrib.MultilevelMenu.Samples.ViewModels
 {
     public class Sample3ViewModel : MasterViewModel
     {

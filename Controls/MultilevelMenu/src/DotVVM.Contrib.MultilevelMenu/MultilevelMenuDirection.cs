@@ -1,4 +1,4 @@
-﻿namespace DotVVM.Contrib
+﻿namespace DotVVM.Contrib.MultilevelMenu
 {
     public enum MultilevelMenuDirection
     {

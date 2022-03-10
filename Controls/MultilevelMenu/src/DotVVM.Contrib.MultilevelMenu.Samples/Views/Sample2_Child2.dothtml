@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.MultilevelMenu.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.MultilevelMenu.Samples
 @masterPage Views/_master.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">

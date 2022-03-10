@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.MasterViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.MultilevelMenu.Samples.ViewModels.MasterViewModel, DotVVM.Contrib.MultilevelMenu.Samples
 
 <!DOCTYPE html>
 
