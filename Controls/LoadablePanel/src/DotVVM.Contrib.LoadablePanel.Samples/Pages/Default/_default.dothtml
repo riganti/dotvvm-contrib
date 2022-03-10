@@ -1,0 +1,9 @@
+﻿@viewModel DotVVM.Contrib.LoadablePanel.Samples.Pages.Default.DefaultViewModel, DotVVM.Contrib.LoadablePanel.Samples
+@masterPage Pages/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <!-- This page is left blank intentionally. Create a new page for each sample. -->
+
+</dot:Content>
+
