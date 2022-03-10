@@ -1,12 +1,10 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using DotVVM.Contrib.Tests.Core;
-using Riganti.Selenium.Core;
+﻿using System.Text.RegularExpressions;
+using DotVVM.Contrib.GoogleAnalyticsJavascript.Tests.Core;
 using Riganti.Selenium.Core.Abstractions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace DotVVM.Contrib.Tests
+namespace DotVVM.Contrib.GoogleAnalyticsJavascript.Tests
 {
     public class GoogleAnalyticsJavascriptTests : AppSeleniumTest
     {
@@ -21,9 +19,9 @@ namespace DotVVM.Contrib.Tests
             {
                 browser.NavigateToUrl("/Sample1");
 
-                var mainScript = browser.ElementAt("body script", 1);
+                var mainScript = browser.ElementAt("body script", 0);
                 var scriptContent = CheckIfScriptExists(mainScript, "UA-XXXXX-Z");
-                Assert.False(scriptContent.Contains("ga('send', 'pageview');"));
+                Assert.DoesNotContain("ga('send', 'pageview');", scriptContent);
             });
         }
 
@@ -36,7 +34,7 @@ namespace DotVVM.Contrib.Tests
 
                 var mainScript = browser.ElementAt("body script", 0);
                 var scriptContent = CheckIfScriptExists(mainScript, "UA-XXXXX-Y");
-                Assert.True(scriptContent.Contains("ga('send', 'pageview');"));
+                Assert.Contains("ga('send', 'pageview');", scriptContent);
             });
         }
 
@@ -49,7 +47,7 @@ namespace DotVVM.Contrib.Tests
 
                 var mainScript = browser.ElementAt("body script", 0);
                 var scriptContent = CheckIfScriptExists(mainScript, "UA-XXXXX-Z");
-                Assert.False(scriptContent.Contains("ga('send', 'pageview');"));
+                Assert.DoesNotContain("ga('send', 'pageview');", scriptContent);
             });
         }
 

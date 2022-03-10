@@ -8,11 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.GoogleAnalyticsJavascript
 {
-    using System;
-
-
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>

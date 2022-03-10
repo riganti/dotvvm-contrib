@@ -1,11 +1,11 @@
 ﻿using System;
+using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
-using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection;
-using DotVVM.Framework.Binding;
+using Microsoft.Extensions.Options;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.GoogleAnalyticsJavascript
 {
     /// <summary>
     /// Renders a javascript tracking snippet for Google Analytics.

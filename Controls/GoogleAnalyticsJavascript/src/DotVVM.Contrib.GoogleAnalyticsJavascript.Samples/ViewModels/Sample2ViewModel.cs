@@ -1,4 +1,4 @@
-﻿namespace DotVVM.Contrib.Samples.ViewModels
+﻿namespace DotVVM.Contrib.GoogleAnalyticsJavascript.Samples.ViewModels
 {
     public class Sample2ViewModel : MasterViewModel
     {

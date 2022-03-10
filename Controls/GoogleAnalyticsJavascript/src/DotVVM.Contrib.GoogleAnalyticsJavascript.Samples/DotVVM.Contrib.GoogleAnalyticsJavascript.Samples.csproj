@@ -23,6 +23,6 @@
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.GoogleAnalyticsJavascript.csproj" />
+		<ProjectReference Include="..\DotVVM.Contrib.GoogleAnalyticsJavascript\DotVVM.Contrib.GoogleAnalyticsJavascript.csproj" />
 	</ItemGroup>
 </Project>

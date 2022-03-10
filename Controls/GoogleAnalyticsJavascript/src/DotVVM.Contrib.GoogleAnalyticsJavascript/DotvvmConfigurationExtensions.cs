@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using DotVVM.Framework.Configuration;
+﻿using DotVVM.Framework.Configuration;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.GoogleAnalyticsJavascript
 {
     public static class DotvvmConfigurationExtensions
     {

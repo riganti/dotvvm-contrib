@@ -1,4 +1,4 @@
-﻿namespace DotVVM.Contrib
+﻿namespace DotVVM.Contrib.GoogleAnalyticsJavascript
 {
     public class GoogleAnalyticsOptions
     {
