@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.NoUiSlider
 {
     public static class DotvvmConfigurationExtensions
     {
@@ -23,22 +19,22 @@ namespace DotVVM.Contrib
             // register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.NoUiSlider", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(Slider).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.NoUiSlider.js"),
+                Location = new EmbeddedResourceLocation(typeof(Slider).GetTypeInfo().Assembly, "DotVVM.Contrib.NoUiSlider.Scripts.DotVVM.Contrib.NoUiSlider.js"),
                 Dependencies = new[] { "dotvvm", "NoUiSlider", "dotvvm.contrib.NoUiSlider.css" }
             });
             config.Resources.Register("NoUiSlider", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(Slider).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.NoUiSlider.nouislider.min.js")
+                Location = new EmbeddedResourceLocation(typeof(Slider).GetTypeInfo().Assembly, "DotVVM.Contrib.NoUiSlider.Scripts.NoUiSlider.nouislider.min.js")
             });
 
             config.Resources.Register("dotvvm.contrib.NoUiSlider.css", new StylesheetResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(Slider).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.DotVVM.Contrib.NoUiSlider.css"),
+                Location = new EmbeddedResourceLocation(typeof(Slider).GetTypeInfo().Assembly, "DotVVM.Contrib.NoUiSlider.Styles.DotVVM.Contrib.NoUiSlider.css"),
                 Dependencies = new[] { "NoUiSlider.css" }
             });
             config.Resources.Register("NoUiSlider.css", new StylesheetResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(Slider).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.NoUiSlider.nouislider.min.css")
+                Location = new EmbeddedResourceLocation(typeof(Slider).GetTypeInfo().Assembly, "DotVVM.Contrib.NoUiSlider.Scripts.NoUiSlider.nouislider.min.css")
             });
         }
 

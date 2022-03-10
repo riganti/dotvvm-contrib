@@ -1,12 +1,10 @@
-﻿
-
-using DotVVM.Contrib.Tests.Core;
+﻿using DotVVM.Contrib.NoUiSlider.Tests.Core;
 using OpenQA.Selenium.Interactions;
 using Riganti.Selenium.Core;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace DotVVM.Contrib.Tests
+namespace DotVVM.Contrib.NoUiSlider.Tests
 {
     public class SwitchTests : AppSeleniumTest
     {

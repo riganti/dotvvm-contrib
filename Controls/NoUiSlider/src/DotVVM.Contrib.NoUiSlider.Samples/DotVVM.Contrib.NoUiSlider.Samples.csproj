@@ -23,6 +23,6 @@
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.csproj" />
+    <ProjectReference Include="..\DotVVM.Contrib.NoUiSlider\DotVVM.Contrib.NoUiSlider.csproj" />
   </ItemGroup>
 </Project>

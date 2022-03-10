@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
-namespace DotVVM.Contrib.Samples
+namespace DotVVM.Contrib.NoUiSlider.Samples
 {
     public class Startup
     {
@@ -24,9 +18,8 @@ namespace DotVVM.Contrib.Samples
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             // use DotVVM
             var dotvvmConfiguration = app.UseDotVVM<DotvvmStartup>(env.ContentRootPath);
         }

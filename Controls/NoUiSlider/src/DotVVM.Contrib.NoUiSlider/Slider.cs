@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DotVVM.Framework.Binding;
+﻿using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.NoUiSlider
 {
     public class Slider : DotVVM.Framework.Controls.HtmlGenericControl
     {
