@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using DotVVM.Framework.Configuration;
-using DotVVM.Framework.ResourceManagement;
+﻿using DotVVM.Framework.Configuration;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.TemplateSelector
 {
     public static class DotvvmConfigurationExtensions
     {

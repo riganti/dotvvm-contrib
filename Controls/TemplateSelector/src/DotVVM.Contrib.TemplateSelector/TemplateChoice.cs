@@ -1,7 +1,7 @@
 using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.TemplateSelector
 {
     [ControlMarkupOptions(AllowContent = false, DefaultContentProperty = nameof(Template))]
     public class TemplateChoice : DotvvmBindableObject

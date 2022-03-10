@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using DotVVM.Framework.Controls;
+﻿using System.Collections.Generic;
 using DotVVM.Framework.Binding;
 using DotVVM.Framework.Binding.Expressions;
+using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.TemplateSelector
 {
     /// <summary>
     /// Selects a template with a specified key and renders it.
