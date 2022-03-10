@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
-namespace DotVVM.Contrib.Samples
+namespace DotVVM.Contrib.QrCode.Samples
 {
     public class Startup
     {
@@ -12,7 +11,7 @@ namespace DotVVM.Contrib.Samples
             services.AddDotVVM<DotvvmStartup>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             var dotvvmConfiguration = app.UseDotVVM<DotvvmStartup>(env.ContentRootPath);
 

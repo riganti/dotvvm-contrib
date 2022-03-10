@@ -24,6 +24,6 @@
 		<PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="1.0.172" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.csproj" />
+		<ProjectReference Include="..\DotVVM.Contrib.QrCode\DotVVM.Contrib.QrCode.csproj" />
 	</ItemGroup>
 </Project>

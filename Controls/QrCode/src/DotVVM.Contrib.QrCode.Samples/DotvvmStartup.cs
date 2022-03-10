@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using DotVVM.Framework;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 using DotVVM.Framework.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DotVVM.Contrib.Samples
+namespace DotVVM.Contrib.QrCode.Samples
 {
     public class DotvvmStartup : IDotvvmStartup, IDotvvmServiceConfigurator
     {

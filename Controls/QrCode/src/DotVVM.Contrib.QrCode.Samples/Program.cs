@@ -1,9 +1,8 @@
-﻿using System.IO;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace DotVVM.Contrib.Samples
+namespace DotVVM.Contrib.QrCode.Samples
 {
     public class Program
     {

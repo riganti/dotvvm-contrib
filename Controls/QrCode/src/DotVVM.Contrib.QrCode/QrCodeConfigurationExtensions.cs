@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.QrCode
 {
     public static class QrCodeConfigurationExtensions
     {
@@ -18,19 +17,19 @@ namespace DotVVM.Contrib
 
             config.Resources.Register("qrcode", new ScriptResource
             {
-                Location = new EmbeddedResourceLocation(typeof(QrCode).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.jquery.qrcode.min.js"),
+                Location = new EmbeddedResourceLocation(typeof(QrCode).GetTypeInfo().Assembly, "DotVVM.Contrib.QrCode.Scripts.jquery.qrcode.min.js"),
                 Dependencies = new[] { "jquery" }
             });
 
             // register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.QrCode", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(QrCode).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.QrCode.js"),
+                Location = new EmbeddedResourceLocation(typeof(QrCode).GetTypeInfo().Assembly, "DotVVM.Contrib.QrCode.Scripts.DotVVM.Contrib.QrCode.js"),
                 Dependencies = new[] { "dotvvm", "qrcode", "dotvvm.contrib.QrCode.css" }
             });
             config.Resources.Register("dotvvm.contrib.QrCode.css", new StylesheetResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(QrCode).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.DotVVM.Contrib.QrCode.css")
+                Location = new EmbeddedResourceLocation(typeof(QrCode).GetTypeInfo().Assembly, "DotVVM.Contrib.QrCode.Styles.DotVVM.Contrib.QrCode.css")
             });
         }
     }

@@ -1,8 +1,8 @@
-﻿using DotVVM.Framework.Controls;
+﻿using DotVVM.Framework.Binding;
+using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
-using DotVVM.Framework.Binding;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.QrCode
 {
     /// <summary>
     /// Renders a QrCode into canvas

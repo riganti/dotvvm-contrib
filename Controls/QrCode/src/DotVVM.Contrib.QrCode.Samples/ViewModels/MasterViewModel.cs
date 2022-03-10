@@ -1,7 +1,7 @@
 using System.Linq;
 using DotVVM.Framework.ViewModel;
 
-namespace DotVVM.Contrib.Samples.ViewModels
+namespace DotVVM.Contrib.QrCode.Samples.ViewModels
 {
     public class MasterViewModel : DotvvmViewModelBase
     {
