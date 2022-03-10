@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using DotVVM.Framework.Binding.Properties;
 using DotVVM.Framework.Binding;
+using DotVVM.Framework.Binding.Expressions;
+using DotVVM.Framework.Binding.Properties;
+using DotVVM.Framework.Compilation.ControlTree;
+using DotVVM.Framework.Compilation.ControlTree.Resolved;
+using DotVVM.Framework.Compilation.Validation;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
-using DotVVM.Framework.Binding.Expressions;
-using DotVVM.Framework.Compilation.Validation;
-using DotVVM.Framework.Compilation.ControlTree.Resolved;
 using DotVVM.Framework.Utils;
-using DotVVM.Framework.Compilation.ControlTree;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.TypeAhead
 {
     /// <summary>
     /// Renders a TypeAhead input field.

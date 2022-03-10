@@ -20,6 +20,6 @@
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.csproj" />
+		<ProjectReference Include="..\DotVVM.Contrib.TypeAhead\DotVVM.Contrib.TypeAhead.csproj" />
 	</ItemGroup>
 </Project>
