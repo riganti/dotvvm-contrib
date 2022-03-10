@@ -1,0 +1,9 @@
+﻿@viewModel DotVVM.Contrib.PolymorphTemplateSelector.Samples.ViewModels.Sample3ViewModel, DotVVM.Contrib.PolymorphTemplateSelector.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <cc:MyCustomControl />
+
+</dot:Content>
+
