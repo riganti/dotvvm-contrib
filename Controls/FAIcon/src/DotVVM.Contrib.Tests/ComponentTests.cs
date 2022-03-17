@@ -49,11 +49,11 @@ namespace DotVVM.Contrib.Tests
 
                 AssertUI.TagName(element, "i");
                 AssertUI.HasClass(element, "fas");
-                AssertUI.HasClass(element, "fa-building");
+                AssertUI.HasClass(element, "fa-bug");
                 browser.Single("change_ternary",SelectBy.Id).Click();
 
                 AssertUI.HasClass(element, "fas");
-                AssertUI.HasClass(element, "fa-adjust");
+                AssertUI.HasClass(element, "fa-building");
             });
         }
         
