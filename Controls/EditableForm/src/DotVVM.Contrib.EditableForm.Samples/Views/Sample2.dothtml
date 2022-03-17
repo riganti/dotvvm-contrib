@@ -6,18 +6,18 @@
     <div class="row">
         <div class="col-lg-4 col-md-6">
 
-            <dc:EditableFormWithCustomTemplate DataContext="{value: CustomerForm}">
+            <dc:EditableFormWithCustomTemplate DataContext="{value: CustomerForm}" ID="editable-form">
 
                 <form DataContext="{value: Data}">
-                    <div class="form-group">
+                    <div class="form-group" ID="form1">
                         <label>First Name:</label>
                         <dot:TextBox Text="{value: FirstName}" />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ID="form2">
                         <label>Last Name:</label>
                         <dot:TextBox Text="{value: LastName}" />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ID="form3">
                         <label>Is VIP:</label>
                         <dot:CheckBox Checked="{value: IsVip}" />
                     </div>
