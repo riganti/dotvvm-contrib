@@ -8,7 +8,7 @@ namespace DotVVM.Contrib.CkEditorMinimal.Samples.ViewModels
 
         public void ChangeText1()
         {
-            Text1 = "<p>Changed text 1</p>";
+            Text1 = "<p>The Suicide Squad by James Gunn is the best DC movie.</p>";
         }
     }
 }

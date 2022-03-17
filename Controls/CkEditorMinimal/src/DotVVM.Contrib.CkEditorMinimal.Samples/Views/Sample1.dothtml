@@ -7,6 +7,6 @@
     <dc:CkEditorMinimal ID="CkEditorMinimal" Html="{value: Text}"></dc:CkEditorMinimal>
 
 
-    {{value: Text}}
+    <p ID="text">{{value: Text}}</p>
 </dot:Content>
 

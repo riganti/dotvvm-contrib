@@ -9,11 +9,11 @@
 
 
 
-    <p>Text 1: {{value: Text1}}</p>
-    <p>Text 2: {{value: Text2}}</p>
+    <p ID="text1">Text 1: {{value: Text1}}</p>
+    <p ID="text2">Text 2: {{value: Text2}}</p>
 
     <p>
-        <dot:Button Text="Change text 1 on server" Click="{command: ChangeText1()}" />
+        <dot:Button Text="Change text 1 on server" Click="{command: ChangeText1()}" ID="button"/>
     </p>
 
 </dot:Content>
