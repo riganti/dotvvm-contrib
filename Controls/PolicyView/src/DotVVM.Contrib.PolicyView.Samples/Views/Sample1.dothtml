@@ -3,37 +3,37 @@
 
 <dot:Content ContentPlaceHolderID="MainContent">
 
-    <dot:Button Click="{command: SignIn()}" Text="Sign In"></dot:Button>
-    <dot:Button Click="{command: SignInWithRole()}" Text="Sign In With Role"></dot:Button>
-    <dot:Button Click="{command: SignOut()}" Text="Sign Out"></dot:Button>
+    <dot:Button Click="{command: SignIn()}" Text="Sign In" ID="sign-in-button"></dot:Button>
+    <dot:Button Click="{command: SignInWithRole()}" Text="Sign In With Role" ID="sign-role-button"></dot:Button>
+    <dot:Button Click="{command: SignOut()}" Text="Sign Out" ID="sign-out-button"></dot:Button>
 
     <h3>PolicyView Policies="InRolePolicy"</h3>
     <dc:PolicyView Policies="InRolePolicy">
         <RequirementsMetTemplate>
-            Requirements met
+            <p ID="in-role-req-met">Requirements met</p>
         </RequirementsMetTemplate>
         <RequirementsNotMetTemplate>
-            Requirements not met
+            <p ID="in-role-req-not-met">Requirements not met</p>
         </RequirementsNotMetTemplate>
     </dc:PolicyView>
 
     <h3>PolicyView Policies="AuthenticatedPolicy" HideForAnonymousUsers="false"</h3>
     <dc:PolicyView Policies="AuthenticatedPolicy" HideForAnonymousUsers="false">
         <RequirementsMetTemplate>
-            Requirements met
+            <p ID="autenticated-req-met">Requirements met</p>
         </RequirementsMetTemplate>
         <RequirementsNotMetTemplate>
-            Requirements not met
+            <p ID="autenticated-req-not-met">Requirements not met</p>
         </RequirementsNotMetTemplate>
     </dc:PolicyView>
 
     <h3>PolicyView Policies="AuthenticatedPolicy,InRolePolicy"</h3>
     <dc:PolicyView Policies="AuthenticatedPolicy,InRolePolicy">
         <RequirementsMetTemplate>
-            Requirements met
+            <p ID="combinated-req-met">Requirements met</p>
         </RequirementsMetTemplate>
         <RequirementsNotMetTemplate>
-            Requirements not met
+            <p ID="combinated-req-not-met">Requirements not met</p>
         </RequirementsNotMetTemplate>
     </dc:PolicyView>
 </dot:Content>
