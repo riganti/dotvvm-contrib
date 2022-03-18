@@ -4,14 +4,14 @@
 
 <dot:Content ContentPlaceHolderID="MainContent">
 
-    <dc:LoadablePanel Load="{staticCommand: Data1 = service.LoadData1().Result}" HideUntilLoaded="true" class="panel">
+    <dc:LoadablePanel Load="{staticCommand: Data1 = service.LoadData1().Result}" HideUntilLoaded="true" class="panel" ID="loadable-panel1">
         <ContentTemplate>
             {{value: Data1}}<br />
             HideUntilLoaded="true"
         </ContentTemplate>
     </dc:LoadablePanel>
 
-    <dc:LoadablePanel Load="{staticCommand: Data2 = service.LoadData2().Result}" HideUntilLoaded="false" class="panel">
+    <dc:LoadablePanel Load="{staticCommand: Data2 = service.LoadData2().Result}" HideUntilLoaded="false" class="panel" ID="loadable-panel2">
         <ProgressTemplate>
             <div class="update-progress"><div class="background"></div><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div>
         </ProgressTemplate>
