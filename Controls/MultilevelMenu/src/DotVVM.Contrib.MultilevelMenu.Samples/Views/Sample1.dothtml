@@ -3,7 +3,7 @@
 
 <dot:Content ContentPlaceHolderID="MainContent">
 
-    <dc:MultilevelMenu DataSource="{resource: Menu}" />
+    <dc:MultilevelMenu DataSource="{resource: Menu}" ID="multilevel-menu"/>
 
 </dot:Content>
 
