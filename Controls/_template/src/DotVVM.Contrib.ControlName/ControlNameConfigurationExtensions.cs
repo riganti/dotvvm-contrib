@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.ControlName
 {
     public static class ControlNameConfigurationExtensions
     {
@@ -23,12 +19,12 @@ namespace DotVVM.Contrib
             // register additional resources for the control and set up dependencies
             config.Resources.Register("dotvvm.contrib.ControlName", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(ControlName).GetTypeInfo().Assembly, "DotVVM.Contrib.Scripts.DotVVM.Contrib.ControlName.js"),
+                Location = new EmbeddedResourceLocation(typeof(ControlName).GetTypeInfo().Assembly, "DotVVM.Contrib.ControlName.Scripts.DotVVM.Contrib.ControlName.js"),
                 Dependencies = new [] { "dotvvm", "dotvvm.contrib.ControlName.css" }
             });
             config.Resources.Register("dotvvm.contrib.ControlName.css", new StylesheetResource()
             {
-                Location = new EmbeddedResourceLocation(typeof(ControlName).GetTypeInfo().Assembly, "DotVVM.Contrib.Styles.DotVVM.Contrib.ControlName.css")
+                Location = new EmbeddedResourceLocation(typeof(ControlName).GetTypeInfo().Assembly, "DotVVM.Contrib.ControlName.Styles.DotVVM.Contrib.ControlName.css")
             });
 
             // NOTE: all resource names should start with "dotvvm.contrib.ControlName"

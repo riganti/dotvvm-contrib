@@ -1,9 +1,8 @@
-using System;
-using DotVVM.Contrib.Tests.Core;
+using DotVVM.Contrib.ControlName.Tests.Core;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace DotVVM.Contrib.Tests
+namespace DotVVM.Contrib.ControlName.Tests
 {
     public class ComponentTests : AppSeleniumTest
     {

@@ -1,8 +1,7 @@
-﻿using System;
-using DotVVM.Framework.Controls;
+﻿using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.ControlName
 {
     /// <summary>
     /// Renders a ...
