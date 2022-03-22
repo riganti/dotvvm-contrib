@@ -23,7 +23,6 @@ config.AddContribXYZConfiguration();
 * [BootstrapDatepicker](Controls/BootstrapDatepicker/readme.md)
 * [CkEditorMinimal](Controls/CkEditorMinimal/readme.md)
 * [CookieBar](Controls/CookieBar/readme.md)
-* [CrystalReportViewer](Controls/CrystalReportViewer/readme.md) _(supports .NET Framework only)_
 * [EditableForm](Controls/EditableForm/readme.md)
 * [FAIcon](Controls/FAIcon/readme.md)
 * [GoogleAnalyticsJavascript](Controls/GoogleAnalyticsJavascript/readme.md)
