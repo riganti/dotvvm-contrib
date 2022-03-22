@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <DotvvmVersion>4.0.0-preview11-final</DotvvmVersion>
+    <DotvvmVersion>4.0.0</DotvvmVersion>
     <RigantiSeleniumVersion>2.0.1</RigantiSeleniumVersion>
     <XunitVersion>2.4.1</XunitVersion>
     <MicrosoftNETTestSdkVersion>15.9.0</MicrosoftNETTestSdkVersion>
