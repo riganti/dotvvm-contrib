@@ -1,12 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DotVVM.Framework.ViewModel;
-using DotVVM.Contrib;
-using DotVVM.Contrib.FAIcon;
-
-namespace DotVVM.Contrib.Samples.ViewModels
+namespace DotVVM.Contrib.FAIcon.Samples.ViewModels
 {
     public class Sample1ViewModel : MasterViewModel
     {

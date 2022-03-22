@@ -4,7 +4,7 @@ using DotVVM.Framework.Configuration;
 using DotVVM.Framework.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DotVVM.Contrib.Samples
+namespace DotVVM.Contrib.FAIcon.Samples
 {
     public class DotvvmStartup : IDotvvmStartup, IDotvvmServiceConfigurator
     {

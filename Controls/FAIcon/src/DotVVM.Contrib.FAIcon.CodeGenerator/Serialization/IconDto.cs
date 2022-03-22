@@ -1,4 +1,4 @@
-﻿namespace FontAwesomeCS.CodeGenerator.Serialization
+﻿namespace DotVVM.Contrib.FAIcon.CodeGenerator.Serialization
 {
     public class IconDto
     {

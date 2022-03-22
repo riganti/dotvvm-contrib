@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.DefaultViewModel, DotVVM.Contrib.Samples
+﻿@viewModel DotVVM.Contrib.FAIcon.Samples.ViewModels.DefaultViewModel, DotVVM.Contrib.FAIcon.Samples
 @masterPage Views/_master.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">

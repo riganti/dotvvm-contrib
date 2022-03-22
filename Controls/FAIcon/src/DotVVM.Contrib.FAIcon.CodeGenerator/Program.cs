@@ -1,4 +1,4 @@
-﻿namespace FontAwesomeCS.CodeGenerator
+﻿namespace DotVVM.Contrib.FAIcon.CodeGenerator
 {
     public static class Program
     {

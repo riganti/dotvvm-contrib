@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.FAIcon", "DotVVM.Contrib\DotVVM.Contrib.FAIcon.csproj", "{3E6C2E46-18DB-47C8-94B8-8B447A6A9216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.FAIcon", "DotVVM.Contrib.FAIcon\DotVVM.Contrib.FAIcon.csproj", "{3E6C2E46-18DB-47C8-94B8-8B447A6A9216}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.Samples", "DotVVM.Contrib.Samples\DotVVM.Contrib.Samples.csproj", "{BEDB2964-D516-492B-AD08-9089F20AE84B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.FAIcon.Samples", "DotVVM.Contrib.FAIcon.Samples\DotVVM.Contrib.FAIcon.Samples.csproj", "{BEDB2964-D516-492B-AD08-9089F20AE84B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.Tests", "DotVVM.Contrib.Tests\DotVVM.Contrib.Tests.csproj", "{14EF6655-DCED-41E1-A8E7-C242BF8F104B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.FAIcon.Tests", "DotVVM.Contrib.FAIcon.Tests\DotVVM.Contrib.FAIcon.Tests.csproj", "{14EF6655-DCED-41E1-A8E7-C242BF8F104B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeGenerator", "CodeGenerator\CodeGenerator.csproj", "{87D5CEC1-A3A9-4D28-AEF8-18C4547EEC16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.FAIcon.CodeGenerator", "DotVVM.Contrib.FAIcon.CodeGenerator\DotVVM.Contrib.FAIcon.CodeGenerator.csproj", "{87D5CEC1-A3A9-4D28-AEF8-18C4547EEC16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

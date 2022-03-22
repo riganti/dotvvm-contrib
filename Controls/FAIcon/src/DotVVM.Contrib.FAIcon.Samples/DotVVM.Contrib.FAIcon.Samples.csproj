@@ -23,6 +23,6 @@
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DotVVM.Contrib\DotVVM.Contrib.FAIcon.csproj" />
+    <ProjectReference Include="..\DotVVM.Contrib.FAIcon\DotVVM.Contrib.FAIcon.csproj" />
   </ItemGroup>
 </Project>

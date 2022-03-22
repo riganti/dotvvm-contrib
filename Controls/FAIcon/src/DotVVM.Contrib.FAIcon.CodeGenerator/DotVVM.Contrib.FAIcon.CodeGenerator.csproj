@@ -2,10 +2,10 @@
 
     <PropertyGroup>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <AssemblyName>FontAwesomeCS.CodeGenerator</AssemblyName>
+        <AssemblyName>DotVVM.Contrib.FAIcon.CodeGenerator</AssemblyName>
         <OutputPath>bin</OutputPath>
         <OutputType>Exe</OutputType>
-        <RootNamespace>FontAwesomeCS.CodeGenerator</RootNamespace>
+        <RootNamespace>DotVVM.Contrib.FAIcon.CodeGenerator</RootNamespace>
         <TargetFramework>net6</TargetFramework>
     </PropertyGroup>
 

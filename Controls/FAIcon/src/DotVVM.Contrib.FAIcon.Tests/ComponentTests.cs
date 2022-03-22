@@ -1,10 +1,9 @@
-using System;
-using DotVVM.Contrib.Tests.Core;
+using DotVVM.Contrib.FAIcon.Tests.Core;
 using Riganti.Selenium.Core;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace DotVVM.Contrib.Tests
+namespace DotVVM.Contrib.FAIcon.Tests
 {
     public class ComponentTests : AppSeleniumTest
     {

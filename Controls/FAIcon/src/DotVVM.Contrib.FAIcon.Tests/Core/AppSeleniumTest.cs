@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using System.Text;
 using Riganti.Selenium.AssertApi;
 using Riganti.Selenium.Core;
 using Riganti.Selenium.Core.Abstractions;
 using Xunit.Abstractions;
 
-namespace DotVVM.Contrib.Tests.Core
+namespace DotVVM.Contrib.FAIcon.Tests.Core
 {
     public class AppSeleniumTest : SeleniumTest
     {

@@ -1,12 +1,11 @@
-﻿using FontAwesomeCS.CodeGenerator.Serialization;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using DotVVM.Contrib.FAIcon.CodeGenerator.Serialization;
+using Newtonsoft.Json;
 
-namespace FontAwesomeCS.CodeGenerator
+namespace DotVVM.Contrib.FAIcon.CodeGenerator
 {
     public static class CodeGenerator
     {

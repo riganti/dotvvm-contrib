@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using DotVVM.Contrib.FAIcon;
 using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 
-namespace DotVVM.Contrib
+namespace DotVVM.Contrib.FAIcon
 {
     public static class DotvvmConfigurationExtensions
     {
