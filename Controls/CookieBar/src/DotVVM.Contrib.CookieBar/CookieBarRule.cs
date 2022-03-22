@@ -8,13 +8,13 @@ namespace DotVVM.Contrib.CookieBar
     [JsonConverter(typeof(CookieBarRuleConverter))]
     public class CookieBarRule : DotvvmBindableObject
     {
-
         [MarkupOptions(AllowBinding = false)]
         public string Key
         {
             get { return (string)GetValue(KeyProperty); }
             set { SetValue(KeyProperty, value); }
         }
+
         public static readonly DotvvmProperty KeyProperty
             = DotvvmProperty.Register<string, CookieBarRule>(c => c.Key, null);
 
@@ -24,6 +24,7 @@ namespace DotVVM.Contrib.CookieBar
             get { return (string)GetValue(TitleProperty); }
             set { SetValue(TitleProperty, value); }
         }
+
         public static readonly DotvvmProperty TitleProperty
             = DotvvmProperty.Register<string, CookieBarRule>(c => c.Title, null);
 
@@ -33,18 +34,18 @@ namespace DotVVM.Contrib.CookieBar
             get { return (string)GetValue(DescriptionProperty); }
             set { SetValue(DescriptionProperty, value); }
         }
+
         public static readonly DotvvmProperty DescriptionProperty
             = DotvvmProperty.Register<string, CookieBarRule>(c => c.Description, null);
 
-        public string[] CookieNames
+        public string[] CookieNameRegexes
         {
-            get { return (string[])GetValue(CookieNamesProperty); }
-            set { SetValue(CookieNamesProperty, value); }
+            get { return (string[])GetValue(CookieNameRegexesProperty); }
+            set { SetValue(CookieNameRegexesProperty, value); }
         }
-        public static readonly DotvvmProperty CookieNamesProperty
-            = DotvvmProperty.Register<string[], CookieBarRule>(c => c.CookieNames, null);
 
-
+        public static readonly DotvvmProperty CookieNameRegexesProperty
+            = DotvvmProperty.Register<string[], CookieBarRule>(c => c.CookieNameRegexes, null);
     }
 
     public class GoogleAnalyticsRule : CookieBarRule
@@ -54,7 +55,7 @@ namespace DotVVM.Contrib.CookieBar
             Key = "analytics_storage";
             Title = CookieTexts.RuleTitle_Analytics;
             Description = CookieTexts.Rule_Analytics;
-            CookieNames = new[] { "_ga", "_gid", "_gat" };
+            CookieNameRegexes = new[] { "^_ga$", "^_gid$", "^_gat$", "^_ga_.*", "^_gac_.*", "^__utm[a|t|b|c|z|v]$", "^_gac_UA-.*", "^_gat_UA-.*", "^_gat_gtag_UA_.*" };
         }
     }
 
@@ -65,7 +66,7 @@ namespace DotVVM.Contrib.CookieBar
             Key = "ad_storage";
             Title = CookieTexts.RuleTitle_GoogleAds;
             Description = CookieTexts.Rule_GoogleAds;
-            CookieNames = new[] { "_gcl_au" };
+            CookieNameRegexes = new[] { "^_gcl_au$" };
         }
     }
 
@@ -76,7 +77,7 @@ namespace DotVVM.Contrib.CookieBar
             Key = "fbpixel_storage";
             Title = CookieTexts.RuleTitle_FacebookPixel;
             Description = CookieTexts.Rule_FacebookPixel;
-            CookieNames = new[] { "_fbp" };
+            CookieNameRegexes = new[] { "^_fbp$" };
         }
     }
 
@@ -87,7 +88,7 @@ namespace DotVVM.Contrib.CookieBar
             Key = "smartlook_storage";
             Title = CookieTexts.RuleTitle_Smartlook;
             Description = CookieTexts.Rule_Smartlook;
-            CookieNames = new[] { "SL" };
+            CookieNameRegexes = new[] { "^SL$" };
         }
     }
 }

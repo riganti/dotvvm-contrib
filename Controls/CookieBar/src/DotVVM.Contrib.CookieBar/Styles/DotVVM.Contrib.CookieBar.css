@@ -208,7 +208,20 @@
       @media only screen and (max-width: 320px) {
         .dotvvm-contrib-cookie-bar__pop-up > p {
           font-size: .875em; } }
-    .dotvvm-contrib-cookie-bar__pop-up > div {
+  .dotvvm-contrib-cookie-bar__buttons {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 1em;
+    justify-content: space-between; }
+    .dotvvm-contrib-cookie-bar__buttons .button {
+      white-space: nowrap; }
+    .dotvvm-contrib-cookie-bar__buttons > a {
+      text-decoration: underline;
+      white-space: nowrap;
+      color: var(--color-text--light);
+      font-size: .8em; }
+    .dotvvm-contrib-cookie-bar__buttons > div {
       display: flex;
       flex-flow: row nowrap;
       align-items: center;

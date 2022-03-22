@@ -86,11 +86,39 @@ class CookieBar {
         }
     }
 
-    deleteCookie(name) {
-        document.cookie = name + `=; domain=${document.domain}; expires=${new Date().toUTCString()}; path=/;`;
+    disableAllUnnecessaryCookiesAndSave() {
+        this.disableAllUnnecessaryCookies();
+        this.save();
+        this.hidePopup();
+    }
+
+    deleteCookie(nameRegex) {
+        const cookieNames = document.cookie
+            .split(";")
+            .map(x => x.trim())
+            .map(x => x.slice(0, -x.split("=").pop().length - 1))
+            .filter(x => x.match(nameRegex));
+
+        for (const name of cookieNames) {
+            let domain = document.domain;
+            const domainParts = domain.split(".");
+            for (const part of domainParts) {
+                domain = domain.slice(part.length + 1);
+                document.cookie = name + `=; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+            }
+
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
     }
 
     saveAndCloseDialog() {
+        this.save();
+
+        this.overlayElement.style.display = "none";
+        document.querySelector('html').style.overflow = "";
+    }
+
+    save() {
         const consents = {};
         for (const checkbox of this.checkboxes) {
             const consentKey = checkbox.parentElement.dataset.key;
@@ -98,9 +126,9 @@ class CookieBar {
             window.localStorage.setItem("cookieconsent__" + consentKey, granted);
             consents[consentKey] = granted;
 
-            const cookieNames = checkbox.parentElement.dataset.cookieNames;
-            if (cookieNames && granted === "denied") {
-                for (let name of cookieNames.split(",")) {
+            const cookieNameRegexes = checkbox.parentElement.dataset.cookieNameRegexes;
+            if (cookieNameRegexes && granted === "denied") {
+                for (let name of cookieNameRegexes.split(",")) {
                     this.deleteCookie(name);
                 }
             }
@@ -108,8 +136,5 @@ class CookieBar {
         gtag("consent", "update", consents);
 
         window.localStorage.setItem("cookieconsent", true);
-
-        this.overlayElement.style.display = "none";
-        document.querySelector('html').style.overflow = "";
     }
 }
