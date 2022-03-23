@@ -117,13 +117,13 @@ if ($controlName -eq "") {
 	# add all controls 
 	$controlDirs = Get-ChildItem Controls/ -Directory | Where-Object { $_.Name.StartsWith("_") -eq $false } | Select-Object Name
 	foreach ($controlDir in $controlDirs) {
-		$packages += @([pscustomobject]@{ Package = "DotVVM.Contrib.$($controlDir.Name)"; Directory = "Controls\$($controlDir.Name)\src\DotVVM.Contrib" })
+		$packages += @([pscustomobject]@{ Package = "DotVVM.Contrib.$($controlDir.Name)"; Directory = "Controls\$($controlDir.Name)\src\DotVVM.Contrib.$($controlDir.Name)" })
 	}
 } else {
 	# split comma-separated controls
 	foreach ($controlDir in $controlName.Split(',')) {
 		$controlDir = $controlDir.Trim()
-		$packages += @([pscustomobject]@{ Package = "DotVVM.Contrib." + $controlDir; Directory = "Controls\" + $controlDir + "\src\DotVVM.Contrib" })
+		$packages += @([pscustomobject]@{ Package = "DotVVM.Contrib." + $controlDir; Directory = "Controls\" + $controlDir + "\src\DotVVM.Contrib." + $controlDir })
 	}
 }
 
