@@ -1,0 +1,18 @@
+﻿@viewModel DotVVM.Contrib.FAIcon.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.FAIcon.Samples
+@masterPage Views/_master.dotmaster
+@import DotVVM.Contrib.FAIcon
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <!-- make a sample usage of the control -->
+    <h1>HARDCODED</h1>
+    <dc:FAIcon ID="hardcoded" Icon="github_brands" />
+
+    <h1>Binding</h1>
+    <dc:FAIcon ID="binding" Icon="{value: Icon}" />
+    <dot:Button ID="change_binding" Click="{command:  Change()}" Text="Change" />
+
+    <h1>Computed</h1>
+    <dc:FAIcon ID="ternary" Icon="{value: ShowBuilding ? FAIcons.building_solid : FAIcons.bug_solid }" />
+    <dot:Button ID="change_ternary" Click="{staticCommand: ShowBuilding = !ShowBuilding}" Text="Change" />
+</dot:Content>

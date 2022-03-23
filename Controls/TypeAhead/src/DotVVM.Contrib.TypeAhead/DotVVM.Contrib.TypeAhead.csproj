@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.1</TargetFrameworks>
+		<LangVersion>9.0</LangVersion>
+		<PackageId>DotVVM.Contrib.TypeAhead</PackageId>
+		<AssemblyName>DotVVM.Contrib.TypeAhead</AssemblyName>
+		<Description>The TypeAhead control for DotVVM made by DotVVM Contrib community.</Description>
+		<PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Scripts\typeahead.bundle.min.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Scripts\DotVVM.Contrib.TypeAhead.js" />
+		<EmbeddedResource Include="Scripts\typeahead.bundle.min.js" />
+		<EmbeddedResource Include="Styles\DotVVM.Contrib.TypeAhead.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+	</ItemGroup>
+
+</Project>

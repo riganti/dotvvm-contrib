@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AssemblyName>DotVVM.Contrib.FAIcon.CodeGenerator</AssemblyName>
+        <OutputPath>bin</OutputPath>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>DotVVM.Contrib.FAIcon.CodeGenerator</RootNamespace>
+        <TargetFramework>net6</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Assets\icons.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>

@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib", "DotVVM.Contrib\DotVVM.Contrib.csproj", "{3E6C2E46-18DB-47C8-94B8-8B447A6A9216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.EditableForm", "DotVVM.Contrib.EditableForm\DotVVM.Contrib.EditableForm.csproj", "{3E6C2E46-18DB-47C8-94B8-8B447A6A9216}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.Samples", "DotVVM.Contrib.Samples\DotVVM.Contrib.Samples.csproj", "{BEDB2964-D516-492B-AD08-9089F20AE84B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.EditableForm.Samples", "DotVVM.Contrib.EditableForm.Samples\DotVVM.Contrib.EditableForm.Samples.csproj", "{BEDB2964-D516-492B-AD08-9089F20AE84B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotVVM.Contrib.Tests", "DotVVM.Contrib.Tests\DotVVM.Contrib.Tests.csproj", "{14EF6655-DCED-41E1-A8E7-C242BF8F104B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Contrib.EditableForm.Tests", "DotVVM.Contrib.EditableForm.Tests\DotVVM.Contrib.EditableForm.Tests.csproj", "{14EF6655-DCED-41E1-A8E7-C242BF8F104B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

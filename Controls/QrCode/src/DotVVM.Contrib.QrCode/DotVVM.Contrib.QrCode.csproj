@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.1</TargetFrameworks>
+		<PackageId>DotVVM.Contrib.QrCode</PackageId>
+		<AssemblyName>DotVVM.Contrib.QrCode</AssemblyName>
+		<Description>The QrCode control for DotVVM made by DotVVM Contrib community.</Description>
+		<PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Scripts\jquery.qrcode.min.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Scripts\DotVVM.Contrib.QrCode.js" />
+		<EmbeddedResource Include="Styles\DotVVM.Contrib.QrCode.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+	</ItemGroup>
+
+</Project>

@@ -1,8 +1,0 @@
-﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample4ViewModel, DotVVM.Contrib.Samples
-@masterPage Views/_master.dotmaster
-
-    <dot:Content ContentPlaceHolderID="MainContent">
-        <dc:BootstrapDatepicker Date="{value: Date1}" Changed="{staticCommand: Changed="Changed"}" ID="dp1" />
-        <dot:Literal Text="{value: Changed}" ID="changed" />
-    </dot:Content>
-

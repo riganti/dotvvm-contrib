@@ -1,0 +1,9 @@
+﻿@viewModel DotVVM.Contrib.ControlName.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.ControlName.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <!-- make a sample usage of the control -->
+
+</dot:Content>
+

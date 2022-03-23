@@ -21,12 +21,10 @@ config.AddContribXYZConfiguration();
 
 * [BootstrapColorpicker](Controls/BootstrapColorpicker/readme.md)
 * [BootstrapDatepicker](Controls/BootstrapDatepicker/readme.md)
-* [CookieBar](Controls/CookieBar/readme.md)
 * [CkEditorMinimal](Controls/CkEditorMinimal/readme.md)
-* [CrystalReportViewer](Controls/CrystalReportViewer/readme.md)
+* [CookieBar](Controls/CookieBar/readme.md)
 * [EditableForm](Controls/EditableForm/readme.md)
 * [FAIcon](Controls/FAIcon/readme.md)
-* [FileUploadNoIframe](Controls/FileUploadNoIframe/readme.md)
 * [GoogleAnalyticsJavascript](Controls/GoogleAnalyticsJavascript/readme.md)
 * [GoogleMap](Controls/GoogleMap/readme.md)
 * [LoadablePanel](Controls/LoadablePanel/readme.md)
@@ -35,12 +33,9 @@ config.AddContribXYZConfiguration();
 * [PolicyView](Controls/PolicyView/readme.md)
 * [PolymorphTemplateSelector](Controls/PolymorphTemplateSelector/readme.md)
 * [QrCode](Controls/QrCode/readme.md)
-* [ReactBridge](Controls/ReactBridge/readme.md) (not working)
 * [Select2](Controls/Select2/readme.md)
 * [TemplateSelector](Controls/TemplateSelector/readme.md)
 * [TypeAhead](Controls/TypeAhead/readme.md)
-
-
 
 <br />
 

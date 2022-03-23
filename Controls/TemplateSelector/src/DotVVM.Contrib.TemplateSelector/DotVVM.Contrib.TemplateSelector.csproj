@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.1</TargetFrameworks>
+		<PackageId>DotVVM.Contrib.TemplateSelector</PackageId>
+		<AssemblyName>DotVVM.Contrib.TemplateSelector</AssemblyName>
+		<PackageVersion>2.4.0</PackageVersion>
+		<Description>The TemplateSelector control for DotVVM made by DotVVM Contrib community.</Description>
+		<PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+	</ItemGroup>
+
+</Project>

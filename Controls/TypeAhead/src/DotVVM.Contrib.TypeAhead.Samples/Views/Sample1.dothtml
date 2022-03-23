@@ -1,0 +1,38 @@
+﻿@viewModel DotVVM.Contrib.TypeAhead.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.TypeAhead.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <h2>List of strings</h2>
+    <p ID="section1">
+        <dc:TypeAhead DataSource="{value: CountryNames}" SelectedValue="{value: SelectedCountryName}" class="typeahead" />
+        <br />
+        Selected Value: <span class="result">{{value: SelectedCountryName}}</span>
+    </p>
+
+    <h2>List of objects</h2>
+    <p ID="section2">
+        <dc:TypeAhead DataSource="{value: Countries}" SelectedValue="{value: SelectedCountry}" ItemValueBinding={value: Id} ItemTextBinding="{value: Name}" />
+        <br />
+        Selected object: { Id: <span class="result">{{value: SelectedCountry}}</span>, Name: <span class="result">{{value: Countries.FirstOrDefault(c => c.Id == SelectedCountry).Name}}</span> }
+    </p>
+
+    <h2>List of objects with ItemTextBinding and ItemValueBinding</h2>
+    <p ID="section3">
+        <dc:TypeAhead DataSource="{value: Countries}" SelectedValue="{value: SelectedCountryId}" ItemTextBinding="{value: Name}" ItemValueBinding="{value: Id}" />
+        <br />
+        Selected object ID: <span class="result">{{value: SelectedCountryId}}</span>
+    </p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p ID="buttons">
+        <dot:Button Text="Add Item" Click="{command: AddCountry()}" />
+        <dot:Button Text="Change Country Name" Click="{command: ChangeCountryName()}" />
+        <dot:Button Text="Change Country Id" Click="{command: ChangeCountryId()}" />
+    </p>
+
+</dot:Content>
+

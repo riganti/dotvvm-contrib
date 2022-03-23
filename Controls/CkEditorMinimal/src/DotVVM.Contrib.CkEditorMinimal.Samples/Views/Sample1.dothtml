@@ -1,0 +1,12 @@
+﻿@viewModel DotVVM.Contrib.CkEditorMinimal.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.CkEditorMinimal.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <!-- make a sample usage of the control -->
+    <dc:CkEditorMinimal ID="CkEditorMinimal" Html="{value: Text}"></dc:CkEditorMinimal>
+
+
+    <p ID="text">{{value: Text}}</p>
+</dot:Content>
+

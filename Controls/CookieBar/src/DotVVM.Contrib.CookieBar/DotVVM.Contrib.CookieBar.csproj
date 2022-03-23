@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.1</TargetFrameworks>
+		<PackageId>DotVVM.Contrib.CookieBar</PackageId>
+		<AssemblyName>DotVVM.Contrib.CookieBar</AssemblyName>
+		<Description>The CookieBar control for DotVVM made by DotVVM Contrib community.</Description>
+		<PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="CookieBar.dotcontrol" />
+		<None Remove="Styles\DotVVM.Contrib.CookieBar.css" />
+		<None Remove="Styles\DotVVM.Contrib.CookieBar.min.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="CookieBar.dotcontrol">
+			<LogicalName>DotVVM.Contrib.CookieBar.CookieBar.dotcontrol</LogicalName>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Scripts\DotVVM.Contrib.CookieBar.js" />
+		<Content Include="Styles\DotVVM.Contrib.CookieBar.css" />
+		<EmbeddedResource Include="Styles\DotVVM.Contrib.CookieBar.min.css" />
+		<Content Include="Styles\DotVVM.Contrib.CookieBar.scss" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BuildWebCompiler" Version="1.12.405">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+		<PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+		<PackageReference Include="RecordException" Version="0.1.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resources\CookieTexts.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>CookieTexts.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\CookieTexts.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>CookieTexts.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+</Project>

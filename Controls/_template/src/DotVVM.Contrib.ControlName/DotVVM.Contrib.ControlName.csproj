@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>netstandard2.1</TargetFrameworks>
+	<PackageId>DotVVM.Contrib.ControlName</PackageId>
+	  <AssemblyName>DotVVM.Contrib.ControlName</AssemblyName>
+	  <Authors>DotVVM Contrib</Authors>
+    <Description>The ControlName control for DotVVM made by DotVVM Contrib community.</Description>
+    <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\DotVVM.Contrib.ControlName.js" />
+    <EmbeddedResource Include="Styles\DotVVM.Contrib.ControlName.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+  </ItemGroup>
+
+</Project>

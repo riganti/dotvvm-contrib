@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.1</TargetFrameworks>
+		<PackageId>DotVVM.Contrib.Select2</PackageId>
+		<AssemblyName>DotVVM.Contrib.Select2</AssemblyName>
+		<Description>The Select2 control for DotVVM made by DotVVM Contrib community.</Description>
+		<PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Scripts\DotVVM.Contrib.Select2.js" />
+		<EmbeddedResource Include="Styles\select2\select2.min.css" />
+		<EmbeddedResource Include="Scripts\select2\select2.min.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,9 @@
+﻿@viewModel DotVVM.Contrib.MultilevelMenu.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.MultilevelMenu.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <dc:MultilevelMenu DataSource="{resource: Menu}" Direction="Vertical" ID="multilevel-menu"/>
+
+</dot:Content>
+

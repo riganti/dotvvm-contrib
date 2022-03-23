@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net6.0</TargetFramework>
+	  <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="seleniumconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="seleniumconfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(MicrosoftNETTestSdkVersion)" />
+	  <PackageReference Include="xunit" Version="$(XunitVersion)" />
+	  <PackageReference Include="xunit.runner.visualstudio" Version="$(XunitVersion)">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Riganti.Selenium.xUnitIntegration" Version="$(RigantiSeleniumVersion)" />
+	  <PackageReference Include="Riganti.Selenium.AssertApi" Version="$(RigantiSeleniumVersion)" />
+  </ItemGroup>
+
+</Project>
