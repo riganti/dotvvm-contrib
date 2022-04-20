@@ -31,8 +31,8 @@
 		<PackageReference Include="BuildWebCompiler" Version="1.12.405">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
-		<PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+		<PackageReference Include="DotVVM" Version="4.0.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 		<PackageReference Include="RecordException" Version="0.1.2" />
 	</ItemGroup>
 

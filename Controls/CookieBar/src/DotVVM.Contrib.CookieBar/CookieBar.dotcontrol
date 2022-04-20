@@ -9,75 +9,76 @@
         <h3 InnerText="{resource: _control.Title}" />
         <p InnerText="{resource: _control.Description}" />
         <div class="dotvvm-contrib-cookie-bar__buttons">
-            <dot:LinkButton Click="{staticCommand: _js.Invoke("disableAllUnnecessaryCookiesAndSave")}"
-                            Text="{resource: _control.OnlyNecessaryLink}" />
-            <div>
-                <dot:Button ButtonTagName="button"
+            <dot:LinkButton ButtonTagName="button"
                             Text="{resource: _control.MoreOptionsButtonText}"
                             Click="{staticCommand: _js.Invoke("openDialog")}"
-                            class="button button--secondary button--background" />
+                            class="link" />
+            <div>
                 <dot:Button ButtonTagName="button"
                             Text="{resource: _control.AcceptAllButtonText}"
                             Click="{staticCommand: _js.Invoke("acceptAll")}"
                             class="button button--primary button--background" />
-
+                <dot:Button ButtonTagName="button"
+                            Click="{staticCommand: _js.Invoke("disableAllUnnecessaryCookiesAndSave")}"
+                            Text="{resource: _control.OnlyNecessaryLink}"
+                            class="button button--secondary button--background" />
             </div>
         </div>
     </div>
 
-    <div class="dotvvm-contrib-cookie-bar__overlay" style="display: none">
-        <div class="dotvvm-contrib-cookie-bar__dialog">
-            <div class="dotvvm-contrib-cookie-bar__header">
-                <h3 InnerText="{resource: _control.Title}" />
-                <p InnerText="{resource: _control.Description}" />
-            </div>
-            <div class="dotvvm-contrib-cookie-bar__body">
-                <div class="dotvvm-contrib-cookie-bar__content">
-                    <div class="dotvvm-contrib-cookie-bar__title">
-                        <h4 InnerText="{resource: _control.DialogSubtitle}" />
-                    </div>
-                    <div class="dotvvm-contrib-cookie-bar__options">
+    <dialog class="dotvvm-contrib-cookie-bar__dialog" id="consentDialog">
+        <div class="dotvvm-contrib-cookie-bar__header">
+            <h3 InnerText="{resource: _control.Title}" />
+            <p InnerText="{resource: _control.Description}" />
+        </div>
+        <div class="dotvvm-contrib-cookie-bar__body">
+            <div class="dotvvm-contrib-cookie-bar__content">
+                <div class="dotvvm-contrib-cookie-bar__title">
+                    <h4 InnerText="{resource: _control.DialogSubtitle}" />
+                </div>
+                <div class="dotvvm-contrib-cookie-bar__options">
+                    <details class="dotvvm-contrib-cookie-bar__details">
+                        <summary>
+                            <span class="dotvvm-contrib-cookie-bar__rule" InnerText="{resource: _control.NecessaryCookiesTitle}" />
+                            <small InnerText="{resource: _control.AlwaysAllowedText}" />
+                        </summary>
+                        <div class="dotvvm-contrib-cookie-bar__desc">
+                            <p innerText="{resource: _control.NecessaryCookiesDescription}" />
+                        </div>
+                    </details>
+                    <dot:Repeater DataSource="{value: _control.Rules}" RenderSettings.Mode="Server">
                         <details class="dotvvm-contrib-cookie-bar__details">
                             <summary>
-                                <span class="dotvvm-contrib-cookie-bar__rule" InnerText="{resource: _control.NecessaryCookiesTitle}" />
-                                <small InnerText="{resource: _control.AlwaysAllowedText}" />
+                                <span class="dotvvm-contrib-cookie-bar__rule" InnerText="{value: Title}" />
+                                <label class="toggle-button"
+                                       title="{resource: _control.AllowedText}"
+                                       data-key="{value: Key}"
+                                       data-cookie-name-regexes="{resource: CookieNameRegexes == null ? "" : string.Join(",", CookieNameRegexes)}"
+                                       data-title-true="{resource: _control.AllowedText}"
+                                       data-title-false="{resource: _control.DisallowedText}"
+                                       class="toggle-button--on">
+                                    <input type="checkbox" checked />
+                                </label>
                             </summary>
                             <div class="dotvvm-contrib-cookie-bar__desc">
-                                <p innerText="{resource: _control.NecessaryCookiesDescription}" />
+                                <div class="dotvvm-contrib-cookie-bar__desc">
+                                    <p innerText="{value: Description}" />
+                                </div>
                             </div>
                         </details>
-                        <dot:Repeater DataSource="{value: _control.Rules}" RenderSettings.Mode="Server">
-                            <details class="dotvvm-contrib-cookie-bar__details">
-                                <summary>
-                                    <span class="dotvvm-contrib-cookie-bar__rule" InnerText="{value: Title}" />
-                                    <label class="toggle-button"
-                                           title="{resource: _control.AllowedText}"
-                                           data-key="{value: Key}"
-                                           data-cookie-name-regexes="{resource: CookieNameRegexes == null ? "" : string.Join(",", CookieNameRegexes)}"
-                                           data-title-true="{resource: _control.AllowedText}"
-                                           data-title-false="{resource: _control.DisallowedText}"
-                                           class="toggle-button--on">
-                                        <input type="checkbox" checked />
-                                    </label>
-                                </summary>
-                                <div class="dotvvm-contrib-cookie-bar__desc">
-                                    <div class="dotvvm-contrib-cookie-bar__desc">
-                                        <p innerText="{value: Description}" />
-                                    </div>
-                                </div>
-                            </details>
-                        </dot:Repeater>
-                    </div>
+                    </dot:Repeater>
                 </div>
             </div>
-            <div class="dotvvm-contrib-cookie-bar__footer">
-                <dot:LinkButton Click="{staticCommand: _js.Invoke("disableAllUnnecessaryCookies")}"
-                                Text="{resource: _control.OnlyNecessaryLink}" />
-                <dot:Button ButtonTagName="button"
-                            Text="{resource: _control.SaveAndCloseButtonText}"
-                            Click="{staticCommand: _js.Invoke("saveAndCloseDialog")}"
-                            class="button button--primary button--background" />
-            </div>
         </div>
-    </div>
+        <div class="dotvvm-contrib-cookie-bar__footer">
+            <dot:Button ButtonTagName="button"
+                        Click="{staticCommand: _js.Invoke("disableAllUnnecessaryCookies")}"
+                        Text="{resource: _control.OnlyNecessaryLink}"
+                        class="button button--secondary button--background" />
+            <dot:Button ButtonTagName="button"
+                        Text="{resource: _control.SaveAndCloseButtonText}"
+                        Click="{staticCommand: _js.Invoke("saveAndCloseDialog")}"
+                        class="button button--primary button--background" />
+        </div>
+    </dialog>
 </div>

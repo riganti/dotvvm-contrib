@@ -20,7 +20,7 @@
 		<None Remove="dotvvm_serialized_config.json.tmp" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
+		<PackageReference Include="DotVVM.AspNetCore" Version="4.0.2" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\DotVVM.Contrib.CookieBar\DotVVM.Contrib.CookieBar.csproj" />
