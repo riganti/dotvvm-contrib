@@ -17,14 +17,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(MicrosoftNETTestSdkVersion)" />
-    <PackageReference Include="xunit" Version="$(XunitVersion)" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="$(XunitVersion)">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0-preview-20220401-08" />
+    <PackageReference Include="xunit" Version="2.4.2-pre.12" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Riganti.Selenium.xUnitIntegration" Version="$(RigantiSeleniumVersion)" />
-    <PackageReference Include="Riganti.Selenium.AssertApi" Version="$(RigantiSeleniumVersion)" />
+    <PackageReference Include="Riganti.Selenium.xUnitIntegration" Version="3.0.0-preview09-final" />
+    <PackageReference Include="Riganti.Selenium.AssertApi" Version="3.0.0-preview09-final" />
   </ItemGroup>
 
 </Project>
