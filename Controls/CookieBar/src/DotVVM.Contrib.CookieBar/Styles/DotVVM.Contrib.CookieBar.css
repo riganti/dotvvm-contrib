@@ -158,7 +158,7 @@
     .dotvvm-contrib-cookie-bar__desc > details {
       border-top: var(--border-width) solid var(--color-border); }
   .dotvvm-contrib-cookie-bar__pop-up {
-    --pop-up-max-width: 375px;
+    --pop-up-max-width: 425px;
     --pop-up-left: auto;
     --pop-up-right: 1rem;
     --pop-up-bottom: 1rem;
@@ -209,7 +209,7 @@
     align-items: center;
     gap: 1em; }
     .dotvvm-contrib-cookie-bar__buttons .button {
-      white-space: nowrap; }
+      white-space: pre-wrap; }
     .dotvvm-contrib-cookie-bar__buttons > a {
       text-decoration: underline;
       white-space: nowrap;
@@ -218,7 +218,7 @@
     .dotvvm-contrib-cookie-bar__buttons > div {
       display: flex;
       flex-flow: row nowrap;
-      align-items: center;
+      align-items: stretch;
       justify-content: stretch;
       gap: 1em; }
   .dotvvm-contrib-cookie-bar .toggle-button {
