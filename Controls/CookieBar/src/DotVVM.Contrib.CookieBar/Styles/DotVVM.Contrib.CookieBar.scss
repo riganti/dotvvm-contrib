@@ -20,6 +20,8 @@
     color: var(--color-text);
 
     &__dialog {
+        --dialog-display: none;
+        display: var(--dialog-display);
         width: calc(100% - 2em);
         max-width: 40em;
         max-height: 90vh;
@@ -32,7 +34,7 @@
         }
 
         &[open] {
-            display: grid;
+            --dialog-display: grid;
         }
 
         p {
