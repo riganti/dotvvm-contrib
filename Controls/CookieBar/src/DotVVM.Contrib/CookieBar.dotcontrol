@@ -15,18 +15,19 @@
                             class="link" />
             <div>
                 <dot:Button ButtonTagName="button"
-                            Text="{resource: _control.AcceptAllButtonText}"
-                            Click="{staticCommand: _js.Invoke("acceptAll")}"
-                            class="button button--primary button--background" />
-                <dot:Button ButtonTagName="button"
                             Click="{staticCommand: _js.Invoke("disableAllUnnecessaryCookiesAndSave")}"
                             Text="{resource: _control.OnlyNecessaryLink}"
                             class="button button--secondary button--background" />
+                <dot:Button ButtonTagName="button"
+                            Text="{resource: _control.AcceptAllButtonText}"
+                            Click="{staticCommand: _js.Invoke("acceptAll")}"
+                            class="button button--primary button--background" />
             </div>
         </div>
     </div>
 
-    <dialog class="dotvvm-contrib-cookie-bar__dialog" id="consentDialog">
+    <dialog class="dotvvm-contrib-cookie-bar__dialog"
+            id="consentDialog">
         <div class="dotvvm-contrib-cookie-bar__header">
             <h3 InnerText="{resource: _control.Title}" />
             <p InnerText="{resource: _control.Description}" />

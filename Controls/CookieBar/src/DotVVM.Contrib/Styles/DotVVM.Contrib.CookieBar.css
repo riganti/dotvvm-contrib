@@ -6,7 +6,6 @@
   --color-text--light: #707070;
   --color-border: #bababa;
   --color-hover: #ebebeb;
-  --color-overlay: rgba(0, 0, 0, 0.6);
   --color-success: #81bd00;
   --color-box-shadow: rgba(0, 0, 0, 0.3);
   --border-width: 1px;
@@ -16,29 +15,19 @@
   --transition-time: .25s;
   font-size: 16px;
   color: var(--color-text); }
-  .dotvvm-contrib-cookie-bar__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--color-overlay);
-    z-index: 9999; }
-    .dotvvm-contrib-cookie-bar__overlay * {
-      box-sizing: border-box; }
   .dotvvm-contrib-cookie-bar__dialog {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: grid;
+    --dialog-display: none;
+    display: var(--dialog-display);
     width: calc(100% - 2em);
     max-width: 40em;
     max-height: 90vh;
-    background: var(--color-background);
     border-radius: var(--dialog_border-radius);
     color: var(--color-text);
     overflow: hidden; }
+    .dotvvm-contrib-cookie-bar__dialog::backdrop {
+      background: rgba(0, 0, 0, 0.6); }
+    .dotvvm-contrib-cookie-bar__dialog[open] {
+      --dialog-display: grid; }
     .dotvvm-contrib-cookie-bar__dialog p {
       font-size: 1em; }
       @media only screen and (max-width: 425px) {
@@ -104,9 +93,9 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: right;
     padding: 1.5em 2em;
-    gap: .1em; }
+    gap: 1rem; }
     @media only screen and (max-width: 425px) {
       .dotvvm-contrib-cookie-bar__footer {
         padding: .75em 1em; } }
@@ -125,8 +114,13 @@
       border-bottom-width: 0; }
     .dotvvm-contrib-cookie-bar__details > summary {
       background-color: var(--color-background);
-      position: relative;
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
       padding: .9em 1em;
+      justify-content: space-between;
       height: 3em;
       overflow: hidden;
       cursor: pointer;
@@ -137,15 +131,6 @@
           height: 2.2em; } }
       .dotvvm-contrib-cookie-bar__details > summary:hover {
         --color-background: var(--color-hover); }
-      .dotvvm-contrib-cookie-bar__details > summary > .toggle-button, .dotvvm-contrib-cookie-bar__details > summary > small {
-        position: absolute;
-        top: 50%;
-        right: 1em;
-        transform: translateY(-50%);
-        z-index: 10; }
-        @media only screen and (max-width: 768px) {
-          .dotvvm-contrib-cookie-bar__details > summary > .toggle-button, .dotvvm-contrib-cookie-bar__details > summary > small {
-            right: .5em; } }
       .dotvvm-contrib-cookie-bar__details > summary > small {
         font-size: small;
         font-weight: 400;
@@ -154,18 +139,15 @@
           .dotvvm-contrib-cookie-bar__details > summary > small {
             font-size: .7em; } }
   .dotvvm-contrib-cookie-bar__rule {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     left: 2.5em;
     z-index: 10;
     font-size: 0.875em;
     font-weight: 600;
     gap: .8em;
-    white-space: nowrap; }
+    white-space: nowrap;
+    justify-self: flex-start; }
     @media only screen and (max-width: 768px) {
       .dotvvm-contrib-cookie-bar__rule {
-        left: 2em;
         font-size: .7em; } }
   .dotvvm-contrib-cookie-bar__desc {
     display: block;
@@ -178,20 +160,35 @@
     .dotvvm-contrib-cookie-bar__desc > details {
       border-top: var(--border-width) solid var(--color-border); }
   .dotvvm-contrib-cookie-bar__pop-up {
+    --pop-up-max-width: 375px;
+    --pop-up-left: auto;
+    --pop-up-right: 1rem;
+    --pop-up-bottom: 1rem;
     position: fixed;
-    bottom: 0;
-    left: 0;
+    bottom: var(--pop-up-bottom);
+    right: var(--pop-up-right);
+    left: var(--pop-up-left);
     display: var(--cookie-display);
     width: 100%;
     padding: 1.5em;
+    border-radius: var(--dialog_border-radius);
+    max-width: var(--pop-up-max-width);
+    width: 100%;
     background: var(--color-background);
     z-index: 9999;
     box-shadow: var(--dialog_box-shadow);
     gap: 1em;
     box-sizing: border-box; }
+    @media only screen and (max-width: 768px) {
+      .dotvvm-contrib-cookie-bar__pop-up {
+        --pop-up-max-width: 100%;
+        --pop-up-left: 1rem; } }
     @media only screen and (max-width: 425px) {
       .dotvvm-contrib-cookie-bar__pop-up {
-        padding: 1em; } }
+        padding: 1em;
+        --pop-up-left: 0;
+        --pop-up-right: 0;
+        --pop-up-bottom: 0; } }
     @media only screen and (max-width: 320px) {
       .dotvvm-contrib-cookie-bar__pop-up {
         gap: .5em; } }
@@ -212,8 +209,7 @@
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    gap: 1em;
-    justify-content: space-between; }
+    gap: 1em; }
     .dotvvm-contrib-cookie-bar__buttons .button {
       white-space: nowrap; }
     .dotvvm-contrib-cookie-bar__buttons > a {
@@ -225,7 +221,7 @@
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: stretch;
       gap: 1em; }
   .dotvvm-contrib-cookie-bar .toggle-button {
     --circle-size: calc(100% - 4px);
