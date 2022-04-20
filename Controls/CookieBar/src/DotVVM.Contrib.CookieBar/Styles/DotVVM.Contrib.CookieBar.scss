@@ -229,7 +229,7 @@
     }
     //PopUp
     &__pop-up {
-        --pop-up-max-width: 375px;
+        --pop-up-max-width: #{$width-mobile};
         --pop-up-left: auto;
         --pop-up-right: 1rem;
         --pop-up-bottom: 1rem;
@@ -294,7 +294,7 @@
         gap: 1em;
 
         .button {
-            white-space: nowrap;
+            white-space: pre-wrap;
         }
 
         > a {
@@ -307,7 +307,7 @@
         > div {
             display: flex;
             flex-flow: row nowrap;
-            align-items: center;
+            align-items: stretch;
             justify-content: stretch;
             gap: 1em;
         }
