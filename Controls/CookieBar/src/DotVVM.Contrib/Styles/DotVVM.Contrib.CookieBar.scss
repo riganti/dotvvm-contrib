@@ -8,7 +8,6 @@
     --color-text--light: hsl(0, 0%, 44%);
     --color-border: hsl(0, 0%, 73%);
     --color-hover: hsl(0, 0%, 92%);
-    --color-overlay: hsla(0, 0%, 0%, .6);
     --color-success: hsl(79, 100%, 37%);
     --color-box-shadow: hsla(0, 0%, 0%, .3);
     --border-width: 1px;
@@ -19,30 +18,21 @@
     font-size: 16px;
     color: var(--color-text);
 
-    &__overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: var(--color-overlay);
-        z-index: 9999;
-
-        * {
-            box-sizing: border-box;
-        }
-    }
-
     &__dialog {
-        @include center-item;
-        display: grid;
         width: calc(100% - 2em);
         max-width: 40em;
         max-height: 90vh;
-        background: var(--color-background);
         border-radius: var(--dialog_border-radius);
         color: var(--color-text);
         overflow: hidden;
+
+        &::backdrop {
+            background: hsla(0, 0%, 0%, .6);
+        }
+
+        &[open] {
+            display: grid;
+        }
 
         p {
             font-size: 1em;
@@ -138,9 +128,9 @@
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        justify-content: space-between;
+        justify-content: right;
         padding: 1.5em 2em;
-        gap: .1em;
+        gap: 1rem;
 
         @include res-max-mobile {
             padding: .75em 1em;
@@ -167,10 +157,18 @@
             border-bottom-width: 0;
         }
 
+        &[open] {
+        }
+
         > summary {
             background-color: var(--color-background);
-            position: relative;
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
             padding: .9em 1em;
+            justify-content: space-between;
             height: 3em;
             overflow: hidden;
             cursor: pointer;
@@ -183,18 +181,6 @@
 
             &:hover {
                 --color-background: var(--color-hover)
-            }
-
-            > .toggle-button, > small {
-                position: absolute;
-                top: 50%;
-                right: 1em;
-                transform: translateY(-50%);
-                z-index: 10;
-
-                @include res-max-tablet {
-                    right: .5em;
-                }
             }
 
             > small {
@@ -210,18 +196,15 @@
     }
 
     &__rule {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
         left: 2.5em;
         z-index: 10;
         font-size: 0.875em;
         font-weight: 600;
         gap: .8em;
         white-space: nowrap;
+        justify-self: flex-start;
 
         @include res-max-tablet {
-            left: 2em;
             font-size: .7em;
         }
     }
@@ -243,20 +226,36 @@
     }
     //PopUp
     &__pop-up {
+        --pop-up-max-width: 375px;
+        --pop-up-left: auto;
+        --pop-up-right: 1rem;
+        --pop-up-bottom: 1rem;
         position: fixed;
-        bottom: 0;
-        left: 0;
+        bottom: var(--pop-up-bottom);
+        right: var(--pop-up-right);
+        left: var(--pop-up-left);
         display: var(--cookie-display);
         width: 100%;
         padding: 1.5em;
+        border-radius: var(--dialog_border-radius);
+        max-width: var(--pop-up-max-width);
+        width: 100%;
         background: var(--color-background);
         z-index: 9999;
         box-shadow: var(--dialog_box-shadow);
         gap: 1em;
         box-sizing: border-box;
 
+        @include res-max-tablet {
+            --pop-up-max-width: 100%;
+            --pop-up-left: 1rem;
+        }
+
         @include res-max-mobile {
             padding: 1em;
+            --pop-up-left: 0;
+            --pop-up-right: 0;
+            --pop-up-bottom: 0;
         }
 
         @include res-max-mobile-small {
@@ -290,7 +289,6 @@
         flex-flow: row wrap;
         align-items: center;
         gap: 1em;
-        justify-content: space-between;
 
         .button {
             white-space: nowrap;
@@ -307,7 +305,7 @@
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: stretch;
             gap: 1em;
         }
     }
