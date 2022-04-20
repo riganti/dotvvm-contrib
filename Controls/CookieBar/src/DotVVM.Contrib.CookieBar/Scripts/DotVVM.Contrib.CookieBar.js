@@ -7,8 +7,8 @@ class CookieBar {
 
         const container = context.elements[0].parentElement;
         this.popupElement = container.querySelector(".dotvvm-contrib-cookie-bar__pop-up");
-        this.overlayElement = container.querySelector(".dotvvm-contrib-cookie-bar__overlay");
-        this.checkboxes = this.overlayElement.querySelectorAll("input[type=checkbox]");
+        this.dialogElement = container.querySelector("#consentDialog");
+        this.checkboxes = this.dialogElement.querySelectorAll("input[type=checkbox]");
 
         if (!window.localStorage.getItem("cookieconsent")) {
             this.popupElement.classList.add("dotvvm-contrib-cookie-bar__pop-up--open");
@@ -74,7 +74,7 @@ class CookieBar {
     openDialog() {
         this.hidePopup();
 
-        this.overlayElement.style.display = "block";
+        this.dialogElement.showModal();
         document.querySelector('html').style.overflow = "hidden";
     }
 
@@ -114,7 +114,7 @@ class CookieBar {
     saveAndCloseDialog() {
         this.save();
 
-        this.overlayElement.style.display = "none";
+        this.dialogElement.close();
         document.querySelector('html').style.overflow = "";
     }
 
