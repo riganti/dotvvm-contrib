@@ -15,11 +15,21 @@
     },
     "sass": {
       "autoPrefix": "",
-      "loadPaths": [],
-      "style": 0,
-      "precision": 10,
-      "quiet": true,
-      "quietDeps": true,
+      "loadPaths": "",
+      "style": "expanded",
+      "relativeUrls": true,
+      "sourceMap": false
+    },
+    "nodesass": {
+      "autoPrefix": "",
+      "includePath": "",
+      "indentType": "space",
+      "indentWidth": 2,
+      "outputStyle": "nested",
+      "precision": 5,
+      "relativeUrls": true,
+      "sourceMapRoot": "",
+      "lineFeed": "",
       "sourceMap": false
     },
     "stylus": {
