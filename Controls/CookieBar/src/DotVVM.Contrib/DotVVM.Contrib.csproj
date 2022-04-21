@@ -34,12 +34,6 @@
 	<ItemGroup>
 		<EmbeddedResource Include="Scripts\DotVVM.Contrib.CookieBar.js" />
 		<Content Include="Styles\DotVVM.Contrib.CookieBar.scss" />
-		<Content Include="Styles\DotVVM.Contrib.CookieBar.css">
-			<DependentUpon>Styles\DotVVM.Contrib.CookieBar.scss</DependentUpon>
-		</Content>
-		<EmbeddedResource Include="Styles\DotVVM.Contrib.CookieBar.min.css">
-			<DependentUpon>Styles\DotVVM.Contrib.CookieBar.css</DependentUpon>
-		</EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
