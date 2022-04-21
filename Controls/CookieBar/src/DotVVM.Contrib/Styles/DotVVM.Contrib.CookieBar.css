@@ -18,6 +18,13 @@
 }
 .dotvvm-contrib-cookie-bar__dialog {
   --dialog-display: none;
+<<<<<<< HEAD
+=======
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+>>>>>>> 1de64c1 (css updated)
   display: var(--dialog-display);
   width: calc(100% - 2em);
   max-width: 40em;
@@ -232,16 +239,28 @@
 }
 @media only screen and (max-width: 768px) {
   .dotvvm-contrib-cookie-bar__pop-up {
+<<<<<<< HEAD
     --pop-up-max-width: 100%;
+=======
+    --pop-up-max-width: calc(100% - 2rem);
+>>>>>>> 1de64c1 (css updated)
     --pop-up-left: 1rem;
   }
 }
 @media only screen and (max-width: 425px) {
   .dotvvm-contrib-cookie-bar__pop-up {
+<<<<<<< HEAD
     padding: 1em;
     --pop-up-left: 0;
     --pop-up-right: 0;
     --pop-up-bottom: 0;
+=======
+    --pop-up-max-width: 100%;
+    --pop-up-left: 0;
+    --pop-up-right: 0;
+    --pop-up-bottom: 0;
+    padding: 1em;
+>>>>>>> 1de64c1 (css updated)
   }
 }
 @media only screen and (max-width: 320px) {
@@ -273,6 +292,10 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+<<<<<<< HEAD
+=======
+  justify-content: space-between;
+>>>>>>> 1de64c1 (css updated)
   gap: 1em;
 }
 .dotvvm-contrib-cookie-bar__buttons .button {
@@ -285,10 +308,17 @@
   font-size: 0.8em;
 }
 .dotvvm-contrib-cookie-bar__buttons > div {
+<<<<<<< HEAD
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
   justify-content: stretch;
+=======
+  display: inline-grid;
+  align-items: stretch;
+  justify-content: stretch;
+  grid-template-columns: repeat(2, minmax(1rem, 1fr));
+>>>>>>> 1de64c1 (css updated)
   gap: 1em;
 }
 .dotvvm-contrib-cookie-bar .toggle-button {
