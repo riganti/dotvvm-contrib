@@ -307,10 +307,10 @@
         }
 
         > div {
-            display: flex;
-            flex-flow: row nowrap;
+            display: inline-grid;
             align-items: stretch;
             justify-content: stretch;
+            grid-template-columns: repeat(2, minmax(1rem, 1fr));
             gap: 1em;
         }
     }
