@@ -1,4 +1,5 @@
-﻿@import 'Base/mixins';
+﻿
+@import 'Base/mixins';
 
 .dotvvm-contrib-cookie-bar {
     --cookie-display: none;
@@ -249,15 +250,16 @@
         box-sizing: border-box;
 
         @include res-max-tablet {
-            --pop-up-max-width: 100%;
+            --pop-up-max-width: calc(100% - 2rem);
             --pop-up-left: 1rem;
         }
 
         @include res-max-mobile {
-            padding: 1em;
+            --pop-up-max-width: 100%;
             --pop-up-left: 0;
             --pop-up-right: 0;
             --pop-up-bottom: 0;
+            padding: 1em;
         }
 
         @include res-max-mobile-small {
@@ -290,6 +292,7 @@
         display: flex;
         flex-flow: row wrap;
         align-items: center;
+        justify-content: space-between;
         gap: 1em;
 
         .button {

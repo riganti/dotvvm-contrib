@@ -232,16 +232,17 @@
 }
 @media only screen and (max-width: 768px) {
   .dotvvm-contrib-cookie-bar__pop-up {
-    --pop-up-max-width: 100%;
+    --pop-up-max-width: calc(100% - 2rem);
     --pop-up-left: 1rem;
   }
 }
 @media only screen and (max-width: 425px) {
   .dotvvm-contrib-cookie-bar__pop-up {
-    padding: 1em;
+    --pop-up-max-width: 100%;
     --pop-up-left: 0;
     --pop-up-right: 0;
     --pop-up-bottom: 0;
+    padding: 1em;
   }
 }
 @media only screen and (max-width: 320px) {
@@ -273,6 +274,7 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  justify-content: space-between;
   gap: 1em;
 }
 .dotvvm-contrib-cookie-bar__buttons .button {

@@ -17,11 +17,11 @@
                 <dot:Button ButtonTagName="button"
                             Click="{staticCommand: _js.Invoke("disableAllUnnecessaryCookiesAndSave")}"
                             Text="{resource: _control.OnlyNecessaryLink}"
-                            class="button button--secondary button--background" />
+                            class="button button--secondary button--background button--small" />
                 <dot:Button ButtonTagName="button"
                             Text="{resource: _control.AcceptAllButtonText}"
                             Click="{staticCommand: _js.Invoke("acceptAll")}"
-                            class="button button--primary button--background" />
+                            class="button button--primary button--background button--small" />
             </div>
         </div>
     </div>
