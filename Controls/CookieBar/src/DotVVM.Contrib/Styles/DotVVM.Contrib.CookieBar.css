@@ -18,6 +18,10 @@
 }
 .dotvvm-contrib-cookie-bar__dialog {
   --dialog-display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: var(--dialog-display);
   width: calc(100% - 2em);
   max-width: 40em;
