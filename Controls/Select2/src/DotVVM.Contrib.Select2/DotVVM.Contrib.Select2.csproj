@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.1</TargetFrameworks>
+		<TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
 		<PackageId>DotVVM.Contrib.Select2</PackageId>
 		<AssemblyName>DotVVM.Contrib.Select2</AssemblyName>
 		<Description>The Select2 control for DotVVM made by DotVVM Contrib community.</Description>

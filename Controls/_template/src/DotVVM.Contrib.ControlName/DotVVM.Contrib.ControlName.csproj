@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>netstandard2.1</TargetFrameworks>
+	  <TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
 	<PackageId>DotVVM.Contrib.ControlName</PackageId>
 	  <AssemblyName>DotVVM.Contrib.ControlName</AssemblyName>
 	  <Authors>DotVVM Contrib</Authors>

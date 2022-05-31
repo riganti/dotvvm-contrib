@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.1</TargetFrameworks>
+		<TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
 		<LangVersion>9.0</LangVersion>
 		<PackageId>DotVVM.Contrib.TypeAhead</PackageId>
 		<AssemblyName>DotVVM.Contrib.TypeAhead</AssemblyName>
