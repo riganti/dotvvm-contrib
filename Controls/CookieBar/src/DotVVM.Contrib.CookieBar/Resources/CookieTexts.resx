@@ -175,6 +175,6 @@
     <value>We use these cookies to measure, collect, analyse and report how users interact with our sites to better understand their behavior. Thanks to this, we can improve the site and provide better experience. The analytics service is provided by Smartlook.</value>
   </data>
   <data name="OnlyNecessaryLink" xml:space="preserve">
-    <value>Allow necessary cookies only</value>
+    <value>Necessary only</value>
   </data>
 </root>
