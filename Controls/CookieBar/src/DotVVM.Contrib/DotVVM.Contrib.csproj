@@ -23,6 +23,7 @@
 
 	<ItemGroup>
 		<None Remove="CookieBar.dotcontrol" />
+		<None Remove="Styles\DotVVM.Contrib.CookieBar.min.css" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -33,6 +34,7 @@
 
 	<ItemGroup>
 		<EmbeddedResource Include="Scripts\DotVVM.Contrib.CookieBar.js" />
+		<EmbeddedResource Include="Styles\DotVVM.Contrib.CookieBar.min.css" />
 		<Content Include="Styles\DotVVM.Contrib.CookieBar.scss" />
 	</ItemGroup>
 
