@@ -151,7 +151,7 @@
     <value>Google Analytics</value>
   </data>
   <data name="RuleTitle_Necessary" xml:space="preserve">
-    <value>Nezbytná cookies</value>
+    <value>Nezbytné cookies</value>
   </data>
   <data name="AlwaysAllowed" xml:space="preserve">
     <value>Vždy povoleno</value>
@@ -175,6 +175,6 @@
     <value>Tyto cookies používáme k měření, shromažďování a analýze toho, jak uživatelé interagují s našimi stránkami, abychom lépe porozuměli jejich chování. Díky těmto informacím můžeme web neustále vylepšovat a poskytovat kvalitnější služby. Tyto analytické služby jsou poskytovány společností Smartlook.</value>
   </data>
   <data name="OnlyNecessaryLink" xml:space="preserve">
-    <value>Povolit jen nezbytné cookies</value>
+    <value>Jen nezbytné</value>
   </data>
 </root>

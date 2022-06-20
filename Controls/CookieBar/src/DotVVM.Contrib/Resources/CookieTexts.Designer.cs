@@ -115,7 +115,7 @@ namespace DotVVM.Contrib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Allow necessary cookies only.
+        ///   Looks up a localized string similar to Necessary only.
         /// </summary>
         public static string OnlyNecessaryLink {
             get {
