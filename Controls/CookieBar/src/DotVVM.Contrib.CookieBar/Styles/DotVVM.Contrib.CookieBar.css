@@ -176,6 +176,9 @@
 .dotvvm-contrib-cookie-bar__details > summary:hover {
   --color-background: var(--color-hover) ;
 }
+.dotvvm-contrib-cookie-bar__details > summary::-webkit-details-marker {
+  display: none;
+}
 .dotvvm-contrib-cookie-bar__details > summary > small {
   font-size: small;
   font-weight: 400;

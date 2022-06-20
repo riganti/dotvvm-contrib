@@ -190,6 +190,10 @@
                 --color-background: var(--color-hover)
             }
 
+            &::-webkit-details-marker {
+                display: none;
+            }
+
             > small {
                 font-size: small;
                 font-weight: 400;
