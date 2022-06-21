@@ -182,7 +182,7 @@
             cursor: pointer;
             transition: background-color var(--transition-time) ease-in-out;
 
-            @include res-max-tablet {
+            @include res-max-mobile {
                 padding: .5em;
                 height: 2.2em;
             }
@@ -217,8 +217,8 @@
         gap: .8em;
         align-items: center;
 
-        @include res-max-tablet {
-            font-size: .7em;
+        @include res-max-mobile {
+            font-size: 14px;
         }
 
         &:before {
@@ -238,6 +238,10 @@
             font-size: 16px;
             margin-top: 1em;
             margin-bottom: 0;
+
+            @include res-max-mobile {
+                font-size: 14px;
+            }
         }
 
         > details {
