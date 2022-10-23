@@ -1,0 +1,15 @@
+﻿@viewModel DotVVM.Contrib.HeroIcon.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.HeroIcon.Samples
+@masterPage Views/_master.dotmaster
+@import DotVVM.Contrib.HeroIcon
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <!-- make a sample usage of the control -->
+    <h1>Outline</h1>
+    <dc:HeroIcon ID="outline" Icon="arrows_pointing_in" />
+
+    <h1>Mini</h1>
+    <dc:HeroIcon ID="mini" Icon="archive_box" VisualStyle="Mini" />
+
+</dot:Content>
+
