@@ -1,11 +1,11 @@
 ﻿using DotVVM.Contrib.HeroIcon.CodeGenerator;
 
 var heroIconCSRoot = @"..\..\..\..\DotVVM.Contrib.HeroIcon\";
-var outlineIconsPath = @"Assets\24\outline";
-var solidIconsPath = @"Assets\24\solid";
-var miniIconsPath = @"Assets\20\solid";
+var outlineIconsNamespace = "DotVVM.Contrib.HeroIcon.CodeGenerator.node_modules.heroicons._24.outline";
+var solidIconsNamespace = "DotVVM.Contrib.HeroIcon.CodeGenerator.node_modules.heroicons._24.solid";
+var miniIconsNamespace = "DotVVM.Contrib.HeroIcon.CodeGenerator.node_modules.heroicons._20.solid";
 
 CodeGenerator.GenerateIcons(Path.Combine(heroIconCSRoot, "HeroIcons.cs"),
-    outlineIconsPath,
-    solidIconsPath,
-    miniIconsPath);
+    outlineIconsNamespace,
+    solidIconsNamespace,
+    miniIconsNamespace);

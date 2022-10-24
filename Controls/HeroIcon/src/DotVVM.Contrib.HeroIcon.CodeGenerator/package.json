@@ -1,0 +1,9 @@
+{
+  "name": "dotvvm-contrib-heroicon-codegenerator",
+  "version": "1.0.0",
+  "author": "Miroslav Adamec",
+  "license": "MIT",
+  "dependencies": {
+    "heroicons": "^2.0.12"
+  }
+}
