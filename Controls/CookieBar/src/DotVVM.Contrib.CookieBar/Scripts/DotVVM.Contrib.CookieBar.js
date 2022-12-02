@@ -53,6 +53,10 @@ class CookieBar {
                 }
             }
         };
+
+        this.dialogElement.addEventListener('cancel', () => {
+            document.querySelector('html').style.overflow = "initial";
+        });
     }
 
     acceptAll() {
