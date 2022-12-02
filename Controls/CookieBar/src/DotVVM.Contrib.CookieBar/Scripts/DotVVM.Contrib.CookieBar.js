@@ -53,6 +53,10 @@ class CookieBar {
                 }
             }
         };
+
+        this.dialogElement.addEventListener('cancel', () => {
+            this.setDocumentOverflow('initial');
+        });
     }
 
     acceptAll() {
@@ -75,7 +79,7 @@ class CookieBar {
         this.hidePopup();
 
         this.dialogElement.showModal();
-        document.querySelector('html').style.overflow = "hidden";
+        this.setDocumentOverflow('hidden');
     }
 
     disableAllUnnecessaryCookies() {
@@ -115,7 +119,7 @@ class CookieBar {
         this.save();
 
         this.dialogElement.close();
-        document.querySelector('html').style.overflow = "";
+        this.setDocumentOverflow('initial');
     }
 
     save() {
@@ -136,5 +140,9 @@ class CookieBar {
         gtag("consent", "update", consents);
 
         window.localStorage.setItem("cookieconsent", true);
+    }
+
+    setDocumentOverflow(string) {
+        document.querySelector('html').style.overflow = string;
     }
 }
