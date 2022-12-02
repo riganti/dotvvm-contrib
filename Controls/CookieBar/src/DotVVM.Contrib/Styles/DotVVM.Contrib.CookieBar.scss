@@ -265,7 +265,7 @@
         max-width: var(--pop-up-max-width);
         width: 100%;
         background: var(--color-background);
-        z-index: 9999;
+        z-index: 999;
         box-shadow: var(--dialog_box-shadow);
         gap: 1em;
         box-sizing: border-box;
@@ -345,6 +345,7 @@
         width: 40px;
         min-width: 40px;
         height: 24px;
+        font-size: 0;
         background-color: var(--toggle-bg);
         border-radius: 12px;
         transition: background-color var(--transition-time) ease-in-out;

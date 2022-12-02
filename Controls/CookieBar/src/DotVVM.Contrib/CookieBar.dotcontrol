@@ -51,14 +51,13 @@
                         <details class="dotvvm-contrib-cookie-bar__details">
                             <summary>
                                 <span class="dotvvm-contrib-cookie-bar__rule" InnerText="{value: Title}" />
-                                <label class="toggle-button"
+                                <label class="toggle-button toggle-button--on"
                                        title="{resource: _control.AllowedText}"
                                        data-key="{value: Key}"
                                        data-cookie-name-regexes="{resource: CookieNameRegexes == null ? "" : string.Join(",", CookieNameRegexes)}"
                                        data-title-true="{resource: _control.AllowedText}"
-                                       data-title-false="{resource: _control.DisallowedText}"
-                                       class="toggle-button--on">
-                                    <input type="checkbox" checked />
+                                       data-title-false="{resource: _control.DisallowedText}">
+                                    <input type="checkbox" aria-label="" checked />
                                 </label>
                             </summary>
                             <div class="dotvvm-contrib-cookie-bar__desc">
