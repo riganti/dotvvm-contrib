@@ -27,6 +27,7 @@ config.AddContribXYZConfiguration();
 * [FAIcon](Controls/FAIcon/readme.md)
 * [GoogleAnalyticsJavascript](Controls/GoogleAnalyticsJavascript/readme.md)
 * [GoogleMap](Controls/GoogleMap/readme.md)
+* [HeroIcon](Controls/HeroIcon/readme.md)
 * [LoadablePanel](Controls/LoadablePanel/readme.md)
 * [MultilevelMenu](Controls/MultilevelMenu/readme.md)
 * [NoUiSlider](Controls/NoUiSlider/readme.md)
