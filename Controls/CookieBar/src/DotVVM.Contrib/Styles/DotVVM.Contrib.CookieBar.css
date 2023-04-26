@@ -27,7 +27,7 @@
   overflow: hidden;
 }
 .dotvvm-contrib-cookie-bar__dialog::backdrop {
-  background: rgba(0, 0, 0, 0.6);
+  background: hsla(0deg, 0%, 0%, 0.6);
 }
 .dotvvm-contrib-cookie-bar__dialog[open] {
   --dialog-display: grid;
@@ -170,7 +170,7 @@
   cursor: pointer;
   transition: background-color var(--transition-time) ease-in-out;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 425px) {
   .dotvvm-contrib-cookie-bar__details > summary {
     padding: 0.5em;
     height: 2.2em;
@@ -202,9 +202,9 @@
   gap: 0.8em;
   align-items: center;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 425px) {
   .dotvvm-contrib-cookie-bar__rule {
-    font-size: 0.7em;
+    font-size: 14px;
   }
 }
 .dotvvm-contrib-cookie-bar__rule:before {
@@ -222,6 +222,11 @@
   font-size: 16px;
   margin-top: 1em;
   margin-bottom: 0;
+}
+@media only screen and (max-width: 425px) {
+  .dotvvm-contrib-cookie-bar__desc > p {
+    font-size: 14px;
+  }
 }
 .dotvvm-contrib-cookie-bar__desc > details {
   border-top: var(--border-width) solid var(--color-border);
@@ -242,10 +247,11 @@
   max-width: var(--pop-up-max-width);
   width: 100%;
   background: var(--color-background);
-  z-index: 9999;
+  z-index: 99999;
   box-shadow: var(--dialog_box-shadow);
   gap: 1em;
   box-sizing: border-box;
+  isolation: isolate;
 }
 @media only screen and (max-width: 768px) {
   .dotvvm-contrib-cookie-bar__pop-up {
@@ -319,6 +325,7 @@
   width: 40px;
   min-width: 40px;
   height: 24px;
+  font-size: 0;
   background-color: var(--toggle-bg);
   border-radius: 12px;
   transition: background-color var(--transition-time) ease-in-out;
