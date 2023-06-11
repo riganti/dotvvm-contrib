@@ -109,6 +109,7 @@ namespace DotVVM.Contrib.PolymorphTemplateSelector
             {
                 var placeholder = new PlaceHolder();
                 placeholder.SetValue(Internal.PathFragmentProperty, template.GetValueBinding(DataContextProperty).GetKnockoutBindingExpression(this));
+                placeholder.SetDataContextType(template.GetDataContextType());
                 template.ContentTemplate.BuildContent(context, placeholder);
                 Children.Add(placeholder);
             }
