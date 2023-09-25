@@ -33,5 +33,5 @@ which is displayed, and the `ValueMember` specified the property of the object w
 The usage is exactly the same as built-in `ComboBox` control. The rendered select can viewed in the [Select2 Docs](https://select2.org/getting-started/basic-usage#single-select-boxes).
 
 ```DOTHTML
-<dc:Select2Single DataSource="{value: Cities}" SelectedValue="{value: SelectedCityId}" DisplayMember="Name" ValueMember="Id" />
+<dc:Select2Single DataSource="{value: Cities}" SelectedValue="{value: SelectedCityId}" DisplayMember="Name" ValueMember="Id" Placeholder="Example Placeholder" AllowClear="true" />
 ```

@@ -1,4 +1,5 @@
-﻿using DotVVM.Framework.Controls;
+﻿using DotVVM.Framework.Binding;
+using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
 namespace DotVVM.Contrib.Select2
@@ -8,6 +9,24 @@ namespace DotVVM.Contrib.Select2
     /// </summary>
     public class Select2Single : SelectHtmlControlBase
     {
+        public bool AllowClear
+        {
+            get => (bool)GetValue(AllowClearProperty);
+            set => SetValue(AllowClearProperty, value);
+        }
+
+        public static readonly DotvvmProperty AllowClearProperty
+            = DotvvmProperty.Register<bool, Select2Single>(c => c.AllowClear, true);
+
+        public string Placeholder
+        {
+            get => (string)GetValue(PlaceholderProperty);
+            set => SetValue(PlaceholderProperty, value);
+        }
+
+        public static readonly DotvvmProperty PlaceholderProperty
+            = DotvvmProperty.Register<string, Select2Single>(c => c.Placeholder, "");
+
         protected override void OnPreRender(IDotvvmRequestContext context)
         {
             context.ResourceManager.AddRequiredResource("dotvvm.contrib.Select2");
@@ -19,7 +38,11 @@ namespace DotVVM.Contrib.Select2
         {
             base.AddAttributesToRender(writer, context);
 
-            writer.AddKnockoutDataBind("dotvvm-contrib-Select2", this, SelectedValueProperty, renderEvenInServerRenderingMode: true);
+            var group = new KnockoutBindingGroup();
+            group.AddSimpleBinding("value", this, SelectedValueProperty);
+            group.AddSimpleBinding("Placeholder", this, PlaceholderProperty);
+            group.AddSimpleBinding("AllowClear", this, AllowClearProperty);
+            writer.AddKnockoutDataBind("dotvvm-contrib-Select2", group);
         }
     }
 }
