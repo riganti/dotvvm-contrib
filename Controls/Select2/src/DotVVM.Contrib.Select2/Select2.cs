@@ -1,4 +1,5 @@
-﻿using DotVVM.Framework.Controls;
+﻿using DotVVM.Framework.Binding;
+using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
 
 namespace DotVVM.Contrib.Select2
@@ -8,6 +9,15 @@ namespace DotVVM.Contrib.Select2
     /// </summary>
     public class Select2 : MultiSelectHtmlControlBase
     {
+        public string Placeholder
+        {
+            get => (string)GetValue(PlaceholderProperty);
+            set => SetValue(PlaceholderProperty, value);
+        }
+
+        public static readonly DotvvmProperty PlaceholderProperty
+            = DotvvmProperty.Register<string, Select2>(c => c.Placeholder, "");
+
         protected override void OnPreRender(IDotvvmRequestContext context)
         {
             context.ResourceManager.AddRequiredResource("dotvvm.contrib.Select2");
@@ -19,7 +29,10 @@ namespace DotVVM.Contrib.Select2
         {
             base.AddAttributesToRender(writer, context);
 
-            writer.AddKnockoutDataBind("dotvvm-contrib-Select2", this, SelectedValuesProperty, renderEvenInServerRenderingMode: true);
+            var group = new KnockoutBindingGroup();
+            group.AddSimpleBinding("value", this, SelectedValuesProperty);
+            group.AddSimpleBinding("Placeholder", this, PlaceholderProperty);
+            writer.AddKnockoutDataBind("dotvvm-contrib-Select2", group);
         }
     }
 }
