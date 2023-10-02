@@ -30,8 +30,8 @@ namespace DotVVM.Contrib.Select2
             base.AddAttributesToRender(writer, context);
 
             var group = new KnockoutBindingGroup();
-            group.AddSimpleBinding("value", this, SelectedValuesProperty);
-            group.AddSimpleBinding("Placeholder", this, PlaceholderProperty);
+            group.Add("value", this, SelectedValuesProperty);
+            group.Add("Placeholder", this, PlaceholderProperty);
             writer.AddKnockoutDataBind("dotvvm-contrib-Select2", group);
         }
     }
