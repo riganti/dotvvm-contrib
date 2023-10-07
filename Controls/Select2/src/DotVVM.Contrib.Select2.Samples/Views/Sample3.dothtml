@@ -4,7 +4,7 @@
 <dot:Content ContentPlaceHolderID="MainContent">
 
     <p>
-        <dc:Select2Single DataSource="{value: Letters}"
+        <dc:Select2Single Placeholder="Example Placeholder" AllowClear="true" DataSource="{value: Letters}"
                           SelectedValue="{value: SelectedLetter}"
                           ItemTextBinding="{value: Letter}"
                           ItemValueBinding="{value: Id}"
