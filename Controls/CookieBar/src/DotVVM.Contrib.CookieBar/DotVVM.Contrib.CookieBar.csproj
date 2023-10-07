@@ -6,6 +6,7 @@
 		<AssemblyName>DotVVM.Contrib.CookieBar</AssemblyName>
 		<Description>The CookieBar control for DotVVM made by DotVVM Contrib community.</Description>
 		<PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+		<BuildInParallel>false</BuildInParallel> 
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -26,10 +27,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BuildWebCompiler2022" Version="1.14.9.1" />
-		<PackageReference Include="DotVVM" Version="4.0.7" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-		<PackageReference Include="RecordException" Version="0.1.2" />
+		<PackageReference Include="BuildWebCompiler2022" Version="1.14.10" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
 	</ItemGroup>
 
 	<ItemGroup>
