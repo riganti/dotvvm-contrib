@@ -1,0 +1,18 @@
+﻿@viewModel DotVVM.Contrib.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+
+    <dot:Repeater DataSource={value: Htmls}>
+        <SeparatorTemplate><hr /></SeparatorTemplate>
+        <p><dc:SanitizedHtmlLiteral Html={value: _this} /></p>
+        <dot:TextBox Type=Multiline Text={value: _this} UpdateTextAfterKeydown />
+    </dot:Repeater>
+
+
+
+    <!-- <dot:Button Text=Refresh Click={command: ;} />z -->
+    <dot:Button Text='Load more' Click={staticCommand: Htmls = Sample1ViewModel.MoreHtmls()} />
+</dot:Content>
+
