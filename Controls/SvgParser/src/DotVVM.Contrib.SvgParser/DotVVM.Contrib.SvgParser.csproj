@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
+	<PackageId>DotVVM.Contrib.SvgParser</PackageId>
+	  <AssemblyName>DotVVM.Contrib.SvgParser</AssemblyName>
+	  <Authors>DotVVM Contrib</Authors>
+    <Description>The SvgParser control for DotVVM made by DotVVM Contrib community.</Description>
+    <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\DotVVM.Contrib.SvgParser.js~RF12cd9b3.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\DotVVM.Contrib.SvgParser.js" />
+    <EmbeddedResource Include="Styles\DotVVM.Contrib.SvgParser.css" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Include="DotVVM" Version="4.3.4" />
+  </ItemGroup>
+
+</Project>
