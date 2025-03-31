@@ -118,43 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Title" xml:space="preserve">
-    <value>Informace o použití cookies</value>
+    <value>Informationen über Cookies</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Tento web používá cookies k analýze návštěvnosti a provozu, k personalizaci obsahu a reklam nebo k rozšíření obsahu o funkcionality poskytované sociálními sítěmi. Tyto informace jsou poskytovány třetím stranám (sociálním sítím, reklamním a analytickým službám), které je mohou kombinovat s ostatními informacemi, které jste jim poskytnuli jinou cestou nebo při využívání jejich služeb.</value>
+    <value>Wir verwenden Cookies, um unseren Verkehr zu analysieren, Inhalte und Anzeigen zu personalisieren und einige Social-Media-Funktionen bereitzustellen. Wir teilen auch Informationen über Ihre Nutzung unserer Website mit unseren Social-Media-, Werbe- und Analysepartnern, die diese möglicherweise mit anderen Informationen kombinieren, die Sie ihnen bereitgestellt haben oder die sie aus Ihrer Nutzung ihrer Dienste gesammelt haben.</value>
   </data>
   <data name="Btn_MoreOptions" xml:space="preserve">
-    <value>Upravit nastavení</value>
+    <value>Optionen bearbeiten</value>
   </data>
   <data name="Btn_AcceptAll" xml:space="preserve">
-    <value>Povolit vše</value>
+    <value>Alle Cookies zulassen</value>
   </data>
   <data name="Dialog_Subtitle" xml:space="preserve">
-    <value>Zvolte, která cookies chcete povolit</value>
+    <value>Wählen Sie aus, welche Cookies Sie aktivieren möchten</value>
   </data>
   <data name="Btn_SaveAndClose" xml:space="preserve">
-    <value>Uložit a zavřít</value>
+    <value>Speichern und schließen</value>
   </data>
   <data name="Toggle_True" xml:space="preserve">
-    <value>Povoleno</value>
+    <value>Erlaubt</value>
   </data>
   <data name="Toggle_False" xml:space="preserve">
-    <value>Zakázáno</value>
+    <value>Nicht erlaubt</value>
   </data>
   <data name="Rule_Analytics" xml:space="preserve">
-    <value>Tyto cookies používáme k měření, shromažďování a analýze toho, jak uživatelé interagují s našimi stránkami, abychom lépe porozuměli jejich chování. Díky těmto informacím můžeme web neustále vylepšovat a poskytovat kvalitnější služby. Tyto analytické služby jsou poskytovány společností Google.</value>
+    <value>Wir verwenden diese Cookies, um zu messen, zu sammeln, zu analysieren und zu berichten, wie Benutzer mit unseren Websites interagieren, um ihr Verhalten besser zu verstehen. Dank dessen können wir die Website verbessern und eine bessere Erfahrung bieten. Der Analyse-Service wird von Google Inc. bereitgestellt.</value>
   </data>
   <data name="Rule_Necessary" xml:space="preserve">
-    <value>Nezbytná cookies uchovávají informace založené na vaší aktivitě na našich stránkách, jako je zapamatování si vašeho přihlášeného účtu, výběr jazyka nebo přidání produktu do nákupního košíku. Bez těchto cookie nelze zajistit správnou funkčnost webu. </value>
+    <value>Notwendige Cookies sind unerlässlich und speichern Informationen basierend auf Ihrer Aktivität auf unserer Seite, wie das Merken Ihres angemeldeten Kontos, die Auswahl Ihrer Sprache oder Produkte, die zum Warenkorb hinzugefügt wurden. Die Website kann ohne diese Cookies nicht ordnungsgemäß funktionieren.</value>
   </data>
   <data name="RuleTitle_Analytics" xml:space="preserve">
     <value>Google Analytics</value>
   </data>
   <data name="RuleTitle_Necessary" xml:space="preserve">
-    <value>Nezbytné cookies</value>
+    <value>Notwendige Cookies</value>
   </data>
   <data name="AlwaysAllowed" xml:space="preserve">
-    <value>Vždy povoleno</value>
+    <value>Immer erlaubt</value>
   </data>
   <data name="RuleTitle_FacebookPixel" xml:space="preserve">
     <value>Facebook Pixel</value>
@@ -166,15 +166,15 @@
     <value>Smartlook</value>
   </data>
   <data name="Rule_FacebookPixel" xml:space="preserve">
-    <value>Tyto cookies používáme k měření konverzí z našich textových reklam a bannerů distribuovaných skrze síť společnosti Facebook. Díky nim můžeme naše reklamy lépe cílit a zajistit, aby byl jejich obsah pro Vás relevantní.</value>
+    <value>Wir verwenden diese Cookies, um Konversionen von unseren Anzeigen und Bannern, die über Facebook verteilt werden, zu messen. Dies ermöglicht es uns, die Anzeigen besser zu zielen und sie für Sie relevanter zu machen.</value>
   </data>
   <data name="Rule_GoogleAds" xml:space="preserve">
-    <value>Tyto cookies používáme k měření konverzí z našich textových reklam a bannerů distribuovaných skrze síť společnosti Google. Díky nim můžeme naše reklamy lépe cílit a zajistit, aby byl jejich obsah pro Vás relevantní.</value>
+    <value>Wir verwenden diese Cookies, um Konversionen von unseren Anzeigen und Bannern, die über Google Ads verteilt werden, zu messen. Dies ermöglicht es uns, die Anzeigen besser zu zielen und sie für Sie relevanter zu machen.</value>
   </data>
   <data name="Rule_Smartlook" xml:space="preserve">
-    <value>Tyto cookies používáme k měření, shromažďování a analýze toho, jak uživatelé interagují s našimi stránkami, abychom lépe porozuměli jejich chování. Díky těmto informacím můžeme web neustále vylepšovat a poskytovat kvalitnější služby. Tyto analytické služby jsou poskytovány společností Smartlook.</value>
+    <value>Wir verwenden diese Cookies, um zu messen, zu sammeln, zu analysieren und zu berichten, wie Benutzer mit unseren Seiten interagieren, um ihr Verhalten besser zu verstehen. Dank dessen können wir die Seite verbessern und eine bessere Erfahrung bieten. Der Analyse-Service wird von Smartlook bereitgestellt.</value>
   </data>
   <data name="OnlyNecessaryLink" xml:space="preserve">
-    <value>Jen nezbytné</value>
+    <value>Nur notwendig</value>
   </data>
 </root>
