@@ -25,6 +25,7 @@
   border-radius: var(--dialog_border-radius);
   color: var(--color-text);
   overflow: hidden;
+  padding: 0;
 }
 .dotvvm-contrib-cookie-bar__dialog::backdrop {
   background: hsla(0deg, 0%, 0%, 0.6);

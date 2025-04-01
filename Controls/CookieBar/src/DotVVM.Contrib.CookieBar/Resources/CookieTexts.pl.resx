@@ -127,7 +127,7 @@
     <value>Edytuj opcje</value>
   </data>
   <data name="Btn_AcceptAll" xml:space="preserve">
-    <value>Zezwól na wszystkie pliki cookie</value>
+    <value>Akceptuj</value>
   </data>
   <data name="Dialog_Subtitle" xml:space="preserve">
     <value>Wybierz, które pliki cookie chcesz włączyć</value>
