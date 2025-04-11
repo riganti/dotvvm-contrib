@@ -1,4 +1,4 @@
-param([String]$version, [String]$controlName, [String]$apiKey, [String]$server, [String]$branchName, [String]$repoUrl, [String]$nugetRestoreAltSource = "", [bool]$pushTag)
+param([String]$version, [String]$controlName, [String]$apiKey, [String]$server, [String]$nugetRestoreAltSource = "")
 
 Write-Host ">> : $pwd";
 
@@ -89,25 +89,6 @@ Write-Host "Pushing the packages to feed.";
 	}
 }
 
-function GitCheckout() {
-	invoke-git checkout $branchName
-	invoke-git -c http.sslVerify=false pull $repoUrl $branchName
-}
-
-function GitPush() {
-	if ($controlName -eq "") {
-		$controlName = "[all controls]"
-	}
-	
-	if ($pushTag) {
-			invoke-git tag "$($ControlName)-v$($version)" HEAD
-	}
-	invoke-git commit -am "$($ControlName): NuGet package version $version"
-	invoke-git rebase HEAD $branchName
-	invoke-git push --follow-tags $repoUrl $branchName
-}
-
-
 
 ### Configuration
 
@@ -134,13 +115,7 @@ if ($versionWithoutPre.Contains("-")) {
 	$versionWithoutPre = $versionWithoutPre.Substring(0, $versionWithoutPre.IndexOf("-"))
 }
 
-if ($branchName.StartsWith("refs/heads/") -eq $true) {
-	$branchName = $branchName.Substring("refs/heads/".Length)
-}
-
 CleanOldGeneratedPackages;
-GitCheckout;
 SetVersion;
 BuildPackages;
 PushPackages;
-GitPush;
