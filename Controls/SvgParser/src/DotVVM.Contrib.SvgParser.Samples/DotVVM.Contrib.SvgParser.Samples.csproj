@@ -17,9 +17,19 @@
 		</Content>
 	</ItemGroup>
 	<ItemGroup>
+	  <None Remove="Resources\logo-riganti-symbol-green.svg" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\logo-riganti-symbol-green.svg" />
+	</ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="DotVVM.AspNetCore" Version="$(DotvvmVersion)" />
 	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotVVM.Contrib.SvgParser\DotVVM.Contrib.SvgParser.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\logo-riganti-symbol-black.svg" />
+    <None Include="wwwroot\logo-riganti-symbol-green.svg" />
   </ItemGroup>
 </Project>

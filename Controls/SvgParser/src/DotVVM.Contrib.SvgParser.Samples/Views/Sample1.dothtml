@@ -3,7 +3,17 @@
 
 <dot:Content ContentPlaceHolderID="MainContent">
 
-    <!-- make a sample usage of the control -->
+    <div style="max-width: 200px">
+        <dc:SvgParser Source="wwwroot/logo-riganti-symbol-black.svg" />
+    </div>
 
+    <div style="max-width: 200px">
+        <dc:SvgParser Source="{value: Checked ? "/logo-riganti-symbol-green.svg" : "/logo-riganti-symbol-black.svg"}" />
+        <dot:CheckBox Text="Make it green" Checked="{value: Checked}" />
+    </div>
+
+    <div style="max-width: 200px">
+        <dc:SvgParser Source="embedded://DotVVM.Contrib.SvgParser.Samples/Resources.logo-riganti-symbol-green.svg" />
+    </div>
 </dot:Content>
 
