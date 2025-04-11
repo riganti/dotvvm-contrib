@@ -35,6 +35,7 @@ config.AddContribXYZConfiguration();
 * [PolymorphTemplateSelector](Controls/PolymorphTemplateSelector/readme.md)
 * [QrCode](Controls/QrCode/readme.md)
 * [Select2](Controls/Select2/readme.md)
+* [SvgParser](Controls/SvgParser/readme.md)
 * [TemplateSelector](Controls/TemplateSelector/readme.md)
 * [TypeAhead](Controls/TypeAhead/readme.md)
 
