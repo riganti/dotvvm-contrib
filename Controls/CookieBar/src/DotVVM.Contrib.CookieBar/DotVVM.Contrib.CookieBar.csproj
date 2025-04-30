@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
+		<TargetFrameworks>$(ControlTargetFrameworks)</TargetFrameworks>
 		<PackageId>DotVVM.Contrib.CookieBar</PackageId>
 		<AssemblyName>DotVVM.Contrib.CookieBar</AssemblyName>
 		<Description>The CookieBar control for DotVVM made by DotVVM Contrib community.</Description>

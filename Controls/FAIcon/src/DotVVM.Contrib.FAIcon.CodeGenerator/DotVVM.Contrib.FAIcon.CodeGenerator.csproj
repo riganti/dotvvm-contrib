@@ -6,7 +6,7 @@
         <OutputPath>bin</OutputPath>
         <OutputType>Exe</OutputType>
         <RootNamespace>DotVVM.Contrib.FAIcon.CodeGenerator</RootNamespace>
-        <TargetFramework>net6</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
