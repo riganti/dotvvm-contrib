@@ -5,7 +5,6 @@ using DotVVM.Framework.Binding;
 using DotVVM.Framework.Binding.Expressions;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
-using Newtonsoft.Json;
 
 namespace DotVVM.Contrib.BootstrapDatepicker
 {
@@ -56,7 +55,7 @@ namespace DotVVM.Contrib.BootstrapDatepicker
             if (dateBinding == null)
             {
                 var expression = dateBinding.GetKnockoutBindingExpression(this);
-                expression = "dotvvm.globalize.formatString(" + JsonConvert.ToString("d.M.yyyy") + ", " + expression + ")";
+                expression = "dotvvm.globalize.formatString(" + KnockoutHelper.MakeStringLiteral("d") + ", " + expression + ")";
                 writer.AddKnockoutDataBind("dotvvm-contrib-BootstrapDatepicker", expression);
             }
             else
