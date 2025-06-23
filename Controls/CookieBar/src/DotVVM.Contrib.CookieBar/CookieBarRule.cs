@@ -1,7 +1,7 @@
-﻿using DotVVM.Contrib.CookieBar.Resources;
+﻿using System.Text.Json.Serialization;
+using DotVVM.Contrib.CookieBar.Resources;
 using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
-using Newtonsoft.Json;
 
 namespace DotVVM.Contrib.CookieBar
 {

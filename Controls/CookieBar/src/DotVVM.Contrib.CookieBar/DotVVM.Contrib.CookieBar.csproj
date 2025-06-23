@@ -26,10 +26,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BuildWebCompiler2022" Version="1.14.9.1" />
-		<PackageReference Include="DotVVM" Version="4.0.7" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="BuildWebCompiler2022" Version="1.14.15" />
 		<PackageReference Include="RecordException" Version="0.1.2" />
+    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
 	</ItemGroup>
 
 	<ItemGroup>
