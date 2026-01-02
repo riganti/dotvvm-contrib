@@ -1,0 +1,19 @@
+﻿@viewModel DotVVM.Contrib.MarkdownView.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.MarkdownView.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <dc:MarkdownView Markdown="{value: Markdown}" />
+
+    <dc:MarkdownView Markdown="{value: Markdown}" ConversionEnabled="{value: ConversionEnabled}" />
+
+    <dc:MarkdownView Markdown="{value: Markdown}" ConversionEnabled="false" />
+
+    <hr />
+
+    <dot:TextBox Text="{value: Markdown}" Type="MultiLine" style="width: 500px; height: 300px;" />
+
+    <dot:CheckBox Text="Conversion enabled" Checked="{value: ConversionEnabled}" />
+
+</dot:Content>
+
