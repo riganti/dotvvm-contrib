@@ -48,6 +48,7 @@ namespace DotVVM.Contrib.CookieBar
             = DotvvmProperty.Register<string[], CookieBarRule>(c => c.CookieNameRegexes, null);
     }
 
+    [JsonConverter(typeof(CookieBarRuleConverter))]
     public class GoogleAnalyticsRule : CookieBarRule
     {
         public GoogleAnalyticsRule()
@@ -59,6 +60,7 @@ namespace DotVVM.Contrib.CookieBar
         }
     }
 
+    [JsonConverter(typeof(CookieBarRuleConverter))]
     public class GoogleAdsRule : CookieBarRule
     {
         public GoogleAdsRule()
@@ -70,6 +72,7 @@ namespace DotVVM.Contrib.CookieBar
         }
     }
 
+    [JsonConverter(typeof(CookieBarRuleConverter))]
     public class FacebookPixelRule : CookieBarRule
     {
         public FacebookPixelRule()
@@ -81,6 +84,7 @@ namespace DotVVM.Contrib.CookieBar
         }
     }
 
+    [JsonConverter(typeof(CookieBarRuleConverter))]
     public class SmartlookRule : CookieBarRule
     {
         public SmartlookRule()

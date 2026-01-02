@@ -149,6 +149,11 @@ namespace DotVVM.Contrib.CookieBar
             Rules = new List<CookieBarRule>();
         }
 
+		protected override void AddAttributesToRender(IHtmlWriter writer, IDotvvmRequestContext context)
+		{
+			base.AddAttributesToRender(writer, context);
+		}
+
         protected override void OnPreRender(IDotvvmRequestContext context)
         {
             var script = new HtmlLiteral() { RenderWrapperTag = false };
