@@ -3,7 +3,7 @@
     <ControlTargetFrameworks>netstandard2.1;net472</ControlTargetFrameworks>
     <SamplesTargetFramework>net8.0</SamplesTargetFramework>
     <TestsTargetFramework>net8.0</TestsTargetFramework>
-    <DotvvmVersion>5.0.0-preview06-final</DotvvmVersion>
+    <DotvvmVersion>5.0.0-preview07-final</DotvvmVersion>
     <RigantiSeleniumVersion>2.0.1</RigantiSeleniumVersion>
     <XunitVersion>2.4.1</XunitVersion>
     <MicrosoftNETTestSdkVersion>15.9.0</MicrosoftNETTestSdkVersion>
