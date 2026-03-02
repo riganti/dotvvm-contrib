@@ -39,14 +39,6 @@
         Using Humanize() in a value binding:
         <span>{{value: DateTimeValue.Humanize()}}</span>
     </p>
-    <p>
-        Using TimeSpan.Humanize() in a value binding:
-        <span>{{value: TimeSpanValue.Humanize()}}</span>
-    </p>
-    <p>
-        Negative TimeSpan.Humanize():
-        <span>{{value: NegativeTimeSpan.Humanize()}}</span>
-    </p>
 
     <h3>Update Actions</h3>
     <dot:Button Text="Set to Now" Click="{command: SetToNow()}" />

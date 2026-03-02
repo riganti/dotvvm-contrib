@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using DotVVM.Framework.Compilation;
 using DotVVM.Framework.Compilation.Javascript;
@@ -14,8 +15,8 @@ namespace DotVVM.Contrib.Humanizer
         /// Registers the Humanizer control library with DotVVM. This registers:
         /// <list type="bullet">
         ///   <item>The <c>dc:HumanizeDateTime</c> control</item>
-        ///   <item>JavaScript resources for client-side humanization</item>
-        ///   <item>JavaScript translators for <c>Humanize()</c> extension methods on <c>DateTime</c>, <c>DateTimeOffset</c>, and <c>TimeSpan</c></item>
+        ///   <item>JavaScript resources for client-side humanization (dayjs + relativeTime plugin)</item>
+        ///   <item>JavaScript translators for <c>Humanize()</c> extension method on <c>DateTime</c></item>
         ///   <item>The <c>Humanizer</c> namespace import so <c>Humanize()</c> can be used in DotVVM value bindings</item>
         /// </list>
         /// </summary>
@@ -31,12 +32,33 @@ namespace DotVVM.Contrib.Humanizer
             // Import the Humanizer namespace so Humanize() extension methods are accessible in DotVVM bindings
             config.Markup.ImportedNamespaces.Add(new NamespaceImport("Humanizer"));
 
+            var assembly = typeof(HumanizeDateTime).GetTypeInfo().Assembly;
+
+            config.Resources.Register("dayjs", new ScriptResource()
+            {
+                Location = new EmbeddedResourceLocation(assembly,
+                    "DotVVM.Contrib.Humanizer.Scripts.dayjs.dayjs.min.js")
+            });
+
+            config.Resources.Register("dayjs.relativeTime", new ScriptResource()
+            {
+                Location = new EmbeddedResourceLocation(assembly,
+                    "DotVVM.Contrib.Humanizer.Scripts.dayjs.relativeTime.js"),
+                Dependencies = new[] { "dayjs" }
+            });
+
+            config.Resources.Register("dayjs.locales", new ScriptResource()
+            {
+                Location = new EmbeddedResourceLocation(assembly,
+                    "DotVVM.Contrib.Humanizer.Scripts.dayjs.locales.js"),
+                Dependencies = new[] { "dayjs" }
+            });
+
             config.Resources.Register("dotvvm.contrib.Humanizer", new ScriptResource()
             {
-                Location = new EmbeddedResourceLocation(
-                    typeof(HumanizeDateTime).GetTypeInfo().Assembly,
+                Location = new EmbeddedResourceLocation(assembly,
                     "DotVVM.Contrib.Humanizer.Scripts.DotVVM.Contrib.Humanizer.js"),
-                Dependencies = new[] { "dotvvm" }
+                Dependencies = new[] { "dotvvm", "dayjs.relativeTime", "dayjs.locales" }
             });
 
             RegisterJavascriptTranslators(config);
@@ -44,29 +66,25 @@ namespace DotVVM.Contrib.Humanizer
 
         private static void RegisterJavascriptTranslators(DotvvmConfiguration config)
         {
-            // Register JS translators for DateHumanizeExtensions.Humanize()
-            // This covers DateTime, DateTime?, DateTimeOffset, DateTimeOffset?, DateOnly, DateOnly?, TimeOnly, TimeOnly?
+            // Register JS translator for DateTime.Humanize()
             // Note: Humanize() is a static extension method, so context (args[0]) is null.
             //       The date/time value is passed as the first explicit argument (args[1]).
+            var translator = new GenericMethodCompiler(args =>
+                new JsIdentifierExpression("dotvvmContribHumanizer")
+                    .Member("humanizeDateTime")
+                    .Invoke(args[1]));
+
             config.Markup.JavascriptTranslator.MethodCollection.AddMethodTranslator(
                 typeof(DateHumanizeExtensions),
                 "Humanize",
-                new GenericMethodCompiler(args =>
-                    new JsIdentifierExpression("dotvvmContribHumanizer")
-                        .Member("humanizeDateTime")
-                        .Invoke(args[1])),
-                allowMultipleMethods: true);
+                translator,
+                parameters: new[] { typeof(DateTime), typeof(bool?), typeof(DateTime?), typeof(System.Globalization.CultureInfo) });
 
-            // Register JS translators for TimeSpanHumanizeExtensions.Humanize()
-            // Same as above: args[0] is null (static extension method), args[1] is the TimeSpan value.
             config.Markup.JavascriptTranslator.MethodCollection.AddMethodTranslator(
-                typeof(TimeSpanHumanizeExtensions),
+                typeof(DateHumanizeExtensions),
                 "Humanize",
-                new GenericMethodCompiler(args =>
-                    new JsIdentifierExpression("dotvvmContribHumanizer")
-                        .Member("humanizeTimeSpan")
-                        .Invoke(args[1])),
-                allowMultipleMethods: true);
+                translator,
+                parameters: new[] { typeof(DateTime?), typeof(bool?), typeof(DateTime?), typeof(System.Globalization.CultureInfo) });
         }
     }
 }

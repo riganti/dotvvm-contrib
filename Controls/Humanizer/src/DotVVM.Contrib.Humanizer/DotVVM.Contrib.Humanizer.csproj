@@ -10,10 +10,16 @@
 
 	<ItemGroup>
 		<None Remove="Scripts\DotVVM.Contrib.Humanizer.js" />
+		<None Remove="Scripts\dayjs\dayjs.min.js" />
+		<None Remove="Scripts\dayjs\relativeTime.js" />
+		<None Remove="Scripts\dayjs\locales.js" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<EmbeddedResource Include="Scripts\DotVVM.Contrib.Humanizer.js" />
+		<EmbeddedResource Include="Scripts\dayjs\dayjs.min.js" />
+		<EmbeddedResource Include="Scripts\dayjs\relativeTime.js" />
+		<EmbeddedResource Include="Scripts\dayjs\locales.js" />
 	</ItemGroup>
 
 	<ItemGroup>
