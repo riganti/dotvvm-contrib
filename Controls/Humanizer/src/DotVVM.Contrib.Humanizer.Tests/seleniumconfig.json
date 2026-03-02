@@ -3,7 +3,7 @@
     "chrome:fast": {}
   },
   "baseUrls": [
-    "http://localhost:46582/"
+    "https://localhost:65059"
   ],
   "testRunOptions": {
     "runInParallel": false,

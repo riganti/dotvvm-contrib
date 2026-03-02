@@ -6,32 +6,32 @@
     <h2>HumanizeDateTime Control</h2>
 
     <h3>Hard-coded Values</h3>
-    <p>
-        Hard-coded DateTime (2 hours ago):
-        <dc:HumanizeDateTime Value="2020-01-01 10:00:00" />
+    <p data-ui="hardcoded-paragraph">
+        Hard-coded DateTime:
+        <dc:HumanizeDateTime Value="2020-01-01 10:00:00" data-ui="hardcoded-datetime" />
     </p>
     <p>
         Hard-coded DateTime with AutoUpdate (recalculates every minute):
-        <dc:HumanizeDateTime Value="2020-06-15 08:30:00" AutoUpdate="true" />
+        <dc:HumanizeDateTime Value="2020-06-15 08:30:00" AutoUpdate="true" data-ui="hardcoded-autoupdate" />
     </p>
 
     <h3>Bound Values</h3>
     <p>
         DateTime binding (<em>{{value: DateTimeValue}}</em>):
-        <dc:HumanizeDateTime Value="{value: DateTimeValue}" />
+        <dc:HumanizeDateTime Value="{value: DateTimeValue}" data-ui="bound-datetime" />
     </p>
     <p>
         Future DateTime binding (<em>{{value: FutureValue}}</em>):
-        <dc:HumanizeDateTime Value="{value: FutureValue}" />
+        <dc:HumanizeDateTime Value="{value: FutureValue}" data-ui="future-datetime" />
     </p>
     <p>
         Null DateTime binding:
-        <dc:HumanizeDateTime Value="{value: NullValue}" />
+        <dc:HumanizeDateTime Value="{value: NullValue}" data-ui="null-datetime" />
         <em>(empty when null)</em>
     </p>
     <p>
         With AutoUpdate (recalculates every minute):
-        <dc:HumanizeDateTime Value="{value: DateTimeValue}" AutoUpdate="true" />
+        <dc:HumanizeDateTime Value="{value: DateTimeValue}" AutoUpdate="true" data-ui="bound-autoupdate" />
     </p>
 
     <h3>JavaScript Translation (Humanize() in bindings)</h3>
@@ -41,8 +41,8 @@
     </p>
 
     <h3>Update Actions</h3>
-    <dot:Button Text="Set to Now" Click="{command: SetToNow()}" />
-    <dot:Button Text="Set to Yesterday" Click="{command: SetToYesterday()}" />
-    <dot:Button Text="Set to Last Week" Click="{command: SetToLastWeek()}" />
+    <dot:Button Text="Set to Now" Click="{command: SetToNow()}" data-ui="btn-set-now" />
+    <dot:Button Text="Set to Yesterday" Click="{command: SetToYesterday()}" data-ui="btn-set-yesterday" />
+    <dot:Button Text="Set to Last Week" Click="{command: SetToLastWeek()}" data-ui="btn-set-lastweek" />
 
 </dot:Content>

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DotVVM.Framework.Configuration;
+using DotVVM.Framework.Hosting;
 using DotVVM.Framework.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,8 +21,10 @@ namespace DotVVM.Contrib.Humanizer.Samples
 
         private void ConfigureRoutes(DotvvmConfiguration config, string applicationPath)
         {
-            config.RouteTable.Add("_Default", "", "Views/_default.dothtml");
-            config.RouteTable.AutoDiscoverRoutes(new SamplesRouteStrategy(config));
+            config.RouteTable.Add("_Default", "", "Views/_default.dothtml"); 
+
+            config.RouteTable.Add("Sample1", "Sample1", "Views/Sample1.dothtml", 
+                presenterFactory: LocalizablePresenter.BasedOnQuery("culture"));
         }
 
         private void ConfigureControls(DotvvmConfiguration config, string applicationPath)

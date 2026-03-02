@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Hosting;
@@ -66,7 +67,7 @@ namespace DotVVM.Contrib.Humanizer
             if (Value.HasValue)
             {
                 // Render the server-side humanized text as the initial content
-                writer.WriteText(Value.Value.Humanize());
+                writer.WriteText(Value.Value.Humanize(culture: CultureInfo.CurrentCulture));
             }
             else
             {
