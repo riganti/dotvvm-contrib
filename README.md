@@ -28,6 +28,7 @@ config.AddContribXYZConfiguration();
 * [GoogleAnalyticsJavascript](Controls/GoogleAnalyticsJavascript/readme.md)
 * [GoogleMap](Controls/GoogleMap/readme.md)
 * [HeroIcon](Controls/HeroIcon/readme.md)
+* [Humanizer](Controls/Humanizer/readme.md)
 * [LoadablePanel](Controls/LoadablePanel/readme.md)
 * [MultilevelMenu](Controls/MultilevelMenu/readme.md)
 * [NoUiSlider](Controls/NoUiSlider/readme.md)
