@@ -10,16 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Scripts\DotVVM.Contrib.SvgParser.js~RF12cd9b3.TMP" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="Scripts\DotVVM.Contrib.SvgParser.js" />
     <EmbeddedResource Include="Styles\DotVVM.Contrib.SvgParser.css" />
   </ItemGroup>
 	
   <ItemGroup>
-    <PackageReference Include="DotVVM" Version="4.3.4" />
+    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
   </ItemGroup>
 
 </Project>
