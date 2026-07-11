@@ -1,4 +1,4 @@
-﻿@viewModel DotVVM.Framework.Controls.IPageableGridViewDataSet
+﻿@viewModel DotVVM.Framework.Controls.IPageableGridViewDataSet<DotVVM.Framework.Controls.PagingOptions>
 @baseType DotVVM.Contrib.LoadablePanel.Samples.Controls.Pager.Pager, DotVVM.Contrib.LoadablePanel.Samples 
 @noWrapperTag 
 
