@@ -1,12 +1,15 @@
 <Project>
   <PropertyGroup>
-    <DotvvmVersion>4.3.0</DotvvmVersion>
+    <ControlTargetFrameworks>netstandard2.1;net472</ControlTargetFrameworks>
+    <SamplesTargetFramework>net8.0</SamplesTargetFramework>
+    <TestsTargetFramework>net8.0</TestsTargetFramework>
+    <DotvvmVersion>5.0.0</DotvvmVersion>
     <RigantiSeleniumVersion>2.0.1</RigantiSeleniumVersion>
     <XunitVersion>2.4.1</XunitVersion>
     <MicrosoftNETTestSdkVersion>15.9.0</MicrosoftNETTestSdkVersion>
     <PackageLicenseUrl>https://github.com/riganti/dotvvm-contrib/blob/master/LICENSE</PackageLicenseUrl>
     <Authors>DotVVM Contrib</Authors>
-	  <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+	<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>

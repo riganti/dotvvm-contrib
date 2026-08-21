@@ -9,7 +9,7 @@ namespace DotVVM.Contrib.LoadablePanel.Samples.Controls.Pager
 {
     public static class PagerExtensions
     {
-        public static void GoToPage(IPageableGridViewDataSet set, int index, Func<IPageableGridViewDataSet> loader)
+        public static void GoToPage(IGridViewDataSet set, int index, Func<IGridViewDataSet> loader)
         {
             throw new NotImplementedException("This method is intended for use in static command binding only.");
         }
@@ -41,13 +41,13 @@ namespace DotVVM.Contrib.LoadablePanel.Samples.Controls.Pager
 
     public class Pager : DotvvmMarkupControl
     {
-        public Func<IPageableGridViewDataSet> Loader
+        public Func<IGridViewDataSet> Loader
         {
-            get { return (Func<IPageableGridViewDataSet>)GetValue(LoaderProperty); }
+            get { return (Func<IGridViewDataSet>)GetValue(LoaderProperty); }
             set { SetValue(LoaderProperty, value); }
         }
         public static readonly DotvvmProperty LoaderProperty
-            = DotvvmProperty.Register<Func<IPageableGridViewDataSet>, Pager>(c => c.Loader, null);
+            = DotvvmProperty.Register<Func<IGridViewDataSet>, Pager>(c => c.Loader, null);
     }
 }
 

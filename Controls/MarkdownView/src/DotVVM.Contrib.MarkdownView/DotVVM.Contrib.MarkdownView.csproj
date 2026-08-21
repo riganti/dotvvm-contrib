@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>$(ControlTargetFrameworks)</TargetFrameworks>
+	  <PackageId>DotVVM.Contrib.MarkdownView</PackageId>
+	  <AssemblyName>DotVVM.Contrib.MarkdownView</AssemblyName>
+	  <Authors>DotVVM Contrib</Authors>
+    <Description>The MarkdownView control for DotVVM made by DotVVM Contrib community.</Description>
+    <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\showdown.min.js" />
+    <None Remove="Scripts\showdown.min.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\DotVVM.Contrib.MarkdownView.js" />
+    <EmbeddedResource Include="Scripts\showdown.min.js" />
+    <EmbeddedResource Include="Scripts\showdown.min.js.map" />
+    <EmbeddedResource Include="Styles\DotVVM.Contrib.MarkdownView.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+  </ItemGroup>
+
+</Project>

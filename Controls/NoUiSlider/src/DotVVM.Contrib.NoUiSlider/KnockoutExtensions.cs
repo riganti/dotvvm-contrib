@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Text.Json;
 using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
-using Newtonsoft.Json;
 
 namespace DotVVM.Contrib.NoUiSlider
 {
@@ -26,7 +26,7 @@ namespace DotVVM.Contrib.NoUiSlider
             var binding = control.GetValueBinding(property);
             if (binding == null)
             {
-                string value = JsonConvert.ToString(property.GetValue(control));
+                string value = JsonSerializer.Serialize(property.GetValue(control));
                 group.Add(name, value, false);
 
             }

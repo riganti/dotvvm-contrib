@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
+		<TargetFrameworks>$(ControlTargetFrameworks)</TargetFrameworks>
 		<PackageId>DotVVM.Contrib.PolymorphTemplateSelector</PackageId>
 		<AssemblyName>DotVVM.Contrib.PolymorphTemplateSelector</AssemblyName>
 		<LangVersion>9.0</LangVersion>

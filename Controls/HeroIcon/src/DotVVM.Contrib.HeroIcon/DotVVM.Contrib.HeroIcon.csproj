@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
-	<PackageId>DotVVM.Contrib.HeroIcon</PackageId>
+	  <TargetFrameworks>$(ControlTargetFrameworks)</TargetFrameworks>
+	  <PackageId>DotVVM.Contrib.HeroIcon</PackageId>
 	  <AssemblyName>DotVVM.Contrib.HeroIcon</AssemblyName>
 	  <Authors>DotVVM Contrib</Authors>
     <Description>The HeroIcon control for DotVVM made by DotVVM Contrib community.</Description>

@@ -76,7 +76,7 @@ function BuildPackages() {
 
         Write-Host "dotnet pack started at: $pwd";
 
-		& dotnet pack -c Release| Out-Host
+		& dotnet pack -c Release -m:1 | Out-Host
 		cd ..\..\..\..
         Write-Host ">> : $pwd";
 	}
