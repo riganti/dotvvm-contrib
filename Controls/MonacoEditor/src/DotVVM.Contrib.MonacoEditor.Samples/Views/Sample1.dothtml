@@ -1,0 +1,26 @@
+﻿@viewModel DotVVM.Contrib.MonacoEditor.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.MonacoEditor.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <h1>Monaco Editor</h1>
+
+    <h2>Edit mode</h2>
+    <div style="display: flex; gap: 16px">
+        <dc:MonacoEditor Code="{value: EditableCode}" Language="javascript" style="flex: 1; height: 200px" />
+        <dot:TextBox Text="{value: EditableCode}" Type="MultiLine" UpdateTextOnInput="true" style="flex: 1; height: 200px" />
+    </div>
+
+    <h2>Read-only mode</h2>
+    <div style="display: flex; gap: 16px">
+        <dc:MonacoEditor Code="{value: ReadOnlyCode}" Language="plaintext" Mode="ReadOnly" style="flex: 1; height: 120px" />
+        <dot:TextBox Text="{value: ReadOnlyCode}" Type="MultiLine" style="flex: 1; height: 120px" />
+    </div>
+
+    <h2>Diff mode</h2>
+    <div style="display: flex; gap: 16px">
+        <dc:MonacoEditor Code="{value: ModifiedCode}" OriginalCode="{value: OriginalCode}" Language="javascript" Mode="Diff" style="flex: 1; height: 200px" />
+        <dot:TextBox Text="{value: ModifiedCode}" Type="MultiLine" UpdateTextOnInput="true" style="flex: 1; height: 200px" />
+    </div>
+
+</dot:Content>
