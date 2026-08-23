@@ -1,0 +1,19 @@
+@viewModel DotVVM.Contrib.CkEditor5Minimal.Samples.ViewModels.Sample2ViewModel, DotVVM.Contrib.CkEditor5Minimal.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <h1>Custom CKEditor 5 configuration</h1>
+    <p>Both editors use <code>custom-ckeditor-config.js</code>, selecting a configuration by name.</p>
+
+    <h2>Compact configuration</h2>
+    <dc:CkEditor5Minimal Html="{value: CompactHtml}"
+                         ConfigResourceName="sample.custom-ckeditor-config"
+                         ConfigName="compact" />
+
+    <h2>Extended configuration</h2>
+    <dc:CkEditor5Minimal Html="{value: ExtendedHtml}"
+                         ConfigResourceName="sample.custom-ckeditor-config"
+                         ConfigName="extended" />
+
+</dot:Content>

@@ -22,6 +22,7 @@ config.AddContribXYZConfiguration();
 * [BootstrapColorpicker](Controls/BootstrapColorpicker/readme.md)
 * [BootstrapDatepicker](Controls/BootstrapDatepicker/readme.md)
 * [CkEditorMinimal](Controls/CkEditorMinimal/readme.md)
+* [CkEditor5Minimal](Controls/CkEditor5Minimal/readme.md)
 * [CookieBar](Controls/CookieBar/readme.md)
 * [EditableForm](Controls/EditableForm/readme.md)
 * [FAIcon](Controls/FAIcon/readme.md)
@@ -39,6 +40,12 @@ config.AddContribXYZConfiguration();
 * [SvgParser](Controls/SvgParser/readme.md)
 * [TemplateSelector](Controls/TemplateSelector/readme.md)
 * [TypeAhead](Controls/TypeAhead/readme.md)
+
+<br />
+
+## Third-Party Licensing
+
+`CkEditor5Minimal` loads CKEditor 5 from jsDelivr at runtime; CKEditor 5 is not included in this repository or its NuGet package. CKEditor 5 is separately dual-licensed under GPL and commercial terms. The control defaults to the GPL license key, and consumers are responsible for ensuring their use complies with the GPL or for configuring a valid commercial license key.
 
 <br />
 
