@@ -1,0 +1,10 @@
+﻿@viewModel DotVVM.Contrib.CkEditor5Minimal.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.CkEditor5Minimal.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <h1>CKEditor 5 minimal</h1>
+    <dc:CkEditor5Minimal Html="{value: HtmlText}" />
+    <dot:TextBox Text="{value: HtmlText}" Type="MultiLine" style="width: 100%; height: 200px;" />
+
+</dot:Content>

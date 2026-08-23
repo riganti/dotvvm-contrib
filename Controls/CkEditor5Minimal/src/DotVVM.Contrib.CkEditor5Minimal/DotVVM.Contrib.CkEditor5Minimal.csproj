@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>$(ControlTargetFrameworks)</TargetFrameworks>
+	  <PackageId>DotVVM.Contrib.CkEditor5Minimal</PackageId>
+	  <AssemblyName>DotVVM.Contrib.CkEditor5Minimal</AssemblyName>
+	  <Authors>DotVVM Contrib</Authors>
+    <Description>A minimal CKEditor 5 wrapper for DotVVM with configurable editor setup.</Description>
+    <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\DotVVM.Contrib.CkEditor5Minimal.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+  </ItemGroup>
+
+</Project>
