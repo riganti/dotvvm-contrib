@@ -15,7 +15,7 @@ namespace DotVVM.Contrib.MonacoEditor
         /// <param name="monacoBaseUrl">The URL containing the Monaco <c>vs</c> directory.</param>
         public static void AddContribMonacoEditorConfiguration(
             this DotvvmConfiguration config,
-            string monacoBaseUrl = "https://cdn.jsdelivr.net/npm/monaco-editor@0.55.1/min")
+            string monacoBaseUrl = "https://cdn.jsdelivr.net/npm/monaco-editor@0.56.0/min")
         {
             if (string.IsNullOrWhiteSpace(monacoBaseUrl))
             {
@@ -32,10 +32,16 @@ namespace DotVVM.Contrib.MonacoEditor
             });
 
             config.Resources.Register("dotvvm.contrib.MonacoEditor.loader", new ScriptResource(
-                new UrlResourceLocation(monacoBaseUrl + "/vs/loader.js")));
+                new UrlResourceLocation(monacoBaseUrl + "/vs/loader.js"))
+            {
+                IntegrityHash = "sha256-NbWd+AtBqLc78c6xWbRPBAVnwqtT9Od6PQAtncOdVdE="
+			});
 
             config.Resources.Register("dotvvm.contrib.MonacoEditor.css", new StylesheetResource(
-                new UrlResourceLocation(monacoBaseUrl + "/vs/editor/editor.main.css")));
+                new UrlResourceLocation(monacoBaseUrl + "/vs/editor/editor.main.css"))
+            {
+                IntegrityHash = "sha256-LIa9PaqnWf2Tclv372zuF8jigPMOzglxkhuF7+pK6ZI="
+			});
 
             config.Resources.Register("dotvvm.contrib.MonacoEditor", new ScriptResource()
             {
