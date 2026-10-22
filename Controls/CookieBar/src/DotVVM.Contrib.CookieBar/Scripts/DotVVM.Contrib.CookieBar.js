@@ -10,29 +10,35 @@ class CookieBar {
         this.dialogElement = container.querySelector("#consentDialog");
         this.checkboxes = this.dialogElement.querySelectorAll("input[type=checkbox]");
 
-        if (!window.localStorage.getItem("cookieconsent")) {
+        let hasSavedConsent = false;
+        const consents = {};
+        try {
+            hasSavedConsent = !!window.localStorage.getItem("cookieconsent");
+            for (const checkbox of this.checkboxes) {
+                const key = checkbox.parentElement.dataset.key;
+                consents[key] = hasSavedConsent && window.localStorage.getItem("cookieconsent__" + key) === "granted"
+                    ? "granted" : "denied";
+            }
+        } catch (error) {
+            console.warn("CookieBar: saved consent could not be read; optional consent remains denied.", error);
+            hasSavedConsent = false;
+            for (const checkbox of this.checkboxes) {
+                consents[checkbox.parentElement.dataset.key] = "denied";
+            }
+        }
+        for (const checkbox of this.checkboxes) {
+            this.setCheckbox(checkbox, consents[checkbox.parentElement.dataset.key] === "granted");
+        }
+
+        if (!hasSavedConsent) {
             this.popupElement.classList.add("dotvvm-contrib-cookie-bar__pop-up--open");
         } else {
-            const consents = {};
-            for (const checkbox of this.checkboxes) {
-                const consentKey = checkbox.parentElement.dataset.key;
-                const granted = window.localStorage.getItem("cookieconsent__" + consentKey) || "denied";
-                consents[consentKey] = granted;
-            }
             gtag("consent", "update", consents);
         }
 
         for (const checkbox of this.checkboxes) {
             checkbox.addEventListener("click",
-                function () {
-                    if (this.checked) {
-                        this.parentElement.classList.add("toggle-button--on");
-                        this.parentElement.title = this.parentElement.dataset.titleTrue;
-                    } else {
-                        this.parentElement.classList.remove("toggle-button--on");
-                        this.parentElement.title = this.parentElement.dataset.titleFalse;
-                    }
-                });
+                () => this.setCheckbox(checkbox, checkbox.checked));
         }
 
         window.DotVVM = window.DotVVM || {};
@@ -44,6 +50,7 @@ class CookieBar {
                 for (const checkbox of this.checkboxes) {
                     window.localStorage.setItem("cookieconsent__" + checkbox.parentElement.dataset.key, "denied");
                     consents[checkbox.parentElement.dataset.key] = "denied";
+                    this.setCheckbox(checkbox, false);
                 }
                 gtag("consent", "update", consents);
                 window.localStorage.removeItem("cookieconsent");
@@ -60,13 +67,10 @@ class CookieBar {
     }
 
     acceptAll() {
-        const consents = {};
         for (const checkbox of this.checkboxes) {
-            window.localStorage.setItem("cookieconsent__" + checkbox.parentElement.dataset.key, "granted");
-            consents[checkbox.parentElement.dataset.key] = "granted";
+            this.setCheckbox(checkbox, true);
         }
-        gtag("consent", "update", consents);
-        window.localStorage.setItem("cookieconsent", true);
+        this.save();
 
         this.hidePopup();
     }
@@ -76,6 +80,11 @@ class CookieBar {
     }
 
     openDialog() {
+        for (const checkbox of this.checkboxes) {
+            const granted = window.localStorage.getItem("cookieconsent") &&
+                window.localStorage.getItem("cookieconsent__" + checkbox.parentElement.dataset.key) === "granted";
+            this.setCheckbox(checkbox, !!granted);
+        }
         this.hidePopup();
 
         this.dialogElement.showModal();
@@ -84,10 +93,16 @@ class CookieBar {
 
     disableAllUnnecessaryCookies() {
         for (const checkbox of this.checkboxes) {
-            if (checkbox.checked) {
-                checkbox.click();
-            }
+            this.setCheckbox(checkbox, false);
         }
+    }
+
+    setCheckbox(checkbox, granted) {
+        checkbox.checked = granted;
+        checkbox.parentElement.classList.toggle("toggle-button--on", granted);
+        checkbox.parentElement.title = granted
+            ? checkbox.parentElement.dataset.titleTrue
+            : checkbox.parentElement.dataset.titleFalse;
     }
 
     disableAllUnnecessaryCookiesAndSave() {
