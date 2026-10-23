@@ -177,4 +177,22 @@
   <data name="OnlyNecessaryLink" xml:space="preserve">
     <value>Necessary only</value>
   </data>
+  <data name="RuleTitle_Clarity" xml:space="preserve">
+    <value>Microsoft Clarity</value>
+  </data>
+  <data name="Rule_Clarity" xml:space="preserve">
+    <value>We use Microsoft Clarity cookies to connect page views into sessions and understand how visitors interact with our site so we can improve it.</value>
+  </data>
+  <data name="RuleTitle_GoogleAdsPersonalization" xml:space="preserve">
+    <value>Google Ads personalization</value>
+  </data>
+  <data name="Rule_GoogleAdsPersonalization" xml:space="preserve">
+    <value>Allow Google to use your data to personalize advertising, including remarketing.</value>
+  </data>
+  <data name="RuleTitle_GoogleAdsUserData" xml:space="preserve">
+    <value>Google Ads user data</value>
+  </data>
+  <data name="Rule_GoogleAdsUserData" xml:space="preserve">
+    <value>Allow sending your user data to Google for advertising purposes, including conversion measurement.</value>
+  </data>
 </root>
