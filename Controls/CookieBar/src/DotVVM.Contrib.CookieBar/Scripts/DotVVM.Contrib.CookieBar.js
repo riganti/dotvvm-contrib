@@ -11,12 +11,17 @@ class CookieBar {
         this.checkboxes = this.dialogElement.querySelectorAll("input[type=checkbox]");
 
         let hasSavedConsent = false;
+        let hasMissingChoice = false;
         const consents = {};
         try {
             hasSavedConsent = !!window.localStorage.getItem("cookieconsent");
             for (const checkbox of this.checkboxes) {
                 const key = checkbox.parentElement.dataset.key;
-                consents[key] = hasSavedConsent && window.localStorage.getItem("cookieconsent__" + key) === "granted"
+                const savedChoice = hasSavedConsent ? window.localStorage.getItem("cookieconsent__" + key) : null;
+                if (savedChoice !== "granted" && savedChoice !== "denied") {
+                    hasMissingChoice = true;
+                }
+                consents[key] = savedChoice === "granted"
                     ? "granted" : "denied";
             }
         } catch (error) {
@@ -30,9 +35,10 @@ class CookieBar {
             this.setCheckbox(checkbox, consents[checkbox.parentElement.dataset.key] === "granted");
         }
 
-        if (!hasSavedConsent) {
+        if (!hasSavedConsent || hasMissingChoice) {
             this.popupElement.classList.add("dotvvm-contrib-cookie-bar__pop-up--open");
-        } else {
+        }
+        if (hasSavedConsent) {
             gtag("consent", "update", consents);
         }
 
@@ -115,15 +121,15 @@ class CookieBar {
         const cookieNames = document.cookie
             .split(";")
             .map(x => x.trim())
-            .map(x => x.slice(0, -x.split("=").pop().length - 1))
+            .map(x => x.split("=")[0])
             .filter(x => x.match(nameRegex));
 
         for (const name of cookieNames) {
-            let domain = document.domain;
+            let domain = window.location.hostname;
             const domainParts = domain.split(".");
-            for (const part of domainParts) {
-                domain = domain.slice(part.length + 1);
+            for (let i = 0; i < domainParts.length - 1; i++) {
                 document.cookie = name + `=; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+                domain = domain.slice(domainParts[i].length + 1);
             }
 
             document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
