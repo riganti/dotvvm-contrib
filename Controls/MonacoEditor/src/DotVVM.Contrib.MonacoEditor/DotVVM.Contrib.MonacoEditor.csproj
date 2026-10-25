@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>$(ControlTargetFrameworks)</TargetFrameworks>
+	  <PackageId>DotVVM.Contrib.MonacoEditor</PackageId>
+	  <AssemblyName>DotVVM.Contrib.MonacoEditor</AssemblyName>
+	  <Authors>DotVVM Contrib</Authors>
+    <Description>The MonacoEditor control for DotVVM made by DotVVM Contrib community.</Description>
+    <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\DotVVM.Contrib.MonacoEditor.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+  </ItemGroup>
+
+</Project>

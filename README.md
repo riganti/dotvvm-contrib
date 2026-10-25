@@ -30,6 +30,7 @@ config.AddContribXYZConfiguration();
 * [HeroIcon](Controls/HeroIcon/readme.md)
 * [Humanizer](Controls/Humanizer/readme.md)
 * [LoadablePanel](Controls/LoadablePanel/readme.md)
+* [MonacoEditor](Controls/MonacoEditor/readme.md)
 * [MultilevelMenu](Controls/MultilevelMenu/readme.md)
 * [NoUiSlider](Controls/NoUiSlider/readme.md)
 * [PolicyView](Controls/PolicyView/readme.md)
