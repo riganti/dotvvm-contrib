@@ -38,7 +38,9 @@
                 originalModel = monaco.editor.createModel(ko.unwrap(props.originalCode), props.language);
                 modifiedModel = monaco.editor.createModel(ko.unwrap(props.code), props.language);
                 model = modifiedModel;
-                editor = monaco.editor.createDiffEditor(element);
+                editor = monaco.editor.createDiffEditor(element, {
+                    automaticLayout: true
+                });
                 editor.setModel({
                     original: originalModel,
                     modified: modifiedModel
@@ -51,6 +53,7 @@
                 model = monaco.editor.createModel(ko.unwrap(props.code), props.language);
                 editor = monaco.editor.create(element, {
                     model: model,
+                    automaticLayout: true,
                     readOnly: props.mode === "ReadOnly"
                 });
             }
