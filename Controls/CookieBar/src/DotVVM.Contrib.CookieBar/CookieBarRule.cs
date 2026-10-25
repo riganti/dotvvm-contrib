@@ -56,7 +56,7 @@ namespace DotVVM.Contrib.CookieBar
             Key = "analytics_storage";
             Title = CookieTexts.RuleTitle_Analytics;
             Description = CookieTexts.Rule_Analytics;
-            CookieNameRegexes = new[] { "^_ga$", "^_gid$", "^_gat$", "^_ga_.*", "^_gac_.*", "^__utm[a|t|b|c|z|v]$", "^_gac_UA-.*", "^_gat_UA-.*", "^_gat_gtag_UA_.*" };
+            CookieNameRegexes = new[] { "^_ga(?:_.+)?$", "^_gid$", "^_gat(?:_.+)?$", "^_gac_.+$", "^__utm[abctvz]$", "^_dc_gtm_.+$", "^AMP_TOKEN$", "^FPID$", "^FPLC$" };
         }
     }
 
@@ -68,7 +68,29 @@ namespace DotVVM.Contrib.CookieBar
             Key = "ad_storage";
             Title = CookieTexts.RuleTitle_GoogleAds;
             Description = CookieTexts.Rule_GoogleAds;
-            CookieNameRegexes = new[] { "^_gcl_au$" };
+            CookieNameRegexes = new[] { "^_gcl_.+$", "^_gac_.+$", "^FPGCL(?:AW|GB|DC|GS)$", "^FPAU$", "^FPGSID$" };
+        }
+    }
+
+    [JsonConverter(typeof(CookieBarRuleConverter))]
+    public class GoogleAdsPersonalizationRule : CookieBarRule
+    {
+        public GoogleAdsPersonalizationRule()
+        {
+            Key = "ad_personalization";
+            Title = CookieTexts.RuleTitle_GoogleAdsPersonalization;
+            Description = CookieTexts.Rule_GoogleAdsPersonalization;
+        }
+    }
+
+    [JsonConverter(typeof(CookieBarRuleConverter))]
+    public class GoogleAdsUserDataRule : CookieBarRule
+    {
+        public GoogleAdsUserDataRule()
+        {
+            Key = "ad_user_data";
+            Title = CookieTexts.RuleTitle_GoogleAdsUserData;
+            Description = CookieTexts.Rule_GoogleAdsUserData;
         }
     }
 
@@ -80,7 +102,7 @@ namespace DotVVM.Contrib.CookieBar
             Key = "fbpixel_storage";
             Title = CookieTexts.RuleTitle_FacebookPixel;
             Description = CookieTexts.Rule_FacebookPixel;
-            CookieNameRegexes = new[] { "^_fbp$" };
+            CookieNameRegexes = new[] { "^_fbp$", "^_fbc$" };
         }
     }
 
@@ -92,7 +114,19 @@ namespace DotVVM.Contrib.CookieBar
             Key = "smartlook_storage";
             Title = CookieTexts.RuleTitle_Smartlook;
             Description = CookieTexts.Rule_Smartlook;
-            CookieNameRegexes = new[] { "^SL$" };
+            CookieNameRegexes = new[] { "^SL$", "^SL_C_.+_(?:SID|VID|KEY|DOMAIN)$" };
+        }
+    }
+
+    [JsonConverter(typeof(CookieBarRuleConverter))]
+    public class ClarityRule : CookieBarRule
+    {
+        public ClarityRule()
+        {
+            Key = "clarity_storage";
+            Title = CookieTexts.RuleTitle_Clarity;
+            Description = CookieTexts.Rule_Clarity;
+            CookieNameRegexes = new[] { "^_clck$", "^_clsk$" };
         }
     }
 }
