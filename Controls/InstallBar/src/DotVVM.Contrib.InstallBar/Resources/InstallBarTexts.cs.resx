@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Title" xml:space="preserve"><value>Nainstalujte si aplikaci</value></data>
+  <data name="Description" xml:space="preserve"><value>Přidejte si tuto aplikaci do zařízení pro rychlý přístup a lepší zážitek.</value></data>
+  <data name="IosInstructions" xml:space="preserve"><value>Klepněte na tlačítko Sdílet a zvolte Přidat na plochu.</value></data>
+  <data name="ManualInstructions" xml:space="preserve"><value>Aplikaci si přidáte do zařízení pomocí volby Instalovat v nabídce prohlížeče.</value></data>
+  <data name="Btn_Install" xml:space="preserve"><value>Instalovat</value></data>
+  <data name="Btn_Close" xml:space="preserve"><value>Zavřít</value></data>
+</root>

@@ -1,0 +1,32 @@
+@viewModel System.Object, mscorlib
+@baseType DotVVM.Contrib.InstallBar.InstallBar, DotVVM.Contrib.InstallBar
+@js dotvvm.contrib.InstallBar
+@noWrapperTag
+
+<div class="dotvvm-contrib-install-bar"
+     role="region"
+     aria-label="{resource: _control.Title}"
+     data-storage-key="{resource: _control.StorageKey}"
+     hidden>
+    <div class="dotvvm-contrib-install-bar__content">
+        <img class="dotvvm-contrib-install-bar__icon"
+             src="{resource: _control.IconUrl}"
+             alt=""
+             IncludeInPage="{resource: !string.IsNullOrEmpty(_control.IconUrl)}" />
+        <div class="dotvvm-contrib-install-bar__text">
+            <strong class="dotvvm-contrib-install-bar__title" InnerText="{resource: _control.Title}" />
+            <span class="dotvvm-contrib-install-bar__description dotvvm-contrib-install-bar__description--prompt" InnerText="{resource: _control.Description}" />
+            <span class="dotvvm-contrib-install-bar__description dotvvm-contrib-install-bar__description--ios" InnerText="{resource: _control.IosInstructions}" />
+            <span class="dotvvm-contrib-install-bar__description dotvvm-contrib-install-bar__description--manual" InnerText="{resource: _control.ManualInstructions}" />
+        </div>
+        <div class="dotvvm-contrib-install-bar__buttons">
+            <button type="button"
+                    class="dotvvm-contrib-install-bar__install"
+                    InnerText="{resource: _control.InstallButtonText}" />
+            <button type="button"
+                    class="dotvvm-contrib-install-bar__close"
+                    title="{resource: _control.CloseButtonText}"
+                    aria-label="{resource: _control.CloseButtonText}">&times;</button>
+        </div>
+    </div>
+</div>
