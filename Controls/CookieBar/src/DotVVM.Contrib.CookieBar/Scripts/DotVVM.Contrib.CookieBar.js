@@ -10,29 +10,41 @@ class CookieBar {
         this.dialogElement = container.querySelector("#consentDialog");
         this.checkboxes = this.dialogElement.querySelectorAll("input[type=checkbox]");
 
-        if (!window.localStorage.getItem("cookieconsent")) {
-            this.popupElement.classList.add("dotvvm-contrib-cookie-bar__pop-up--open");
-        } else {
-            const consents = {};
+        let hasSavedConsent = false;
+        let hasMissingChoice = false;
+        const consents = {};
+        try {
+            hasSavedConsent = !!window.localStorage.getItem("cookieconsent");
             for (const checkbox of this.checkboxes) {
-                const consentKey = checkbox.parentElement.dataset.key;
-                const granted = window.localStorage.getItem("cookieconsent__" + consentKey) || "denied";
-                consents[consentKey] = granted;
+                const key = checkbox.parentElement.dataset.key;
+                const savedChoice = hasSavedConsent ? window.localStorage.getItem("cookieconsent__" + key) : null;
+                if (savedChoice !== "granted" && savedChoice !== "denied") {
+                    hasMissingChoice = true;
+                }
+                consents[key] = savedChoice === "granted"
+                    ? "granted" : "denied";
             }
+        } catch (error) {
+            console.warn("CookieBar: saved consent could not be read; optional consent remains denied.", error);
+            hasSavedConsent = false;
+            for (const checkbox of this.checkboxes) {
+                consents[checkbox.parentElement.dataset.key] = "denied";
+            }
+        }
+        for (const checkbox of this.checkboxes) {
+            this.setCheckbox(checkbox, consents[checkbox.parentElement.dataset.key] === "granted");
+        }
+
+        if (!hasSavedConsent || hasMissingChoice) {
+            this.popupElement.classList.add("dotvvm-contrib-cookie-bar__pop-up--open");
+        }
+        if (hasSavedConsent) {
             gtag("consent", "update", consents);
         }
 
         for (const checkbox of this.checkboxes) {
             checkbox.addEventListener("click",
-                function () {
-                    if (this.checked) {
-                        this.parentElement.classList.add("toggle-button--on");
-                        this.parentElement.title = this.parentElement.dataset.titleTrue;
-                    } else {
-                        this.parentElement.classList.remove("toggle-button--on");
-                        this.parentElement.title = this.parentElement.dataset.titleFalse;
-                    }
-                });
+                () => this.setCheckbox(checkbox, checkbox.checked));
         }
 
         window.DotVVM = window.DotVVM || {};
@@ -44,6 +56,7 @@ class CookieBar {
                 for (const checkbox of this.checkboxes) {
                     window.localStorage.setItem("cookieconsent__" + checkbox.parentElement.dataset.key, "denied");
                     consents[checkbox.parentElement.dataset.key] = "denied";
+                    this.setCheckbox(checkbox, false);
                 }
                 gtag("consent", "update", consents);
                 window.localStorage.removeItem("cookieconsent");
@@ -60,13 +73,10 @@ class CookieBar {
     }
 
     acceptAll() {
-        const consents = {};
         for (const checkbox of this.checkboxes) {
-            window.localStorage.setItem("cookieconsent__" + checkbox.parentElement.dataset.key, "granted");
-            consents[checkbox.parentElement.dataset.key] = "granted";
+            this.setCheckbox(checkbox, true);
         }
-        gtag("consent", "update", consents);
-        window.localStorage.setItem("cookieconsent", true);
+        this.save();
 
         this.hidePopup();
     }
@@ -76,6 +86,11 @@ class CookieBar {
     }
 
     openDialog() {
+        for (const checkbox of this.checkboxes) {
+            const granted = window.localStorage.getItem("cookieconsent") &&
+                window.localStorage.getItem("cookieconsent__" + checkbox.parentElement.dataset.key) === "granted";
+            this.setCheckbox(checkbox, !!granted);
+        }
         this.hidePopup();
 
         this.dialogElement.showModal();
@@ -84,10 +99,16 @@ class CookieBar {
 
     disableAllUnnecessaryCookies() {
         for (const checkbox of this.checkboxes) {
-            if (checkbox.checked) {
-                checkbox.click();
-            }
+            this.setCheckbox(checkbox, false);
         }
+    }
+
+    setCheckbox(checkbox, granted) {
+        checkbox.checked = granted;
+        checkbox.parentElement.classList.toggle("toggle-button--on", granted);
+        checkbox.parentElement.title = granted
+            ? checkbox.parentElement.dataset.titleTrue
+            : checkbox.parentElement.dataset.titleFalse;
     }
 
     disableAllUnnecessaryCookiesAndSave() {
@@ -100,15 +121,15 @@ class CookieBar {
         const cookieNames = document.cookie
             .split(";")
             .map(x => x.trim())
-            .map(x => x.slice(0, -x.split("=").pop().length - 1))
+            .map(x => x.split("=")[0])
             .filter(x => x.match(nameRegex));
 
         for (const name of cookieNames) {
-            let domain = document.domain;
+            let domain = window.location.hostname;
             const domainParts = domain.split(".");
-            for (const part of domainParts) {
-                domain = domain.slice(part.length + 1);
+            for (let i = 0; i < domainParts.length - 1; i++) {
                 document.cookie = name + `=; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+                domain = domain.slice(domainParts[i].length + 1);
             }
 
             document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

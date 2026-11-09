@@ -176,6 +176,42 @@ namespace DotVVM.Contrib.CookieBar.Resources {
                 return ResourceManager.GetString("RuleTitle_Analytics", resourceCulture);
             }
         }
+
+        public static string RuleTitle_GoogleAdsPersonalization {
+            get {
+                return ResourceManager.GetString("RuleTitle_GoogleAdsPersonalization", resourceCulture);
+            }
+        }
+
+        public static string Rule_GoogleAdsPersonalization {
+            get {
+                return ResourceManager.GetString("Rule_GoogleAdsPersonalization", resourceCulture);
+            }
+        }
+
+        public static string RuleTitle_GoogleAdsUserData {
+            get {
+                return ResourceManager.GetString("RuleTitle_GoogleAdsUserData", resourceCulture);
+            }
+        }
+
+        public static string Rule_GoogleAdsUserData {
+            get {
+                return ResourceManager.GetString("Rule_GoogleAdsUserData", resourceCulture);
+            }
+        }
+
+        public static string RuleTitle_Clarity {
+            get {
+                return ResourceManager.GetString("RuleTitle_Clarity", resourceCulture);
+            }
+        }
+
+        public static string Rule_Clarity {
+            get {
+                return ResourceManager.GetString("Rule_Clarity", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Facebook Pixel.

@@ -8,9 +8,11 @@
     <dc:CookieBar>
         <dc:GoogleAnalyticsRule />
         <dc:GoogleAdsRule />
+        <dc:GoogleAdsPersonalizationRule />
+        <dc:GoogleAdsUserDataRule />
         <dc:FacebookPixelRule />
         <dc:SmartlookRule />
+        <dc:ClarityRule />
     </dc:CookieBar>
 
 </dot:Content>
-
