@@ -30,6 +30,7 @@ config.AddContribXYZConfiguration();
 * [GoogleMap](Controls/GoogleMap/readme.md)
 * [HeroIcon](Controls/HeroIcon/readme.md)
 * [Humanizer](Controls/Humanizer/readme.md)
+* [InstallBar](Controls/InstallBar/readme.md)
 * [LoadablePanel](Controls/LoadablePanel/readme.md)
 * [MonacoEditor](Controls/MonacoEditor/readme.md)
 * [MultilevelMenu](Controls/MultilevelMenu/readme.md)

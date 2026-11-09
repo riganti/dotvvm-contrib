@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>$(ControlTargetFrameworks)</TargetFrameworks>
+	  <PackageId>DotVVM.Contrib.InstallBar</PackageId>
+	  <AssemblyName>DotVVM.Contrib.InstallBar</AssemblyName>
+	  <Authors>DotVVM Contrib</Authors>
+    <Description>The InstallBar control for DotVVM made by DotVVM Contrib community. It hints the user to install the web app (PWA).</Description>
+    <PackageTags>dotvvm;asp.net;mvvm;owin;dotnetcore;dnx;pwa</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="InstallBar.dotcontrol" />
+    <EmbeddedResource Include="InstallBar.dotcontrol">
+      <LogicalName>DotVVM.Contrib.InstallBar.InstallBar.dotcontrol</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\DotVVM.Contrib.InstallBar.js" />
+    <EmbeddedResource Include="Scripts\DotVVM.Contrib.InstallBar.Early.js" />
+    <EmbeddedResource Include="Styles\DotVVM.Contrib.InstallBar.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\InstallBarTexts.resx">
+      <Generator>MSBuild:Compile</Generator>
+      <StronglyTypedFileName>$(IntermediateOutputPath)\InstallBarTexts.Designer.cs</StronglyTypedFileName>
+      <StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
+      <StronglyTypedNamespace>DotVVM.Contrib.InstallBar.Resources</StronglyTypedNamespace>
+      <StronglyTypedClassName>InstallBarTexts</StronglyTypedClassName>
+      <PublicClass>true</PublicClass>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotVVM" Version="$(DotvvmVersion)" />
+  </ItemGroup>
+
+</Project>

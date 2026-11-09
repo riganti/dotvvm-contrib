@@ -1,0 +1,17 @@
+@viewModel DotVVM.Contrib.InstallBar.Samples.ViewModels.Sample1ViewModel, DotVVM.Contrib.InstallBar.Samples
+@masterPage Views/_master.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <p>
+        The bar at the bottom of the screen offers to install the app. Close it and reload the page - it stays hidden until the browser session ends.
+    </p>
+
+    <p>
+        <!-- e.g. a menu item - shows the bar again even if the user closed it -->
+        <button type="button" id="show-install-bar" onclick="DotVVM.Contrib.InstallBar.show()">Install app</button>
+    </p>
+
+    <dc:InstallBar IconUrl="/icon.svg" />
+
+</dot:Content>
