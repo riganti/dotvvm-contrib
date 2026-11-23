@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using DotVVM.Contrib.CookieBar.Resources;
 using DotVVM.Framework.Binding;
 using DotVVM.Framework.Controls;
@@ -160,10 +161,24 @@ namespace DotVVM.Contrib.CookieBar
             script.SetValue(RenderSettings.ModeProperty, RenderMode.Server);
             script.Html = $@"
 window.dataLayer = window.dataLayer || [];
-function gtag() {{ dataLayer.push(arguments); }}
-gtag('consent', 'default', {{
-{string.Join(",\n", Rules.Select(r => $"    '{r.Key}': 'denied'"))}
-}});";
+function gtag() {{ window.dataLayer.push(arguments); }}
+(function () {{
+    var keys = {JsonSerializer.Serialize(Rules.Select(r => r.Key).ToArray())};
+    var consents = {{}};
+    keys.forEach(function (key) {{ consents[key] = 'denied'; }});
+    try {{
+        if (window.localStorage.getItem('cookieconsent')) {{
+            keys.forEach(function (key) {{
+                consents[key] = window.localStorage.getItem('cookieconsent__' + key) === 'granted'
+                    ? 'granted' : 'denied';
+            }});
+        }}
+    }} catch (error) {{
+        keys.forEach(function (key) {{ consents[key] = 'denied'; }});
+        console.warn('CookieBar: saved consent could not be read; optional consent remains denied.', error);
+    }}
+    gtag('consent', 'default', consents);
+}})();";
             var defaultConsent = new HtmlGenericControl("script");
             defaultConsent.Children.Add(script);
 
@@ -179,4 +194,3 @@ gtag('consent', 'default', {{
         }
     }
 }
-

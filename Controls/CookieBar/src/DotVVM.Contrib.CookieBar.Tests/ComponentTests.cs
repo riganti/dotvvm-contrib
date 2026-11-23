@@ -51,7 +51,7 @@ namespace DotVVM.Contrib.CookieBar.Tests
                 var details = options.FindElements("details", By.TagName);
                 for (int i = 1; i < details.Count; i++)
                 {
-                    AssertUI.HasClass(details[i].Single("label", By.TagName), "toggle-button--on");
+                    AssertUI.HasNotClass(details[i].Single("label", By.TagName), "toggle-button--on");
                 }
 
                 var onlyNecessryButton = cookierBar.Single("dotvvm-contrib-cookie-bar__footer", By.ClassName).Single("a", By.TagName);
