@@ -64,6 +64,11 @@ class CookieBar {
                 if (showCookieBar) {
                     this.popupElement.classList.add("dotvvm-contrib-cookie-bar__pop-up--open");
                 }
+            },
+            showSettings: () => {
+                if (!this.dialogElement.open) {
+                    this.openDialog();
+                }
             }
         };
 

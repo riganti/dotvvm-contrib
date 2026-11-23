@@ -87,3 +87,17 @@ If you want to provide user with a button to reset the consent and display the c
        onclick="DotVVM.Contrib.CookieBar.resetConsent(true);" 
        value="Reset consent" />
 ```
+
+<br />
+
+## Sample 4: Change cookie settings
+
+If you want to let the user review or change their choices without resetting them, call the following JavaScript function.
+It opens the cookie settings dialog with the currently saved choices preselected. Nothing is changed until the user clicks the save button;
+closing the dialog (e.g. by pressing Esc) keeps the current consent.
+
+```
+<input type="button" 
+       onclick="DotVVM.Contrib.CookieBar.showSettings();" 
+       value="Cookie settings" />
+```
